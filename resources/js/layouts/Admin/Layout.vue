@@ -13,7 +13,51 @@
       <v-main class="warm">
         <slot></slot>
       </v-main>
+
+
+
+
+      <v-bottom-navigation v-model="bottomDrawer" app>
+        <inertia-link href="/dogs" as="v-btn">
+          <template #default>
+            <span>Dogs</span>
+            <v-icon>mdi-dog</v-icon>
+          </template>
+        </inertia-link>
+
+        <inertia-link href="/litters" as="v-btn">
+          <template #default>
+            <span>Litters</span>
+            <v-icon>mdi-family-tree</v-icon>
+          </template>
+        </inertia-link>
+
+        <inertia-link href="/litters" as="v-btn">
+          <template #default>
+            <span>Todo</span>
+            <v-icon>mdi-calendar-edit</v-icon>
+          </template>
+        </inertia-link>
+
+        <inertia-link href="/clients" as="v-btn">
+          <template #default>
+            <span>Families</span>
+            <v-icon>mdi-account-group</v-icon>
+          </template>
+        </inertia-link>
+
+        <inertia-link href="/settings" as="v-btn">
+          <template #default>
+            <span>settings</span>
+            <v-icon>mdi-cog</v-icon>
+          </template>
+        </inertia-link>
+
+      </v-bottom-navigation>
+
     </v-app>
+
+
 
 
     <!-- Modal Portal -->
@@ -28,7 +72,9 @@
 
   export default {
     data() {
-      return {};
+      return {
+        bottomDrawer:null
+      };
     },
     components: {
       AdminNav,
