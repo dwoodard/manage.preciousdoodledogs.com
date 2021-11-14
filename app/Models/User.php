@@ -6,25 +6,42 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
+use Spatie\SchemalessAttributes\SchemalessAttributes;
+use Venturecraft\Revisionable\RevisionableTrait;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasFactory;
+    use Notifiable;
+    use RevisionableTrait;
+    use HasRoles;
+
+    protected $schemalessAttributes = [
+        'settings',
+    ];
 
     /**
      * The attributes that are mass assignable.
      *
-     * @var string[]
+     * @var array
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
+        'username',
         'email',
+        'phone',
         'password',
+        'address',
+        'city',
+        'state',
+        'zip'
     ];
 
+
     /**
-     * The attributes that should be hidden for serialization.
+     * The attributes that should be hidden for arrays.
      *
      * @var array
      */
@@ -34,11 +51,23 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast.
+     * The attributes that should be cast to native types.
      *
      * @var array
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'settings' => 'array'
     ];
+
+    public function getSettings(): SchemalessAttributes
+    {
+        return SchemalessAttributes::createForModel($this, 'settings');
+    }
+
+    public function getIsAdminAttribute()
+    {
+        return $this->roles()->get()->contains('name', '=','admin');
+    }
+
 }
