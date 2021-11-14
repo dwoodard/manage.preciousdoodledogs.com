@@ -10,36 +10,39 @@
       <AdminNav/>
 
 
-      <v-main class="warm">
-        <slot></slot>
-      </v-main>
+
+        <v-main class="warm">
+          <slot></slot>
+        </v-main>
+
+
 
 
 
 
       <v-bottom-navigation v-model="bottomDrawer" app>
-        <inertia-link href="/dogs" as="v-btn">
+        <inertia-link href="/admin/dogs" as="v-btn" >
           <template #default>
             <span>Dogs</span>
             <v-icon>mdi-dog</v-icon>
           </template>
         </inertia-link>
 
-        <inertia-link href="/litters" as="v-btn">
+        <inertia-link href="/admin/litters" as="v-btn">
           <template #default>
             <span>Litters</span>
             <v-icon>mdi-family-tree</v-icon>
           </template>
         </inertia-link>
 
-        <inertia-link href="/litters" as="v-btn">
+        <inertia-link href="/todo" as="v-btn">
           <template #default>
             <span>Todo</span>
             <v-icon>mdi-calendar-edit</v-icon>
           </template>
         </inertia-link>
 
-        <inertia-link href="/clients" as="v-btn">
+        <inertia-link href="/families" as="v-btn">
           <template #default>
             <span>Families</span>
             <v-icon>mdi-account-group</v-icon>
@@ -48,7 +51,7 @@
 
         <inertia-link href="/settings" as="v-btn">
           <template #default>
-            <span>settings</span>
+            <span>Settings</span>
             <v-icon>mdi-cog</v-icon>
           </template>
         </inertia-link>
@@ -73,8 +76,14 @@
   export default {
     data() {
       return {
-        bottomDrawer:null
+        bottomDrawer:null,
+        touching: false
       };
+    },
+    methods: {
+      toggleBottomDrawer(drawer) {
+        this.bottomDrawer = drawer;
+      }
     },
     components: {
       AdminNav,

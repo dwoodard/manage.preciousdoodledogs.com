@@ -268,14 +268,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      bottomDrawer: null
+      bottomDrawer: null,
+      touching: false
     };
+  },
+  methods: {
+    toggleBottomDrawer: function toggleBottomDrawer(drawer) {
+      this.bottomDrawer = drawer;
+    }
   },
   components: {
     AdminNav: _layouts_Admin_nav_AdminNav__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -1163,7 +1172,7 @@ var render = function () {
             },
             [
               _c("inertia-link", {
-                attrs: { href: "/dogs", as: "v-btn" },
+                attrs: { href: "/admin/dogs", as: "v-btn" },
                 scopedSlots: _vm._u([
                   {
                     key: "default",
@@ -1180,7 +1189,7 @@ var render = function () {
               }),
               _vm._v(" "),
               _c("inertia-link", {
-                attrs: { href: "/litters", as: "v-btn" },
+                attrs: { href: "/admin/litters", as: "v-btn" },
                 scopedSlots: _vm._u([
                   {
                     key: "default",
@@ -1197,7 +1206,7 @@ var render = function () {
               }),
               _vm._v(" "),
               _c("inertia-link", {
-                attrs: { href: "/litters", as: "v-btn" },
+                attrs: { href: "/todo", as: "v-btn" },
                 scopedSlots: _vm._u([
                   {
                     key: "default",
@@ -1214,7 +1223,7 @@ var render = function () {
               }),
               _vm._v(" "),
               _c("inertia-link", {
-                attrs: { href: "/clients", as: "v-btn" },
+                attrs: { href: "/families", as: "v-btn" },
                 scopedSlots: _vm._u([
                   {
                     key: "default",
@@ -1237,7 +1246,7 @@ var render = function () {
                     key: "default",
                     fn: function () {
                       return [
-                        _c("span", [_vm._v("settings")]),
+                        _c("span", [_vm._v("Settings")]),
                         _vm._v(" "),
                         _c("v-icon", [_vm._v("mdi-cog")]),
                       ]

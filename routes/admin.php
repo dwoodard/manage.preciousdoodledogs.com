@@ -9,7 +9,17 @@ use Illuminate\Support\Facades\Route;
 //
 Route::group(['as'=>'admin.','middleware' => ['web','role:admin']], function(){
 
-        Route::get('/', function (){return Redirect::route('admin.dashboard');})->name('index');
+    Route::get('/', function (){return Redirect::route('admin.dashboard');})->name('index');
+
+    // Dogs
+    Route::resource('dogs', 'DogController');
+
+    // Litters
+    Route::resource('litters', 'LitterController');
+
+
+
+
 
     //dashboard
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
