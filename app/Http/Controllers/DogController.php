@@ -19,6 +19,9 @@ class DogController extends Controller
             'dogs' => [
                 ['name' => 'Fido'],
                 ['name' => 'Buddy'],
+                ['name' => 'Rover'],
+                ['name' => 'Barkley'],
+                ['name' => 'Buster'],
             ],
         ];
         return Inertia::render('Admin/Dogs/Index', $data);

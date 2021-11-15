@@ -1,8 +1,7 @@
 <template>
-
-  <v-container fluid>
-    <h1>Litters</h1>
-  </v-container>
+<v-container>
+  <h1>todo</h1>
+</v-container>
 </template>
 
 <script>
@@ -10,6 +9,9 @@
 
   export default {
     layout: Layout,
+    data: () => ({
+      todos: [],
+    })
   };
 </script>
 

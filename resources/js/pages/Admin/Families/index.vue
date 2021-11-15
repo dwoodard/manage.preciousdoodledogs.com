@@ -1,7 +1,6 @@
 <template>
-
   <v-container fluid>
-    <h1>Litters</h1>
+    <h1>Families</h1>
   </v-container>
 </template>
 
@@ -9,7 +8,7 @@
   import Layout from '@/layouts/Admin/Layout';
 
   export default {
-    layout: Layout,
+    layout: Layout
   };
 </script>
 

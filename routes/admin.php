@@ -17,6 +17,12 @@ Route::group(['as'=>'admin.','middleware' => ['web','role:admin']], function(){
     // Litters
     Route::resource('litters', 'LitterController');
 
+    // Todo
+    Route::resource('todos', 'TodoController');
+
+    // Families
+    Route::resource('families', 'FamilyController');
+
 
 
 

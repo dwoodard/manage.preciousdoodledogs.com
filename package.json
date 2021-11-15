@@ -23,6 +23,7 @@
     "axios": "^0.21",
     "browser-sync": "^2.26.14",
     "browser-sync-webpack-plugin": "^2.3.0",
+    "eslint": "^5.16.0",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-vue": "^7.11.1",
     "grape-components": ">=1.0.0",
@@ -34,16 +35,16 @@
     "jquery": "^3.6.0",
     "laravel-mix": "^6.0.6",
     "lodash": "^4.17.19",
-    "portal-vue": "^2.1.7",
     "popper.js": "^1.16.0",
+    "portal-vue": "^2.1.7",
     "postcss": "^8.1.14",
     "postcss-import": "^12.0.1",
     "postcss-nesting": "^7.0.1",
+    "v-mask": "^2.2.4",
     "vue": "^2.6.11",
     "vue-loader": "^15.9.6",
     "vue-meta": "^2.3.1",
     "vue-template-compiler": "^2.6.12",
-    "vuetify": "^2.5.4",
-    "v-mask": "^2.2.4"
+    "vuetify": "^2.5.4"
   }
 }

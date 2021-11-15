@@ -81,9 +81,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
@@ -239,6 +236,120 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   layout: _layouts_Admin_Layout__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -249,7 +360,9 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   data: function data() {
-    return {//
+    return {
+      tab: 0,
+      search: ''
     };
   },
   methods: {//
@@ -499,9 +612,7 @@ var render = function () {
             1
           ),
           _vm._v(" "),
-          _c("AdminNav"),
-          _vm._v(" "),
-          _c("v-main", { staticClass: "warm" }, [_vm._t("default")], 2),
+          _c("v-main", [_vm._t("default")], 2),
           _vm._v(" "),
           _c(
             "v-bottom-navigation",
@@ -516,76 +627,73 @@ var render = function () {
               },
             },
             [
-              _c("inertia-link", {
-                attrs: { href: "/admin/dogs", as: "v-btn" },
-                scopedSlots: _vm._u([
-                  {
-                    key: "default",
-                    fn: function () {
-                      return [
-                        _c("span", [_vm._v("Dogs")]),
-                        _vm._v(" "),
-                        _c("v-icon", [_vm._v("mdi-dog")]),
-                      ]
-                    },
-                    proxy: true,
-                  },
-                ]),
-              }),
+              _c(
+                "inertia-link",
+                {
+                  directives: [{ name: "ripple", rawName: "v-ripple" }],
+                  attrs: { href: "/admin/dogs", as: "v-btn" },
+                },
+                [
+                  [
+                    _c("span", [_vm._v("Dogs")]),
+                    _vm._v(" "),
+                    _c("v-icon", [_vm._v("mdi-dog")]),
+                  ],
+                ],
+                2
+              ),
+              _vm._v(" "),
+              _c(
+                "inertia-link",
+                {
+                  directives: [{ name: "ripple", rawName: "v-ripple" }],
+                  attrs: { href: "/admin/litters", as: "v-btn" },
+                },
+                [
+                  [
+                    _c("span", [_vm._v("Litters")]),
+                    _vm._v(" "),
+                    _c("v-icon", [_vm._v("mdi-family-tree")]),
+                  ],
+                ],
+                2
+              ),
+              _vm._v(" "),
+              _c(
+                "inertia-link",
+                {
+                  directives: [{ name: "ripple", rawName: "v-ripple" }],
+                  attrs: { href: "/admin/todos", as: "v-btn" },
+                },
+                [
+                  [
+                    _c("span", [_vm._v("Todo")]),
+                    _vm._v(" "),
+                    _c("v-icon", [_vm._v("mdi-calendar-edit")]),
+                  ],
+                ],
+                2
+              ),
+              _vm._v(" "),
+              _c(
+                "inertia-link",
+                {
+                  directives: [{ name: "ripple", rawName: "v-ripple" }],
+                  attrs: { href: "/admin/families", as: "v-btn" },
+                },
+                [
+                  [
+                    _c("span", [_vm._v("Families")]),
+                    _vm._v(" "),
+                    _c("v-icon", [_vm._v("mdi-account-group")]),
+                  ],
+                ],
+                2
+              ),
               _vm._v(" "),
               _c("inertia-link", {
-                attrs: { href: "/admin/litters", as: "v-btn" },
-                scopedSlots: _vm._u([
-                  {
-                    key: "default",
-                    fn: function () {
-                      return [
-                        _c("span", [_vm._v("Litters")]),
-                        _vm._v(" "),
-                        _c("v-icon", [_vm._v("mdi-family-tree")]),
-                      ]
-                    },
-                    proxy: true,
-                  },
-                ]),
-              }),
-              _vm._v(" "),
-              _c("inertia-link", {
-                attrs: { href: "/todo", as: "v-btn" },
-                scopedSlots: _vm._u([
-                  {
-                    key: "default",
-                    fn: function () {
-                      return [
-                        _c("span", [_vm._v("Todo")]),
-                        _vm._v(" "),
-                        _c("v-icon", [_vm._v("mdi-calendar-edit")]),
-                      ]
-                    },
-                    proxy: true,
-                  },
-                ]),
-              }),
-              _vm._v(" "),
-              _c("inertia-link", {
-                attrs: { href: "/families", as: "v-btn" },
-                scopedSlots: _vm._u([
-                  {
-                    key: "default",
-                    fn: function () {
-                      return [
-                        _c("span", [_vm._v("Families")]),
-                        _vm._v(" "),
-                        _c("v-icon", [_vm._v("mdi-account-group")]),
-                      ]
-                    },
-                    proxy: true,
-                  },
-                ]),
-              }),
-              _vm._v(" "),
-              _c("inertia-link", {
-                attrs: { href: "/settings", as: "v-btn" },
+                directives: [{ name: "ripple", rawName: "v-ripple" }],
+                attrs: { href: "/admin/settings", as: "v-btn" },
                 scopedSlots: _vm._u([
                   {
                     key: "default",
@@ -857,29 +965,352 @@ var render = function () {
   return _c(
     "v-container",
     [
-      _c("h1", [_vm._v("My Dogs")]),
-      _vm._v(" "),
       _c(
-        "v-row",
+        "v-tabs",
+        {
+          model: {
+            value: _vm.tab,
+            callback: function ($$v) {
+              _vm.tab = $$v
+            },
+            expression: "tab",
+          },
+        },
         [
-          _c("v-col", {
-            attrs: { cols: "12", sm: "12", md: "12", lg: "12", xl: "12" },
-          }),
+          _c("v-tabs-slider", { attrs: { color: "primary" } }),
+          _vm._v(" "),
+          _c(
+            "v-tab",
+            [
+              _c("v-icon", [_vm._v("mdi-view-dashboard")]),
+              _vm._v("\n      cards\n    "),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-tab",
+            [
+              _c("v-icon", [_vm._v("mdi-view-list")]),
+              _vm._v("\n      table\n    "),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("v-spacer"),
+          _vm._v(" "),
+          _c(
+            "v-menu",
+            {
+              attrs: { "offset-y": "" },
+              scopedSlots: _vm._u([
+                {
+                  key: "activator",
+                  fn: function (ref) {
+                    var on = ref.on
+                    var attrs = ref.attrs
+                    return [
+                      _c(
+                        "v-icon",
+                        _vm._g(
+                          _vm._b(
+                            { attrs: { fab: "" } },
+                            "v-icon",
+                            attrs,
+                            false
+                          ),
+                          on
+                        ),
+                        [_vm._v("\n          mdi-dots-vertical\n        ")]
+                      ),
+                    ]
+                  },
+                },
+              ]),
+            },
+            [
+              _vm._v(" "),
+              _c(
+                "v-list",
+                [
+                  _c(
+                    "v-list-item",
+                    [_c("v-list-item-title", [_vm._v("Add New Dog")])],
+                    1
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
         ],
         1
       ),
       _vm._v(" "),
       _c(
-        "v-flex",
+        "v-row",
+        { attrs: { justify: "space-between" } },
+        [
+          _c("v-col", [_c("h1", [_vm._v("My Dogs")])]),
+          _vm._v(" "),
+          _c("v-col", { attrs: { cols: "1" } }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-tabs-items",
+        {
+          attrs: { grow: "" },
+          model: {
+            value: _vm.tab,
+            callback: function ($$v) {
+              _vm.tab = $$v
+            },
+            expression: "tab",
+          },
+        },
         [
           _c(
-            "v-card",
+            "v-tab-item",
             [
-              _c("v-card-title", [
-                _c("span", { staticClass: "headline" }, [_vm._v("Dogs")]),
-              ]),
-              _vm._v(" "),
-              _c("v-card-text"),
+              _c(
+                "v-container",
+                { staticClass: "pa-0" },
+                [
+                  _c(
+                    "v-row",
+                    _vm._l(_vm.dogs, function (dog, index) {
+                      return _c(
+                        "v-col",
+                        { key: index, attrs: { xs: "12", sm: "6", md: "4" } },
+                        [
+                          _c("v-hover", {
+                            scopedSlots: _vm._u(
+                              [
+                                {
+                                  key: "default",
+                                  fn: function (ref) {
+                                    var hover = ref.hover
+                                    return [
+                                      _c(
+                                        "v-card",
+                                        {
+                                          staticClass: "mx-auto",
+                                          attrs: {
+                                            elevation: hover ? 12 : 2,
+                                            "max-width": "350",
+                                          },
+                                        },
+                                        [
+                                          _c(
+                                            "template",
+                                            { slot: "progress" },
+                                            [
+                                              _c("v-progress-linear", {
+                                                attrs: {
+                                                  color: "deep-purple",
+                                                  height: "10",
+                                                  indeterminate: "",
+                                                },
+                                              }),
+                                            ],
+                                            1
+                                          ),
+                                          _vm._v(" "),
+                                          _c("v-img", {
+                                            attrs: {
+                                              height: "250",
+                                              src: "https://placedog.net/500?random",
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-row",
+                                            { attrs: { "no-gutters": "" } },
+                                            [
+                                              _c(
+                                                "v-col",
+                                                { attrs: { cols: "11" } },
+                                                [
+                                                  _c("v-card-title", [
+                                                    _vm._v(
+                                                      "\n                      " +
+                                                        _vm._s(dog.name) +
+                                                        "\n                    "
+                                                    ),
+                                                  ]),
+                                                ],
+                                                1
+                                              ),
+                                              _vm._v(" "),
+                                              _c("v-spacer"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "v-col",
+                                                {
+                                                  attrs: {
+                                                    cols: "1",
+                                                    "align-self": "center",
+                                                  },
+                                                },
+                                                [
+                                                  _c(
+                                                    "v-menu",
+                                                    {
+                                                      attrs: { "offset-y": "" },
+                                                      scopedSlots: _vm._u(
+                                                        [
+                                                          {
+                                                            key: "activator",
+                                                            fn: function (ref) {
+                                                              var on = ref.on
+                                                              var attrs =
+                                                                ref.attrs
+                                                              return [
+                                                                _c(
+                                                                  "v-icon",
+                                                                  _vm._g(
+                                                                    _vm._b(
+                                                                      {
+                                                                        attrs: {
+                                                                          fab: "",
+                                                                        },
+                                                                      },
+                                                                      "v-icon",
+                                                                      attrs,
+                                                                      false
+                                                                    ),
+                                                                    on
+                                                                  ),
+                                                                  [
+                                                                    _vm._v(
+                                                                      "\n                          mdi-dots-vertical\n                        "
+                                                                    ),
+                                                                  ]
+                                                                ),
+                                                              ]
+                                                            },
+                                                          },
+                                                        ],
+                                                        null,
+                                                        true
+                                                      ),
+                                                    },
+                                                    [
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "v-list",
+                                                        [
+                                                          _c(
+                                                            "v-list-item",
+                                                            [
+                                                              _c(
+                                                                "v-list-item-title",
+                                                                [_vm._v("edit")]
+                                                              ),
+                                                            ],
+                                                            1
+                                                          ),
+                                                        ],
+                                                        1
+                                                      ),
+                                                    ],
+                                                    1
+                                                  ),
+                                                ],
+                                                1
+                                              ),
+                                            ],
+                                            1
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-expansion-panels",
+                                            [
+                                              _c(
+                                                "v-expansion-panel",
+                                                [
+                                                  _c(
+                                                    "v-expansion-panel-header",
+                                                    [
+                                                      _vm._v(
+                                                        "\n                      Genetics\n                    "
+                                                      ),
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "v-expansion-panel-content",
+                                                    [
+                                                      _vm._v(
+                                                        "\n                      Lorem ipsum dolor sit amet, consecrated advising elite, sed do emus temper incident ut labor et door magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n                    "
+                                                      ),
+                                                    ]
+                                                  ),
+                                                ],
+                                                1
+                                              ),
+                                            ],
+                                            1
+                                          ),
+                                        ],
+                                        2
+                                      ),
+                                    ]
+                                  },
+                                },
+                              ],
+                              null,
+                              true
+                            ),
+                          }),
+                        ],
+                        1
+                      )
+                    }),
+                    1
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-tab-item",
+            [
+              _c("v-data-table", {
+                staticClass: "elevation-1",
+                attrs: {
+                  headers: [
+                    { text: "Name", value: "name" },
+                    { text: "Breed", value: "breed" },
+                    { text: "Age", value: "age" },
+                    { text: "Weight", value: "weight" },
+                  ],
+                  items: _vm.dogs,
+                  "items-per-page": 5,
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "items",
+                    fn: function (props) {
+                      return [
+                        _c("td", [_vm._v(_vm._s(props.item.name))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(props.item.breed))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(props.item.age))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(props.item.weight))]),
+                      ]
+                    },
+                  },
+                ]),
+              }),
             ],
             1
           ),

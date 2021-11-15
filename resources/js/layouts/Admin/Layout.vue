@@ -7,49 +7,46 @@
         <ProfileMenu/>
       </v-app-bar>
 
-      <AdminNav/>
+      <!-- <AdminNav/> -->
 
 
 
-        <v-main class="warm">
+        <v-main >
           <slot></slot>
         </v-main>
 
 
 
-
-
-
       <v-bottom-navigation v-model="bottomDrawer" app>
-        <inertia-link href="/admin/dogs" as="v-btn" >
-          <template #default>
+        <inertia-link href="/admin/dogs" as="v-btn" v-ripple>
+          <template>
             <span>Dogs</span>
             <v-icon>mdi-dog</v-icon>
           </template>
         </inertia-link>
 
-        <inertia-link href="/admin/litters" as="v-btn">
-          <template #default>
+        <inertia-link href="/admin/litters" as="v-btn" v-ripple>
+          <template>
             <span>Litters</span>
             <v-icon>mdi-family-tree</v-icon>
           </template>
         </inertia-link>
 
-        <inertia-link href="/todo" as="v-btn">
-          <template #default>
+        <inertia-link href="/admin/todos" as="v-btn" v-ripple>
+          <template>
             <span>Todo</span>
             <v-icon>mdi-calendar-edit</v-icon>
           </template>
         </inertia-link>
 
-        <inertia-link href="/families" as="v-btn">
-          <template #default>
+        <inertia-link href="/admin/families" as="v-btn" v-ripple>
+          <template>
             <span>Families</span>
             <v-icon>mdi-account-group</v-icon>
           </template>
         </inertia-link>
 
-        <inertia-link href="/settings" as="v-btn">
+        <inertia-link href="/admin/settings" as="v-btn" v-ripple>
           <template #default>
             <span>Settings</span>
             <v-icon>mdi-cog</v-icon>
