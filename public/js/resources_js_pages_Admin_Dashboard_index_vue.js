@@ -65,22 +65,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -489,13 +473,11 @@ var render = function () {
                   attrs: { href: "/admin/dogs", as: "v-btn" },
                 },
                 [
-                  [
-                    _c("span", [_vm._v("Dogs")]),
-                    _vm._v(" "),
-                    _c("v-icon", [_vm._v("mdi-dog")]),
-                  ],
+                  _c("span", [_vm._v("Dogs")]),
+                  _vm._v(" "),
+                  _c("v-icon", [_vm._v("mdi-dog")]),
                 ],
-                2
+                1
               ),
               _vm._v(" "),
               _c(
@@ -505,13 +487,11 @@ var render = function () {
                   attrs: { href: "/admin/litters", as: "v-btn" },
                 },
                 [
-                  [
-                    _c("span", [_vm._v("Litters")]),
-                    _vm._v(" "),
-                    _c("v-icon", [_vm._v("mdi-family-tree")]),
-                  ],
+                  _c("span", [_vm._v("Litters")]),
+                  _vm._v(" "),
+                  _c("v-icon", [_vm._v("mdi-family-tree")]),
                 ],
-                2
+                1
               ),
               _vm._v(" "),
               _c(
@@ -521,13 +501,11 @@ var render = function () {
                   attrs: { href: "/admin/todos", as: "v-btn" },
                 },
                 [
-                  [
-                    _c("span", [_vm._v("Todo")]),
-                    _vm._v(" "),
-                    _c("v-icon", [_vm._v("mdi-calendar-edit")]),
-                  ],
+                  _c("span", [_vm._v("Todo")]),
+                  _vm._v(" "),
+                  _c("v-icon", [_vm._v("mdi-calendar-edit")]),
                 ],
-                2
+                1
               ),
               _vm._v(" "),
               _c(
@@ -537,32 +515,26 @@ var render = function () {
                   attrs: { href: "/admin/families", as: "v-btn" },
                 },
                 [
-                  [
-                    _c("span", [_vm._v("Families")]),
-                    _vm._v(" "),
-                    _c("v-icon", [_vm._v("mdi-account-group")]),
-                  ],
+                  _c("span", [_vm._v("Families")]),
+                  _vm._v(" "),
+                  _c("v-icon", [_vm._v("mdi-account-group")]),
                 ],
-                2
+                1
               ),
               _vm._v(" "),
-              _c("inertia-link", {
-                directives: [{ name: "ripple", rawName: "v-ripple" }],
-                attrs: { href: "/admin/settings", as: "v-btn" },
-                scopedSlots: _vm._u([
-                  {
-                    key: "default",
-                    fn: function () {
-                      return [
-                        _c("span", [_vm._v("Settings")]),
-                        _vm._v(" "),
-                        _c("v-icon", [_vm._v("mdi-cog")]),
-                      ]
-                    },
-                    proxy: true,
-                  },
-                ]),
-              }),
+              _c(
+                "inertia-link",
+                {
+                  directives: [{ name: "ripple", rawName: "v-ripple" }],
+                  attrs: { href: "/admin/settings", as: "v-btn" },
+                },
+                [
+                  _c("span", [_vm._v("Settings")]),
+                  _vm._v(" "),
+                  _c("v-icon", [_vm._v("mdi-cog")]),
+                ],
+                1
+              ),
             ],
             1
           ),

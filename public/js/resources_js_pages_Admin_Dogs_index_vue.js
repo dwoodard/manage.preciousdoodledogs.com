@@ -65,22 +65,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -213,6 +197,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _layouts_Admin_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/layouts/Admin/Layout */ "./resources/js/layouts/Admin/Layout.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -634,13 +634,11 @@ var render = function () {
                   attrs: { href: "/admin/dogs", as: "v-btn" },
                 },
                 [
-                  [
-                    _c("span", [_vm._v("Dogs")]),
-                    _vm._v(" "),
-                    _c("v-icon", [_vm._v("mdi-dog")]),
-                  ],
+                  _c("span", [_vm._v("Dogs")]),
+                  _vm._v(" "),
+                  _c("v-icon", [_vm._v("mdi-dog")]),
                 ],
-                2
+                1
               ),
               _vm._v(" "),
               _c(
@@ -650,13 +648,11 @@ var render = function () {
                   attrs: { href: "/admin/litters", as: "v-btn" },
                 },
                 [
-                  [
-                    _c("span", [_vm._v("Litters")]),
-                    _vm._v(" "),
-                    _c("v-icon", [_vm._v("mdi-family-tree")]),
-                  ],
+                  _c("span", [_vm._v("Litters")]),
+                  _vm._v(" "),
+                  _c("v-icon", [_vm._v("mdi-family-tree")]),
                 ],
-                2
+                1
               ),
               _vm._v(" "),
               _c(
@@ -666,13 +662,11 @@ var render = function () {
                   attrs: { href: "/admin/todos", as: "v-btn" },
                 },
                 [
-                  [
-                    _c("span", [_vm._v("Todo")]),
-                    _vm._v(" "),
-                    _c("v-icon", [_vm._v("mdi-calendar-edit")]),
-                  ],
+                  _c("span", [_vm._v("Todo")]),
+                  _vm._v(" "),
+                  _c("v-icon", [_vm._v("mdi-calendar-edit")]),
                 ],
-                2
+                1
               ),
               _vm._v(" "),
               _c(
@@ -682,32 +676,26 @@ var render = function () {
                   attrs: { href: "/admin/families", as: "v-btn" },
                 },
                 [
-                  [
-                    _c("span", [_vm._v("Families")]),
-                    _vm._v(" "),
-                    _c("v-icon", [_vm._v("mdi-account-group")]),
-                  ],
+                  _c("span", [_vm._v("Families")]),
+                  _vm._v(" "),
+                  _c("v-icon", [_vm._v("mdi-account-group")]),
                 ],
-                2
+                1
               ),
               _vm._v(" "),
-              _c("inertia-link", {
-                directives: [{ name: "ripple", rawName: "v-ripple" }],
-                attrs: { href: "/admin/settings", as: "v-btn" },
-                scopedSlots: _vm._u([
-                  {
-                    key: "default",
-                    fn: function () {
-                      return [
-                        _c("span", [_vm._v("Settings")]),
-                        _vm._v(" "),
-                        _c("v-icon", [_vm._v("mdi-cog")]),
-                      ]
-                    },
-                    proxy: true,
-                  },
-                ]),
-              }),
+              _c(
+                "inertia-link",
+                {
+                  directives: [{ name: "ripple", rawName: "v-ripple" }],
+                  attrs: { href: "/admin/settings", as: "v-btn" },
+                },
+                [
+                  _c("span", [_vm._v("Settings")]),
+                  _vm._v(" "),
+                  _c("v-icon", [_vm._v("mdi-cog")]),
+                ],
+                1
+              ),
             ],
             1
           ),
@@ -1035,7 +1023,31 @@ var render = function () {
                 [
                   _c(
                     "v-list-item",
-                    [_c("v-list-item-title", [_vm._v("Add New Dog")])],
+                    [
+                      _c("v-list-item-title", [
+                        _vm._v("\n            Add New Dog\n          "),
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "v-list-item-action",
+                        [
+                          _c(
+                            "v-btn",
+                            {
+                              attrs: { color: "primary" },
+                              on: {
+                                click: function ($event) {
+                                  _vm.foo = "bar"
+                                },
+                              },
+                            },
+                            [_c("v-icon", [_vm._v("mdi-plus")])],
+                            1
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
                     1
                   ),
                 ],
@@ -1134,13 +1146,19 @@ var render = function () {
                                                 "v-col",
                                                 { attrs: { cols: "11" } },
                                                 [
-                                                  _c("v-card-title", [
-                                                    _vm._v(
-                                                      "\n                      " +
-                                                        _vm._s(dog.name) +
-                                                        "\n                    "
-                                                    ),
-                                                  ]),
+                                                  _c(
+                                                    "v-card-title",
+                                                    {
+                                                      staticClass: "text-lg-h6",
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        "\n                      " +
+                                                          _vm._s(dog.name) +
+                                                          "\n                    "
+                                                      ),
+                                                    ]
+                                                  ),
                                                 ],
                                                 1
                                               ),
@@ -1282,34 +1300,42 @@ var render = function () {
           _c(
             "v-tab-item",
             [
+              _c("v-text-field", {
+                attrs: {
+                  "append-icon": "mdi-magnify",
+                  label: "Search",
+                  "single-line": "",
+                  "hide-details": "",
+                },
+                model: {
+                  value: _vm.search,
+                  callback: function ($$v) {
+                    _vm.search = $$v
+                  },
+                  expression: "search",
+                },
+              }),
+              _vm._v(" "),
               _c("v-data-table", {
                 staticClass: "elevation-1",
                 attrs: {
+                  search: _vm.search,
+                  "group-by": "breed",
+                  "show-group-by": "",
+                  "show-expand": "",
                   headers: [
                     { text: "Name", value: "name" },
+                    { text: "Gender", value: "gender" },
                     { text: "Breed", value: "breed" },
-                    { text: "Age", value: "age" },
-                    { text: "Weight", value: "weight" },
+                    { text: "Generation", value: "generation" },
+                    { text: "Size", value: "size" },
+                    { text: "Outside stud", value: "outside_stud" },
+                    { text: "Age (months)", value: "age.months" },
+                    { text: "Weight (ounces)", value: "weight.ounces" },
                   ],
                   items: _vm.dogs,
                   "items-per-page": 5,
                 },
-                scopedSlots: _vm._u([
-                  {
-                    key: "items",
-                    fn: function (props) {
-                      return [
-                        _c("td", [_vm._v(_vm._s(props.item.name))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(props.item.breed))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(props.item.age))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(props.item.weight))]),
-                      ]
-                    },
-                  },
-                ]),
               }),
             ],
             1

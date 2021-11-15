@@ -27,7 +27,15 @@
         </template>
         <v-list>
           <v-list-item>
-            <v-list-item-title>Add New Dog</v-list-item-title>
+            <v-list-item-title>
+              Add New Dog
+            </v-list-item-title>
+            <v-list-item-action>
+              <v-btn color="primary"
+                     @click="foo = 'bar'">
+                <v-icon>mdi-plus</v-icon>
+              </v-btn>
+            </v-list-item-action>
           </v-list-item>
         </v-list>
       </v-menu>
@@ -65,7 +73,7 @@
 
                   <v-row no-gutters>
                     <v-col cols="11">
-                      <v-card-title>
+                      <v-card-title class="text-lg-h6">
                         {{ dog.name }}
                       </v-card-title>
                     </v-col>
@@ -108,23 +116,31 @@
 
       <!--  Table view    -->
       <v-tab-item>
+        <v-text-field
+          v-model="search"
+          append-icon="mdi-magnify"
+          label="Search"
+          single-line
+          hide-details/>
+
         <v-data-table
+          :search="search"
+          group-by="breed"
+          show-group-by
+          show-expand
           :headers="[
             { text: 'Name', value: 'name' },
+            { text: 'Gender', value: 'gender' },
             { text: 'Breed', value: 'breed' },
-            { text: 'Age', value: 'age' },
-            { text: 'Weight', value: 'weight' },
+            { text: 'Generation', value: 'generation' },
+            { text: 'Size', value: 'size' },
+            { text: 'Outside stud', value: 'outside_stud' },
+            { text: 'Age (months)', value: 'age.months' },
+            { text: 'Weight (ounces)', value: 'weight.ounces' }
           ]"
           :items="dogs"
           :items-per-page="5"
-          class="elevation-1">
-          <template slot="items" slot-scope="props">
-            <td>{{ props.item.name }}</td>
-            <td>{{ props.item.breed }}</td>
-            <td>{{ props.item.age }}</td>
-            <td>{{ props.item.weight }}</td>
-          </template>
-        </v-data-table>
+          class="elevation-1"/>
       </v-tab-item>
     </v-tabs-items>
   </v-container>
