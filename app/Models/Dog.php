@@ -13,20 +13,17 @@ class Dog extends Model
         'birthday'  => 'date:Y-m-d',
     ];
 
-    public function scopeOrderByName($query)
-    {
-        $query->orderBy('name');
-    }
 
-    public function getAgeAttribute()
+    protected function getAgeAttribute()
     {
         return [
+            'years' => $this->birthday->diffInYears(),
             'months' => $this->birthday->diffInMonths(),
-            'years'  => $this->birthday->diffInYears(),
             'days' => $this->birthday->diffInDays(),
-            'hours' => $this->birthday->diffInHours(),
         ];
+
     }
+
     public function getWeightAttribute($value)
     {
         return [

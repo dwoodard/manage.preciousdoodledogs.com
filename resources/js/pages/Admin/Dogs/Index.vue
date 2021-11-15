@@ -116,6 +116,8 @@
 
       <!--  Table view    -->
       <v-tab-item>
+        <v-btn @click="toggleAll()">Toggle Groups</v-btn>
+
         <v-text-field
           v-model="search"
           append-icon="mdi-magnify"
@@ -125,9 +127,7 @@
 
         <v-data-table
           :search="search"
-          group-by="breed"
-          show-group-by
-          show-expand
+          multi-sort
           :headers="[
             { text: 'Name', value: 'name' },
             { text: 'Gender', value: 'gender' },
@@ -169,7 +169,12 @@
       };
     },
     methods: {
-      //
+      toggleAll() {
+        Object.keys(this.$refs).forEach((k) => {
+          console.log(this.$refs[k]);
+          this.$refs[k].$el.click();
+        });
+      }
     }
   };
 </script>

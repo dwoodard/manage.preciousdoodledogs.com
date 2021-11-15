@@ -365,7 +365,16 @@ __webpack_require__.r(__webpack_exports__);
       search: ''
     };
   },
-  methods: {//
+  methods: {
+    toggleAll: function toggleAll() {
+      var _this = this;
+
+      Object.keys(this.$refs).forEach(function (k) {
+        console.log(_this.$refs[k]);
+
+        _this.$refs[k].$el.click();
+      });
+    }
   }
 });
 
@@ -1300,6 +1309,18 @@ var render = function () {
           _c(
             "v-tab-item",
             [
+              _c(
+                "v-btn",
+                {
+                  on: {
+                    click: function ($event) {
+                      return _vm.toggleAll()
+                    },
+                  },
+                },
+                [_vm._v("Toggle Groups")]
+              ),
+              _vm._v(" "),
               _c("v-text-field", {
                 attrs: {
                   "append-icon": "mdi-magnify",
@@ -1320,9 +1341,7 @@ var render = function () {
                 staticClass: "elevation-1",
                 attrs: {
                   search: _vm.search,
-                  "group-by": "breed",
-                  "show-group-by": "",
-                  "show-expand": "",
+                  "multi-sort": "",
                   headers: [
                     { text: "Name", value: "name" },
                     { text: "Gender", value: "gender" },
