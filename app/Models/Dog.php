@@ -16,17 +16,16 @@ class Dog extends Model implements HasMedia
     ];
 
 
-    protected function getAgeAttribute()
+    protected function getAgeAttribute(): array
     {
         return [
             'years' => $this->birthday->diffInYears(),
             'months' => $this->birthday->diffInMonths(),
             'days' => $this->birthday->diffInDays(),
         ];
-
     }
 
-    public function getWeightAttribute($value)
+    public function getWeightAttribute($value): array
     {
         return [
             'ounces' => $value,
@@ -36,7 +35,7 @@ class Dog extends Model implements HasMedia
         ];
     }
 
-    public function getHeightAttribute($value)
+    public function getHeightAttribute($value): array
     {
         return [
             'inches' => $value,
