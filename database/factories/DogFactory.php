@@ -21,7 +21,7 @@ class DogFactory extends Factory
             "breed" => $this->faker->randomElement(['poodle', 'goldendoodles', 'labradoodle', 'cavapoo']),
             "size" => $this->faker->randomElement(["mini", "toy", "teacup", "standard", "medium", "micro", "pocket"]),
             "generation" => $this->faker->randomElement(["f1b", "f1", "f2b", "f2bb", "multigen"]),
-            "birthday" => $this->faker->dateTimeBetween('-3 year', 'now'),
+            "birthday" => $this->faker->dateTimeBetween('-6 year', 'now'),
             "gender" => $gender,
             "outside_stud" => $gender !== 'female' ? $this->faker->numberBetween(0,1) : null,
             "weight" => $this->faker->numberBetween(4, 480), // ounces

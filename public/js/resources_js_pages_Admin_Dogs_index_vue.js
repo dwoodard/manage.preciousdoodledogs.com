@@ -342,15 +342,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   layout: _layouts_Admin_Layout__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -364,7 +355,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       tab: 0,
       search: '',
-      dialog: false
+      dialog: false,
+      showAddDog: false
     };
   },
   methods: {
@@ -1031,30 +1023,18 @@ var render = function () {
               _vm._v(" "),
               _c(
                 "v-list",
+                { attrs: { "min-width": "250", "max-width": "300" } },
                 [
                   _c(
                     "v-list-item",
+                    { attrs: { ripple: "" } },
                     [
-                      _c("v-list-item-title", [
-                        _vm._v("\n            Add New Dog\n          "),
-                      ]),
-                      _vm._v(" "),
                       _c(
-                        "v-list-item-action",
+                        "v-list-item-title",
+                        { on: { click: _vm.showAddDog } },
                         [
-                          _c(
-                            "v-btn",
-                            {
-                              attrs: { color: "primary" },
-                              on: {
-                                click: function ($event) {
-                                  _vm.foo = "bar"
-                                },
-                              },
-                            },
-                            [_c("v-icon", [_vm._v("mdi-plus")])],
-                            1
-                          ),
+                          _c("v-icon", [_vm._v("mdi-plus")]),
+                          _vm._v(" Add New Dog\n          "),
                         ],
                         1
                       ),
@@ -1073,19 +1053,14 @@ var render = function () {
       _vm._v(" "),
       _c(
         "v-row",
-        { attrs: { justify: "space-between" } },
-        [
-          _c("v-col", [_c("h1", [_vm._v("My Dogs")])]),
-          _vm._v(" "),
-          _c("v-col", { attrs: { cols: "1" } }),
-        ],
+        { attrs: { justify: "space-around" } },
+        [_c("v-col", [_c("h1", [_vm._v("My Dogs")])])],
         1
       ),
       _vm._v(" "),
       _c(
         "v-tabs-items",
         {
-          attrs: { grow: "" },
           model: {
             value: _vm.tab,
             callback: function ($$v) {

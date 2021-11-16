@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <!--    tabs-->
+    <!--tabs-->
     <v-tabs v-model="tab">
       <v-tabs-slider color="primary"/>
 
@@ -25,30 +25,26 @@
             mdi-dots-vertical
           </v-icon>
         </template>
-        <v-list>
-          <v-list-item>
-            <v-list-item-title>
-              Add New Dog
+        <v-list min-width="250" max-width="300">
+          <v-list-item ripple>
+            <v-list-item-title @click="showAddDog">
+              <v-icon>mdi-plus</v-icon> Add New Dog
             </v-list-item-title>
-            <v-list-item-action>
-              <v-btn color="primary"
-                     @click="foo = 'bar'">
-                <v-icon>mdi-plus</v-icon>
-              </v-btn>
-            </v-list-item-action>
           </v-list-item>
         </v-list>
       </v-menu>
     </v-tabs>
+    <!-- end tabs -->
 
-    <v-row justify="space-between">
+    <!-- Header -->
+    <v-row justify="space-around">
       <v-col>
         <h1>My Dogs</h1>
       </v-col>
-      <v-col cols="1"/>
     </v-row>
 
-    <v-tabs-items v-model="tab" grow>
+
+    <v-tabs-items v-model="tab">
       <!--  Card view    -->
       <v-tab-item>
         <v-container class="pa-0">
@@ -146,11 +142,6 @@
     </v-tabs-items>
   </v-container>
 </template>
-        </v-data-table>
-      </v-tab-item>
-    </v-tabs-items>
-  </v-container>
-</template>
 
 <script>
   import Layout from '@/layouts/Admin/Layout';
@@ -167,7 +158,8 @@
       return {
         tab: 0,
         search: '',
-        dialog: false
+        dialog: false,
+        showAddDog: false
       };
     },
     methods: {

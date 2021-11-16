@@ -18,7 +18,6 @@ class DogController extends Controller
     {
 
         $data = [
-            // if all but retired_at is null, it will be omitted
             'dogs' => Dog::all()->map(function (Dog $dog) {
                 return [
                     'id' => $dog->id,
@@ -36,14 +35,30 @@ class DogController extends Controller
             }),
         ];
 
-
-
-
-
-
-
         return Inertia::render('Admin/Dogs/Index', $data);
     }
 
+    public function store(Request $request): \Illuminate\Http\RedirectResponse
+    {
+        $input = $request->all();
+        $dog = Dog::create($input);
+
+
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $dog->addMediaFromRequest('image')->toMediaCollection('dogs');
+        }
+        return redirect()->route('admin.dogs.index');
+
+    }
+
+    public function update(Request $request, Dog $dog): \Illuminate\Http\RedirectResponse
+    {
+        $input = $request->all();
+        $dog->update($input);
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $dog->addMediaFromRequest('image')->toMediaCollection('dogs');
+        }
+        return redirect()->route('admin.dogs.index');
+    }
 
 }
