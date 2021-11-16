@@ -350,6 +350,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   layout: _layouts_Admin_Layout__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -362,7 +363,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       tab: 0,
-      search: ''
+      search: '',
+      dialog: false
     };
   },
   methods: {
@@ -1309,22 +1311,11 @@ var render = function () {
           _c(
             "v-tab-item",
             [
-              _c(
-                "v-btn",
-                {
-                  on: {
-                    click: function ($event) {
-                      return _vm.toggleAll()
-                    },
-                  },
-                },
-                [_vm._v("Toggle Groups")]
-              ),
-              _vm._v(" "),
               _c("v-text-field", {
                 attrs: {
                   "append-icon": "mdi-magnify",
                   label: "Search",
+                  clearable: "",
                   "single-line": "",
                   "hide-details": "",
                 },
@@ -1353,7 +1344,7 @@ var render = function () {
                     { text: "Weight (ounces)", value: "weight.ounces" },
                   ],
                   items: _vm.dogs,
-                  "items-per-page": 5,
+                  "items-per-page": 100,
                 },
               }),
             ],

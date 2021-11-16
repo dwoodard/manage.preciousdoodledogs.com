@@ -116,12 +116,11 @@
 
       <!--  Table view    -->
       <v-tab-item>
-        <v-btn @click="toggleAll()">Toggle Groups</v-btn>
-
         <v-text-field
           v-model="search"
           append-icon="mdi-magnify"
           label="Search"
+          clearable
           single-line
           hide-details/>
 
@@ -139,8 +138,10 @@
             { text: 'Weight (ounces)', value: 'weight.ounces' }
           ]"
           :items="dogs"
-          :items-per-page="5"
-          class="elevation-1"/>
+          :items-per-page="100"
+          class="elevation-1">
+          <!-- -->
+        </v-data-table>
       </v-tab-item>
     </v-tabs-items>
   </v-container>
@@ -165,7 +166,8 @@
     data() {
       return {
         tab: 0,
-        search: ''
+        search: '',
+        dialog: false
       };
     },
     methods: {
