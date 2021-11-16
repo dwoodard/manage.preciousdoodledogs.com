@@ -24,9 +24,6 @@ Route::group(['as'=>'admin.','middleware' => ['web','role:admin']], function(){
     Route::resource('families', 'FamilyController');
 
 
-
-
-
     //dashboard
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 

@@ -10,9 +10,9 @@ use Inertia\Response;
 
 class AdminController extends \Inertia\Controller
 {
-    public function index()
+    public function index(): \Illuminate\Http\RedirectResponse
     {
-        return Redirect::route('admin.dashboard');
+        return Redirect::route('admin.dogs.index');
     }
 
     public function dashboard(Request $request):Response
