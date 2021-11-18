@@ -27,8 +27,10 @@
         </template>
         <v-list min-width="250" max-width="300">
           <v-list-item ripple>
-            <v-list-item-title @click="showAddDog">
-              <v-icon>mdi-plus</v-icon> Add New Dog
+            <v-list-item-title>
+              <inertia-link v-ripple href="/admin/dogs/create" as="v-list-item">
+                <v-icon>mdi-plus</v-icon> Add New Dog
+              </inertia-link>
             </v-list-item-title>
           </v-list-item>
         </v-list>
@@ -64,9 +66,9 @@
                   </template>
 
                   <v-img
-                    height="250"
-                    src="https://placedog.net/500?random"/>
-
+                    :src="dog.image"
+                    aspect-ratio="1.1"
+                    contain/>
                   <v-row no-gutters>
                     <v-col cols="11">
                       <v-card-title class="text-lg-h6">
@@ -99,10 +101,11 @@
                         Genetics
                       </v-expansion-panel-header>
                       <v-expansion-panel-content>
-                        Lorem ipsum dolor sit amet, consecrated advising elite, sed do emus temper incident ut labor et door magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        {{ dog }}
                       </v-expansion-panel-content>
                     </v-expansion-panel>
                   </v-expansion-panels>
+                  </v-img>
                 </v-card>
               </v-hover>
             </v-col>

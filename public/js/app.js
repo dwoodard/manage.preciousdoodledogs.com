@@ -88425,6 +88425,14 @@ var map = {
 		"./resources/js/pages/Admin/Dogs/Index.vue",
 		"resources_js_pages_Admin_Dogs_Index_vue"
 	],
+	"./Admin/Dogs/create": [
+		"./resources/js/pages/Admin/Dogs/create.vue",
+		"resources_js_pages_Admin_Dogs_create_vue"
+	],
+	"./Admin/Dogs/create.vue": [
+		"./resources/js/pages/Admin/Dogs/create.vue",
+		"resources_js_pages_Admin_Dogs_create_vue"
+	],
 	"./Admin/Families": [
 		"./resources/js/pages/Admin/Families/index.vue",
 		"resources_js_pages_Admin_Families_index_vue"
@@ -88854,7 +88862,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_pages_Admin_Dashboard_index_vue":1,"resources_js_pages_Admin_Dogs_Index_vue":1,"resources_js_pages_Admin_Families_index_vue":1,"resources_js_pages_Admin_Litters_Index_vue":1,"resources_js_pages_Admin_Pages_index_vue":1,"resources_js_pages_Admin_Pages_create_vue":1,"resources_js_pages_Admin_Pages_edit_vue":1,"resources_js_pages_Admin_Posts_index_vue":1,"resources_js_pages_Admin_Settings_index_vue":1,"resources_js_pages_Admin_Todo_index_vue":1,"resources_js_pages_Admin_Users_index_vue":1,"resources_js_pages_Admin_Users_create_vue":1,"resources_js_pages_Admin_Users_edit_vue":1,"resources_js_pages_Auth_Login_vue":1,"resources_js_pages_Dashboard_index_vue":1,"resources_js_pages_Page_index_vue":1,"resources_js_pages_PrivacyPolicy_index_vue":1,"resources_js_pages_TermsOfService_index_vue":1,"resources_js_pages_Welcome_index_vue":1,"resources_js_pages_profile_DeleteUserForm_vue":1,"resources_js_pages_profile_LogoutOtherBrowserSessionsForm_vue":1,"resources_js_pages_profile_Show_vue":1,"resources_js_pages_profile_UpdatePasswordForm_vue":1,"resources_js_pages_profile_UpdateProfileInformationForm_vue":1,"resources_js_pages_settings_index_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_pages_Admin_Dashboard_index_vue":1,"resources_js_pages_Admin_Dogs_Index_vue":1,"resources_js_pages_Admin_Dogs_create_vue":1,"resources_js_pages_Admin_Families_index_vue":1,"resources_js_pages_Admin_Litters_Index_vue":1,"resources_js_pages_Admin_Pages_index_vue":1,"resources_js_pages_Admin_Pages_create_vue":1,"resources_js_pages_Admin_Pages_edit_vue":1,"resources_js_pages_Admin_Posts_index_vue":1,"resources_js_pages_Admin_Settings_index_vue":1,"resources_js_pages_Admin_Todo_index_vue":1,"resources_js_pages_Admin_Users_index_vue":1,"resources_js_pages_Admin_Users_create_vue":1,"resources_js_pages_Admin_Users_edit_vue":1,"resources_js_pages_Auth_Login_vue":1,"resources_js_pages_Dashboard_index_vue":1,"resources_js_pages_Page_index_vue":1,"resources_js_pages_PrivacyPolicy_index_vue":1,"resources_js_pages_TermsOfService_index_vue":1,"resources_js_pages_Welcome_index_vue":1,"resources_js_pages_profile_DeleteUserForm_vue":1,"resources_js_pages_profile_LogoutOtherBrowserSessionsForm_vue":1,"resources_js_pages_profile_Show_vue":1,"resources_js_pages_profile_UpdatePasswordForm_vue":1,"resources_js_pages_profile_UpdateProfileInformationForm_vue":1,"resources_js_pages_settings_index_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

@@ -16,7 +16,6 @@ class DogController extends Controller
      */
     public function index(): Response
     {
-
         $data = [
             'dogs' => Dog::all()->map(function (Dog $dog) {
                 return [
@@ -31,11 +30,18 @@ class DogController extends Controller
                     'weight' => $dog->weight,
                     'height' => $dog->height,
                     'is_retired' => $dog->is_retired,
+                    'image' => $dog->getFirstMediaUrl('dogs'),
+
                 ];
             }),
         ];
 
         return Inertia::render('Admin/Dogs/Index', $data);
+    }
+
+    public function create()
+    {
+        return Inertia::render('Admin/Dogs/create');
     }
 
     public function store(Request $request): \Illuminate\Http\RedirectResponse

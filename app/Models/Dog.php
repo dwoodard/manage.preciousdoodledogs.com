@@ -11,13 +11,21 @@ class Dog extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia;
 
+    protected $fillable = [
+        'name',
+        'age',
+        'breed'
+    ];
+
     protected $casts = [
         'birthday'  => 'date:Y-m-d',
     ];
 
-
     protected function getAgeAttribute(): array
     {
+        if (! $this->birthday) {
+            return [];
+        }
         return [
             'years' => $this->birthday->diffInYears(),
             'months' => $this->birthday->diffInMonths(),
