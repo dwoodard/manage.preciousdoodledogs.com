@@ -16,8 +16,11 @@ class DogController extends Controller
      */
     public function index(): Response
     {
+
+
         $data = [
-            'dogs' => Dog::all()->map(function (Dog $dog) {
+            'dogs' => Dog::orderBy('created_at', 'DESC')->get()
+                ->map(function (Dog $dog) {
                 return [
                     'id' => $dog->id,
                     'name' => $dog->name,
@@ -31,12 +34,14 @@ class DogController extends Controller
                     'height' => $dog->height,
                     'is_retired' => $dog->is_retired,
                     'image' => $dog->getFirstMediaUrl('dogs'),
+                    'created_at' => $dog->created_at->format('Y-m-d H:i:s'),
+                    'updated_at' => $dog->updated_at->format('Y-m-d H:i:s'),
 
                 ];
             }),
         ];
 
-        return Inertia::render('Admin/Dogs/Index', $data);
+        return Inertia::render('Admin/Dogs/index', $data);
     }
 
     public function create()
@@ -44,17 +49,25 @@ class DogController extends Controller
         return Inertia::render('Admin/Dogs/create');
     }
 
-    public function store(Request $request): \Illuminate\Http\RedirectResponse
+    public function edit()
     {
-        $input = $request->all();
-        $dog = Dog::create($input);
+        return Inertia::render('Admin/Dogs/edit');
+    }
+
+    public function store(Request $request)
+    {
+        $dog = Dog::create($request->all());
+
+        //validation
+        $request->validate([
+            'name' => 'required',
+        ]);
 
 
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $dog->addMediaFromRequest('image')->toMediaCollection('dogs');
         }
-        return redirect()->route('admin.dogs.index');
-
+        return redirect()->back();
     }
 
     public function update(Request $request, Dog $dog): \Illuminate\Http\RedirectResponse

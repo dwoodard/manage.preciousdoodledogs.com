@@ -69,6 +69,7 @@
                     :src="dog.image"
                     aspect-ratio="1.1"
                     contain/>
+
                   <v-row no-gutters>
                     <v-col cols="11">
                       <v-card-title class="text-lg-h6">
@@ -132,9 +133,10 @@
             { text: 'Breed', value: 'breed' },
             { text: 'Generation', value: 'generation' },
             { text: 'Size', value: 'size' },
-            { text: 'Outside stud', value: 'outside_stud' },
             { text: 'Age (months)', value: 'age.months' },
-            { text: 'Weight (ounces)', value: 'weight.ounces' }
+            { text: 'Weight (ounces)', value: 'weight.ounces' },
+            { text: 'Outside stud', value: 'outside_stud' },
+
           ]"
           :items="dogs"
           :items-per-page="100"

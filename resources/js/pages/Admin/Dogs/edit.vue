@@ -5,11 +5,9 @@
     </inertia-link>
 
     <h1>Add dog</h1>
-    <progress v-if="form.imageProgress" :value="form.imageProgress" max="100">
-      {{ form.imageProgress }}%
-    </progress>
 
-    <form @submit.prevent="store">
+
+    <form @submit="store">
       <v-container>
         <v-row>
           <v-col cols="12" sm="6" md="4">
@@ -134,7 +132,6 @@
       return {
 
         fromDateMenu: false,
-        imageProgress: 0,
         form: this.$inertia.form({
           name: '',
           gender: '',
@@ -145,8 +142,8 @@
           outside_stud: '',
           weight: '',
           height: '',
-          image: ''
-
+          image: '',
+          imageProgress: 0
         })
       };
     },
@@ -162,23 +159,24 @@
     },
     methods: {
       selectFile(file) {
-        this.imageProgress = 0;
+        this.form.imageProgress = 0;
         this.form.image = file;
       },
       store() {
-        this.form
-          .post(this.route('admin.dogs.store'), {
-            onSuccess: () => {
-              this.form.reset();
-              this.form.image = null;
-            },
-            onFailure: () => { console.log('fail'); },
-            onProgress: (event) => {
-              this.imageProgress = Math.round(event.loaded / event.total * 100);
-              console.log(this.imageProgress);
-            }
+        this.form.post(this.route('admin.dogs.store'))
+          .then(() => {
+            this.$toast.open({
+              message: 'Dog created successfully',
+              type: 'success'
+            });
+            this.$inertia.replace();
+          })
+          .catch((error) => {
+            this.form.errors.record(error.response.data.errors);
           });
       }
+    },
+    components: {
     },
     layout: Layout,
     remember: 'form'
