@@ -4,10 +4,18 @@
       <v-icon>mdi-arrow-left</v-icon>
     </inertia-link>
 
-    <h1>Add dog</h1>
+    <h1>Edit dog</h1>
 
 
-    <form @submit="store">
+    <form @submit.prevent="update">
+      <div v-if="form.isDirty">
+        <!--      submit-->
+        <v-btn type="submit"
+               color="primary"
+               :loading="form.loading">
+          Update
+        </v-btn>
+      </div>
       <v-container>
         <v-row>
           <v-col cols="12" sm="6" md="4">
@@ -54,6 +62,15 @@
         </v-row>
 
         <v-row>
+          <v-img
+            v-if="form.media[0]"
+            :src="form.media[0].original_url"
+            aspect-ratio="1"
+            contain
+            class="mx-auto"
+            max-width="200px"
+            max-height="200px"
+            style="margin-bottom: 20px;"/>
           <v-file-input
             show-size
             accept="image/*"
@@ -105,7 +122,7 @@
         <v-text-field v-model="form.weight"
                       type="number"
                       :error-messages="form.errors.weight"
-                      label="Weight (oz)"/>
+                      :label="`Weight (oz)  ${lbs(form.weight)}`"/>
 
         <v-text-field v-model="form.height"
                       type="number"
@@ -113,13 +130,9 @@
                       label="Height (inches)"/>
       </v-container>
 
-
-      <!--      submit-->
-      <v-btn type="submit"
-             color="primary"
-             :loading="form.loading">
-        Submit
-      </v-btn>
+      <progress v-if="form.imageProgress" :value="form.imageProgress" max="100">
+        {{ form.imageProgress }}%
+      </progress>
     </form>
   </v-container>
 </template>
@@ -128,53 +141,60 @@
   import Layout from '@/layouts/Admin/Layout';
 
   export default {
+    props: {
+      dog: Object
+    },
     data() {
       return {
-
+        imageProgress: 0,
         fromDateMenu: false,
-        form: this.$inertia.form({
-          name: '',
-          gender: '',
-          birthday: '',
-          breed: '',
-          size: '',
-          generation: '',
-          outside_stud: '',
-          weight: '',
-          height: '',
-          image: '',
-          imageProgress: 0
+        form: this.$inertia.form(`EditDog${this.dog.id}`, {
+          _method: 'put',
+          id: this.dog.id,
+          name: this.dog.name,
+          gender: this.dog.gender,
+          birthday: this.dog.birthday,
+          breed: this.dog.breed,
+          size: this.dog.size,
+          generation: this.dog.generation,
+          outside_stud: this.dog.outside_stud,
+          weight: this.dog.weight,
+          height: this.dog.height,
+          media: this.dog.media,
+          image: null
         })
       };
     },
-    computed: {
-      fromDateDisp: {
-        get() {
-          return this.form.birthday ? this.form.birthday.format('MMMM Do, YYYY') : '';
-        },
-        set(value) {
-          this.form.birthday = value;
-        }
-      }
-    },
     methods: {
       selectFile(file) {
-        this.form.imageProgress = 0;
+        this.imageProgress = 0;
         this.form.image = file;
+        // this.form.forceFormData = true;
       },
-      store() {
-        this.form.post(this.route('admin.dogs.store'))
-          .then(() => {
-            this.$toast.open({
-              message: 'Dog created successfully',
-              type: 'success'
-            });
-            this.$inertia.replace();
-          })
-          .catch((error) => {
-            this.form.errors.record(error.response.data.errors);
-          });
+      lbs(weight) {
+        if (typeof weight === 'object' || !weight || isNaN(weight)) {
+          return '';
+        }
+
+        return `(${(weight / 16).toFixed(1)} lbs)`;
+      },
+      update() {
+        this.form.post(this.route('admin.dogs.update', {
+          dog: this.form.id
+        }), {
+          onSuccess: (result) => {
+            console.log('onSuccess', result);
+          },
+          onError: (result) => {
+            console.log('onError', result);
+          },
+          onFailure: (result) => { console.log(result); },
+          onProgress: (event) => {
+            this.imageProgress = Math.round(event.loaded / event.total * 100);
+          }
+        });
       }
+
     },
     components: {
     },

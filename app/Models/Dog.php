@@ -13,8 +13,16 @@ class Dog extends Model implements HasMedia
 
     protected $fillable = [
         'name',
-        'age',
-        'breed'
+        'breed',
+        'gender',
+        'name',
+        'birthday',
+        'size',
+        'generation',
+        'outside_stud',
+        'weight',
+        'height',
+        'retired_at',
     ];
 
     protected $casts = [
@@ -33,6 +41,26 @@ class Dog extends Model implements HasMedia
         ];
     }
 
+    public function setWeightAttribute($value)
+    {
+        //if value is an object, ignore
+        if (is_object($value)) {
+
+            // if value has key ounces get value from ounces
+            if (isset($value->ounces)) {
+                $value = $value->ounces;
+            }
+        }
+        //if value is a string, convert to int
+        if (is_string($value)) {
+            $value = (int) $value;
+        }
+        // if value is an int, set it
+        if (is_int($value)) {
+            $this->attributes['weight'] = $value;
+        }
+    }
+
     public function getWeightAttribute($value): array
     {
         return [
@@ -41,6 +69,26 @@ class Dog extends Model implements HasMedia
             'grams' => $value * 28.3495,
             'kilograms' => $value * 0.0283495,
         ];
+    }
+
+    public function setHeightAttribute($value)
+    {
+        //if value is an object, ignore
+        if (is_object($value)) {
+
+            // if value has key inches get value from inches
+            if (isset($value->inches)) {
+                $value = $value->inches;
+            }
+        }
+        //if value is a string, convert to int
+        if (is_string($value)) {
+            $value = (int) $value;
+        }
+        // if value is an int, set it
+        if (is_int($value)) {
+            $this->attributes['height'] = $value;
+        }
     }
 
     public function getHeightAttribute($value): array
@@ -52,4 +100,5 @@ class Dog extends Model implements HasMedia
             'meters' => $value * 0.0254,
         ];
     }
+
 }

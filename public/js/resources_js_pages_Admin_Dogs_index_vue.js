@@ -347,6 +347,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   layout: _layouts_Admin_Layout__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -365,6 +367,9 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    getImage: function getImage(dog) {
+      return dog.media.length > 0 ? dog.media[0].original_url : null;
+    },
     toggleAll: function toggleAll() {
       var _this = this;
 
@@ -1138,7 +1143,7 @@ var render = function () {
                                           _vm._v(" "),
                                           _c("v-img", {
                                             attrs: {
-                                              src: dog.image,
+                                              src: _vm.getImage(dog),
                                               "aspect-ratio": "1.1",
                                               contain: "",
                                             },
@@ -1231,8 +1236,36 @@ var render = function () {
                                                             "v-list-item",
                                                             [
                                                               _c(
-                                                                "v-list-item-title",
-                                                                [_vm._v("edit")]
+                                                                "inertia-link",
+                                                                {
+                                                                  directives: [
+                                                                    {
+                                                                      name: "ripple",
+                                                                      rawName:
+                                                                        "v-ripple",
+                                                                    },
+                                                                  ],
+                                                                  attrs: {
+                                                                    href: _vm.route(
+                                                                      "admin.dogs.edit",
+                                                                      {
+                                                                        dog: dog.id,
+                                                                      }
+                                                                    ),
+                                                                    as: "v-list-item",
+                                                                  },
+                                                                },
+                                                                [
+                                                                  _c("v-icon", [
+                                                                    _vm._v(
+                                                                      "mdi-circle-edit-outline"
+                                                                    ),
+                                                                  ]),
+                                                                  _vm._v(
+                                                                    " Edit\n                          "
+                                                                  ),
+                                                                ],
+                                                                1
                                                               ),
                                                             ],
                                                             1

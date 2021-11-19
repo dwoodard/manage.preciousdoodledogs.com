@@ -16,28 +16,12 @@ class DogController extends Controller
      */
     public function index(): Response
     {
-
-
         $data = [
             'dogs' => Dog::orderBy('created_at', 'DESC')->get()
                 ->map(function (Dog $dog) {
-                return [
-                    'id' => $dog->id,
-                    'name' => $dog->name,
-                    'gender' => $dog->gender,
-                    'breed' => $dog->breed,
-                    'generation' => $dog->generation,
-                    'size' => $dog->size,
-                    'age' => $dog->age,
-                    'outside_stud' => $dog->outside_stud,
-                    'weight' => $dog->weight,
-                    'height' => $dog->height,
-                    'is_retired' => $dog->is_retired,
-                    'image' => $dog->getFirstMediaUrl('dogs'),
-                    'created_at' => $dog->created_at->format('Y-m-d H:i:s'),
-                    'updated_at' => $dog->updated_at->format('Y-m-d H:i:s'),
+                    $dog->getMedia('images');
 
-                ];
+                return $dog;
             }),
         ];
 
@@ -49,9 +33,12 @@ class DogController extends Controller
         return Inertia::render('Admin/Dogs/create');
     }
 
-    public function edit()
+    public function edit(Dog $dog)
     {
-        return Inertia::render('Admin/Dogs/edit');
+        $dog->getMedia();
+        return Inertia::render('Admin/Dogs/edit', [
+            'dog' => $dog,
+        ]);
     }
 
     public function store(Request $request)
@@ -72,12 +59,18 @@ class DogController extends Controller
 
     public function update(Request $request, Dog $dog): \Illuminate\Http\RedirectResponse
     {
-        $input = $request->all();
-        $dog->update($input);
+        $dog->update($request->all());
+
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
+
+            $dog->media()->delete($dog->id);
+
             $dog->addMediaFromRequest('image')->toMediaCollection('dogs');
         }
-        return redirect()->route('admin.dogs.index');
+
+        $dog->save();
+
+        return redirect()->back();
     }
 
 }

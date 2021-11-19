@@ -66,7 +66,7 @@
                   </template>
 
                   <v-img
-                    :src="dog.image"
+                    :src="getImage(dog)"
                     aspect-ratio="1.1"
                     contain/>
 
@@ -88,7 +88,9 @@
                         </template>
                         <v-list>
                           <v-list-item>
-                            <v-list-item-title>edit</v-list-item-title>
+                            <inertia-link v-ripple :href="route('admin.dogs.edit', {dog:dog.id})" as="v-list-item">
+                              <v-icon>mdi-circle-edit-outline</v-icon> Edit
+                            </inertia-link>
                           </v-list-item>
                         </v-list>
                       </v-menu>
@@ -168,6 +170,9 @@
       };
     },
     methods: {
+      getImage(dog) {
+        return dog.media.length > 0 ? dog.media[0].original_url : null;
+      },
       toggleAll() {
         Object.keys(this.$refs).forEach((k) => {
           console.log(this.$refs[k]);

@@ -197,6 +197,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _layouts_Admin_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/layouts/Admin/Layout */ "./resources/js/layouts/Admin/Layout.vue");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -325,51 +340,60 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    dog: Object
+  },
   data: function data() {
     return {
+      imageProgress: 0,
       fromDateMenu: false,
-      form: this.$inertia.form({
-        name: '',
-        gender: '',
-        birthday: '',
-        breed: '',
-        size: '',
-        generation: '',
-        outside_stud: '',
-        weight: '',
-        height: '',
-        image: '',
-        imageProgress: 0
+      form: this.$inertia.form("EditDog".concat(this.dog.id), {
+        _method: 'put',
+        id: this.dog.id,
+        name: this.dog.name,
+        gender: this.dog.gender,
+        birthday: this.dog.birthday,
+        breed: this.dog.breed,
+        size: this.dog.size,
+        generation: this.dog.generation,
+        outside_stud: this.dog.outside_stud,
+        weight: this.dog.weight,
+        height: this.dog.height,
+        media: this.dog.media,
+        image: null
       })
     };
   },
-  computed: {
-    fromDateDisp: {
-      get: function get() {
-        return this.form.birthday ? this.form.birthday.format('MMMM Do, YYYY') : '';
-      },
-      set: function set(value) {
-        this.form.birthday = value;
-      }
-    }
-  },
   methods: {
     selectFile: function selectFile(file) {
-      this.form.imageProgress = 0;
-      this.form.image = file;
+      this.imageProgress = 0;
+      this.form.image = file; // this.form.forceFormData = true;
     },
-    store: function store() {
+    lbs: function lbs(weight) {
+      if (_typeof(weight) === 'object' || !weight || isNaN(weight)) {
+        return '';
+      }
+
+      return "(".concat((weight / 16).toFixed(1), " lbs)");
+    },
+    update: function update() {
       var _this = this;
 
-      this.form.post(this.route('admin.dogs.store')).then(function () {
-        _this.$toast.open({
-          message: 'Dog created successfully',
-          type: 'success'
-        });
-
-        _this.$inertia.replace();
-      })["catch"](function (error) {
-        _this.form.errors.record(error.response.data.errors);
+      this.form.post(this.route('admin.dogs.update', {
+        dog: this.form.id
+      }), {
+        onSuccess: function onSuccess(result) {
+          console.log('onSuccess', result);
+        },
+        onError: function onError(result) {
+          console.log('onError', result);
+        },
+        onFailure: function onFailure(result) {
+          console.log(result);
+        },
+        onProgress: function onProgress(event) {
+          _this.imageProgress = Math.round(event.loaded / event.total * 100);
+        }
       });
     }
   },
@@ -970,12 +994,39 @@ var render = function () {
         1
       ),
       _vm._v(" "),
-      _c("h1", [_vm._v("Add dog")]),
+      _c("h1", [_vm._v("Edit dog")]),
       _vm._v(" "),
       _c(
         "form",
-        { on: { submit: _vm.store } },
+        {
+          on: {
+            submit: function ($event) {
+              $event.preventDefault()
+              return _vm.update.apply(null, arguments)
+            },
+          },
+        },
         [
+          _vm.form.isDirty
+            ? _c(
+                "div",
+                [
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: {
+                        type: "submit",
+                        color: "primary",
+                        loading: _vm.form.loading,
+                      },
+                    },
+                    [_vm._v("\n        Update\n      ")]
+                  ),
+                ],
+                1
+              )
+            : _vm._e(),
+          _vm._v(" "),
           _c(
             "v-container",
             [
@@ -1110,6 +1161,20 @@ var render = function () {
               _c(
                 "v-row",
                 [
+                  _vm.form.media[0]
+                    ? _c("v-img", {
+                        staticClass: "mx-auto",
+                        staticStyle: { "margin-bottom": "20px" },
+                        attrs: {
+                          src: _vm.form.media[0].original_url,
+                          "aspect-ratio": "1",
+                          contain: "",
+                          "max-width": "200px",
+                          "max-height": "200px",
+                        },
+                      })
+                    : _vm._e(),
+                  _vm._v(" "),
                   _c("v-file-input", {
                     attrs: {
                       "show-size": "",
@@ -1200,7 +1265,7 @@ var render = function () {
                 attrs: {
                   type: "number",
                   "error-messages": _vm.form.errors.weight,
-                  label: "Weight (oz)",
+                  label: "Weight (oz)  " + _vm.lbs(_vm.form.weight),
                 },
                 model: {
                   value: _vm.form.weight,
@@ -1229,17 +1294,20 @@ var render = function () {
             1
           ),
           _vm._v(" "),
-          _c(
-            "v-btn",
-            {
-              attrs: {
-                type: "submit",
-                color: "primary",
-                loading: _vm.form.loading,
-              },
-            },
-            [_vm._v("\n      Submit\n    ")]
-          ),
+          _vm.form.imageProgress
+            ? _c(
+                "progress",
+                {
+                  attrs: { max: "100" },
+                  domProps: { value: _vm.form.imageProgress },
+                },
+                [
+                  _vm._v(
+                    "\n      " + _vm._s(_vm.form.imageProgress) + "%\n    "
+                  ),
+                ]
+              )
+            : _vm._e(),
         ],
         1
       ),
