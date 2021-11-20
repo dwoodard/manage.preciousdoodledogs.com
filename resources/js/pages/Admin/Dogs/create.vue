@@ -1,16 +1,25 @@
 <template>
-  <v-container fluid class="pa-8">
+  <v-container fluid class="px-2">
     <inertia-link href="/admin/dogs" as="span">
       <v-icon>mdi-arrow-left</v-icon>
     </inertia-link>
 
-    <h1>Add dog</h1>
+    <h1 style="display: inline">Add Dog</h1>
     <progress v-if="form.imageProgress" :value="form.imageProgress" max="100">
       {{ form.imageProgress }}%
     </progress>
 
     <form @submit.prevent="store">
-      <v-container>
+      <div v-if="form.isDirty">
+        <!--      submit-->
+        <v-btn type="submit">
+          color="primary"
+          :loading="form.loading">
+          Save
+        </v-btn>
+      </div>
+
+      <v-container fluid>
         <v-row>
           <v-col cols="12" sm="6" md="4">
             <v-text-field
@@ -28,7 +37,7 @@
                       item-text="name"
                       item-value="id"/>
           </v-col>
-          <v-col md="4">
+          <v-col cols="12" md="4">
             <v-menu
               v-model="fromDateMenu"
               :close-on-content-click="false"

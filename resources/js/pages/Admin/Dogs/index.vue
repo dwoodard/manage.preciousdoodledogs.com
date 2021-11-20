@@ -1,18 +1,16 @@
 <template>
-  <v-container>
+  <v-container px-5 fluid>
     <!--tabs-->
-    <v-tabs v-model="tab">
+    <v-tabs v-model="tab" sl>
       <v-tabs-slider color="primary"/>
 
       <!--      different view -->
       <v-tab>
-        <v-icon>mdi-view-dashboard</v-icon>
-        cards
+        <v-icon>mdi-view-dashboard</v-icon> cards
       </v-tab>
 
       <v-tab>
-        <v-icon>mdi-view-list</v-icon>
-        table
+        <v-icon>mdi-view-list</v-icon> table
       </v-tab>
 
       <v-spacer/>
@@ -39,7 +37,7 @@
     <!-- end tabs -->
 
     <!-- Header -->
-    <v-row justify="space-around">
+    <v-row justify="space-around" no-gutters>
       <v-col>
         <h1>My Dogs</h1>
       </v-col>
@@ -49,18 +47,17 @@
     <v-tabs-items v-model="tab">
       <!--  Card view    -->
       <v-tab-item>
-        <v-container class="pa-0">
+        <v-container pa-0 fluid>
           <v-row>
-            <v-col v-for="(dog, index) in dogs" :key="index" xs="12" sm="6" md="4">
-              <v-hover
-                v-slot="{ hover }">
+            <v-col v-for="(dog, index) in dogs" :key="index" cols="12" sm="6" md="4" lg="3" xl="2">
+              <v-hover v-slot="{ hover }">
                 <v-card
-                  :elevation="hover ? 12 : 2"
+                  :elevation="hover ? 12 : 0"
+                  outlined
                   class="mx-auto"
                   max-width="350">
                   <template slot="progress">
                     <v-progress-linear
-                      color="deep-purple"
                       height="10"
                       indeterminate/>
                   </template>
@@ -95,20 +92,18 @@
                         </v-list>
                       </v-menu>
                     </v-col>
+
+                    <v-expansion-panels>
+                      <v-expansion-panel>
+                        <v-expansion-panel-header>
+                          Genetics
+                        </v-expansion-panel-header>
+                        <v-expansion-panel-content>
+                          {{ dog }}
+                        </v-expansion-panel-content>
+                      </v-expansion-panel>
+                    </v-expansion-panels>
                   </v-row>
-
-
-                  <v-expansion-panels>
-                    <v-expansion-panel>
-                      <v-expansion-panel-header>
-                        Genetics
-                      </v-expansion-panel-header>
-                      <v-expansion-panel-content>
-                        {{ dog }}
-                      </v-expansion-panel-content>
-                    </v-expansion-panel>
-                  </v-expansion-panels>
-                  </v-img>
                 </v-card>
               </v-hover>
             </v-col>
@@ -184,5 +179,14 @@
 </script>
 
 <style scoped>
-
+/*
+.container{
+  outline: 2px solid green;
+}
+.row{
+  outline: 2px solid red;
+}
+.col{
+  outline: 2px solid blue;
+}*/
 </style>

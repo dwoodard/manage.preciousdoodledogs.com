@@ -325,6 +325,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -966,7 +975,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "v-container",
-    { staticClass: "pa-8", attrs: { fluid: "" } },
+    { staticClass: "px-2", attrs: { fluid: "" } },
     [
       _c(
         "inertia-link",
@@ -975,7 +984,7 @@ var render = function () {
         1
       ),
       _vm._v(" "),
-      _c("h1", [_vm._v("Add dog")]),
+      _c("h1", { staticStyle: { display: "inline" } }, [_vm._v("Add Dog")]),
       _vm._v(" "),
       _vm.form.imageProgress
         ? _c(
@@ -999,8 +1008,23 @@ var render = function () {
           },
         },
         [
+          _vm.form.isDirty
+            ? _c(
+                "div",
+                [
+                  _c("v-btn", { attrs: { type: "submit" } }, [
+                    _vm._v(
+                      '\n        color="primary"\n        :loading="form.loading">\n        Save\n      '
+                    ),
+                  ]),
+                ],
+                1
+              )
+            : _vm._e(),
+          _vm._v(" "),
           _c(
             "v-container",
+            { attrs: { fluid: "" } },
             [
               _c(
                 "v-row",
@@ -1054,7 +1078,7 @@ var render = function () {
                   _vm._v(" "),
                   _c(
                     "v-col",
-                    { attrs: { md: "4" } },
+                    { attrs: { cols: "12", md: "4" } },
                     [
                       _c(
                         "v-menu",

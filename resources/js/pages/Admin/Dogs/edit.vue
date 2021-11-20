@@ -4,7 +4,7 @@
       <v-icon>mdi-arrow-left</v-icon>
     </inertia-link>
 
-    <h1>Edit dog</h1>
+    <h1 style="display: inline-block">Edit Dog</h1>
 
 
     <form @submit.prevent="update">

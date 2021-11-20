@@ -19,6 +19,7 @@ class DogController extends Controller
         $data = [
             'dogs' => Dog::orderBy('created_at', 'DESC')->get()
                 ->map(function (Dog $dog) {
+                    $dog->age = $dog->age;
                     $dog->getMedia('images');
 
                 return $dog;

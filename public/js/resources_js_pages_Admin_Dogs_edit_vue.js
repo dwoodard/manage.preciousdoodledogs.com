@@ -994,7 +994,9 @@ var render = function () {
         1
       ),
       _vm._v(" "),
-      _c("h1", [_vm._v("Edit dog")]),
+      _c("h1", { staticStyle: { display: "inline-block" } }, [
+        _vm._v("Edit Dog"),
+      ]),
       _vm._v(" "),
       _c(
         "form",
