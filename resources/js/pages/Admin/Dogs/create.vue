@@ -12,9 +12,9 @@
     <form @submit.prevent="store">
       <div v-if="form.isDirty">
         <!--      submit-->
-        <v-btn type="submit">
-          color="primary"
-          :loading="form.loading">
+        <v-btn type="submit"
+               color="primary"
+               :loading="form.loading">
           Save
         </v-btn>
       </div>
@@ -30,12 +30,19 @@
               required/>
           </v-col>
           <v-col cols="12" sm="6" md="4">
-            <v-select v-model="form.gender"
-                      :error-messages="form.errors.gender"
-                      label="Gender"
-                      :items="['male', 'female']"
-                      item-text="name"
-                      item-value="id"/>
+            <div class="d-flex flex-column">
+              <v-select v-model="form.gender"
+                        :error-messages="form.errors.gender"
+                        label="Gender"
+                        hide-details
+                        :items="['male', 'female']"
+                        item-text="name"
+                        item-value="id"/>
+              <v-checkbox v-if="form.gender === 'male'" v-model="form.outside_stud"
+                          hide-details
+                          :error-messages="form.errors.outside_stud"
+                          label="Outside Stud"/>
+            </div>
           </v-col>
           <v-col cols="12" md="4">
             <v-menu
@@ -108,14 +115,9 @@
                   item-text="name"
                   item-value="id"/>
 
-
-        <v-checkbox v-model="form.outside_stud"
-                    :error-messages="form.errors.outside_stud"
-                    label="Outside Stud"/>
-
         <v-text-field v-model="form.weight"
                       type="number"
-                      :error-messages="form.errors.weight"
+                      :error-messages="form.errors.weight"to-lower-case
                       label="Weight (oz)"/>
 
         <v-text-field v-model="form.height"
@@ -123,14 +125,6 @@
                       :error-messages="form.errors.height"
                       label="Height (inches)"/>
       </v-container>
-
-
-      <!--      submit-->
-      <v-btn type="submit"
-             color="primary"
-             :loading="form.loading">
-        Submit
-      </v-btn>
     </form>
   </v-container>
 </template>

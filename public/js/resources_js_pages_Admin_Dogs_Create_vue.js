@@ -328,12 +328,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -1012,11 +1006,17 @@ var render = function () {
             ? _c(
                 "div",
                 [
-                  _c("v-btn", { attrs: { type: "submit" } }, [
-                    _vm._v(
-                      '\n        color="primary"\n        :loading="form.loading">\n        Save\n      '
-                    ),
-                  ]),
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: {
+                        type: "submit",
+                        color: "primary",
+                        loading: _vm.form.loading,
+                      },
+                    },
+                    [_vm._v("\n        Save\n      ")]
+                  ),
                 ],
                 1
               )
@@ -1052,29 +1052,49 @@ var render = function () {
                     1
                   ),
                   _vm._v(" "),
-                  _c(
-                    "v-col",
-                    { attrs: { cols: "12", sm: "6", md: "4" } },
-                    [
-                      _c("v-select", {
-                        attrs: {
-                          "error-messages": _vm.form.errors.gender,
-                          label: "Gender",
-                          items: ["male", "female"],
-                          "item-text": "name",
-                          "item-value": "id",
-                        },
-                        model: {
-                          value: _vm.form.gender,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.form, "gender", $$v)
+                  _c("v-col", { attrs: { cols: "12", sm: "6", md: "4" } }, [
+                    _c(
+                      "div",
+                      { staticClass: "d-flex flex-column" },
+                      [
+                        _c("v-select", {
+                          attrs: {
+                            "error-messages": _vm.form.errors.gender,
+                            label: "Gender",
+                            "hide-details": "",
+                            items: ["male", "female"],
+                            "item-text": "name",
+                            "item-value": "id",
                           },
-                          expression: "form.gender",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
+                          model: {
+                            value: _vm.form.gender,
+                            callback: function ($$v) {
+                              _vm.$set(_vm.form, "gender", $$v)
+                            },
+                            expression: "form.gender",
+                          },
+                        }),
+                        _vm._v(" "),
+                        _vm.form.gender === "male"
+                          ? _c("v-checkbox", {
+                              attrs: {
+                                "hide-details": "",
+                                "error-messages": _vm.form.errors.outside_stud,
+                                label: "Outside Stud",
+                              },
+                              model: {
+                                value: _vm.form.outside_stud,
+                                callback: function ($$v) {
+                                  _vm.$set(_vm.form, "outside_stud", $$v)
+                                },
+                                expression: "form.outside_stud",
+                              },
+                            })
+                          : _vm._e(),
+                      ],
+                      1
+                    ),
+                  ]),
                   _vm._v(" "),
                   _c(
                     "v-col",
@@ -1229,24 +1249,11 @@ var render = function () {
                 },
               }),
               _vm._v(" "),
-              _c("v-checkbox", {
-                attrs: {
-                  "error-messages": _vm.form.errors.outside_stud,
-                  label: "Outside Stud",
-                },
-                model: {
-                  value: _vm.form.outside_stud,
-                  callback: function ($$v) {
-                    _vm.$set(_vm.form, "outside_stud", $$v)
-                  },
-                  expression: "form.outside_stud",
-                },
-              }),
-              _vm._v(" "),
               _c("v-text-field", {
                 attrs: {
                   type: "number",
                   "error-messages": _vm.form.errors.weight,
+                  "to-lower-case": "",
                   label: "Weight (oz)",
                 },
                 model: {
@@ -1274,18 +1281,6 @@ var render = function () {
               }),
             ],
             1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-btn",
-            {
-              attrs: {
-                type: "submit",
-                color: "primary",
-                loading: _vm.form.loading,
-              },
-            },
-            [_vm._v("\n      Submit\n    ")]
           ),
         ],
         1

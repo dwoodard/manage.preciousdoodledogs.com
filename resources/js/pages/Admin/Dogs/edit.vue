@@ -27,12 +27,19 @@
               required/>
           </v-col>
           <v-col cols="12" sm="6" md="4">
-            <v-select v-model="form.gender"
-                      :error-messages="form.errors.gender"
-                      label="Gender"
-                      :items="['male', 'female']"
-                      item-text="name"
-                      item-value="id"/>
+            <div class="d-flex flex-column">
+              <v-select v-model="form.gender"
+                        :error-messages="form.errors.gender"
+                        label="Gender"
+                        hide-details
+                        :items="['male', 'female']"
+                        item-text="name"
+                        item-value="id"/>
+              <v-checkbox v-if="form.gender === 'male'" v-model="form.outside_stud"
+                          hide-details
+                          :error-messages="form.errors.outside_stud"
+                          label="Outside Stud"/>
+            </div>
           </v-col>
           <v-col md="4">
             <v-menu
@@ -54,8 +61,8 @@
               <v-date-picker
                 v-model="form.birthday"
                 locale="en-in"
+                show-adjacent-months
                 scrollable
-                no-title
                 @input="fromDateMenu = false"/>
             </v-menu>
           </v-col>
@@ -113,11 +120,6 @@
                   :items="[ 'f1b', 'f1', 'f2b', 'f2bb', 'multigen' ]"
                   item-text="name"
                   item-value="id"/>
-
-
-        <v-checkbox v-model="form.outside_stud"
-                    :error-messages="form.errors.outside_stud"
-                    label="Outside Stud"/>
 
         <v-text-field v-model="form.weight"
                       type="number"

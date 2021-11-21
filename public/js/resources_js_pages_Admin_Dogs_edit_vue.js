@@ -338,6 +338,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -1058,29 +1060,49 @@ var render = function () {
                     1
                   ),
                   _vm._v(" "),
-                  _c(
-                    "v-col",
-                    { attrs: { cols: "12", sm: "6", md: "4" } },
-                    [
-                      _c("v-select", {
-                        attrs: {
-                          "error-messages": _vm.form.errors.gender,
-                          label: "Gender",
-                          items: ["male", "female"],
-                          "item-text": "name",
-                          "item-value": "id",
-                        },
-                        model: {
-                          value: _vm.form.gender,
-                          callback: function ($$v) {
-                            _vm.$set(_vm.form, "gender", $$v)
+                  _c("v-col", { attrs: { cols: "12", sm: "6", md: "4" } }, [
+                    _c(
+                      "div",
+                      { staticClass: "d-flex flex-column" },
+                      [
+                        _c("v-select", {
+                          attrs: {
+                            "error-messages": _vm.form.errors.gender,
+                            label: "Gender",
+                            "hide-details": "",
+                            items: ["male", "female"],
+                            "item-text": "name",
+                            "item-value": "id",
                           },
-                          expression: "form.gender",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
+                          model: {
+                            value: _vm.form.gender,
+                            callback: function ($$v) {
+                              _vm.$set(_vm.form, "gender", $$v)
+                            },
+                            expression: "form.gender",
+                          },
+                        }),
+                        _vm._v(" "),
+                        _vm.form.gender === "male"
+                          ? _c("v-checkbox", {
+                              attrs: {
+                                "hide-details": "",
+                                "error-messages": _vm.form.errors.outside_stud,
+                                label: "Outside Stud",
+                              },
+                              model: {
+                                value: _vm.form.outside_stud,
+                                callback: function ($$v) {
+                                  _vm.$set(_vm.form, "outside_stud", $$v)
+                                },
+                                expression: "form.outside_stud",
+                              },
+                            })
+                          : _vm._e(),
+                      ],
+                      1
+                    ),
+                  ]),
                   _vm._v(" "),
                   _c(
                     "v-col",
@@ -1134,8 +1156,8 @@ var render = function () {
                           _c("v-date-picker", {
                             attrs: {
                               locale: "en-in",
+                              "show-adjacent-months": "",
                               scrollable: "",
-                              "no-title": "",
                             },
                             on: {
                               input: function ($event) {
@@ -1246,20 +1268,6 @@ var render = function () {
                     _vm.$set(_vm.form, "generation", $$v)
                   },
                   expression: "form.generation",
-                },
-              }),
-              _vm._v(" "),
-              _c("v-checkbox", {
-                attrs: {
-                  "error-messages": _vm.form.errors.outside_stud,
-                  label: "Outside Stud",
-                },
-                model: {
-                  value: _vm.form.outside_stud,
-                  callback: function ($$v) {
-                    _vm.$set(_vm.form, "outside_stud", $$v)
-                  },
-                  expression: "form.outside_stud",
                 },
               }),
               _vm._v(" "),

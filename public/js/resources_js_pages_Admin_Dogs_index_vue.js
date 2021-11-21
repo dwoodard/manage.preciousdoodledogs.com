@@ -344,6 +344,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   layout: _layouts_Admin_Layout__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -361,17 +364,28 @@ __webpack_require__.r(__webpack_exports__);
       showAddDog: false
     };
   },
+  computed: {
+    filterDogs: function filterDogs() {
+      var _this = this;
+
+      return this.dogs.filter(function (dog) {
+        var _dog$name;
+
+        return (_dog$name = dog.name) === null || _dog$name === void 0 ? void 0 : _dog$name.toLowerCase().includes(_this.search.toLowerCase());
+      });
+    }
+  },
   methods: {
     getImage: function getImage(dog) {
       return dog.media.length > 0 ? dog.media[0].original_url : null;
     },
     toggleAll: function toggleAll() {
-      var _this = this;
+      var _this2 = this;
 
       Object.keys(this.$refs).forEach(function (k) {
-        console.log(_this.$refs[k]);
+        console.log(_this2.$refs[k]);
 
-        _this.$refs[k].$el.click();
+        _this2.$refs[k].$el.click();
       });
     }
   }
@@ -395,7 +409,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*\n.container{\n  outline: 2px solid green;\n}\n.row{\n  outline: 2px solid red;\n}\n.col{\n  outline: 2px solid blue;\n}*/\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*\n.container{\n  outline: 2px solid green;\n}\n.row{\n  outline: 2px solid red;\n}\n.col{\n  outline: 2px solid blue;\n}*/\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1075,7 +1089,7 @@ var render = function () {
                         "v-icon",
                         _vm._g(
                           _vm._b(
-                            { attrs: { fab: "" } },
+                            { attrs: { icon: "" } },
                             "v-icon",
                             attrs,
                             false
@@ -1138,7 +1152,32 @@ var render = function () {
       _c(
         "v-row",
         { attrs: { justify: "space-around", "no-gutters": "" } },
-        [_c("v-col", [_c("h1", [_vm._v("My Dogs")])])],
+        [
+          _c("v-col", [_c("h1", [_vm._v("My Dogs")])]),
+          _vm._v(" "),
+          _c(
+            "v-col",
+            [
+              _c("v-text-field", {
+                attrs: {
+                  "append-icon": "mdi-magnify",
+                  label: "Search",
+                  clearable: "",
+                  "single-line": "",
+                  "hide-details": "",
+                },
+                model: {
+                  value: _vm.search,
+                  callback: function ($$v) {
+                    _vm.search = $$v
+                  },
+                  expression: "search",
+                },
+              }),
+            ],
+            1
+          ),
+        ],
         1
       ),
       _vm._v(" "),
@@ -1163,7 +1202,7 @@ var render = function () {
                 [
                   _c(
                     "v-row",
-                    _vm._l(_vm.dogs, function (dog, index) {
+                    _vm._l(_vm.filterDogs, function (dog, index) {
                       return _c(
                         "v-col",
                         {
@@ -1410,23 +1449,6 @@ var render = function () {
           _c(
             "v-tab-item",
             [
-              _c("v-text-field", {
-                attrs: {
-                  "append-icon": "mdi-magnify",
-                  label: "Search",
-                  clearable: "",
-                  "single-line": "",
-                  "hide-details": "",
-                },
-                model: {
-                  value: _vm.search,
-                  callback: function ($$v) {
-                    _vm.search = $$v
-                  },
-                  expression: "search",
-                },
-              }),
-              _vm._v(" "),
               _c("v-data-table", {
                 staticClass: "elevation-1",
                 attrs: {

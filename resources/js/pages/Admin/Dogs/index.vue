@@ -17,9 +17,10 @@
 
       <v-menu offset-y>
         <template #activator="{ on, attrs }">
-          <v-icon fab
-                  v-bind="attrs"
-                  v-on="on">
+          <v-icon
+            v-bind="attrs"
+            icon=""
+            v-on="on">
             mdi-dots-vertical
           </v-icon>
         </template>
@@ -41,6 +42,16 @@
       <v-col>
         <h1>My Dogs</h1>
       </v-col>
+
+      <v-col>
+        <v-text-field
+          v-model="search"
+          append-icon="mdi-magnify"
+          label="Search"
+          clearable
+          single-line
+          hide-details/>
+      </v-col>
     </v-row>
 
 
@@ -49,7 +60,7 @@
       <v-tab-item>
         <v-container pa-0 fluid>
           <v-row>
-            <v-col v-for="(dog, index) in dogs" :key="index" cols="12" sm="6" md="4" lg="3" xl="2">
+            <v-col v-for="(dog, index) in filterDogs" :key="index" cols="12" sm="6" md="4" lg="3" xl="2">
               <v-hover v-slot="{ hover }">
                 <v-card
                   :elevation="hover ? 12 : 0"
@@ -113,14 +124,6 @@
 
       <!--  Table view    -->
       <v-tab-item>
-        <v-text-field
-          v-model="search"
-          append-icon="mdi-magnify"
-          label="Search"
-          clearable
-          single-line
-          hide-details/>
-
         <v-data-table
           :search="search"
           multi-sort
@@ -163,6 +166,13 @@
         dialog: false,
         showAddDog: false
       };
+    },
+    computed: {
+      filterDogs() {
+        return this.dogs.filter((dog) => {
+          return dog.name?.toLowerCase().includes(this.search.toLowerCase());
+        });
+      }
     },
     methods: {
       getImage(dog) {
