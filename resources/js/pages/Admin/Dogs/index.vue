@@ -55,6 +55,17 @@
     </v-row>
 
 
+    <v-row v-if="search" no-gutters>
+      <v-col>
+        <v-alert dense class="mt-2 pa-0">
+          <span>
+            Showing {{ Object.keys(filterDogs).length }} of {{ Object.keys(dogs.data).length }} results
+          </span>
+        </v-alert>
+      </v-col>
+    </v-row>
+
+
     <v-tabs-items v-model="tab">
       <!--  Card view    -->
       <v-tab-item>
@@ -131,6 +142,7 @@
           show-expand
           :expanded.sync="expanded"
           :headers="[
+            { text: 'id', value: 'id' },
             { text: 'Name', value: 'name' },
             { text: 'Gender', value: 'gender' },
             { text: 'Breed', value: 'breed' },
@@ -145,7 +157,7 @@
           class="elevation-1">
           <!-- -->
 
-          <template #expanded-item="{ headers, item }">
+          <template #expanded-item="{ headers, dog }">
             <td :colspan="headers.length" class="pa-0 rounded-0">
               <v-expansion-panels>
                 <v-expansion-panel>
@@ -153,7 +165,7 @@
                     Genetics
                   </v-expansion-panel-header>
                   <v-expansion-panel-content>
-                    {{ item }}
+                    {{ dog }}
                   </v-expansion-panel-content>
                 </v-expansion-panel>
 
@@ -162,7 +174,7 @@
                     TEST
                   </v-expansion-panel-header>
                   <v-expansion-panel-content>
-                    {{ item }}
+                    {{ dog }}
                   </v-expansion-panel-content>
                 </v-expansion-panel>
               </v-expansion-panels>
@@ -198,9 +210,20 @@
     },
     computed: {
       filterDogs() {
-        return this.dogs.data.filter((dog) => {
-          return dog.name?.toLowerCase().includes(this.search.toLowerCase());
-        });
+        // filter dogs object
+        if (this.search) {
+          return Object.fromEntries(
+            Object.entries(this.dogs.data).filter(([key, dog]) => {
+              return (
+                dog.name.toLowerCase().includes(this.search.toLowerCase())
+                || dog.id.toString().includes(this.search)
+              );
+            })
+          );
+        }
+
+
+        return this.dogs.data;
       }
     },
     methods: {

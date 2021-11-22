@@ -197,6 +197,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _layouts_Admin_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/layouts/Admin/Layout */ "./resources/js/layouts/Admin/Layout.vue");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -397,11 +421,18 @@ __webpack_require__.r(__webpack_exports__);
     filterDogs: function filterDogs() {
       var _this = this;
 
-      return this.dogs.data.filter(function (dog) {
-        var _dog$name;
+      // filter dogs object
+      if (this.search) {
+        return Object.fromEntries(Object.entries(this.dogs.data).filter(function (_ref) {
+          var _ref2 = _slicedToArray(_ref, 2),
+              key = _ref2[0],
+              dog = _ref2[1];
 
-        return (_dog$name = dog.name) === null || _dog$name === void 0 ? void 0 : _dog$name.toLowerCase().includes(_this.search.toLowerCase());
-      });
+          return dog.name.toLowerCase().includes(_this.search.toLowerCase()) || dog.id.toString().includes(_this.search);
+        }));
+      }
+
+      return this.dogs.data;
     }
   },
   methods: {
@@ -438,7 +469,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*\n.container{\n  outline: 2px solid green;\n}\n.row{\n  outline: 2px solid red;\n}\n.col{\n  outline: 2px solid blue;\n}*/\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*\n.container{\n  outline: 2px solid green;\n}\n.row{\n  outline: 2px solid red;\n}\n.col{\n  outline: 2px solid blue;\n}*/\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1210,6 +1241,37 @@ var render = function () {
         1
       ),
       _vm._v(" "),
+      _vm.search
+        ? _c(
+            "v-row",
+            { attrs: { "no-gutters": "" } },
+            [
+              _c(
+                "v-col",
+                [
+                  _c(
+                    "v-alert",
+                    { staticClass: "mt-2 pa-0", attrs: { dense: "" } },
+                    [
+                      _c("span", [
+                        _vm._v(
+                          "\n          Showing " +
+                            _vm._s(Object.keys(_vm.filterDogs).length) +
+                            " of " +
+                            _vm._s(Object.keys(_vm.dogs.data).length) +
+                            " results\n        "
+                        ),
+                      ]),
+                    ]
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
       _c(
         "v-tabs-items",
         {
@@ -1487,6 +1549,7 @@ var render = function () {
                   "show-expand": "",
                   expanded: _vm.expanded,
                   headers: [
+                    { text: "id", value: "id" },
                     { text: "Name", value: "name" },
                     { text: "Gender", value: "gender" },
                     { text: "Breed", value: "breed" },
@@ -1509,7 +1572,7 @@ var render = function () {
                     key: "expanded-item",
                     fn: function (ref) {
                       var headers = ref.headers
-                      var item = ref.item
+                      var dog = ref.dog
                       return [
                         _c(
                           "td",
@@ -1533,7 +1596,7 @@ var render = function () {
                                     _c("v-expansion-panel-content", [
                                       _vm._v(
                                         "\n                  " +
-                                          _vm._s(item) +
+                                          _vm._s(dog) +
                                           "\n                "
                                       ),
                                     ]),
@@ -1553,7 +1616,7 @@ var render = function () {
                                     _c("v-expansion-panel-content", [
                                       _vm._v(
                                         "\n                  " +
-                                          _vm._s(item) +
+                                          _vm._s(dog) +
                                           "\n                "
                                       ),
                                     ]),
