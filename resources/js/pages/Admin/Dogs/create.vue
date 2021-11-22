@@ -149,7 +149,6 @@
           weight: '',
           height: '',
           image: ''
-
         })
       };
     },

@@ -121,15 +121,15 @@
                   item-text="name"
                   item-value="id"/>
 
-        <v-text-field v-model="form.weight"
+        <v-text-field v-model="form.weight.ounces"
                       type="number"
                       :error-messages="form.errors.weight"
-                      :label="`Weight (oz)  ${lbs(form.weight)}`"/>
+                      :label="`Weight (oz)  ${lbs(form.weight.ounces)}`"/>
 
-        <v-text-field v-model="form.height"
+        <v-text-field v-model="form.height.inches"
                       type="number"
                       :error-messages="form.errors.height"
-                      label="Height (inches)"/>
+                      :label="`Height (inches) ${feet(form.height.inches)}`"/>
       </v-container>
 
       <progress v-if="form.imageProgress" :value="form.imageProgress" max="100">
@@ -179,6 +179,15 @@
         }
 
         return `(${(weight / 16).toFixed(1)} lbs)`;
+      },
+
+      feet(height) {
+        if (typeof height === 'object' || !height || isNaN(height)) {
+          return '';
+        }
+
+        // inches to feet
+        return `(${(height / 12).toFixed(1)} ft)`;
       },
       update() {
         this.form.post(this.route('admin.dogs.update', {

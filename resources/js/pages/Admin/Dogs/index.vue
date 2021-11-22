@@ -127,6 +127,9 @@
         <v-data-table
           :search="search"
           multi-sort
+          :single-expand="singleExpand"
+          show-expand
+          :expanded.sync="expanded"
           :headers="[
             { text: 'Name', value: 'name' },
             { text: 'Gender', value: 'gender' },
@@ -136,11 +139,35 @@
             { text: 'Age (months)', value: 'age.months' },
             { text: 'Weight (ounces)', value: 'weight.ounces' },
             { text: 'Outside stud', value: 'outside_stud' },
-
           ]"
-          :items="dogs"
+          :items="dogs.data"
           :items-per-page="100"
           class="elevation-1">
+          <!-- -->
+
+          <template #expanded-item="{ headers, item }">
+            <td :colspan="headers.length" class="pa-0 rounded-0">
+              <v-expansion-panels>
+                <v-expansion-panel>
+                  <v-expansion-panel-header>
+                    Genetics
+                  </v-expansion-panel-header>
+                  <v-expansion-panel-content>
+                    {{ item }}
+                  </v-expansion-panel-content>
+                </v-expansion-panel>
+
+                <v-expansion-panel>
+                  <v-expansion-panel-header>
+                    TEST
+                  </v-expansion-panel-header>
+                  <v-expansion-panel-content>
+                    {{ item }}
+                  </v-expansion-panel-content>
+                </v-expansion-panel>
+              </v-expansion-panels>
+            </td>
+          </template>
           <!-- -->
         </v-data-table>
       </v-tab-item>
@@ -155,7 +182,7 @@
     layout: Layout,
     props: {
       dogs: {
-        type: Array,
+        type: Object,
         required: true
       }
     },
@@ -164,12 +191,14 @@
         tab: 0,
         search: '',
         dialog: false,
-        showAddDog: false
+        showAddDog: false,
+        singleExpand: false,
+        expanded: []
       };
     },
     computed: {
       filterDogs() {
-        return this.dogs.filter((dog) => {
+        return this.dogs.data.filter((dog) => {
           return dog.name?.toLowerCase().includes(this.search.toLowerCase());
         });
       }

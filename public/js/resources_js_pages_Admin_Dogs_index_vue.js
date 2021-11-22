@@ -347,12 +347,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   layout: _layouts_Admin_Layout__WEBPACK_IMPORTED_MODULE_0__["default"],
   props: {
     dogs: {
-      type: Array,
+      type: Object,
       required: true
     }
   },
@@ -361,14 +388,16 @@ __webpack_require__.r(__webpack_exports__);
       tab: 0,
       search: '',
       dialog: false,
-      showAddDog: false
+      showAddDog: false,
+      singleExpand: false,
+      expanded: []
     };
   },
   computed: {
     filterDogs: function filterDogs() {
       var _this = this;
 
-      return this.dogs.filter(function (dog) {
+      return this.dogs.data.filter(function (dog) {
         var _dog$name;
 
         return (_dog$name = dog.name) === null || _dog$name === void 0 ? void 0 : _dog$name.toLowerCase().includes(_this.search.toLowerCase());
@@ -409,7 +438,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*\n.container{\n  outline: 2px solid green;\n}\n.row{\n  outline: 2px solid red;\n}\n.col{\n  outline: 2px solid blue;\n}*/\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*\n.container{\n  outline: 2px solid green;\n}\n.row{\n  outline: 2px solid red;\n}\n.col{\n  outline: 2px solid blue;\n}*/\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1454,6 +1483,9 @@ var render = function () {
                 attrs: {
                   search: _vm.search,
                   "multi-sort": "",
+                  "single-expand": _vm.singleExpand,
+                  "show-expand": "",
+                  expanded: _vm.expanded,
                   headers: [
                     { text: "Name", value: "name" },
                     { text: "Gender", value: "gender" },
@@ -1464,9 +1496,80 @@ var render = function () {
                     { text: "Weight (ounces)", value: "weight.ounces" },
                     { text: "Outside stud", value: "outside_stud" },
                   ],
-                  items: _vm.dogs,
+                  items: _vm.dogs.data,
                   "items-per-page": 100,
                 },
+                on: {
+                  "update:expanded": function ($event) {
+                    _vm.expanded = $event
+                  },
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "expanded-item",
+                    fn: function (ref) {
+                      var headers = ref.headers
+                      var item = ref.item
+                      return [
+                        _c(
+                          "td",
+                          {
+                            staticClass: "pa-0 rounded-0",
+                            attrs: { colspan: headers.length },
+                          },
+                          [
+                            _c(
+                              "v-expansion-panels",
+                              [
+                                _c(
+                                  "v-expansion-panel",
+                                  [
+                                    _c("v-expansion-panel-header", [
+                                      _vm._v(
+                                        "\n                  Genetics\n                "
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("v-expansion-panel-content", [
+                                      _vm._v(
+                                        "\n                  " +
+                                          _vm._s(item) +
+                                          "\n                "
+                                      ),
+                                    ]),
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-expansion-panel",
+                                  [
+                                    _c("v-expansion-panel-header", [
+                                      _vm._v(
+                                        "\n                  TEST\n                "
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("v-expansion-panel-content", [
+                                      _vm._v(
+                                        "\n                  " +
+                                          _vm._s(item) +
+                                          "\n                "
+                                      ),
+                                    ]),
+                                  ],
+                                  1
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ]
+                    },
+                  },
+                ]),
               }),
             ],
             1

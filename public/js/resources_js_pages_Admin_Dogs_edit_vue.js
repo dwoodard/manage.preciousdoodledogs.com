@@ -378,6 +378,14 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
       return "(".concat((weight / 16).toFixed(1), " lbs)");
     },
+    feet: function feet(height) {
+      if (_typeof(height) === 'object' || !height || isNaN(height)) {
+        return '';
+      } // inches to feet
+
+
+      return "(".concat((height / 12).toFixed(1), " ft)");
+    },
     update: function update() {
       var _this = this;
 
@@ -1275,14 +1283,14 @@ var render = function () {
                 attrs: {
                   type: "number",
                   "error-messages": _vm.form.errors.weight,
-                  label: "Weight (oz)  " + _vm.lbs(_vm.form.weight),
+                  label: "Weight (oz)  " + _vm.lbs(_vm.form.weight.ounces),
                 },
                 model: {
-                  value: _vm.form.weight,
+                  value: _vm.form.weight.ounces,
                   callback: function ($$v) {
-                    _vm.$set(_vm.form, "weight", $$v)
+                    _vm.$set(_vm.form.weight, "ounces", $$v)
                   },
-                  expression: "form.weight",
+                  expression: "form.weight.ounces",
                 },
               }),
               _vm._v(" "),
@@ -1290,14 +1298,14 @@ var render = function () {
                 attrs: {
                   type: "number",
                   "error-messages": _vm.form.errors.height,
-                  label: "Height (inches)",
+                  label: "Height (inches) " + _vm.feet(_vm.form.height.inches),
                 },
                 model: {
-                  value: _vm.form.height,
+                  value: _vm.form.height.inches,
                   callback: function ($$v) {
-                    _vm.$set(_vm.form, "height", $$v)
+                    _vm.$set(_vm.form.height, "inches", $$v)
                   },
-                  expression: "form.height",
+                  expression: "form.height.inches",
                 },
               }),
             ],

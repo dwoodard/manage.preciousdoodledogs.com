@@ -24,7 +24,7 @@ class CreateDogsTable extends Migration
             $table->boolean('outside_stud')->nullable();
             $table->string('weight')->nullable();
             $table->string('height')->nullable();
-             $table->date('retired_at')->nullable();
+            $table->date('retired_at')->nullable();
             $table->timestamps();
         });
     }

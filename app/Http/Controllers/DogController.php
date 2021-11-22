@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\DogResource;
 use App\Models\Dog;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -17,12 +18,7 @@ class DogController extends Controller
     public function index(): Response
     {
         $data = [
-            'dogs' => Dog::orderBy('created_at', 'DESC')->get()
-                ->map(function (Dog $dog) {
-                    $dog->getMedia('images');
-
-                return $dog;
-            }),
+            'dogs' =>  (new DogResource(Dog::all())),
         ];
 
         return Inertia::render('Admin/Dogs/index', $data);
