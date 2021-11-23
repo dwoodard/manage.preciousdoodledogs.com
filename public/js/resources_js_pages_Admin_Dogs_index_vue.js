@@ -197,12 +197,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _layouts_Admin_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/layouts/Admin/Layout */ "./resources/js/layouts/Admin/Layout.vue");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+//
+//
+//
+//
 //
 //
 //
@@ -401,19 +399,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: {
-    flattenDogs: function flattenDogs() {
-      return this.dogs.map(function (dog) {
-        return _objectSpread({}, dog.data);
-      });
-    },
     filterDogs: function filterDogs() {
       var _this = this;
 
       if (this.search) {
         return this.dogs.filter(function (dog) {
-          var _dog$data$name;
+          var _dog$name;
 
-          return (_dog$data$name = dog.data.name) === null || _dog$data$name === void 0 ? void 0 : _dog$data$name.toLowerCase().includes(_this.search.toLowerCase());
+          return (_dog$name = dog.name) === null || _dog$name === void 0 ? void 0 : _dog$name.toLowerCase().includes(_this.search.toLowerCase());
         });
       }
 
@@ -421,8 +414,38 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   methods: {
+    traits: function traits(_traits) {
+      // keep everything but the keys dog_id and id
+      return Object.keys(_traits).reduce(function (acc, key) {
+        if (key !== 'dog_id' && key !== 'id') {
+          acc[key] = _traits[key];
+        }
+
+        return acc;
+      }, {});
+    },
+    traitsCount: function traitsCount(traits) {
+      // if traits is null, empty string, or undefined
+      if (!traits) {
+        return 0;
+      }
+
+      var i = 0; // loop through traits and if trait is not null, empty string, or undefined, increment i
+
+      Object.keys(traits).forEach(function (trait) {
+        // if key is id or dog_id, skip
+        if (trait === 'id' || trait === 'dog_id') {
+          return;
+        }
+
+        if (traits[trait]) {
+          i++;
+        }
+      });
+      return i;
+    },
     getImage: function getImage(dog) {
-      return dog.data.media.length > 0 ? dog.data.media[0].original_url : null;
+      return dog.media.length > 0 ? dog.media[0].original_url : null;
     },
     toggleAll: function toggleAll() {
       var _this2 = this;
@@ -454,7 +477,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*\n.container{\n  outline: 2px solid green;\n}\n.row{\n  outline: 2px solid red;\n}\n.col{\n  outline: 2px solid blue;\n}*/\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*\n.container{\n  outline: 2px solid green;\n}\n.row{\n  outline: 2px solid red;\n}\n.col{\n  outline: 2px solid blue;\n}*/\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1106,14 +1129,17 @@ var render = function () {
             "v-tab",
             [
               _c("v-icon", [_vm._v("mdi-view-dashboard")]),
-              _vm._v(" cards\n    "),
+              _vm._v("\n      cards\n    "),
             ],
             1
           ),
           _vm._v(" "),
           _c(
             "v-tab",
-            [_c("v-icon", [_vm._v("mdi-view-list")]), _vm._v(" table\n    ")],
+            [
+              _c("v-icon", [_vm._v("mdi-view-list")]),
+              _vm._v("\n      table\n    "),
+            ],
             1
           ),
           _vm._v(" "),
@@ -1174,7 +1200,9 @@ var render = function () {
                             },
                             [
                               _c("v-icon", [_vm._v("mdi-plus")]),
-                              _vm._v(" Add New Dog\n            "),
+                              _vm._v(
+                                "\n              Add New Dog\n            "
+                              ),
                             ],
                             1
                           ),
@@ -1328,7 +1356,7 @@ var render = function () {
                                           _c("v-img", {
                                             attrs: {
                                               src: _vm.getImage(dog),
-                                              "aspect-ratio": "1.1",
+                                              "aspect-ratio": "1.61",
                                               contain: "",
                                             },
                                           }),
@@ -1349,9 +1377,7 @@ var render = function () {
                                                     [
                                                       _vm._v(
                                                         "\n                      " +
-                                                          _vm._s(
-                                                            dog.data.name
-                                                          ) +
+                                                          _vm._s(dog.name) +
                                                           "\n                    "
                                                       ),
                                                     ]
@@ -1435,9 +1461,7 @@ var render = function () {
                                                                     href: _vm.route(
                                                                       "admin.dogs.edit",
                                                                       {
-                                                                        dog: dog
-                                                                          .data
-                                                                          .id,
+                                                                        dog: dog.id,
                                                                       }
                                                                     ),
                                                                     as: "v-list-item",
@@ -1450,7 +1474,7 @@ var render = function () {
                                                                     ),
                                                                   ]),
                                                                   _vm._v(
-                                                                    " Edit\n                          "
+                                                                    "\n                            Edit\n                          "
                                                                   ),
                                                                 ],
                                                                 1
@@ -1471,36 +1495,37 @@ var render = function () {
                                               _c(
                                                 "v-expansion-panels",
                                                 [
-                                                  dog.data.traits
-                                                    ? _c(
-                                                        "v-expansion-panel",
+                                                  _c(
+                                                    "v-expansion-panel",
+                                                    [
+                                                      _c(
+                                                        "v-expansion-panel-header",
                                                         [
-                                                          _c(
-                                                            "v-expansion-panel-header",
-                                                            [
-                                                              _vm._v(
-                                                                "\n                        Traits\n                      "
-                                                              ),
-                                                            ]
+                                                          _vm._v(
+                                                            "\n                        Traits " +
+                                                              _vm._s(
+                                                                _vm.traitsCount(
+                                                                  dog.traits
+                                                                )
+                                                              ) +
+                                                              "\n                      "
                                                           ),
-                                                          _vm._v(" "),
-                                                          _c(
-                                                            "v-expansion-panel-content",
-                                                            [
-                                                              _vm._v(
-                                                                "\n                        " +
-                                                                  _vm._s(
-                                                                    dog.data
-                                                                      .traits
-                                                                  ) +
-                                                                  "\n                      "
-                                                              ),
-                                                            ]
-                                                          ),
-                                                        ],
-                                                        1
-                                                      )
-                                                    : _vm._e(),
+                                                        ]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "v-expansion-panel-content",
+                                                        [
+                                                          _c("pre", [
+                                                            _vm._v(
+                                                              _vm._s(dog.traits)
+                                                            ),
+                                                          ]),
+                                                        ]
+                                                      ),
+                                                    ],
+                                                    1
+                                                  ),
                                                 ],
                                                 1
                                               ),
@@ -1553,7 +1578,7 @@ var render = function () {
                     { text: "Age (months)", value: "age.months" },
                     { text: "Weight (ounces)", value: "weight.ounces" },
                   ],
-                  items: _vm.flattenDogs,
+                  items: _vm.dogs,
                   "items-per-page": 100,
                 },
                 on: {
@@ -1588,11 +1613,7 @@ var render = function () {
                                     ]),
                                     _vm._v(" "),
                                     _c("v-expansion-panel-content", [
-                                      _vm._v(
-                                        "\n                  " +
-                                          _vm._s(item.traits) +
-                                          "\n                "
-                                      ),
+                                      _c("pre", [_vm._v(_vm._s(item.traits))]),
                                     ]),
                                   ],
                                   1

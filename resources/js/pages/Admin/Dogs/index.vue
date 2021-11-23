@@ -6,11 +6,13 @@
 
       <!--      different view -->
       <v-tab>
-        <v-icon>mdi-view-dashboard</v-icon> cards
+        <v-icon>mdi-view-dashboard</v-icon>
+        cards
       </v-tab>
 
       <v-tab>
-        <v-icon>mdi-view-list</v-icon> table
+        <v-icon>mdi-view-list</v-icon>
+        table
       </v-tab>
 
       <v-spacer/>
@@ -28,7 +30,8 @@
           <v-list-item ripple>
             <v-list-item-title>
               <inertia-link v-ripple href="/admin/dogs/create" as="v-list-item">
-                <v-icon>mdi-plus</v-icon> Add New Dog
+                <v-icon>mdi-plus</v-icon>
+                Add New Dog
               </inertia-link>
             </v-list-item-title>
           </v-list-item>
@@ -86,13 +89,13 @@
 
                   <v-img
                     :src="getImage(dog)"
-                    aspect-ratio="1.1"
+                    aspect-ratio="1.61"
                     contain/>
 
                   <v-row no-gutters>
                     <v-col cols="11">
                       <v-card-title class="text-lg-h6">
-                        {{ dog.data.name }}
+                        {{ dog.name }}
                       </v-card-title>
                     </v-col>
                     <v-spacer/>
@@ -107,8 +110,9 @@
                         </template>
                         <v-list>
                           <v-list-item>
-                            <inertia-link v-ripple :href="route('admin.dogs.edit', {dog:dog.data.id})" as="v-list-item">
-                              <v-icon>mdi-circle-edit-outline</v-icon> Edit
+                            <inertia-link v-ripple :href="route('admin.dogs.edit', {dog:dog.id})" as="v-list-item">
+                              <v-icon>mdi-circle-edit-outline</v-icon>
+                              Edit
                             </inertia-link>
                           </v-list-item>
                         </v-list>
@@ -116,12 +120,12 @@
                     </v-col>
 
                     <v-expansion-panels>
-                      <v-expansion-panel v-if="dog.data.traits">
+                      <v-expansion-panel>
                         <v-expansion-panel-header>
-                          Traits
+                          Traits {{ traitsCount(dog.traits) }}
                         </v-expansion-panel-header>
                         <v-expansion-panel-content>
-                          {{ dog.data.traits }}
+                          <pre>{{ dog.traits }}</pre>
                         </v-expansion-panel-content>
                       </v-expansion-panel>
                     </v-expansion-panels>
@@ -152,7 +156,7 @@
             { text: 'Age (months)', value: 'age.months' },
             { text: 'Weight (ounces)', value: 'weight.ounces' },
           ]"
-          :items="flattenDogs"
+          :items="dogs"
           :items-per-page="100"
           class="elevation-1">
           <!-- -->
@@ -164,7 +168,7 @@
                     Traits
                   </v-expansion-panel-header>
                   <v-expansion-panel-content>
-                    {{ item.traits }}
+                    <pre>{{ item.traits }}</pre>
                   </v-expansion-panel-content>
                 </v-expansion-panel>
               </v-expansion-panels>
@@ -198,17 +202,12 @@
       };
     },
     computed: {
-      flattenDogs() {
-        return this.dogs.map((dog) => {
-          return {
-            ...dog.data
-          };
-        });
-      },
+
       filterDogs() {
         if (this.search) {
           return this.dogs.filter((dog) => {
-            return dog.data.name?.toLowerCase().includes(this.search.toLowerCase());
+            return dog.name?.toLowerCase()
+              .includes(this.search.toLowerCase());
           });
         }
 
@@ -216,14 +215,46 @@
       }
     },
     methods: {
-      getImage(dog) {
-        return dog.data.media.length > 0 ? dog.data.media[0].original_url : null;
+      traits(traits) {
+        // keep everything but the keys dog_id and id
+        return Object.keys(traits).reduce((acc, key) => {
+          if (key !== 'dog_id' && key !== 'id') {
+            acc[key] = traits[key];
+          }
+
+          return acc;
+        }, {});
       },
-      toggleAll() {
-        Object.keys(this.$refs).forEach((k) => {
-          console.log(this.$refs[k]);
-          this.$refs[k].$el.click();
+      traitsCount(traits) {
+        // if traits is null, empty string, or undefined
+        if (!traits) { return 0; }
+
+        let i = 0;
+
+        // loop through traits and if trait is not null, empty string, or undefined, increment i
+        Object.keys(traits).forEach((trait) => {
+          // if key is id or dog_id, skip
+          if (trait === 'id' || trait === 'dog_id') { return; }
+
+          if (traits[trait]) {
+            i++;
+          }
         });
+
+        return i;
+      },
+
+      getImage(dog) {
+        return dog.media.length > 0 ? dog.media[0].original_url : null;
+      },
+
+
+      toggleAll() {
+        Object.keys(this.$refs)
+          .forEach((k) => {
+            console.log(this.$refs[k]);
+            this.$refs[k].$el.click();
+          });
       }
     }
 

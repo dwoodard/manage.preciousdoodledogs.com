@@ -24,7 +24,7 @@ class DogController extends Controller
             ->get();
 
         $data = [
-            'dogs' => $dogs
+            'dogs' => $dogs->toArray()
         ];
 
         return Inertia::render('Admin/Dogs/index', $data);

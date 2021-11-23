@@ -90,7 +90,6 @@ class Dog extends Model implements HasMedia
     public function toArray()
     {
         return [
-            'data' => [
                 'id' => $this->id,
                 'name' => $this->name,
                 'breed' => $this->breed,
@@ -108,7 +107,6 @@ class Dog extends Model implements HasMedia
                     ->map(function ($media) {
                         return $media->toArray();
                     })
-            ]
         ];
     }
 }

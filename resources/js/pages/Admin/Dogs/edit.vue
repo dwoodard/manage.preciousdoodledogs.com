@@ -154,17 +154,17 @@
         fromDateMenu: false,
         form: this.$inertia.form(`EditDog${this.dog.id}`, {
           _method: 'put',
-          id: this.dog.data.id,
-          name: this.dog.data.name,
-          gender: this.dog.data.gender,
-          birthday: this.dog.data.birthday,
-          breed: this.dog.data.breed,
-          size: this.dog.data.size,
-          generation: this.dog.data.generation,
-          outside_stud: this.dog.data.outside_stud,
-          // weight: this.dog.data.weight,
-          // height: this.dog.data.height,
-          media: this.dog.data.media,
+          id: this.dog.id,
+          name: this.dog.name,
+          gender: this.dog.gender,
+          birthday: this.dog.birthday,
+          breed: this.dog.breed,
+          size: this.dog.size,
+          generation: this.dog.generation,
+          outside_stud: this.dog.outside_stud,
+          // weight: this.dog.weight,
+          // height: this.dog.height,
+          media: this.dog.media,
           image: null
         })
       };
