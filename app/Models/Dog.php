@@ -19,8 +19,8 @@ class Dog extends Model implements HasMedia
         'size',
         'generation',
         'outside_stud',
-        'weight',
-        'height',
+//        'weight',
+//        'height',
         'retired_at',
     ];
 
@@ -31,10 +31,10 @@ class Dog extends Model implements HasMedia
     // Relationships
     public function traits(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
-        return $this->hasOne(Traits::class, 'dog_id', 'id');
+        return $this->hasOne(Traits::class);
     }
 
-    public function measurements()
+    public function measurements(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Measurement::class, 'dog_id', 'id');
     }
@@ -44,7 +44,7 @@ class Dog extends Model implements HasMedia
     public function setMeasurements(array $measurements): void
     {
         //if no auth user, throw exception
-        if (! auth()->check()) {
+        if (!auth()->check()) {
             throw new \Exception('No user logged in');
         }
 
@@ -87,100 +87,28 @@ class Dog extends Model implements HasMedia
         ];
     }
 
-    protected function setWeightAttribute($value)
-    {
-        //if value is an object, ignore
-        if (is_object($value)) {
-
-            // if value has key ounces get value from ounces
-            if (isset($value->ounces)) {
-                $this->attributes['weight'] = $value->ounces;
-            }
-        }
-
-        //if value is an array
-        if (is_array($value)) {
-
-            // if value has key ounces get value from ounces
-            if (isset($value['ounces'])) {
-                $this->attributes['weight'] = $value['ounces'];
-            }
-        }
-
-        //if value is an array, ignore
-        if (is_array($value)) {
-            // if value has key ounces get value from ounces
-            if (isset($value->ounces)) {
-                $this->attributes['weight'] = $value->ounces;
-            }
-        }
-
-        //if value is a string, convert to int
-        if (is_string($value)) {
-            $this->attributes['weight'] = (int)$value;
-        }
-
-        // if value is an int, set it
-        if (is_int($value)) {
-            $this->attributes['weight'] = $value;
-        }
-    }
-
-    protected function getWeightAttribute($value): array
+    public function toArray()
     {
         return [
-            'ounces' => $value,
-            'pounds' => $value * 0.0625,
-            'grams' => $value * 28.3495,
-            'kilograms' => $value * 0.0283495,
+            'data' => [
+                'id' => $this->id,
+                'name' => $this->name,
+                'breed' => $this->breed,
+                'gender' => $this->gender,
+                'outside_stud' => $this->outside_stud,
+                'birthday' => $this->birthday->format('Y-m-d'),
+                'age' => $this->age,
+                'size' => $this->size,
+                'generation' => $this->generation,
+                'weights' => $this->getMeasurements('weight'),
+                'heights' => $this->getMeasurements('height'),
+                'measurements' => $this->getMeasurements(),
+                'traits' => $this->traits,
+                'media' => $this->getMedia('dogs')
+                    ->map(function ($media) {
+                        return $media->toArray();
+                    })
+            ]
         ];
     }
-
-    protected function setHeightAttribute($value)
-    {
-        //if value is an object, ignore
-        if (is_object($value)) {
-
-            // if value has key inches get value from inches
-            if (isset($value->inches)) {
-                $value = $value->inches;
-            }
-        }
-
-        /***********************
-         * example of the shape of the value
-         * [
-         * 'inches' => 12,
-         * 'feet' => 1,
-         * ]
-         ***********************/
-        //if value is an array, ignore
-        if (is_array($value)) {
-            // if value has key inches get value from inches
-            if (isset($value['inches'])) {
-                $value = $value['inches'];
-            }
-        }
-
-        //if value is a string, convert to int
-        if (is_string($value)) {
-            $value = (int)$value;
-        }
-
-        // if value is an int, set it
-        if (is_int($value)) {
-            $this->attributes['height'] = $value;
-        }
-    }
-
-    protected function getHeightAttribute($value): array
-    {
-        return [
-            'inches' => $value,
-            'feet' => $value * 0.083333,
-            'centimeters' => $value * 2.54,
-            'meters' => $value * 0.0254,
-        ];
-    }
-
 }

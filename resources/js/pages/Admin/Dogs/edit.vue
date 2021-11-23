@@ -121,15 +121,15 @@
                   item-text="name"
                   item-value="id"/>
 
-        <v-text-field v-model="form.weight.ounces"
+        <v-text-field v-model="form.weight"
                       type="number"
                       :error-messages="form.errors.weight"
-                      :label="`Weight (oz)  ${lbs(form.weight.ounces)}`"/>
+                      :label="`Weight (oz)  ${lbs(form.weight)}`"/>
 
-        <v-text-field v-model="form.height.inches"
+        <v-text-field v-model="form.height"
                       type="number"
                       :error-messages="form.errors.height"
-                      :label="`Height (inches) ${feet(form.height.inches)}`"/>
+                      :label="`Height (inches) ${feet(form.height)}`"/>
       </v-container>
 
       <progress v-if="form.imageProgress" :value="form.imageProgress" max="100">
@@ -147,22 +147,24 @@
       dog: Object
     },
     data() {
+      console.log(this.dog);
+
       return {
         imageProgress: 0,
         fromDateMenu: false,
         form: this.$inertia.form(`EditDog${this.dog.id}`, {
           _method: 'put',
-          id: this.dog.id,
-          name: this.dog.name,
-          gender: this.dog.gender,
-          birthday: this.dog.birthday,
-          breed: this.dog.breed,
-          size: this.dog.size,
-          generation: this.dog.generation,
-          outside_stud: this.dog.outside_stud,
-          weight: this.dog.weight,
-          height: this.dog.height,
-          media: this.dog.media,
+          id: this.dog.data.id,
+          name: this.dog.data.name,
+          gender: this.dog.data.gender,
+          birthday: this.dog.data.birthday,
+          breed: this.dog.data.breed,
+          size: this.dog.data.size,
+          generation: this.dog.data.generation,
+          outside_stud: this.dog.data.outside_stud,
+          // weight: this.dog.data.weight,
+          // height: this.dog.data.height,
+          media: this.dog.data.media,
           image: null
         })
       };
@@ -206,8 +208,6 @@
         });
       }
 
-    },
-    components: {
     },
     layout: Layout,
     remember: 'form'

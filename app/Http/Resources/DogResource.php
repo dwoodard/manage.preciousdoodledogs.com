@@ -15,35 +15,20 @@ class DogResource extends ResourceCollection
      */
     public function toArray($request): array
     {
-
-        return [
-            'data' => $this->collection
-                // order by descending created_at
-                ->sortByDesc(function ($dog) {
-                    return $dog->created_at;
-                })
-                ->map(function ($dog) {
-                    return [
-                        'id' => $dog->id,
-                        'name' => $dog->name,
-                        'birthday' => $dog->birthday,
-                        'age' => $dog->age,
-                        'breed' => $dog->breed,
-                        'size' => $dog->size,
-                        'generation' => $dog->generation,
-                        'gender' => $dog->gender,
-                        'outside_stud' => $dog->outside_stud,
-                        'weight' => $dog->weight,
-                        'height' => $dog->height,
-                        'retired_at' => $dog->retired_at,
-                        'media' => $dog->getMedia('dogs')->toArray(),
-//                    $this->whenLoaded('measurements', function () use ($dog) {
-//                        return [
-//                            'measurements' => MeasurementsResource::collection($dog->measurements)
-//                        ];
-//                    }),
-                    ];
-                }),
-        ];
+        return $this->collection->map(function ($dog) {
+                return [
+                    'id' => $dog->id,
+                    'name' => $dog->name,
+                    'breed' => $dog->breed,
+                    'age' => $dog->age,
+                    'weights' => $dog->getMeasurements('weight'),
+                    'heights' => $dog->getMeasurements('height'),
+                    'created_at' => $dog->created_at,
+                    'updated_at' => $dog->updated_at,
+                    'media' => $dog->getMedia('dogs')->map(function ($media) {
+                        return $media->toArray();
+                    }),
+                ];
+            })->toArray();
     }
 }

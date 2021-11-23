@@ -59,7 +59,7 @@
       <v-col>
         <v-alert dense class="mt-2 pa-0">
           <span>
-            Showing {{ Object.keys(filterDogs).length }} of {{ Object.keys(dogs.data).length }} results
+            Showing {{ filterDogs.length }} of {{ dogs.length }} results
           </span>
         </v-alert>
       </v-col>
@@ -92,7 +92,7 @@
                   <v-row no-gutters>
                     <v-col cols="11">
                       <v-card-title class="text-lg-h6">
-                        {{ dog.name }}
+                        {{ dog.data.name }}
                       </v-card-title>
                     </v-col>
                     <v-spacer/>
@@ -107,7 +107,7 @@
                         </template>
                         <v-list>
                           <v-list-item>
-                            <inertia-link v-ripple :href="route('admin.dogs.edit', {dog:dog.id})" as="v-list-item">
+                            <inertia-link v-ripple :href="route('admin.dogs.edit', {dog:dog.data.id})" as="v-list-item">
                               <v-icon>mdi-circle-edit-outline</v-icon> Edit
                             </inertia-link>
                           </v-list-item>
@@ -116,12 +116,12 @@
                     </v-col>
 
                     <v-expansion-panels>
-                      <v-expansion-panel>
+                      <v-expansion-panel v-if="dog.data.traits">
                         <v-expansion-panel-header>
-                          Genetics
+                          Traits
                         </v-expansion-panel-header>
                         <v-expansion-panel-content>
-                          {{ dog }}
+                          {{ dog.data.traits }}
                         </v-expansion-panel-content>
                       </v-expansion-panel>
                     </v-expansion-panels>
@@ -145,36 +145,26 @@
             { text: 'id', value: 'id' },
             { text: 'Name', value: 'name' },
             { text: 'Gender', value: 'gender' },
+            { text: 'Outside stud', value: 'outside_stud' },
             { text: 'Breed', value: 'breed' },
             { text: 'Generation', value: 'generation' },
             { text: 'Size', value: 'size' },
             { text: 'Age (months)', value: 'age.months' },
             { text: 'Weight (ounces)', value: 'weight.ounces' },
-            { text: 'Outside stud', value: 'outside_stud' },
           ]"
-          :items="dogs.data"
+          :items="flattenDogs"
           :items-per-page="100"
           class="elevation-1">
           <!-- -->
-
-          <template #expanded-item="{ headers, dog }">
+          <template #expanded-item="{ headers, item, }">
             <td :colspan="headers.length" class="pa-0 rounded-0">
               <v-expansion-panels>
                 <v-expansion-panel>
                   <v-expansion-panel-header>
-                    Genetics
+                    Traits
                   </v-expansion-panel-header>
                   <v-expansion-panel-content>
-                    {{ dog }}
-                  </v-expansion-panel-content>
-                </v-expansion-panel>
-
-                <v-expansion-panel>
-                  <v-expansion-panel-header>
-                    TEST
-                  </v-expansion-panel-header>
-                  <v-expansion-panel-content>
-                    {{ dog }}
+                    {{ item.traits }}
                   </v-expansion-panel-content>
                 </v-expansion-panel>
               </v-expansion-panels>
@@ -194,7 +184,7 @@
     layout: Layout,
     props: {
       dogs: {
-        type: Object,
+        type: Array,
         required: true
       }
     },
@@ -202,33 +192,32 @@
       return {
         tab: 0,
         search: '',
-        dialog: false,
         showAddDog: false,
-        singleExpand: false,
+        singleExpand: true,
         expanded: []
       };
     },
     computed: {
+      flattenDogs() {
+        return this.dogs.map((dog) => {
+          return {
+            ...dog.data
+          };
+        });
+      },
       filterDogs() {
-        // filter dogs object
         if (this.search) {
-          return Object.fromEntries(
-            Object.entries(this.dogs.data).filter(([key, dog]) => {
-              return (
-                dog.name.toLowerCase().includes(this.search.toLowerCase())
-                || dog.id.toString().includes(this.search)
-              );
-            })
-          );
+          return this.dogs.filter((dog) => {
+            return dog.data.name?.toLowerCase().includes(this.search.toLowerCase());
+          });
         }
 
-
-        return this.dogs.data;
+        return this.dogs;
       }
     },
     methods: {
       getImage(dog) {
-        return dog.media.length > 0 ? dog.media[0].original_url : null;
+        return dog.data.media.length > 0 ? dog.data.media[0].original_url : null;
       },
       toggleAll() {
         Object.keys(this.$refs).forEach((k) => {
@@ -237,6 +226,7 @@
         });
       }
     }
+
   };
 </script>
 

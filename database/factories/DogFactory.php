@@ -24,8 +24,6 @@ class DogFactory extends Factory
             "birthday" => $this->faker->dateTimeBetween('-6 year', 'now'),
             "gender" => $gender,
             "outside_stud" => $gender !== 'female' ? $this->faker->numberBetween(0,1) : null,
-            "weight" => $this->faker->numberBetween(4, 480), // ounces
-            "height" => $this->faker->numberBetween(6, 30), // inches
             "retired_at" => rand(0,100) > 75 ? $this->faker->dateTimeBetween('-1 year', 'now') : null,
         ];
     }

@@ -346,22 +346,23 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     dog: Object
   },
   data: function data() {
+    console.log(this.dog);
     return {
       imageProgress: 0,
       fromDateMenu: false,
       form: this.$inertia.form("EditDog".concat(this.dog.id), {
         _method: 'put',
-        id: this.dog.id,
-        name: this.dog.name,
-        gender: this.dog.gender,
-        birthday: this.dog.birthday,
-        breed: this.dog.breed,
-        size: this.dog.size,
-        generation: this.dog.generation,
-        outside_stud: this.dog.outside_stud,
-        weight: this.dog.weight,
-        height: this.dog.height,
-        media: this.dog.media,
+        id: this.dog.data.id,
+        name: this.dog.data.name,
+        gender: this.dog.data.gender,
+        birthday: this.dog.data.birthday,
+        breed: this.dog.data.breed,
+        size: this.dog.data.size,
+        generation: this.dog.data.generation,
+        outside_stud: this.dog.data.outside_stud,
+        // weight: this.dog.data.weight,
+        // height: this.dog.data.height,
+        media: this.dog.data.media,
         image: null
       })
     };
@@ -407,7 +408,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       });
     }
   },
-  components: {},
   layout: _layouts_Admin_Layout__WEBPACK_IMPORTED_MODULE_0__["default"],
   remember: 'form'
 });
@@ -1283,14 +1283,14 @@ var render = function () {
                 attrs: {
                   type: "number",
                   "error-messages": _vm.form.errors.weight,
-                  label: "Weight (oz)  " + _vm.lbs(_vm.form.weight.ounces),
+                  label: "Weight (oz)  " + _vm.lbs(_vm.form.weight),
                 },
                 model: {
-                  value: _vm.form.weight.ounces,
+                  value: _vm.form.weight,
                   callback: function ($$v) {
-                    _vm.$set(_vm.form.weight, "ounces", $$v)
+                    _vm.$set(_vm.form, "weight", $$v)
                   },
-                  expression: "form.weight.ounces",
+                  expression: "form.weight",
                 },
               }),
               _vm._v(" "),
@@ -1298,14 +1298,14 @@ var render = function () {
                 attrs: {
                   type: "number",
                   "error-messages": _vm.form.errors.height,
-                  label: "Height (inches) " + _vm.feet(_vm.form.height.inches),
+                  label: "Height (inches) " + _vm.feet(_vm.form.height),
                 },
                 model: {
-                  value: _vm.form.height.inches,
+                  value: _vm.form.height,
                   callback: function ($$v) {
-                    _vm.$set(_vm.form.height, "inches", $$v)
+                    _vm.$set(_vm.form, "height", $$v)
                   },
-                  expression: "form.height.inches",
+                  expression: "form.height",
                 },
               }),
             ],

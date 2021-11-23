@@ -30,52 +30,9 @@ class DogTest extends TestCase
             'size' => $dog->size,
             'generation' => $dog->generation,
             'outside_stud' => $dog->outside_stud,
-            'weight' => $dog->weight,
-            'height' => $dog->height,
             'retired_at' => $dog->retired_at,
-
         ]);
     }
-
-    // when saving a dog, it should have should take a weight as type int of ounces
-    /** @test */
-    public function dog_should_take_a_weight_as_type_int_of_ounces()
-    {
-        $dog = Dog::factory()->create([
-            'weight' => '1',
-        ]);
-
-        $this->assertDatabaseHas('dogs', [
-            'weight' => $dog->weight,
-        ]);
-    }
-
-    // when saving a dog, it should convert the weight from string to int of ounces
-    /** @test */
-    public function dog_should_convert_the_weight_from_string_to_int_of_ounces()
-    {
-        // the difference between make and create is that make does not save the model to the database
-        // check when the weight is a string, that it is converted to int of ounces
-        $dog = Dog::factory()->make([
-            'weight' => '1',
-        ]);
-
-        $this->assertTrue(is_int($dog->weight['ounces']));
-    }
-
-    // when saving a dog, it should have should take a height as type int of inches
-    /** @test */
-    public function dog_should_take_a_height_as_type_int_of_inches()
-    {
-        $dog = Dog::factory()->create([
-            'height' => '1',
-        ]);
-
-        $this->assertDatabaseHas('dogs', [
-            'height' => $dog->height,
-        ]);
-    }
-
 
     // check when there is no birthday, that if age returns null
     /** @test */
@@ -116,7 +73,7 @@ class DogTest extends TestCase
         $this->assertEquals($dog->traits->toArray(), $traits->toArray());
     }
 
-    // dog can set meaurements
+    // dog can set measurements
     /** @test */
     public function dog_can_set_measurements()
     {
@@ -177,6 +134,38 @@ class DogTest extends TestCase
         // assert that there are a total of 2 dogs
         $this->assertEquals(2, $dogs->collection->count());
 
+    }
+
+    // check if dog has a relationship with traits, measurements and media
+    /** @test */
+    public function check_if_dog_has_a_relationship_with_keys()
+    {
+        // set auth user
+        $loggedInUser = User::factory()->create();
+        $loggedInUser->assignRole('admin');
+        $this->actingAs($loggedInUser);
+
+        // Setup
+        $dog = Dog::factory()->create();
+        $traits = Traits::factory()->create();
+        $measurements = Measurement::factory()->create([
+            'unit' => Measurement::units['weight'],
+            'type' => 'weight',
+            'user_id' => $loggedInUser->id,
+        ]);
+
+        $dog->traits()->save($traits);
+        $dog->measurements()->save($measurements);
+
+         // check if keys (traits, media, measurements) in dog exist
+        $keys = [
+            'traits',
+            'media',
+            'measurements'
+        ];
+        foreach ($keys as $key) {
+            $this->assertArrayHasKey($key, $dog);
+        }
     }
 
     // dogs can have puppies

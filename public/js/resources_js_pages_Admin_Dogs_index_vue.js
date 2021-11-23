@@ -197,28 +197,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _layouts_Admin_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/layouts/Admin/Layout */ "./resources/js/layouts/Admin/Layout.vue");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -403,7 +387,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
   layout: _layouts_Admin_Layout__WEBPACK_IMPORTED_MODULE_0__["default"],
   props: {
     dogs: {
-      type: Object,
+      type: Array,
       required: true
     }
   },
@@ -411,33 +395,34 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     return {
       tab: 0,
       search: '',
-      dialog: false,
       showAddDog: false,
-      singleExpand: false,
+      singleExpand: true,
       expanded: []
     };
   },
   computed: {
+    flattenDogs: function flattenDogs() {
+      return this.dogs.map(function (dog) {
+        return _objectSpread({}, dog.data);
+      });
+    },
     filterDogs: function filterDogs() {
       var _this = this;
 
-      // filter dogs object
       if (this.search) {
-        return Object.fromEntries(Object.entries(this.dogs.data).filter(function (_ref) {
-          var _ref2 = _slicedToArray(_ref, 2),
-              key = _ref2[0],
-              dog = _ref2[1];
+        return this.dogs.filter(function (dog) {
+          var _dog$data$name;
 
-          return dog.name.toLowerCase().includes(_this.search.toLowerCase()) || dog.id.toString().includes(_this.search);
-        }));
+          return (_dog$data$name = dog.data.name) === null || _dog$data$name === void 0 ? void 0 : _dog$data$name.toLowerCase().includes(_this.search.toLowerCase());
+        });
       }
 
-      return this.dogs.data;
+      return this.dogs;
     }
   },
   methods: {
     getImage: function getImage(dog) {
-      return dog.media.length > 0 ? dog.media[0].original_url : null;
+      return dog.data.media.length > 0 ? dog.data.media[0].original_url : null;
     },
     toggleAll: function toggleAll() {
       var _this2 = this;
@@ -469,7 +454,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*\n.container{\n  outline: 2px solid green;\n}\n.row{\n  outline: 2px solid red;\n}\n.col{\n  outline: 2px solid blue;\n}*/\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*\n.container{\n  outline: 2px solid green;\n}\n.row{\n  outline: 2px solid red;\n}\n.col{\n  outline: 2px solid blue;\n}*/\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1256,9 +1241,9 @@ var render = function () {
                       _c("span", [
                         _vm._v(
                           "\n          Showing " +
-                            _vm._s(Object.keys(_vm.filterDogs).length) +
+                            _vm._s(_vm.filterDogs.length) +
                             " of " +
-                            _vm._s(Object.keys(_vm.dogs.data).length) +
+                            _vm._s(_vm.dogs.length) +
                             " results\n        "
                         ),
                       ]),
@@ -1364,7 +1349,9 @@ var render = function () {
                                                     [
                                                       _vm._v(
                                                         "\n                      " +
-                                                          _vm._s(dog.name) +
+                                                          _vm._s(
+                                                            dog.data.name
+                                                          ) +
                                                           "\n                    "
                                                       ),
                                                     ]
@@ -1448,7 +1435,9 @@ var render = function () {
                                                                     href: _vm.route(
                                                                       "admin.dogs.edit",
                                                                       {
-                                                                        dog: dog.id,
+                                                                        dog: dog
+                                                                          .data
+                                                                          .id,
                                                                       }
                                                                     ),
                                                                     as: "v-list-item",
@@ -1482,31 +1471,36 @@ var render = function () {
                                               _c(
                                                 "v-expansion-panels",
                                                 [
-                                                  _c(
-                                                    "v-expansion-panel",
-                                                    [
-                                                      _c(
-                                                        "v-expansion-panel-header",
+                                                  dog.data.traits
+                                                    ? _c(
+                                                        "v-expansion-panel",
                                                         [
-                                                          _vm._v(
-                                                            "\n                        Genetics\n                      "
+                                                          _c(
+                                                            "v-expansion-panel-header",
+                                                            [
+                                                              _vm._v(
+                                                                "\n                        Traits\n                      "
+                                                              ),
+                                                            ]
                                                           ),
-                                                        ]
-                                                      ),
-                                                      _vm._v(" "),
-                                                      _c(
-                                                        "v-expansion-panel-content",
-                                                        [
-                                                          _vm._v(
-                                                            "\n                        " +
-                                                              _vm._s(dog) +
-                                                              "\n                      "
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "v-expansion-panel-content",
+                                                            [
+                                                              _vm._v(
+                                                                "\n                        " +
+                                                                  _vm._s(
+                                                                    dog.data
+                                                                      .traits
+                                                                  ) +
+                                                                  "\n                      "
+                                                              ),
+                                                            ]
                                                           ),
-                                                        ]
-                                                      ),
-                                                    ],
-                                                    1
-                                                  ),
+                                                        ],
+                                                        1
+                                                      )
+                                                    : _vm._e(),
                                                 ],
                                                 1
                                               ),
@@ -1552,14 +1546,14 @@ var render = function () {
                     { text: "id", value: "id" },
                     { text: "Name", value: "name" },
                     { text: "Gender", value: "gender" },
+                    { text: "Outside stud", value: "outside_stud" },
                     { text: "Breed", value: "breed" },
                     { text: "Generation", value: "generation" },
                     { text: "Size", value: "size" },
                     { text: "Age (months)", value: "age.months" },
                     { text: "Weight (ounces)", value: "weight.ounces" },
-                    { text: "Outside stud", value: "outside_stud" },
                   ],
-                  items: _vm.dogs.data,
+                  items: _vm.flattenDogs,
                   "items-per-page": 100,
                 },
                 on: {
@@ -1572,7 +1566,7 @@ var render = function () {
                     key: "expanded-item",
                     fn: function (ref) {
                       var headers = ref.headers
-                      var dog = ref.dog
+                      var item = ref.item
                       return [
                         _c(
                           "td",
@@ -1589,34 +1583,14 @@ var render = function () {
                                   [
                                     _c("v-expansion-panel-header", [
                                       _vm._v(
-                                        "\n                  Genetics\n                "
+                                        "\n                  Traits\n                "
                                       ),
                                     ]),
                                     _vm._v(" "),
                                     _c("v-expansion-panel-content", [
                                       _vm._v(
                                         "\n                  " +
-                                          _vm._s(dog) +
-                                          "\n                "
-                                      ),
-                                    ]),
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "v-expansion-panel",
-                                  [
-                                    _c("v-expansion-panel-header", [
-                                      _vm._v(
-                                        "\n                  TEST\n                "
-                                      ),
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("v-expansion-panel-content", [
-                                      _vm._v(
-                                        "\n                  " +
-                                          _vm._s(dog) +
+                                          _vm._s(item.traits) +
                                           "\n                "
                                       ),
                                     ]),

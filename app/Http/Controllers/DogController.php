@@ -10,15 +10,21 @@ use Inertia\Response;
 
 class DogController extends Controller
 {
+
     /**
-     * Display a listing of the resource.
-     * GET /admin/dogs
      * @return Response
      */
-    public function index(): Response
+    public function index()
     {
+        $dogs = Dog::with([
+            'media',
+            'measurements',
+            'traits'])
+            ->orderBy('created_at', 'desc')
+            ->get();
+
         $data = [
-            'dogs' =>  (new DogResource(Dog::all())),
+            'dogs' => $dogs
         ];
 
         return Inertia::render('Admin/Dogs/index', $data);
@@ -31,9 +37,9 @@ class DogController extends Controller
 
     public function edit(Dog $dog)
     {
-        $dog->getMedia();
+
         return Inertia::render('Admin/Dogs/edit', [
-            'dog' => $dog,
+            'dog' => $dog->toArray(),
         ]);
     }
 
@@ -55,6 +61,7 @@ class DogController extends Controller
 
     public function update(Request $request, Dog $dog): \Illuminate\Http\RedirectResponse
     {
+
         $dog->update($request->all());
 
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
