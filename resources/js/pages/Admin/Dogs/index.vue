@@ -57,7 +57,7 @@
       </v-col>
     </v-row>
 
-
+    <!-- Search Results-->
     <v-row v-if="search" no-gutters>
       <v-col>
         <v-alert dense class="mt-2 pa-0">
@@ -80,23 +80,19 @@
                   :elevation="hover ? 12 : 0"
                   outlined
                   class="mx-auto"
-                  max-width="350">
+                  max-width="350"
+                  height="100%">
                   <template slot="progress">
                     <v-progress-linear
                       height="10"
                       indeterminate/>
                   </template>
-
-                  <v-img
-                    :src="getImage(dog)"
-                    aspect-ratio="1.61"
-                    contain/>
-
                   <v-row no-gutters>
                     <v-col cols="11">
-                      <v-card-title class="text-lg-h6">
-                        {{ dog.name }}
-                      </v-card-title>
+                      <div class="pa-4 justify-space-between bg-red">
+                        <span>{{ dog.name }}</span>
+                        <span>({{ dog.weight.value }} {{ dog.weight.unit }})</span>
+                      </div>
                     </v-col>
                     <v-spacer/>
                     <v-col cols="1" align-self="center">
@@ -118,17 +114,19 @@
                         </v-list>
                       </v-menu>
                     </v-col>
+                  </v-row>
+                  <v-img
+                    :src="getImage(dog)"
+                    aspect-ratio="1.61"
+                    contain/>
 
-                    <v-expansion-panels>
-                      <v-expansion-panel>
-                        <v-expansion-panel-header>
-                          Traits {{ traitsCount(dog.traits) }}
-                        </v-expansion-panel-header>
-                        <v-expansion-panel-content>
-                          <pre>{{ dog.traits }}</pre>
-                        </v-expansion-panel-content>
-                      </v-expansion-panel>
-                    </v-expansion-panels>
+
+                  <v-row class="pa-4">
+                    <v-col v-if="dog.traits" cols="12">
+                      <span v-for="(trait, index) in dog.traits" :key="index" class="mr-2">
+                        <v-chip v-if="trait">{{ trait }}</v-chip>
+                      </span>
+                    </v-col>
                   </v-row>
                 </v-card>
               </v-hover>

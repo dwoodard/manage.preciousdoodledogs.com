@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use phpDocumentor\Reflection\Types\Mixed_;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
@@ -99,10 +100,10 @@ class Dog extends Model implements HasMedia
                 'age' => $this->age,
                 'size' => $this->size,
                 'generation' => $this->generation,
-                'weights' => $this->getMeasurements('weight'),
-                'heights' => $this->getMeasurements('height'),
+                'weight' => $this->getMeasurements('weight')->sortByDesc('measured_at')->first(),
+                'height' => $this->getMeasurements('height')->sortByDesc('measured_at')->first(),
                 'measurements' => $this->getMeasurements(),
-                'traits' => $this->traits,
+                'traits' => $this->traits()->get()->makeHidden(['id', 'dog_id'])->first(),
                 'media' => $this->getMedia('dogs')
                     ->map(function ($media) {
                         return $media->toArray();

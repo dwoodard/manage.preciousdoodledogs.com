@@ -26,8 +26,4 @@ class Measurement extends Model
         'measured_at',
     ];
 
-    public function by($type){
-        return $this->where('type', $type)->get();
-    }
-
 }
