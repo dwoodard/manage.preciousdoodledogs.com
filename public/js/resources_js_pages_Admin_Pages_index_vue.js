@@ -457,7 +457,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "toKebabCase": () => (/* binding */ toKebabCase),
 /* harmony export */   "score": () => (/* binding */ score),
 /* harmony export */   "toPascalCase": () => (/* binding */ toPascalCase),
-/* harmony export */   "pascalToTitleCase": () => (/* binding */ pascalToTitleCase)
+/* harmony export */   "pascalToTitleCase": () => (/* binding */ pascalToTitleCase),
+/* harmony export */   "ouncesToLbs": () => (/* binding */ ouncesToLbs),
+/* harmony export */   "inchesToFeet": () => (/* binding */ inchesToFeet),
+/* harmony export */   "age": () => (/* binding */ age)
 /* harmony export */ });
 var toTitleCase = function toTitleCase(str) {
   return str.replace(/\w\S*/g, function (txt) {
@@ -504,6 +507,41 @@ var toPascalCase = function toPascalCase(str) {
 };
 var pascalToTitleCase = function pascalToTitleCase(str) {
   return str.replace(/([A-Z])/g, ' $1').replace(/^\s/, '');
+}; // convert ounces to lbs
+
+var ouncesToLbs = function ouncesToLbs(ounces) {
+  // if ounces is null return null
+  if (ounces === null) {
+    return null;
+  } // round to 2 decimal places
+
+
+  return Math.round(ounces * 0.0625 * 100) / 100;
+};
+var inchesToFeet = function inchesToFeet(inches) {
+  if (inches === null) {
+    return null;
+  } // return with  2 decimals
+
+
+  return Math.round(inches / 12 * 100) / 100;
+}; // convert birthdate to age
+
+var age = function age(birthdate) {
+  if (!birthdate || birthdate === '') {
+    return null;
+  } // given the date of birth, calculate the age
+
+
+  var today = new Date();
+  var birthDate = new Date(birthdate); // age is the number of full years
+
+  var age = today.getFullYear() - birthDate.getFullYear(); // age is in years, so if the current month is before the birth month, then we're not full years yet
+
+  var years = today.getMonth() < birthDate.getMonth() ? age - 1 : age; // singular or plural year
+
+  var year = years === 1 ? 'year' : 'years';
+  return "".concat(years, " ").concat(year);
 };
 
 /***/ }),

@@ -20,8 +20,8 @@ class Dog extends Model implements HasMedia
         'size',
         'generation',
         'outside_stud',
-//        'weight',
-//        'height',
+        'weight',
+        'height',
         'retired_at',
     ];
 
@@ -91,23 +91,23 @@ class Dog extends Model implements HasMedia
     public function toArray()
     {
         return [
-                'id' => $this->id,
-                'name' => $this->name,
-                'breed' => $this->breed,
-                'gender' => $this->gender,
-                'outside_stud' => $this->outside_stud,
-                'birthday' => $this->birthday->format('Y-m-d'),
-                'age' => $this->age,
-                'size' => $this->size,
-                'generation' => $this->generation,
-                'weight' => $this->getMeasurements('weight')->sortByDesc('measured_at')->first(),
-                'height' => $this->getMeasurements('height')->sortByDesc('measured_at')->first(),
-                'measurements' => $this->getMeasurements(),
-                'traits' => $this->traits()->get()->makeHidden(['id', 'dog_id'])->first(),
-                'media' => $this->getMedia('dogs')
-                    ->map(function ($media) {
-                        return $media->toArray();
-                    })
+            'id' => $this->id,
+            'name' => $this->name,
+            'breed' => $this->breed,
+            'gender' => $this->gender,
+            'outside_stud' => $this->outside_stud,
+            'birthday' => $this->birthday->format('Y-m-d'),
+            'age' => $this->age,
+            'size' => $this->size,
+            'generation' => $this->generation,
+            'weight' => $this->weight,
+            'height' => $this->height,
+            'measurements' => $this->getMeasurements(),
+            'traits' => $this->traits()->get()->makeHidden(['id', 'dog_id'])->first(),
+            'media' => $this->getMedia('dogs')
+                ->map(function ($media) {
+                    return $media->toArray();
+            })
         ];
     }
 }

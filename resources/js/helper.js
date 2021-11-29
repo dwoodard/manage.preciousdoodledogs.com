@@ -11,3 +11,44 @@ export const toPascalCase = (str) => {
 export const pascalToTitleCase = (str) => {
   return str.replace(/([A-Z])/g, ' $1').replace(/^\s/, '');
 };
+
+// convert ounces to lbs
+export const ouncesToLbs = (ounces) => {
+  // if ounces is null return null
+  if (ounces === null) {
+    return null;
+  }
+
+  // round to 2 decimal places
+  return Math.round(ounces * 0.0625 * 100) / 100;
+};
+
+export const inchesToFeet = (inches) => {
+  if (inches === null) {
+    return null;
+  }
+  // return with  2 decimals
+  return Math.round(inches / 12 * 100) / 100;
+};
+
+// convert birthdate to age
+export const age = (birthdate) => {
+  if (!birthdate || birthdate === '') {
+    return null;
+  }
+
+  // given the date of birth, calculate the age
+  const today = new Date();
+  const birthDate = new Date(birthdate);
+
+  // age is the number of full years
+  const age = today.getFullYear() - birthDate.getFullYear();
+
+  // age is in years, so if the current month is before the birth month, then we're not full years yet
+  const years = today.getMonth() < birthDate.getMonth() ? age - 1 : age;
+
+  // singular or plural year
+  const year = years === 1 ? 'year' : 'years';
+
+  return `${years} ${year}`;
+};

@@ -61,8 +61,15 @@ class DogController extends Controller
 
     public function update(Request $request, Dog $dog): \Illuminate\Http\RedirectResponse
     {
-
         $dog->update($request->all());
+
+        // if request has a weight
+        if($request->has('weight')) {
+            $dog->setMeasurements(['weight' => $request->weight]);
+        }
+        if($request->has('height')) {
+            $dog->setMeasurements(['height' => $request->height]);
+        }
 
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
 

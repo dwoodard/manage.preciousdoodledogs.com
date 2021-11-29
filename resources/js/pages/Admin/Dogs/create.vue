@@ -55,11 +55,21 @@
               min-width="290px">
               <template #activator="{ on }">
                 <v-text-field
-                  label="Birthday"
+                  label="Birthdate"
                   prepend-icon="mdi-calendar"
                   readonly
                   :value="form.birthday"
-                  v-on="on"/>
+                  v-on="on">
+                  <template #message>
+                    <span v-if="age(form.birthdate)"> age: {{ age(form.birthdate) }}</span>
+                  </template>
+
+                  <template #prepend="{ on }">
+                    <v-btn icon v-on="on">
+                      <v-icon>mdi-calendar</v-icon>
+                    </v-btn>
+                  </template>
+                </v-text-field>
               </template>
               <v-date-picker
                 v-model="form.birthday"
@@ -131,6 +141,7 @@
 
 <script>
   import Layout from '@/layouts/Admin/Layout';
+  import {inchesToFeet, ouncesToLbs, age} from '@/helper';
 
   export default {
     data() {
@@ -163,6 +174,7 @@
       }
     },
     methods: {
+      age,
       selectFile(file) {
         this.imageProgress = 0;
         this.form.image = file;

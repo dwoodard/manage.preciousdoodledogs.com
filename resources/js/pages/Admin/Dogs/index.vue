@@ -77,6 +77,7 @@
             <v-col v-for="(dog, index) in filterDogs" :key="index" cols="12" sm="6" md="4" lg="3" xl="2">
               <v-hover v-slot="{ hover }">
                 <v-card
+                  :class="{'card-male': dog.gender === 'male', 'card-female': dog.gender == 'female'}"
                   :elevation="hover ? 12 : 0"
                   outlined
                   class="mx-auto"
@@ -90,11 +91,16 @@
                   <v-row no-gutters>
                     <v-col cols="11">
                       <div class="pa-4 justify-space-between bg-red">
-                        <span>{{ dog.name }}</span>
-                        <span>({{ dog.weight.value }} {{ dog.weight.unit }})</span>
+                        <div class="d-flex column">
+                          <span>{{ dog.name }} ({{ ouncesToLbs(dog.weight) }} lbs )</span>
+                        </div>
+                        <v-spacer/>
+                        <div>
+                          <span>{{ age(dog.birthday) }}</span>
+                        </div>
                       </div>
                     </v-col>
-                    <v-spacer/>
+
                     <v-col cols="1" align-self="center">
                       <v-menu offset-y>
                         <template #activator="{ on, attrs }">
@@ -119,8 +125,6 @@
                     :src="getImage(dog)"
                     aspect-ratio="1.61"
                     contain/>
-
-
                   <v-row class="pa-4">
                     <v-col v-if="dog.traits" cols="12">
                       <span v-for="(trait, index) in dog.traits" :key="index" class="mr-2">
@@ -181,6 +185,8 @@
 
 <script>
   import Layout from '@/layouts/Admin/Layout';
+  import {ouncesToLbs, age} from '@/helper';
+
 
   export default {
     layout: Layout,
@@ -200,7 +206,6 @@
       };
     },
     computed: {
-
       filterDogs() {
         if (this.search) {
           return this.dogs.filter((dog) => {
@@ -213,6 +218,8 @@
       }
     },
     methods: {
+      age,
+      ouncesToLbs,
       traits(traits) {
         // keep everything but the keys dog_id and id
         return Object.keys(traits).reduce((acc, key) => {
@@ -244,15 +251,6 @@
 
       getImage(dog) {
         return dog.media.length > 0 ? dog.media[0].original_url : null;
-      },
-
-
-      toggleAll() {
-        Object.keys(this.$refs)
-          .forEach((k) => {
-            console.log(this.$refs[k]);
-            this.$refs[k].$el.click();
-          });
       }
     }
 
@@ -260,6 +258,12 @@
 </script>
 
 <style scoped>
+.card-male {
+  border: 2px solid rgba(0, 0, 255, 0.8)
+}
+.card-female {
+  border: 2px solid hotpink;
+}
 /*
 .container{
   outline: 2px solid green;

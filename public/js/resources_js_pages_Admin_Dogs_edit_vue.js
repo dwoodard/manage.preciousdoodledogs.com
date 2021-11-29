@@ -197,149 +197,149 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _layouts_Admin_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/layouts/Admin/Layout */ "./resources/js/layouts/Admin/Layout.vue");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/helper */ "./resources/js/helper.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -360,32 +360,20 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         size: this.dog.size,
         generation: this.dog.generation,
         outside_stud: this.dog.outside_stud,
-        // weight: this.dog.weight,
-        // height: this.dog.height,
+        weight: this.dog.weight,
+        height: this.dog.height,
         media: this.dog.media,
         image: null
       })
     };
   },
   methods: {
+    age: _helper__WEBPACK_IMPORTED_MODULE_1__.age,
+    ouncesToLbs: _helper__WEBPACK_IMPORTED_MODULE_1__.ouncesToLbs,
+    inchesToFeet: _helper__WEBPACK_IMPORTED_MODULE_1__.inchesToFeet,
     selectFile: function selectFile(file) {
       this.imageProgress = 0;
       this.form.image = file; // this.form.forceFormData = true;
-    },
-    lbs: function lbs(weight) {
-      if (_typeof(weight) === 'object' || !weight || isNaN(weight)) {
-        return '';
-      }
-
-      return "(".concat((weight / 16).toFixed(1), " lbs)");
-    },
-    feet: function feet(height) {
-      if (_typeof(height) === 'object' || !height || isNaN(height)) {
-        return '';
-      } // inches to feet
-
-
-      return "(".concat((height / 12).toFixed(1), " ft)");
     },
     update: function update() {
       var _this = this;
@@ -393,14 +381,11 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       this.form.post(this.route('admin.dogs.update', {
         dog: this.form.id
       }), {
-        onSuccess: function onSuccess(result) {
-          console.log('onSuccess', result);
+        onSuccess: function onSuccess(result) {// console.log('onSuccess', result);
         },
-        onError: function onError(result) {
-          console.log('onError', result);
+        onError: function onError(result) {// console.log('onError', result);
         },
-        onFailure: function onFailure(result) {
-          console.log(result);
+        onFailure: function onFailure(result) {// console.log(result);
         },
         onProgress: function onProgress(event) {
           _this.imageProgress = Math.round(event.loaded / event.total * 100);
@@ -411,6 +396,107 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   layout: _layouts_Admin_Layout__WEBPACK_IMPORTED_MODULE_0__["default"],
   remember: 'form'
 });
+
+/***/ }),
+
+/***/ "./resources/js/helper.js":
+/*!********************************!*\
+  !*** ./resources/js/helper.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "toTitleCase": () => (/* binding */ toTitleCase),
+/* harmony export */   "toKebabCase": () => (/* binding */ toKebabCase),
+/* harmony export */   "score": () => (/* binding */ score),
+/* harmony export */   "toPascalCase": () => (/* binding */ toPascalCase),
+/* harmony export */   "pascalToTitleCase": () => (/* binding */ pascalToTitleCase),
+/* harmony export */   "ouncesToLbs": () => (/* binding */ ouncesToLbs),
+/* harmony export */   "inchesToFeet": () => (/* binding */ inchesToFeet),
+/* harmony export */   "age": () => (/* binding */ age)
+/* harmony export */ });
+var toTitleCase = function toTitleCase(str) {
+  return str.replace(/\w\S*/g, function (txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
+};
+var toKebabCase = function toKebabCase(str) {
+  return str.replace(/([a-z])([A-Z])/g, '$1-$2').replace(/\s+/g, '-').toLowerCase();
+};
+var score = function score(a, b) {
+  if (this === a) return 1;
+  if (a === '') return 0;
+  var c = 0;
+  var d = a.length;
+  var e = this;
+  var f = e.length;
+  var g;
+  var h;
+  var i = 1;
+  var j;
+
+  for (var k = 0, l, m, n, o, p, q; k < d; ++k) {
+    n = a.charAt(k), o = e.indexOf(n.toLowerCase()), p = e.indexOf(n.toUpperCase()), q = Math.min(o, p), m = q > -1 ? q : Math.max(o, p);
+
+    if (m === -1) {
+      if (b) {
+        i += 1 - b;
+        continue;
+      }
+
+      return 0;
+    }
+
+    l = 0.1, e[m] === n && (l += 0.1), m === 0 ? (l += 0.6, k === 0 && (g = 1)) : e.charAt(m - 1) === ' ' && (l += 0.8), e = e.substring(m + 1, f), c += l;
+  }
+
+  h = c / d, j = (h * (d / f) + h) / 2, j /= i, g && j + 0.15 < 1 && (j += 0.15);
+  return j;
+};
+var toPascalCase = function toPascalCase(str) {
+  return str.replace(/[-_\s]+/g, ' ').split(' ').map(function (word) {
+    return word[0].toUpperCase() + word.slice(1);
+  }).join('');
+};
+var pascalToTitleCase = function pascalToTitleCase(str) {
+  return str.replace(/([A-Z])/g, ' $1').replace(/^\s/, '');
+}; // convert ounces to lbs
+
+var ouncesToLbs = function ouncesToLbs(ounces) {
+  // if ounces is null return null
+  if (ounces === null) {
+    return null;
+  } // round to 2 decimal places
+
+
+  return Math.round(ounces * 0.0625 * 100) / 100;
+};
+var inchesToFeet = function inchesToFeet(inches) {
+  if (inches === null) {
+    return null;
+  } // return with  2 decimals
+
+
+  return Math.round(inches / 12 * 100) / 100;
+}; // convert birthdate to age
+
+var age = function age(birthdate) {
+  if (!birthdate || birthdate === '') {
+    return null;
+  } // given the date of birth, calculate the age
+
+
+  var today = new Date();
+  var birthDate = new Date(birthdate); // age is the number of full years
+
+  var age = today.getFullYear() - birthDate.getFullYear(); // age is in years, so if the current month is before the birth month, then we're not full years yet
+
+  var years = today.getMonth() < birthDate.getMonth() ? age - 1 : age; // singular or plural year
+
+  var year = years === 1 ? 'year' : 'years';
+  return "".concat(years, " ").concat(year);
+};
 
 /***/ }),
 
@@ -1138,7 +1224,10 @@ var render = function () {
                                     _vm._g(
                                       {
                                         attrs: {
-                                          label: "Birthday",
+                                          label:
+                                            "Birthday (age " +
+                                            _vm.age(_vm.form.birthday) +
+                                            ")",
                                           "prepend-icon": "mdi-calendar",
                                           readonly: "",
                                           value: _vm.form.birthday,
@@ -1283,7 +1372,12 @@ var render = function () {
                 attrs: {
                   type: "number",
                   "error-messages": _vm.form.errors.weight,
-                  label: "Weight (oz)  " + _vm.lbs(_vm.form.weight),
+                  label:
+                    "Weight (" +
+                    _vm.form.weight +
+                    " oz)  (" +
+                    _vm.ouncesToLbs(_vm.form.weight) +
+                    " lbs) ",
                 },
                 model: {
                   value: _vm.form.weight,
@@ -1298,7 +1392,10 @@ var render = function () {
                 attrs: {
                   type: "number",
                   "error-messages": _vm.form.errors.height,
-                  label: "Height (inches) " + _vm.feet(_vm.form.height),
+                  label:
+                    "Height (inches) " +
+                    _vm.inchesToFeet(_vm.form.height) +
+                    "  (feet)",
                 },
                 model: {
                   value: _vm.form.height,

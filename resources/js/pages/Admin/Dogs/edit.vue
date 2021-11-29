@@ -52,7 +52,7 @@
               min-width="290px">
               <template #activator="{ on }">
                 <v-text-field
-                  label="Birthday"
+                  :label="`Birthday (age ${age(form.birthday)})`"
                   prepend-icon="mdi-calendar"
                   readonly
                   :value="form.birthday"
@@ -124,12 +124,12 @@
         <v-text-field v-model="form.weight"
                       type="number"
                       :error-messages="form.errors.weight"
-                      :label="`Weight (oz)  ${lbs(form.weight)}`"/>
+                      :label="`Weight (${form.weight} oz)  (${ouncesToLbs(form.weight)} lbs) `"/>
 
         <v-text-field v-model="form.height"
                       type="number"
                       :error-messages="form.errors.height"
-                      :label="`Height (inches) ${feet(form.height)}`"/>
+                      :label="`Height (inches) ${inchesToFeet(form.height)}  (feet)`"/>
       </v-container>
 
       <progress v-if="form.imageProgress" :value="form.imageProgress" max="100">
@@ -141,6 +141,7 @@
 
 <script>
   import Layout from '@/layouts/Admin/Layout';
+  import {inchesToFeet, ouncesToLbs, age} from '@/helper';
 
   export default {
     props: {
@@ -162,46 +163,35 @@
           size: this.dog.size,
           generation: this.dog.generation,
           outside_stud: this.dog.outside_stud,
-          // weight: this.dog.weight,
-          // height: this.dog.height,
+          weight: this.dog.weight,
+          height: this.dog.height,
           media: this.dog.media,
           image: null
         })
       };
     },
     methods: {
+      age,
+      ouncesToLbs,
+      inchesToFeet,
       selectFile(file) {
         this.imageProgress = 0;
         this.form.image = file;
         // this.form.forceFormData = true;
-      },
-      lbs(weight) {
-        if (typeof weight === 'object' || !weight || isNaN(weight)) {
-          return '';
-        }
-
-        return `(${(weight / 16).toFixed(1)} lbs)`;
-      },
-
-      feet(height) {
-        if (typeof height === 'object' || !height || isNaN(height)) {
-          return '';
-        }
-
-        // inches to feet
-        return `(${(height / 12).toFixed(1)} ft)`;
       },
       update() {
         this.form.post(this.route('admin.dogs.update', {
           dog: this.form.id
         }), {
           onSuccess: (result) => {
-            console.log('onSuccess', result);
+            // console.log('onSuccess', result);
           },
           onError: (result) => {
-            console.log('onError', result);
+            // console.log('onError', result);
           },
-          onFailure: (result) => { console.log(result); },
+          onFailure: (result) => {
+            // console.log(result);
+          },
           onProgress: (event) => {
             this.imageProgress = Math.round(event.loaded / event.total * 100);
           }

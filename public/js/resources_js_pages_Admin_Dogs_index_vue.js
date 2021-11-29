@@ -197,6 +197,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _layouts_Admin_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/layouts/Admin/Layout */ "./resources/js/layouts/Admin/Layout.vue");
+/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/helper */ "./resources/js/helper.js");
 //
 //
 //
@@ -378,6 +379,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   layout: _layouts_Admin_Layout__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -412,6 +418,8 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
+    age: _helper__WEBPACK_IMPORTED_MODULE_1__.age,
+    ouncesToLbs: _helper__WEBPACK_IMPORTED_MODULE_1__.ouncesToLbs,
     traits: function traits(_traits) {
       // keep everything but the keys dog_id and id
       return Object.keys(_traits).reduce(function (acc, key) {
@@ -444,18 +452,110 @@ __webpack_require__.r(__webpack_exports__);
     },
     getImage: function getImage(dog) {
       return dog.media.length > 0 ? dog.media[0].original_url : null;
-    },
-    toggleAll: function toggleAll() {
-      var _this2 = this;
-
-      Object.keys(this.$refs).forEach(function (k) {
-        console.log(_this2.$refs[k]);
-
-        _this2.$refs[k].$el.click();
-      });
     }
   }
 });
+
+/***/ }),
+
+/***/ "./resources/js/helper.js":
+/*!********************************!*\
+  !*** ./resources/js/helper.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "toTitleCase": () => (/* binding */ toTitleCase),
+/* harmony export */   "toKebabCase": () => (/* binding */ toKebabCase),
+/* harmony export */   "score": () => (/* binding */ score),
+/* harmony export */   "toPascalCase": () => (/* binding */ toPascalCase),
+/* harmony export */   "pascalToTitleCase": () => (/* binding */ pascalToTitleCase),
+/* harmony export */   "ouncesToLbs": () => (/* binding */ ouncesToLbs),
+/* harmony export */   "inchesToFeet": () => (/* binding */ inchesToFeet),
+/* harmony export */   "age": () => (/* binding */ age)
+/* harmony export */ });
+var toTitleCase = function toTitleCase(str) {
+  return str.replace(/\w\S*/g, function (txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
+};
+var toKebabCase = function toKebabCase(str) {
+  return str.replace(/([a-z])([A-Z])/g, '$1-$2').replace(/\s+/g, '-').toLowerCase();
+};
+var score = function score(a, b) {
+  if (this === a) return 1;
+  if (a === '') return 0;
+  var c = 0;
+  var d = a.length;
+  var e = this;
+  var f = e.length;
+  var g;
+  var h;
+  var i = 1;
+  var j;
+
+  for (var k = 0, l, m, n, o, p, q; k < d; ++k) {
+    n = a.charAt(k), o = e.indexOf(n.toLowerCase()), p = e.indexOf(n.toUpperCase()), q = Math.min(o, p), m = q > -1 ? q : Math.max(o, p);
+
+    if (m === -1) {
+      if (b) {
+        i += 1 - b;
+        continue;
+      }
+
+      return 0;
+    }
+
+    l = 0.1, e[m] === n && (l += 0.1), m === 0 ? (l += 0.6, k === 0 && (g = 1)) : e.charAt(m - 1) === ' ' && (l += 0.8), e = e.substring(m + 1, f), c += l;
+  }
+
+  h = c / d, j = (h * (d / f) + h) / 2, j /= i, g && j + 0.15 < 1 && (j += 0.15);
+  return j;
+};
+var toPascalCase = function toPascalCase(str) {
+  return str.replace(/[-_\s]+/g, ' ').split(' ').map(function (word) {
+    return word[0].toUpperCase() + word.slice(1);
+  }).join('');
+};
+var pascalToTitleCase = function pascalToTitleCase(str) {
+  return str.replace(/([A-Z])/g, ' $1').replace(/^\s/, '');
+}; // convert ounces to lbs
+
+var ouncesToLbs = function ouncesToLbs(ounces) {
+  // if ounces is null return null
+  if (ounces === null) {
+    return null;
+  } // round to 2 decimal places
+
+
+  return Math.round(ounces * 0.0625 * 100) / 100;
+};
+var inchesToFeet = function inchesToFeet(inches) {
+  if (inches === null) {
+    return null;
+  } // return with  2 decimals
+
+
+  return Math.round(inches / 12 * 100) / 100;
+}; // convert birthdate to age
+
+var age = function age(birthdate) {
+  if (!birthdate || birthdate === '') {
+    return null;
+  } // given the date of birth, calculate the age
+
+
+  var today = new Date();
+  var birthDate = new Date(birthdate); // age is the number of full years
+
+  var age = today.getFullYear() - birthDate.getFullYear(); // age is in years, so if the current month is before the birth month, then we're not full years yet
+
+  var years = today.getMonth() < birthDate.getMonth() ? age - 1 : age; // singular or plural year
+
+  var year = years === 1 ? 'year' : 'years';
+  return "".concat(years, " ").concat(year);
+};
 
 /***/ }),
 
@@ -475,7 +575,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*\n.container{\n  outline: 2px solid green;\n}\n.row{\n  outline: 2px solid red;\n}\n.col{\n  outline: 2px solid blue;\n}*/\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.card-male[data-v-4bbaea3a] {\n  border: 2px solid rgba(0, 0, 255, 0.8)\n}\n.card-female[data-v-4bbaea3a] {\n  border: 2px solid hotpink;\n}\n/*\n.container{\n  outline: 2px solid green;\n}\n.row{\n  outline: 2px solid red;\n}\n.col{\n  outline: 2px solid blue;\n}*/\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1330,6 +1430,11 @@ var render = function () {
                                         "v-card",
                                         {
                                           staticClass: "mx-auto",
+                                          class: {
+                                            "card-male": dog.gender === "male",
+                                            "card-female":
+                                              dog.gender == "female",
+                                          },
                                           attrs: {
                                             elevation: hover ? 12 : 0,
                                             outlined: "",
@@ -1367,31 +1472,46 @@ var render = function () {
                                                         "pa-4 justify-space-between bg-red",
                                                     },
                                                     [
-                                                      _c("span", [
-                                                        _vm._v(
-                                                          _vm._s(dog.name)
-                                                        ),
-                                                      ]),
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "d-flex column",
+                                                        },
+                                                        [
+                                                          _c("span", [
+                                                            _vm._v(
+                                                              _vm._s(dog.name) +
+                                                                " (" +
+                                                                _vm._s(
+                                                                  _vm.ouncesToLbs(
+                                                                    dog.weight
+                                                                  )
+                                                                ) +
+                                                                " lbs )"
+                                                            ),
+                                                          ]),
+                                                        ]
+                                                      ),
                                                       _vm._v(" "),
-                                                      _c("span", [
-                                                        _vm._v(
-                                                          "(" +
+                                                      _c("v-spacer"),
+                                                      _vm._v(" "),
+                                                      _c("div", [
+                                                        _c("span", [
+                                                          _vm._v(
                                                             _vm._s(
-                                                              dog.weight.value
-                                                            ) +
-                                                            " " +
-                                                            _vm._s(
-                                                              dog.weight.unit
-                                                            ) +
-                                                            ")"
-                                                        ),
+                                                              _vm.age(
+                                                                dog.birthday
+                                                              )
+                                                            )
+                                                          ),
+                                                        ]),
                                                       ]),
-                                                    ]
+                                                    ],
+                                                    1
                                                   ),
                                                 ]
                                               ),
-                                              _vm._v(" "),
-                                              _c("v-spacer"),
                                               _vm._v(" "),
                                               _c(
                                                 "v-col",

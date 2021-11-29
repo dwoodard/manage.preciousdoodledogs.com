@@ -56,7 +56,7 @@ self.addEventListener('fetch', (event) => {
   // )
 });
 
-
+// message from content script
 self.addEventListener('message', (event) => {
   // console.log('message serviceworker.js', event);
 });
