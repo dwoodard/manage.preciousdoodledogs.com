@@ -17,9 +17,9 @@ class CreateMeasurementsTable extends Migration
             $table->id();
             $table->string('measureable_type');
             $table->unsignedBigInteger('measureable_id');
-            $table->string('type');
-            $table->string('value');
-            $table->string('unit');
+            $table->string('type')->nullable();
+            $table->string('value')->nullable();
+            $table->string('unit')->nullable();
             $table->date('measured_at')->nullable();
             $table->timestamps();
         });

@@ -19,15 +19,39 @@ class MeasurementFactory extends Factory
             'App\Models\Puppy',
         ]);
 
+        $type = $this->faker->randomElement([
+            'weight',
+            'height',
+            'temperature',
+
+        ]);
+
+
 
         return [
             "measureable_type" => $measurable,
             "measureable_id" => function () use ($measurable) {
                 return $measurable::factory()->create()->id;
             },
-            "type" => $this->faker->randomElement(['weight', 'height']),
+            "type" => $type,
             "value" => $this->faker->randomFloat(2, 1, 100),
+            "unit" => $this->typeUnit($type),
             "measured_at" => $this->faker->dateTimeBetween('-6 months', 'now'),
         ];
+    }
+
+    private function typeUnit($type)
+    {
+        switch ($type) {
+            case 'weight':
+                $this->faker->randomElement(['kg', 'lb']);
+                break;
+            case 'height':
+                $this->faker->randomElement(['cm', 'in']);
+                break;
+            case 'temperature':
+                $this->faker->randomElement(['C', 'F']);
+                break;
+        }
     }
 }

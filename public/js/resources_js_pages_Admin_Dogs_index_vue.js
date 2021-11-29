@@ -451,7 +451,7 @@ __webpack_require__.r(__webpack_exports__);
       return i;
     },
     getImage: function getImage(dog) {
-      return dog.media.length > 0 ? dog.media[0].original_url : null;
+      return dog.media.length > 0 ? dog.media[0].original_url : '/images/defaults/no-dog.png';
     }
   }
 });
@@ -523,7 +523,12 @@ var pascalToTitleCase = function pascalToTitleCase(str) {
 }; // convert ounces to lbs
 
 var ouncesToLbs = function ouncesToLbs(ounces) {
-  // remove any text 'ounces' or 'g' or 'oz' and whitespace
+  // if no ounces, return 0
+  if (!ounces) {
+    return null;
+  } // remove any text 'ounces' or 'g' or 'oz' and whitespace
+
+
   ounces = ounces.replace(/[^0-9.]/g, ''); // if ounces is null return null
 
   if (ounces === '') {

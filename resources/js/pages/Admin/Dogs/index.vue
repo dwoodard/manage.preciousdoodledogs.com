@@ -250,7 +250,7 @@
       },
 
       getImage(dog) {
-        return dog.media.length > 0 ? dog.media[0].original_url : null;
+        return dog.media.length > 0 ? dog.media[0].original_url : '/images/defaults/no-dog.png';
       }
     }
 
