@@ -136,12 +136,22 @@
         {{ form.imageProgress }}%
       </progress>
     </form>
+
+
+    <v-row>
+      <v-col cols="12" sm="6" md="4">
+        <DogWeightChart
+          v-col
+          :value="dog.measurements"/>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
 <script>
   import Layout from '@/layouts/Admin/Layout';
-  import {inchesToFeet, ouncesToLbs, age} from '@/helper';
+  import {age, inchesToFeet, ouncesToLbs} from '@/helper';
+  import DogWeightChart from '@/components/DogWeightChart';
 
   export default {
     props: {
@@ -199,6 +209,7 @@
       }
 
     },
+    components: {DogWeightChart},
     layout: Layout,
     remember: 'form'
   };
