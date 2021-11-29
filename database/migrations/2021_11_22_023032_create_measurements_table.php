@@ -15,12 +15,12 @@ class CreateMeasurementsTable extends Migration
     {
         Schema::create('measurements', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('dog_id');
-            $table->unsignedBigInteger('user_id');
+            $table->string('measureable_type');
+            $table->unsignedBigInteger('measureable_id');
             $table->string('type');
             $table->string('value');
             $table->string('unit');
-            $table->date('measured_at');
+            $table->date('measured_at')->nullable();
             $table->timestamps();
         });
     }

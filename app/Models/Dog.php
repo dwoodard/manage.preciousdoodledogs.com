@@ -20,8 +20,8 @@ class Dog extends Model implements HasMedia
         'size',
         'generation',
         'outside_stud',
-        'weight',
-        'height',
+//        'weight',
+//        'height',
         'retired_at',
     ];
 
@@ -35,24 +35,18 @@ class Dog extends Model implements HasMedia
         return $this->hasOne(Traits::class);
     }
 
-    public function measurements(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function measurements(): \Illuminate\Database\Eloquent\Relations\MorphMany
     {
-        return $this->hasMany(Measurement::class, 'dog_id', 'id');
+        // polymorphic relationship
+        return $this->morphMany(Measurement::class, 'measureable');
     }
 
     //setMeasurements
     //example use: $dog->setMeasurements(['weight' => '10', 'height' => '10']);
     public function setMeasurements(array $measurements): void
     {
-        //if no auth user, throw exception
-        if (!auth()->check()) {
-            throw new \Exception('No user logged in');
-        }
-
         foreach ($measurements as $type => $value) {
             $this->measurements()->create([
-                'dog_id' => $this->id,
-                'user_id' => auth()->id(),
                 'type' => $type,
                 'value' => $value,
                 'unit' => Measurement::units[$type],
@@ -96,12 +90,12 @@ class Dog extends Model implements HasMedia
             'breed' => $this->breed,
             'gender' => $this->gender,
             'outside_stud' => $this->outside_stud,
-            'birthday' => $this->birthday->format('Y-m-d'),
+            'birthday' => $this->birthday,
             'age' => $this->age,
             'size' => $this->size,
             'generation' => $this->generation,
-            'weight' => $this->weight,
-            'height' => $this->height,
+            'weight' => $this->getLatestMeasurement('weight'),
+            'height' => $this->getLatestMeasurement('height'),
             'measurements' => $this->getMeasurements(),
             'traits' => $this->traits()->get()->makeHidden(['id', 'dog_id'])->first(),
             'media' => $this->getMedia('dogs')
@@ -109,5 +103,16 @@ class Dog extends Model implements HasMedia
                     return $media->toArray();
             })
         ];
+    }
+
+    private function getLatestMeasurement(string $string)
+    {
+        $measurement = $this->getMeasurements($string)->sortByDesc('measured_at')->first();
+
+        if ($measurement) {
+            return $measurement->value;
+        }
+
+        return null;
     }
 }

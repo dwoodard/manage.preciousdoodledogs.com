@@ -63,14 +63,6 @@ class DogController extends Controller
     {
         $dog->update($request->all());
 
-        // if request has a weight
-        if($request->has('weight')) {
-            $dog->setMeasurements(['weight' => $request->weight]);
-        }
-        if($request->has('height')) {
-            $dog->setMeasurements(['height' => $request->height]);
-        }
-
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
 
             $dog->media()->delete($dog->id);

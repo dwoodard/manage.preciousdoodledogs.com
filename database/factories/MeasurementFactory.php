@@ -14,9 +14,17 @@ class MeasurementFactory extends Factory
      */
     public function definition(): array
     {
+        $measurable = $this->faker->randomElement([
+            'App\Models\Dog',
+            'App\Models\Puppy',
+        ]);
+
+
         return [
-            "dog_id" => $this->faker->numberBetween(1, 10),
-            "user_id" => User::factory()->create()->id,
+            "measureable_type" => $measurable,
+            "measureable_id" => function () use ($measurable) {
+                return $measurable::factory()->create()->id;
+            },
             "type" => $this->faker->randomElement(['weight', 'height']),
             "value" => $this->faker->randomFloat(2, 1, 100),
             "measured_at" => $this->faker->dateTimeBetween('-6 months', 'now'),

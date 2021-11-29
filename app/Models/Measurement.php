@@ -18,8 +18,8 @@ class Measurement extends Model
     ];
 
     protected $fillable = [
-        'dog_id',
-        'user_id',
+        'measureable_type',
+        'measureable_id',
         'type',
         'value',
         'unit',

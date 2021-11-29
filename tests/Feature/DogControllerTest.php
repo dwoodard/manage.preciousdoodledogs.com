@@ -69,6 +69,8 @@ class DogControllerTest extends TestCase
             'breed' => 'Labrador',
         ]);
 
+        $newWeight = '30';
+
         // load the page
         $data = [
             'name' => 'Test Dog edit',
@@ -76,24 +78,23 @@ class DogControllerTest extends TestCase
             'breed' => 'goldendoodle',
             'birthday' => Carbon::now()->format('Y-m-d'),
             'size' => 'mini',
-            'weight' => '300',
         ];
 
         $this->put("/admin/dogs/{$dog->id}", array_merge(
             $data,
         ));
 
-
         $this->assertDatabaseHas('dogs', [
             'name' => $data['name'],
             'gender' => $data['gender'],
             'breed' => $data['breed'],
-            'size' => $data['size'],
+            'size' => $data['size']
         ]);
 
+
+
         //check if it value changed
-        $this->assertTrue( Dog::find($dog->id)->name !== $dog->name);
-        $this->assertTrue( Dog::find($dog->id)->weight == $dog->weight);
+        $this->assertNotEquals( Dog::find($dog->id)->name , $dog->name);
     }
 
     //test if you can store a dog
@@ -114,11 +115,11 @@ class DogControllerTest extends TestCase
             'breed' => 'goldendoodle',
             'birthday' => Carbon::now()->format('Y-m-d'),
             'size' => 'mini',
-            'weight' => '3',
         ];
 
         // load the page
         $response = $this->post('/admin/dogs', $data);
+
 
         //assert the database has dog
         $this->assertDatabaseHas('dogs', [

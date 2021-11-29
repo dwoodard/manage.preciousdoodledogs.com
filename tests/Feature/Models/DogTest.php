@@ -151,7 +151,7 @@ class DogTest extends TestCase
         $measurements = Measurement::factory()->create([
             'unit' => Measurement::units['weight'],
             'type' => 'weight',
-            'user_id' => $loggedInUser->id,
+            'value' => '1',
         ]);
 
         $dog->traits()->save($traits);

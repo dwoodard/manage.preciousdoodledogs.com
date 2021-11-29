@@ -354,8 +354,8 @@ __webpack_require__.r(__webpack_exports__);
         size: '',
         generation: '',
         outside_stud: '',
-        weight: '',
-        height: '',
+        // weight: '',
+        // height: '',
         image: ''
       })
     };
@@ -1408,37 +1408,6 @@ var render = function () {
                     _vm.$set(_vm.form, "generation", $$v)
                   },
                   expression: "form.generation",
-                },
-              }),
-              _vm._v(" "),
-              _c("v-text-field", {
-                attrs: {
-                  type: "number",
-                  "error-messages": _vm.form.errors.weight,
-                  "to-lower-case": "",
-                  label: "Weight (oz)",
-                },
-                model: {
-                  value: _vm.form.weight,
-                  callback: function ($$v) {
-                    _vm.$set(_vm.form, "weight", $$v)
-                  },
-                  expression: "form.weight",
-                },
-              }),
-              _vm._v(" "),
-              _c("v-text-field", {
-                attrs: {
-                  type: "number",
-                  "error-messages": _vm.form.errors.height,
-                  label: "Height (inches)",
-                },
-                model: {
-                  value: _vm.form.height,
-                  callback: function ($$v) {
-                    _vm.$set(_vm.form, "height", $$v)
-                  },
-                  expression: "form.height",
                 },
               }),
             ],

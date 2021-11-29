@@ -125,15 +125,15 @@
                   item-text="name"
                   item-value="id"/>
 
-        <v-text-field v-model="form.weight"
-                      type="number"
-                      :error-messages="form.errors.weight"to-lower-case
-                      label="Weight (oz)"/>
+        <!--        <v-text-field v-model="form.weight"-->
+        <!--                      type="number"-->
+        <!--                      :error-messages="form.errors.weight"to-lower-case-->
+        <!--                      label="Weight (oz)"/>-->
 
-        <v-text-field v-model="form.height"
-                      type="number"
-                      :error-messages="form.errors.height"
-                      label="Height (inches)"/>
+        <!--        <v-text-field v-model="form.height"-->
+        <!--                      type="number"-->
+        <!--                      :error-messages="form.errors.height"-->
+        <!--                      label="Height (inches)"/>-->
       </v-container>
     </form>
   </v-container>
@@ -157,8 +157,8 @@
           size: '',
           generation: '',
           outside_stud: '',
-          weight: '',
-          height: '',
+          // weight: '',
+          // height: '',
           image: ''
         })
       };

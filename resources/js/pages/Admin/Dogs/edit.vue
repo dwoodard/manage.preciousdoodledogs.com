@@ -121,15 +121,15 @@
                   item-text="name"
                   item-value="id"/>
 
-        <v-text-field v-model="form.weight"
-                      type="number"
-                      :error-messages="form.errors.weight"
-                      :label="`Weight (${form.weight} oz)  (${ouncesToLbs(form.weight)} lbs) `"/>
+        <!--        <v-text-field v-model="form.weight"-->
+        <!--                      type="number"-->
+        <!--                      :error-messages="form.errors.weight"-->
+        <!--                      :label="`Weight (${form.weight} oz)  (${ouncesToLbs(form.weight)} lbs) `"/>-->
 
-        <v-text-field v-model="form.height"
-                      type="number"
-                      :error-messages="form.errors.height"
-                      :label="`Height (inches) ${inchesToFeet(form.height)}  (feet)`"/>
+        <!--        <v-text-field v-model="form.height"-->
+        <!--                      type="number"-->
+        <!--                      :error-messages="form.errors.height"-->
+        <!--                      :label="`Height (inches) ${inchesToFeet(form.height)}  (feet)`"/>-->
       </v-container>
 
       <progress v-if="form.imageProgress" :value="form.imageProgress" max="100">
@@ -163,8 +163,8 @@
           size: this.dog.size,
           generation: this.dog.generation,
           outside_stud: this.dog.outside_stud,
-          weight: this.dog.weight,
-          height: this.dog.height,
+          // weight: this.dog.weight,
+          // height: this.dog.height,
           media: this.dog.media,
           image: null
         })

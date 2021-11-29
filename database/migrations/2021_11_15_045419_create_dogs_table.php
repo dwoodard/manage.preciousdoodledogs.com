@@ -22,8 +22,8 @@ class CreateDogsTable extends Migration
             $table->string('generation')->nullable(); //(f1b, f1, f2b, f2bb, multigen)
             $table->string('gender')->nullable();
             $table->boolean('outside_stud')->nullable();
-            $table->string('weight')->nullable();
-            $table->string('height')->nullable();
+//            $table->string('weight')->nullable();
+//            $table->string('height')->nullable();
             $table->date('retired_at')->nullable();
             $table->timestamps();
         });

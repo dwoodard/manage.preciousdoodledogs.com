@@ -360,8 +360,8 @@ __webpack_require__.r(__webpack_exports__);
         size: this.dog.size,
         generation: this.dog.generation,
         outside_stud: this.dog.outside_stud,
-        weight: this.dog.weight,
-        height: this.dog.height,
+        // weight: this.dog.weight,
+        // height: this.dog.height,
         media: this.dog.media,
         image: null
       })
@@ -1365,44 +1365,6 @@ var render = function () {
                     _vm.$set(_vm.form, "generation", $$v)
                   },
                   expression: "form.generation",
-                },
-              }),
-              _vm._v(" "),
-              _c("v-text-field", {
-                attrs: {
-                  type: "number",
-                  "error-messages": _vm.form.errors.weight,
-                  label:
-                    "Weight (" +
-                    _vm.form.weight +
-                    " oz)  (" +
-                    _vm.ouncesToLbs(_vm.form.weight) +
-                    " lbs) ",
-                },
-                model: {
-                  value: _vm.form.weight,
-                  callback: function ($$v) {
-                    _vm.$set(_vm.form, "weight", $$v)
-                  },
-                  expression: "form.weight",
-                },
-              }),
-              _vm._v(" "),
-              _c("v-text-field", {
-                attrs: {
-                  type: "number",
-                  "error-messages": _vm.form.errors.height,
-                  label:
-                    "Height (inches) " +
-                    _vm.inchesToFeet(_vm.form.height) +
-                    "  (feet)",
-                },
-                model: {
-                  value: _vm.form.height,
-                  callback: function ($$v) {
-                    _vm.$set(_vm.form, "height", $$v)
-                  },
-                  expression: "form.height",
                 },
               }),
             ],
