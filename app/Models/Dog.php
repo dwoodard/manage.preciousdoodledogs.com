@@ -110,7 +110,8 @@ class Dog extends Model implements HasMedia
         $measurement = $this->getMeasurements($string)->sortByDesc('measured_at')->first();
 
         if ($measurement) {
-            return $measurement->value;
+            // return the value and unit
+            return $measurement->value . ' ' . $measurement->unit;
         }
 
         return null;

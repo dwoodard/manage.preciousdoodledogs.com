@@ -466,8 +466,10 @@ var pascalToTitleCase = function pascalToTitleCase(str) {
 }; // convert ounces to lbs
 
 var ouncesToLbs = function ouncesToLbs(ounces) {
-  // if ounces is null return null
-  if (ounces === null) {
+  // remove any text 'ounces' or 'g' or 'oz' and whitespace
+  ounces = ounces.replace(/[^0-9.]/g, ''); // if ounces is null return null
+
+  if (ounces === '') {
     return null;
   } // round to 2 decimal places
 

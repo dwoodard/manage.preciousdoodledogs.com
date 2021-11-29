@@ -14,8 +14,11 @@ export const pascalToTitleCase = (str) => {
 
 // convert ounces to lbs
 export const ouncesToLbs = (ounces) => {
+  // remove any text 'ounces' or 'g' or 'oz' and whitespace
+  ounces = ounces.replace(/[^0-9.]/g, '');
+
   // if ounces is null return null
-  if (ounces === null) {
+  if (ounces === '') {
     return null;
   }
 
