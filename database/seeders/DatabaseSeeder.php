@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
         // create dogs with measurements
         \App\Models\Dog::factory(10)->create()->each(function ($dog) {
             $dog->measurements()->saveMany(\App\Models\Measurement::factory(rand(1, 10))->create());
+
+            $dog->traits()->saveMany(\App\Models\Traits::factory(rand(1, 10))->create());
         });
 
 
