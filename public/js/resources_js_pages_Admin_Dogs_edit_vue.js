@@ -417,7 +417,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -1629,12 +1628,7 @@ var render = function () {
           _c(
             "v-col",
             { attrs: { cols: "12", sm: "6", md: "4" } },
-            [
-              _c("DogWeightChart", {
-                directives: [{ name: "col", rawName: "v-col" }],
-                attrs: { value: _vm.dog.measurements },
-              }),
-            ],
+            [_c("DogWeightChart", { attrs: { value: _vm.dog.measurements } })],
             1
           ),
         ],
