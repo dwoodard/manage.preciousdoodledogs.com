@@ -383,6 +383,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -1614,6 +1629,98 @@ var render = function () {
                                                             ],
                                                             1
                                                           ),
+                                                          _vm._v(" "),
+                                                          dog.gender ===
+                                                          "female"
+                                                            ? _c(
+                                                                "v-list-item",
+                                                                [
+                                                                  _c(
+                                                                    "inertia-link",
+                                                                    {
+                                                                      directives:
+                                                                        [
+                                                                          {
+                                                                            name: "ripple",
+                                                                            rawName:
+                                                                              "v-ripple",
+                                                                          },
+                                                                        ],
+                                                                      attrs: {
+                                                                        href: _vm.route(
+                                                                          "admin.dogs.edit",
+                                                                          {
+                                                                            dog: dog.id,
+                                                                          }
+                                                                        ),
+                                                                        as: "v-list-item",
+                                                                      },
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "v-icon",
+                                                                        [
+                                                                          _vm._v(
+                                                                            "mdi-dna"
+                                                                          ),
+                                                                        ]
+                                                                      ),
+                                                                      _vm._v(
+                                                                        "\n                            Add Breeding\n                          "
+                                                                      ),
+                                                                    ],
+                                                                    1
+                                                                  ),
+                                                                ],
+                                                                1
+                                                              )
+                                                            : _vm._e(),
+                                                          _vm._v(" "),
+                                                          dog.gender ===
+                                                          "female"
+                                                            ? _c(
+                                                                "v-list-item",
+                                                                [
+                                                                  _c(
+                                                                    "inertia-link",
+                                                                    {
+                                                                      directives:
+                                                                        [
+                                                                          {
+                                                                            name: "ripple",
+                                                                            rawName:
+                                                                              "v-ripple",
+                                                                          },
+                                                                        ],
+                                                                      attrs: {
+                                                                        href: _vm.route(
+                                                                          "admin.dogs.edit",
+                                                                          {
+                                                                            dog: dog.id,
+                                                                          }
+                                                                        ),
+                                                                        as: "v-list-item",
+                                                                      },
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "v-icon",
+                                                                        [
+                                                                          _vm._v(
+                                                                            "mdi-calendar-month-outline"
+                                                                          ),
+                                                                        ]
+                                                                      ),
+                                                                      _vm._v(
+                                                                        "\n                            Add Heat\n                          "
+                                                                      ),
+                                                                    ],
+                                                                    1
+                                                                  ),
+                                                                ],
+                                                                1
+                                                              )
+                                                            : _vm._e(),
                                                         ],
                                                         1
                                                       ),
