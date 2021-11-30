@@ -151,7 +151,7 @@
 <script>
   import Layout from '@/layouts/Admin/Layout';
   import {age, inchesToFeet, ouncesToLbs} from '@/helper';
-  import DogWeightChart from '@/components/DogWeightChart';
+  import DogWeightChart from '@/components/dogs/DogWeightChart';
 
   export default {
     props: {

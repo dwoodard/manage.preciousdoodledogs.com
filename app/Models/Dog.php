@@ -90,7 +90,7 @@ class Dog extends Model implements HasMedia
             'breed' => $this->breed,
             'gender' => $this->gender,
             'outside_stud' => $this->outside_stud,
-            'birthday' => $this->birthday,
+            'birthday' => $this->birthday ? $this->birthday->format('Y-m-d') : null,
             'age' => $this->age,
             'size' => $this->size,
             'generation' => $this->generation,
