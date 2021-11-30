@@ -12,6 +12,8 @@ class Dog extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia;
 
+    protected $table = 'dogs';
+
     protected $fillable = [
         'name',
         'breed',
@@ -54,6 +56,12 @@ class Dog extends Model implements HasMedia
             ]);
         }
     }
+
+    public function litters()
+    {
+         return $this->hasMany(Litter::class);
+    }
+
 
     public function getMeasurements(string $type = null)
     {

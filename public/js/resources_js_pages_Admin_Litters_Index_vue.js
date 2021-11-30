@@ -204,9 +204,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  layout: _layouts_Admin_Layout__WEBPACK_IMPORTED_MODULE_0__["default"]
+  layout: _layouts_Admin_Layout__WEBPACK_IMPORTED_MODULE_0__["default"],
+  props: ['litters'],
+  data: function data() {
+    return {
+      valid: false,
+      showCreateModal: false,
+      form: this.$inertia.form({
+        name: '',
+        errors: []
+      })
+    };
+  }
 });
 
 /***/ }),
@@ -792,6 +806,8 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("v-container", { attrs: { fluid: "" } }, [
     _c("h1", [_vm._v("Litters")]),
+    _vm._v(" "),
+    _c("div", [_c("pre", [_vm._v(_vm._s(_vm.litters))])]),
   ])
 }
 var staticRenderFns = []

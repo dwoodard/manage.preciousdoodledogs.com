@@ -15,7 +15,8 @@ class DogFactory extends Factory
     {
         //  name, breed, gender, outside_stud, weight, height, generation, retired_at
 
-        $gender = $this->faker->randomElement( ['male', 'female'])       ;
+        $gender = $this->faker->randomElement( ['male', 'female']);
+
         return [
             "name" => $this->faker->name(),
             "breed" => $this->faker->randomElement(['poodle', 'goldendoodles', 'labradoodle', 'cavapoo']),

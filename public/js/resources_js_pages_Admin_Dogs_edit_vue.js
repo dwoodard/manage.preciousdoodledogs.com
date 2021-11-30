@@ -41,9 +41,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     value: {
@@ -887,59 +884,54 @@ var render = function () {
   return _c(
     "div",
     [
-      [
-        _c(
-          "v-card",
-          {
-            staticClass: "mx-auto",
-            attrs: { color: "grey lighten-4", "max-width": "600" },
-          },
-          [
-            _c("v-card-title", [
-              _vm._v("\n        " + _vm._s(_vm.title) + "\n      "),
-            ]),
-            _vm._v(" "),
-            _c(
-              "v-card-text",
-              [
-                _c("v-sparkline", {
-                  attrs: {
-                    value: _vm.value,
-                    gradient: _vm.gradient,
-                    smooth: _vm.radius || false,
-                    padding: _vm.padding,
-                    "line-width": _vm.width,
-                    "stroke-linecap": _vm.lineCap,
-                    "gradient-direction": _vm.gradientDirection,
-                    fill: _vm.fill,
-                    type: _vm.type,
-                    "auto-line-width": _vm.autoLineWidth,
-                    "auto-draw": "",
-                  },
-                  scopedSlots: _vm._u([
-                    {
-                      key: "label",
-                      fn: function (item) {
-                        return [
-                          _vm._v(
-                            "\n            " +
-                              _vm._s(item.value) +
-                              "\n          "
-                          ),
-                        ]
-                      },
+      _c(
+        "v-card",
+        {
+          staticClass: "mx-auto",
+          attrs: { color: "grey lighten-4", "max-width": "600" },
+        },
+        [
+          _c("v-card-title", [
+            _vm._v("\n      " + _vm._s(_vm.title) + "\n    "),
+          ]),
+          _vm._v(" "),
+          _c(
+            "v-card-text",
+            [
+              _c("v-sparkline", {
+                attrs: {
+                  value: _vm.value,
+                  smooth: _vm.radius || false,
+                  padding: _vm.padding,
+                  "line-width": _vm.width,
+                  "stroke-linecap": _vm.lineCap,
+                  "gradient-direction": _vm.gradientDirection,
+                  fill: _vm.fill,
+                  type: _vm.type,
+                  "auto-line-width": _vm.autoLineWidth,
+                  "auto-draw": "",
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "label",
+                    fn: function (item) {
+                      return [
+                        _vm._v(
+                          "\n          " + _vm._s(item.value) + "\n        "
+                        ),
+                      ]
                     },
-                  ]),
-                }),
-              ],
-              1
-            ),
-          ],
-          1
-        ),
-      ],
+                  },
+                ]),
+              }),
+            ],
+            1
+          ),
+        ],
+        1
+      ),
     ],
-    2
+    1
   )
 }
 var staticRenderFns = []
