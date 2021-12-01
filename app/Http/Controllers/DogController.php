@@ -20,6 +20,7 @@ class DogController extends Controller
             'media',
             'measurements',
             'heats',
+            'litters',
             'traits'])
             ->orderBy('created_at', 'desc')
             ->get();

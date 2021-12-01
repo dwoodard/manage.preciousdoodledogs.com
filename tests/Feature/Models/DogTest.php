@@ -148,7 +148,6 @@ class DogTest extends TestCase
         $loggedInUser->assignRole('admin');
         $this->actingAs($loggedInUser);
 
-        // Setup
         $dog = Dog::factory()->create();
         $traits = Traits::factory()->create();
         $measurements = Measurement::factory()->create([
@@ -175,7 +174,6 @@ class DogTest extends TestCase
     /** @test */
     public function get_dogs_next_due_date()
     {
-        // Setup
         $dog = Dog::factory()->create([
             'gender' => 'female'
         ]);
@@ -203,7 +201,6 @@ class DogTest extends TestCase
     /** @test */
     public function it_can_get_the_latest_heat()
     {
-        // Setup
         $dog = Dog::factory()->create([
             'gender' => 'female'
         ]);
@@ -214,12 +211,139 @@ class DogTest extends TestCase
             'heat_at' => $date->format('Y-m-d')
         ]));
 
-
-        $this->assertEquals($date->format('Y-m-d'), $dog->latest_heat->heat_at);
+        $this->assertEquals($date->format('Y-m-d'), $dog->latest_heat);
     }
 
+    //next_est_mated_at
+    /** @test */
+    public function it_can_get_the_next_est_mated_at()
+    {
+        $dog = Dog::factory()->create([
+            // female
+            'gender' => 'female'
+        ]);
+
+        $dog->heats()->save(Heat::factory()->create([
+            'heat_at' => now()
+        ]));
+
+
+        $next_est_mated_at = Carbon::parse($dog->latest_heat)
+            ->addDays(Dog::NEXT_EST_MATED_FROM_LAST_HEAT_AT_IN_DAYS)
+            ->format('Y-m-d');
+
+        $this->assertEquals($next_est_mated_at, $dog->next_est_mated_at);
+
+    }
+
+    // xray_est_at
+    /** @test */
+    public function it_can_get_the_xray_est_at()
+    {
+        $dog = Dog::factory()->create([
+            // female
+            'gender' => 'female'
+        ]);
+
+        $dog->litters()->saveMany(Litter::factory()->count(3)->create([
+            'dame_id' => $dog->id,
+            'stud_id' => Dog::factory()->create()->id,
+            'mated_at' => Carbon::now(),
+            'got_pregnant' => true,
+        ]));
+
+        $this->assertEquals(
+            Carbon::parse($dog->litters->sortByDesc('mated_at')
+                ->first()->mated_at)
+                ->addDays(Dog::NEXT_EST_XRAY_IN_DAYS)
+                ->format('Y-m-d'),
+            $dog->xray_est_at);
+
+    }
     // dogs can have puppies
 
 
+    // days_since_last_heat
+    /** @test */
+    public function it_can_get_the_days_since_last_heat()
+    {
+        $dog = Dog::factory()->create([
+            'gender' => 'female'
+        ]);
+
+        $dog->heats()->save(Heat::factory()->create([
+            'heat_at' => Carbon::now()->subDays(50)
+        ]));
+
+        $this->assertEquals(
+            Carbon::parse($dog->heats->first()->heat_at)->diffInDays(),
+            $dog->days_since_last_heat
+        );
+
+    }
+
+    // weeks_between_heats
+    /** @test */
+    public function it_can_get_the_weeks_between_heats()
+    {
+        $dog = Dog::factory()->create([
+            'gender' => 'female'
+        ]);
+
+        // each heat set heat_at -7 days
+        $dog->heats()->saveMany(Heat::factory()->count(4)->create([
+            'heat_at' => Carbon::now()->subDays(7)
+        ]));
+
+        // get heats and sort descending
+        $heats = $dog->heats->sortByDesc('heat_at');
+
+        // get the first heat
+        $first_heat = $heats->first();
+        $second_heat = $heats->get(1);
+
+        // get the difference in weeks between the first and second heat
+        $weeks_between_heats = Carbon::parse($first_heat->heat_at)
+            ->diffInWeeks(Carbon::parse($second_heat->heat_at));
+
+        $this->assertEquals(
+            $weeks_between_heats,
+            $dog->weeks_between_heats
+        );
+
+
+
+
+    }
+    // next_est_heat_date
+    /** @test */
+    public function it_can_get_the_next_est_heat_date()
+    {
+        $dog = Dog::factory()->create([
+            'gender' => 'female'
+        ]);
+
+        $heats = collect();
+
+        // loop 4 times and push a new factory
+        for($i = 0; $i < 4; $i++){
+            $heats->push(
+                Heat::factory()->create([
+                'heat_at' => Carbon::now()->subWeeks($i*Dog::WEEKS_BETWEEN_HEATS)->format('Y-m-d')
+            ]));
+        }
+
+        $dog->heats()->saveMany($heats);
+
+        $next_est_heat_date = Carbon::parse($dog->heats->sortByDesc('heat_at')->first()->heat_at)
+            ->addWeeks(Dog::WEEKS_BETWEEN_HEATS)
+            ->format('Y-m-d');
+
+        $this->assertEquals(
+            $next_est_heat_date,
+            $dog->next_est_heat_date
+        );
+
+    }
 
 }

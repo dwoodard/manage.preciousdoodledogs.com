@@ -16,7 +16,7 @@ class MeasurementFactory extends Factory
     {
         $measurable = $this->faker->randomElement([
             'App\Models\Dog',
-            'App\Models\Puppy',
+
         ]);
 
         $type = $this->faker->randomElement([
@@ -44,14 +44,11 @@ class MeasurementFactory extends Factory
     {
         switch ($type) {
             case 'weight':
-                $this->faker->randomElement(['kg', 'lb']);
-                break;
+                return $this->faker->randomElement(['ounces', 'lbs']);
             case 'height':
-                $this->faker->randomElement(['cm', 'in']);
-                break;
+                return $this->faker->randomElement(['cm', 'in']);
             case 'temperature':
-                $this->faker->randomElement(['C', 'F']);
-                break;
+                return $this->faker->randomElement(['C', 'F']);
         }
     }
 }

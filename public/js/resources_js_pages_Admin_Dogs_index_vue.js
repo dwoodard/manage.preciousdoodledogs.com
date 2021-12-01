@@ -425,6 +425,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -1854,6 +1874,10 @@ var render = function () {
                     { text: "Size", value: "size" },
                     { text: "Age (months)", value: "age.months" },
                     { text: "Weight (lbs)", value: "weight" },
+                    {
+                      text: "Next Est Xray",
+                      value: "calculations.xray_est_at",
+                    },
                     { text: "Traits", value: "traits" },
                     { text: "Actions", value: "actions" },
                   ],
@@ -1865,6 +1889,41 @@ var render = function () {
                   },
                 },
                 scopedSlots: _vm._u([
+                  {
+                    key: "item.gender",
+                    fn: function (ref) {
+                      var item = ref.item
+                      return [
+                        item.gender === "female"
+                          ? _c(
+                              "span",
+                              { staticStyle: { background: "pink" } },
+                              [
+                                _vm._v(
+                                  "\n            " +
+                                    _vm._s(item.gender) +
+                                    "\n          "
+                                ),
+                              ]
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        item.gender === "male"
+                          ? _c(
+                              "span",
+                              { staticStyle: { background: "lightskyblue" } },
+                              [
+                                _vm._v(
+                                  "\n            " +
+                                    _vm._s(item.gender) +
+                                    "\n          "
+                                ),
+                              ]
+                            )
+                          : _vm._e(),
+                      ]
+                    },
+                  },
                   {
                     key: "item.weight",
                     fn: function (ref) {
@@ -1967,6 +2026,22 @@ var render = function () {
                                     _vm._v(" "),
                                     _c("v-expansion-panel-content", [
                                       _c("pre", [_vm._v(_vm._s(item.traits))]),
+                                    ]),
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-expansion-panel",
+                                  [
+                                    _c("v-expansion-panel-header", [
+                                      _vm._v(
+                                        "\n                  Heats\n                "
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("v-expansion-panel-content", [
+                                      _c("pre", [_vm._v(_vm._s(item.heats))]),
                                     ]),
                                   ],
                                   1

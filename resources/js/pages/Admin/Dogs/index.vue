@@ -172,6 +172,7 @@
             { text: 'Size', value: 'size' },
             { text: 'Age (months)', value: 'age.months' },
             { text: 'Weight (lbs)', value: 'weight' },
+            { text: 'Next Est Xray', value: 'calculations.xray_est_at' },
             { text: 'Traits' , value: 'traits' },
             { text: 'Actions', value: 'actions' }
           ]"
@@ -179,6 +180,16 @@
           class="elevation-1">
           <!-- -->
 
+
+          <template #item.gender="{ item }">
+            <span v-if="item.gender === 'female'" style="background: pink">
+              {{ item.gender }}
+            </span>
+
+            <span v-if="item.gender === 'male'" style="background: lightskyblue">
+              {{ item.gender }}
+            </span>
+          </template>
 
           <template #item.weight="{ item }">
             <span>
@@ -213,6 +224,15 @@
                   </v-expansion-panel-header>
                   <v-expansion-panel-content>
                     <pre>{{ item.traits }}</pre>
+                  </v-expansion-panel-content>
+                </v-expansion-panel>
+
+                <v-expansion-panel>
+                  <v-expansion-panel-header>
+                    Heats
+                  </v-expansion-panel-header>
+                  <v-expansion-panel-content>
+                    <pre>{{ item.heats }}</pre>
                   </v-expansion-panel-content>
                 </v-expansion-panel>
               </v-expansion-panels>

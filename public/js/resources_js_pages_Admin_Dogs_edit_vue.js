@@ -422,6 +422,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -889,51 +900,42 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
+    "v-card",
+    {
+      staticClass: "mx-auto",
+      attrs: { color: "grey lighten-4", height: "100%", "max-width": "600" },
+    },
     [
+      _c("v-card-title", [_vm._v("\n    " + _vm._s(_vm.title) + "\n  ")]),
+      _vm._v(" "),
       _c(
-        "v-card",
-        {
-          staticClass: "mx-auto",
-          attrs: { color: "grey lighten-4", "max-width": "600" },
-        },
+        "v-card-text",
         [
-          _c("v-card-title", [
-            _vm._v("\n      " + _vm._s(_vm.title) + "\n    "),
-          ]),
-          _vm._v(" "),
-          _c(
-            "v-card-text",
-            [
-              _c("v-sparkline", {
-                attrs: {
-                  value: _vm.value,
-                  smooth: _vm.radius || false,
-                  padding: _vm.padding,
-                  "line-width": _vm.width,
-                  "stroke-linecap": _vm.lineCap,
-                  "gradient-direction": _vm.gradientDirection,
-                  fill: _vm.fill,
-                  type: _vm.type,
-                  "auto-line-width": _vm.autoLineWidth,
-                  "auto-draw": "",
+          _c("v-sparkline", {
+            attrs: {
+              height: "100%",
+              value: _vm.value,
+              smooth: _vm.radius || false,
+              padding: _vm.padding,
+              "line-width": _vm.width,
+              "stroke-linecap": _vm.lineCap,
+              "gradient-direction": _vm.gradientDirection,
+              fill: _vm.fill,
+              type: _vm.type,
+              "auto-line-width": _vm.autoLineWidth,
+              "auto-draw": "",
+            },
+            scopedSlots: _vm._u([
+              {
+                key: "label",
+                fn: function (item) {
+                  return [
+                    _vm._v("\n        " + _vm._s(item.value) + "\n      "),
+                  ]
                 },
-                scopedSlots: _vm._u([
-                  {
-                    key: "label",
-                    fn: function (item) {
-                      return [
-                        _vm._v(
-                          "\n          " + _vm._s(item.value) + "\n        "
-                        ),
-                      ]
-                    },
-                  },
-                ]),
-              }),
-            ],
-            1
-          ),
+              },
+            ]),
+          }),
         ],
         1
       ),
@@ -1654,6 +1656,27 @@ var render = function () {
             "v-col",
             { attrs: { cols: "12", sm: "6", md: "4" } },
             [_c("DogWeightChart", { attrs: { value: _vm.dog.measurements } })],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-col",
+            { attrs: { cols: "12", sm: "6", md: "4" } },
+            [
+              _c(
+                "v-card",
+                [
+                  _c("v-card-title", [
+                    _vm._v("\n          Calculations\n        "),
+                  ]),
+                  _vm._v(" "),
+                  _c("v-card-text", [
+                    _c("pre", [_vm._v(_vm._s(_vm.dog.calculations))]),
+                  ]),
+                ],
+                1
+              ),
+            ],
             1
           ),
         ],

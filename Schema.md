@@ -18,7 +18,7 @@
 -- (calc) days_until_next_heat = $dog->latest_heat - now() // days until next heat
 -- (calc) next_est_heat_date = $dog->latest_heat + weeks([weeks_between_heats]) (more calcs on the model)
 -- (calc) next_due_date = $dog->latest_litter->mated_at + 63 days
--- (calc) next_est_mated_at = $dog->latest_heat() + (8 days)
+-- (calc) next_est_mated_at = $dog->latest_heat + (8 days)
 -- (calc) measurements[] = [$dog->measurement->[weights,length,temperature,progesterone] sorted by date
 -- (calc) xray_est_at = $dog->litter->[get the latest mating by date]->mated_at + 53 days
 

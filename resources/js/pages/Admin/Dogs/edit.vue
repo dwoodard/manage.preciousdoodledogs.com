@@ -146,7 +146,18 @@
     <v-row>
       <v-col cols="12" sm="6" md="4">
         <DogWeightChart
+
           :value="dog.measurements"/>
+      </v-col>
+      <v-col cols="12" sm="6" md="4">
+        <v-card>
+          <v-card-title>
+            Calculations
+          </v-card-title>
+          <v-card-text>
+            <pre>{{ dog.calculations }}</pre>
+          </v-card-text>
+        </v-card>
       </v-col>
     </v-row>
   </v-container>
