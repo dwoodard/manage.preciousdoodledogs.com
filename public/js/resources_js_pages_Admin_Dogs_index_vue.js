@@ -406,7 +406,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -1838,7 +1837,6 @@ var render = function () {
                     { text: "Weight (lbs)", value: "weight" },
                   ],
                   items: _vm.dogs,
-                  "items-per-page": 100,
                 },
                 on: {
                   "update:expanded": function ($event) {

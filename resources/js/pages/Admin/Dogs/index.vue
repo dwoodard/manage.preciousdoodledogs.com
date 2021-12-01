@@ -174,7 +174,6 @@
             { text: 'Weight (lbs)', value: 'weight' },
           ]"
           :items="dogs"
-          :items-per-page="100"
           class="elevation-1">
           <!-- -->
 
