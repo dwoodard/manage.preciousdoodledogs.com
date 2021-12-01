@@ -406,6 +406,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -1835,6 +1854,8 @@ var render = function () {
                     { text: "Size", value: "size" },
                     { text: "Age (months)", value: "age.months" },
                     { text: "Weight (lbs)", value: "weight" },
+                    { text: "Traits", value: "traits" },
+                    { text: "Actions", value: "actions" },
                   ],
                   items: _vm.dogs,
                 },
@@ -1856,6 +1877,66 @@ var render = function () {
                               "\n          "
                           ),
                         ]),
+                      ]
+                    },
+                  },
+                  {
+                    key: "item.traits",
+                    fn: function (ref) {
+                      var item = ref.item
+                      return [
+                        _c("span", [
+                          _vm._v(
+                            "\n            " +
+                              _vm._s(_vm.traitsCount(item.traits)) +
+                              "\n          "
+                          ),
+                        ]),
+                      ]
+                    },
+                  },
+                  {
+                    key: "item.actions",
+                    fn: function (ref) {
+                      var item = ref.item
+                      return [
+                        _c(
+                          "span",
+                          [
+                            _c(
+                              "inertia-link",
+                              {
+                                attrs: {
+                                  href: _vm.route("admin.dogs.edit", {
+                                    dog: item.id,
+                                  }),
+                                  as: "v-list-item",
+                                },
+                              },
+                              [
+                                _c("v-icon", [
+                                  _vm._v("mdi-circle-edit-outline"),
+                                ]),
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "inertia-link",
+                              {
+                                attrs: {
+                                  href: _vm.route("admin.dogs.destroy", {
+                                    dog: item.id,
+                                  }),
+                                  as: "v-list-item",
+                                },
+                              },
+                              [_c("v-icon", [_vm._v("mdi-delete")])],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
                       ]
                     },
                   },

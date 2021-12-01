@@ -172,6 +172,8 @@
             { text: 'Size', value: 'size' },
             { text: 'Age (months)', value: 'age.months' },
             { text: 'Weight (lbs)', value: 'weight' },
+            { text: 'Traits' , value: 'traits' },
+            { text: 'Actions', value: 'actions' }
           ]"
           :items="dogs"
           class="elevation-1">
@@ -181,6 +183,23 @@
           <template #item.weight="{ item }">
             <span>
               {{ ouncesToLbs(item.weight) }}
+            </span>
+          </template>
+
+          <template #item.traits="{ item }">
+            <span>
+              {{ traitsCount(item.traits) }}
+            </span>
+          </template>
+
+          <template #item.actions="{ item }">
+            <span>
+              <inertia-link :href="route('admin.dogs.edit', {dog:item.id})" as="v-list-item">
+                <v-icon>mdi-circle-edit-outline</v-icon>
+              </inertia-link>
+              <inertia-link :href="route('admin.dogs.destroy', {dog:item.id})" as="v-list-item">
+                <v-icon>mdi-delete</v-icon>
+              </inertia-link>
             </span>
           </template>
 
