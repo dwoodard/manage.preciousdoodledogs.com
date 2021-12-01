@@ -417,6 +417,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -439,6 +444,7 @@ __webpack_require__.r(__webpack_exports__);
         size: this.dog.size,
         generation: this.dog.generation,
         outside_stud: this.dog.outside_stud,
+        can_stud: this.dog.can_stud,
         // weight: this.dog.weight,
         // height: this.dog.height,
         media: this.dog.media,
@@ -1423,6 +1429,23 @@ var render = function () {
                                   _vm.$set(_vm.form, "outside_stud", $$v)
                                 },
                                 expression: "form.outside_stud",
+                              },
+                            })
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.form.gender === "male"
+                          ? _c("v-checkbox", {
+                              attrs: {
+                                "hide-details": "",
+                                "error-messages": _vm.form.errors.can_stud,
+                                label: "Can Stud",
+                              },
+                              model: {
+                                value: _vm.form.can_stud,
+                                callback: function ($$v) {
+                                  _vm.$set(_vm.form, "can_stud", $$v)
+                                },
+                                expression: "form.can_stud",
                               },
                             })
                           : _vm._e(),

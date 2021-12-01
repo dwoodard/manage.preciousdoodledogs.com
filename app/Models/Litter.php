@@ -11,6 +11,9 @@ class Litter extends Model
 
     protected $fillable = [
         "dame_id",
+        "stud_id",
         "status",
+        "mated_at",
+        "got_pregnant"
     ];
 }

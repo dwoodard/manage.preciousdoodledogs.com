@@ -19,6 +19,7 @@ class DogController extends Controller
         $dogs = Dog::with([
             'media',
             'measurements',
+            'heats',
             'traits'])
             ->orderBy('created_at', 'desc')
             ->get();

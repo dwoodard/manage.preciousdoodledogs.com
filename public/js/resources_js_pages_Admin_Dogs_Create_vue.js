@@ -339,6 +339,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -354,6 +359,7 @@ __webpack_require__.r(__webpack_exports__);
         size: '',
         generation: '',
         outside_stud: '',
+        can_stud: '',
         // weight: '',
         // height: '',
         image: ''
@@ -1209,6 +1215,23 @@ var render = function () {
                                   _vm.$set(_vm.form, "outside_stud", $$v)
                                 },
                                 expression: "form.outside_stud",
+                              },
+                            })
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.form.gender === "male"
+                          ? _c("v-checkbox", {
+                              attrs: {
+                                "hide-details": "",
+                                "error-messages": _vm.form.errors.can_stud,
+                                label: "Can Stud",
+                              },
+                              model: {
+                                value: _vm.form.can_stud,
+                                callback: function ($$v) {
+                                  _vm.$set(_vm.form, "can_stud", $$v)
+                                },
+                                expression: "form.can_stud",
                               },
                             })
                           : _vm._e(),

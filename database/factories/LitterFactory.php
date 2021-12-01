@@ -16,9 +16,10 @@ class LitterFactory extends Factory
     {
         return [
             'dame_id' => Dog::factory()->create()->id,
-//            'stud_id' => Dog::factory()->create()->id,
+            'stud_id' => Dog::factory()->create()->id,
+            'mated_at' => now(),
             'status' => $this->faker->randomElement(['expected', 'born', 'sold', 'delivered']),
-
+            'got_pregnant' => $this->faker->boolean,
         ];
     }
 }

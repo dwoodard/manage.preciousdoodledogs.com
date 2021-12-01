@@ -42,6 +42,11 @@
                           hide-details
                           :error-messages="form.errors.outside_stud"
                           label="Outside Stud"/>
+
+              <v-checkbox v-if="form.gender === 'male'" v-model="form.can_stud"
+                          hide-details
+                          :error-messages="form.errors.can_stud"
+                          label="Can Stud"/>
             </div>
           </v-col>
           <v-col cols="12" md="4">
@@ -157,6 +162,7 @@
           size: '',
           generation: '',
           outside_stud: '',
+          can_stud: '',
           // weight: '',
           // height: '',
           image: ''

@@ -4,9 +4,12 @@ namespace Tests\Feature;
 
 use App\Http\Resources\DogResource;
 use App\Models\Dog;
+use App\Models\Heat;
+use App\Models\Litter;
 use App\Models\Measurement;
 use App\Models\Traits;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
@@ -168,7 +171,55 @@ class DogTest extends TestCase
         }
     }
 
+    // get dogs next_due_date
+    /** @test */
+    public function get_dogs_next_due_date()
+    {
+        // Setup
+        $dog = Dog::factory()->create([
+            'gender' => 'female'
+        ]);
+        $dog->heats()->save(Heat::factory()->create([
+            'heat_at' => Carbon::now()->subDays(Heat::FIRST_HEAT_ESTIMATE_HEAT_IN_WEEKS),
+        ]));
+
+
+
+        // create 3 litters for this dog
+        $litters = Litter::factory()->count(3)->create([
+            'dame_id' => $dog->id,
+            'stud_id' => Dog::factory()->create()->id,
+            'mated_at' => Carbon::now()->subDays(Dog::PREGNANCY_DURATION_IN_DAYS-1),
+            'got_pregnant' => true,
+        ]);
+        $dog->litters()->saveMany($litters);
+
+        // assert that the next due date is 63 days from now as a Y-m-d
+        $this->assertEquals(Carbon::now()->format('Y-m-d'), $dog->next_due_date);
+
+    }
+
+    // latest Heat
+    /** @test */
+    public function it_can_get_the_latest_heat()
+    {
+        // Setup
+        $dog = Dog::factory()->create([
+            'gender' => 'female'
+        ]);
+
+        $date = Carbon::now()->subDays(Heat::FIRST_HEAT_ESTIMATE_HEAT_IN_WEEKS);
+
+        $dog->heats()->save(Heat::factory()->create([
+            'heat_at' => $date->format('Y-m-d')
+        ]));
+
+
+        $this->assertEquals($date->format('Y-m-d'), $dog->latest_heat->heat_at);
+    }
+
     // dogs can have puppies
+
 
 
 }
