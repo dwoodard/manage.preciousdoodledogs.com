@@ -171,12 +171,21 @@
             { text: 'Generation', value: 'generation' },
             { text: 'Size', value: 'size' },
             { text: 'Age (months)', value: 'age.months' },
-            { text: 'Weight (ounces)', value: 'weight.ounces' },
+            { text: 'Weight (lbs)', value: 'weight' },
           ]"
           :items="dogs"
           :items-per-page="100"
           class="elevation-1">
           <!-- -->
+
+
+          <template #item.weight="{ item }">
+            <span>
+              {{ ouncesToLbs(item.weight) }}
+            </span>
+          </template>
+
+
           <template #expanded-item="{ headers, item, }">
             <td :colspan="headers.length" class="pa-0 rounded-0">
               <v-expansion-panels>

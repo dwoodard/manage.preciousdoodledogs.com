@@ -398,6 +398,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -544,14 +553,16 @@ var ouncesToLbs = function ouncesToLbs(ounces) {
   } // remove any text 'ounces' or 'g' or 'oz' and whitespace
 
 
-  ounces = ounces.replace(/[^0-9.]/g, ''); // if ounces is null return null
+  var _ounces = ounces.replace(/[^0-9.]/g, ''); // if ounces is null return null
 
-  if (ounces === '') {
+
+  if (_ounces === '') {
     return null;
-  } // round to 2 decimal places
+  } // force to 2 decimal places
 
 
-  return Math.round(ounces * 0.0625 * 100) / 100;
+  _ounces = Math.round(_ounces * 0.0625 * 100) / 100;
+  return parseFloat(_ounces).toFixed(2);
 };
 var inchesToFeet = function inchesToFeet(inches) {
   if (inches === null) {
@@ -1824,7 +1835,7 @@ var render = function () {
                     { text: "Generation", value: "generation" },
                     { text: "Size", value: "size" },
                     { text: "Age (months)", value: "age.months" },
-                    { text: "Weight (ounces)", value: "weight.ounces" },
+                    { text: "Weight (lbs)", value: "weight" },
                   ],
                   items: _vm.dogs,
                   "items-per-page": 100,
@@ -1835,6 +1846,21 @@ var render = function () {
                   },
                 },
                 scopedSlots: _vm._u([
+                  {
+                    key: "item.weight",
+                    fn: function (ref) {
+                      var item = ref.item
+                      return [
+                        _c("span", [
+                          _vm._v(
+                            "\n            " +
+                              _vm._s(_vm.ouncesToLbs(item.weight)) +
+                              "\n          "
+                          ),
+                        ]),
+                      ]
+                    },
+                  },
                   {
                     key: "expanded-item",
                     fn: function (ref) {
