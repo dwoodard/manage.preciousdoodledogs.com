@@ -199,12 +199,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
@@ -1425,7 +1419,7 @@ var render = function () {
         "card-male": _vm.dog.gender === "male",
         "card-female": _vm.dog.gender === "female",
       },
-      attrs: { elevation: 0, outlined: "", "max-width": "350", height: "100%" },
+      attrs: { elevation: 0, outlined: "", "max-width": "600", height: "100%" },
     },
     [
       _c(
@@ -1613,20 +1607,6 @@ var render = function () {
             [
               _c("v-card", { attrs: { elevation: "0" } }, [
                 _c("div", [
-                  _vm.dog.size
-                    ? _c("span", [_vm._v(_vm._s(_vm.dog.size))])
-                    : _c(
-                        "span",
-                        [
-                          _c("inertia-link", { attrs: { href: "#" } }, [
-                            _vm._v("Add Size"),
-                          ]),
-                        ],
-                        1
-                      ),
-                ]),
-                _vm._v(" "),
-                _c("div", [
                   _vm.dog.weight
                     ? _c("span", [
                         _vm._v(
@@ -1636,9 +1616,15 @@ var render = function () {
                     : _c(
                         "span",
                         [
-                          _c("inertia-link", { attrs: { href: "#" } }, [
-                            _vm._v("Add Weight"),
-                          ]),
+                          _c(
+                            "inertia-link",
+                            {
+                              attrs: {
+                                href: "/admin/dogs/" + _vm.dog.id + "/edit",
+                              },
+                            },
+                            [_vm._v("Add Weight")]
+                          ),
                         ],
                         1
                       ),

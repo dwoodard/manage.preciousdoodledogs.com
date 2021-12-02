@@ -4,7 +4,7 @@
     :elevation="0"
     outlined
     class="mx-auto"
-    max-width="350"
+    max-width="600"
     height="100%">
     <template slot="progress">
       <v-progress-linear
@@ -70,14 +70,8 @@
       <v-col cols="6">
         <v-card elevation="0">
           <div>
-            <span v-if="dog.size">{{ dog.size }}</span>
-            <span v-else><inertia-link href="#">Add Size</inertia-link></span>
-          </div>
-
-
-          <div>
             <span v-if="dog.weight">{{ ouncesToLbs(dog.weight) }} lbs</span>
-            <span v-else><inertia-link href="#">Add Weight</inertia-link></span>
+            <span v-else><inertia-link :href="`/admin/dogs/${dog.id}/edit`">Add Weight</inertia-link></span>
           </div>
 
           <div>
