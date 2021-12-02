@@ -2448,7 +2448,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 vue__WEBPACK_IMPORTED_MODULE_2__["default"].use((vuetify__WEBPACK_IMPORTED_MODULE_3___default()));
 var opts = {
   theme: {

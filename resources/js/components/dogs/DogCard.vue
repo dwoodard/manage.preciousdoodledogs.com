@@ -18,7 +18,6 @@
           <div class="d-flex justify-space-between">
             <v-icon>mdi-graph-outline</v-icon>
 
-
             <div>
               <b>{{ dog.name }}</b>
               <small>
@@ -87,15 +86,36 @@
     </v-row>
 
     <v-row no-gutters>
-      <v-tabs v-model="selectedTab" show-arrows>
+      <v-tabs v-model="selectedTab" show-arrows grow>
+        <!--DogCard Tabs-->
         <v-tab>Traits</v-tab>
-        <v-tab v-show="dog.gender==='female'">Heats</v-tab>
-        <v-tab v-show="dog.gender==='male'">Studding</v-tab>
-        <v-tab v-show="dog.gender==='female'">Litters</v-tab>
+        <v-tab v-show="dog.gender === 'female'">Heats</v-tab>
+        <v-tab v-show="dog.gender === 'male'">Studding</v-tab>
+        <v-tab v-show="dog.gender === 'female'">Litters</v-tab>
         <v-tab>More</v-tab>
 
-
+        <!--Dog Tab Items-->
         <v-tab-item name="traits">
+          <v-row no-gutters>
+            <v-col cols="1" offset="11">
+              <v-menu offset-y>
+                <template #activator="{ on, attrs }">
+                  <v-icon fab
+                          v-bind="attrs"
+                          v-on="on">
+                    mdi-dots-vertical
+                  </v-icon>
+                </template>
+                <v-list>
+                  <!-- add heat-->
+                  <v-list-item>
+                    <DogTraitsDialog :dog="dog"/>
+                  </v-list-item>
+                  <!-- add progesterone-->
+                </v-list>
+              </v-menu>
+            </v-col>
+          </v-row>
           <v-row no-gutters class="pa-3">
             <v-col cols="6">
               <abbr title="E Locus (MC1R)">E</abbr>: {{ dog.traits.MC1R }} <br/>
@@ -113,7 +133,7 @@
             </v-col>
           </v-row>
         </v-tab-item>
-        <v-tab-item v-show="dog.gender==='female'" name="heats">
+        <v-tab-item v-show="dog.gender === 'female'" name="heats">
           <v-container fluid>
             <v-row no-gutters>
               <v-col cols="1" offset="11">
@@ -144,19 +164,94 @@
             </v-row>
           </v-container>
         </v-tab-item>
-        <v-tab-item v-show="dog.gender==='male'" name="studding">
+        <v-tab-item v-show="dog.gender === 'male'" name="studding">
           <v-container fluid>
             Studding
           </v-container>
         </v-tab-item>
-        <v-tab-item v-show="dog.gender==='female'" name="litters">
+        <v-tab-item v-show="dog.gender === 'female'" name="litters">
           <v-container fluid>
-            <pre>{{ dog.litters }}</pre>
+            <v-row no-gutters>
+              <v-col cols="1" offset="11">
+                <v-menu offset-y>
+                  <template #activator="{ on, attrs }">
+                    <v-icon fab
+                            v-bind="attrs"
+                            v-on="on">
+                      mdi-dots-vertical
+                    </v-icon>
+                  </template>
+                  <v-list>
+                    <v-list-item>
+                      <DogLittersDialog :dog="dog"/>
+                    </v-list-item>
+                    <!-- add progesterone-->
+                  </v-list>
+                </v-menu>
+              </v-col>
+            </v-row>
+
+            <v-row no-gutters>
+              <v-col>
+                <pre>{{ dog.litters }}</pre>
+              </v-col>
+            </v-row>
           </v-container>
         </v-tab-item>
         <v-tab-item name="more">
           <v-container fluid>
-            More
+            <!--Menu-->
+            <v-row no-gutters>
+              <v-col cols="1" offset="11">
+                <v-menu offset-y>
+                  <template #activator="{ on, attrs }">
+                    <v-icon fab
+                            v-bind="attrs"
+                            v-on="on">
+                      mdi-dots-vertical
+                    </v-icon>
+                  </template>
+                  <v-list>
+                    <v-list-item>
+                      <DogFamilyDialog :dog="dog"/>
+                    </v-list-item>
+                    <!-- add progesterone-->
+                  </v-list>
+                </v-menu>
+              </v-col>
+            </v-row>
+
+
+            <!--Notes-->
+            <v-row no-gutters>
+              <v-col cols="6">
+                <v-textarea label="Notes">
+                  {{ dog.notes }}
+                </v-textarea>
+              </v-col>
+              <v-col cols="6">
+                <div>AKC: {{ dog.akc }}</div>
+                <div>CKC: {{ dog.ckc }}</div>
+                <div>EMBARK: {{ dog.embark }}</div>
+              </v-col>
+            </v-row>
+
+            <v-row no-gutters>
+              <v-col>
+                <v-card outlined>
+                  <v-card-title>
+                    <span class="headline">
+                      <v-icon>mdi-account-circle</v-icon>
+                      Family
+                    </span>
+                  </v-card-title>
+                  <v-card-text>
+                    <v-text-field/>
+                    <v-textarea/>
+                  </v-card-text>
+                </v-card>
+              </v-col>
+            </v-row>
           </v-container>
         </v-tab-item>
       </v-tabs>
@@ -164,8 +259,11 @@
   </v-card>
 </template>
 <script>
+  import DogTraitsDialog from '@/components/dogs/DogTraitsDialog';
   import DogBreedingDialog from '@/components/dogs/DogBreedingDialog';
   import DogHeatDialog from '@/components/dogs/DogHeatDialog';
+  import DogLittersDialog from '@/components/dogs/DogLittersDialog';
+  import DogFamilyDialog from '@/components/dogs/DogFamilyDialog';
   import {age, inchesToFeet, ouncesToLbs} from '@/helper';
 
   export default {
@@ -190,7 +288,10 @@
     },
     components: {
       DogBreedingDialog,
-      DogHeatDialog
+      DogHeatDialog,
+      DogLittersDialog,
+      DogTraitsDialog,
+      DogFamilyDialog
     }
   };
 </script>
