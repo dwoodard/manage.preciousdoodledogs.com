@@ -285,7 +285,16 @@ class Dog extends Model implements HasMedia
 
         if ($this->gender === 'female') {
             $dog['litters'] = $this->litters;
-            $dog['heats'] = $this->heats()->get()->pluck('heat_at')->join(',');
+            $dog['heats']['all'] = $this->heats()
+                //desc heat_at
+                    ->orderBy('heat_at', 'desc')
+                ->get('heat_at')->pluck('heat_at');
+            $dog['heats']['next_est_heat'] = $this->next_est_heat_date;
+
+            // get all measurements of progesterone
+            $dog['heats']['progesterone'] = $this->getMeasurements('progesterone');
+
+
 
             $dog['calculations'] = [
                 'next_est_mated_at' => $this->next_est_mated_at,
@@ -305,6 +314,15 @@ class Dog extends Model implements HasMedia
         }
 
         return $dog;
+    }
+
+    /**
+     * @return string
+     */
+    private function heatsToArray(): string
+    {
+        dump($this->heats()->get());
+        return $this->heats()->get()->pluck('heat_at')->join(',');
     }
 
 

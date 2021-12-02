@@ -20,9 +20,8 @@
 
 
             <div>
+              <b>{{ dog.name }}</b>
               <small>
-                <b>{{ dog.name }}</b>
-
                 <span style="display: block">{{ dog.generation }} {{ dog.size }} {{ dog.breed }}</span>
               </small>
             </div>
@@ -45,11 +44,11 @@
 
 
                 <v-list-item v-if="dog.gender === 'female'">
-                  <DogBreedingDialog :dog="dog" :show-add-breeding="showAddBreeding"/>
+                  <DogBreedingDialog :dog="dog"/>
                 </v-list-item>
 
                 <v-list-item v-if="dog.gender === 'female'">
-                  <DogHeatDialog :dog="dog" :show-add-heat="showAddHeat"/>
+                  <DogHeatDialog :dog="dog"/>
                 </v-list-item>
               </v-list>
             </v-menu>
@@ -75,7 +74,7 @@
           </div>
 
           <div>
-            <span v-if="dog.height">{{ inchesToFeet(dog.height) }} ft</span>
+            <span v-if="dog.height">{{ dog.height }}</span>
             <span v-else><inertia-link href="#">Add Height</inertia-link></span>
           </div>
 
@@ -96,7 +95,7 @@
         <v-tab>More</v-tab>
 
 
-        <v-tab-item v-show="dog.gender==='female'">
+        <v-tab-item name="traits">
           <v-row no-gutters class="pa-3">
             <v-col cols="6">
               <abbr title="E Locus (MC1R)">E</abbr>: {{ dog.traits.MC1R }} <br/>
@@ -114,26 +113,48 @@
             </v-col>
           </v-row>
         </v-tab-item>
-        <v-tab-item v-show="dog.gender==='female'">
+        <v-tab-item v-show="dog.gender==='female'" name="heats">
           <v-container fluid>
-            <v-row>
+            <v-row no-gutters>
+              <v-col cols="1" offset="11">
+                <!-- btn mdi vertical -->
+                <v-menu offset-y>
+                  <template #activator="{ on, attrs }">
+                    <v-icon fab
+                            v-bind="attrs"
+                            v-on="on">
+                      mdi-dots-vertical
+                    </v-icon>
+                  </template>
+                  <v-list>
+                    <!-- add heat-->
+                    <v-list-item>
+                      <DogHeatDialog :dog="dog"/>
+                    </v-list-item>
+                    <!-- add progesterone-->
+                  </v-list>
+                </v-menu>
+              </v-col>
+            </v-row>
+
+            <v-row no-gutters>
               <v-col>
-                {{ dog.heats }}
+                <pre>{{ dog.heats }}</pre>
               </v-col>
             </v-row>
           </v-container>
         </v-tab-item>
-        <v-tab-item v-show="dog.gender==='male'">
+        <v-tab-item v-show="dog.gender==='male'" name="studding">
           <v-container fluid>
             Studding
           </v-container>
         </v-tab-item>
-        <v-tab-item v-show="dog.gender==='female'">
+        <v-tab-item v-show="dog.gender==='female'" name="litters">
           <v-container fluid>
-            {{ dog.litters }}
+            <pre>{{ dog.litters }}</pre>
           </v-container>
         </v-tab-item>
-        <v-tab-item>
+        <v-tab-item name="more">
           <v-container fluid>
             More
           </v-container>
@@ -145,7 +166,7 @@
 <script>
   import DogBreedingDialog from '@/components/dogs/DogBreedingDialog';
   import DogHeatDialog from '@/components/dogs/DogHeatDialog';
-  import {ouncesToLbs, age, inchesToFeet} from '@/helper';
+  import {age, inchesToFeet, ouncesToLbs} from '@/helper';
 
   export default {
     name: 'DogCard',

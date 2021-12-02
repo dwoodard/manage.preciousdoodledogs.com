@@ -199,6 +199,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -1451,9 +1472,9 @@ var render = function () {
                       _c("v-icon", [_vm._v("mdi-graph-outline")]),
                       _vm._v(" "),
                       _c("div", [
+                        _c("b", [_vm._v(_vm._s(_vm.dog.name))]),
+                        _vm._v(" "),
                         _c("small", [
-                          _c("b", [_vm._v(_vm._s(_vm.dog.name))]),
-                          _vm._v(" "),
                           _c("span", { staticStyle: { display: "block" } }, [
                             _vm._v(
                               _vm._s(_vm.dog.generation) +
@@ -1539,11 +1560,7 @@ var render = function () {
                                     "v-list-item",
                                     [
                                       _c("DogBreedingDialog", {
-                                        attrs: {
-                                          dog: _vm.dog,
-                                          "show-add-breeding":
-                                            _vm.showAddBreeding,
-                                        },
+                                        attrs: { dog: _vm.dog },
                                       }),
                                     ],
                                     1
@@ -1555,10 +1572,7 @@ var render = function () {
                                     "v-list-item",
                                     [
                                       _c("DogHeatDialog", {
-                                        attrs: {
-                                          dog: _vm.dog,
-                                          "show-add-heat": _vm.showAddHeat,
-                                        },
+                                        attrs: { dog: _vm.dog },
                                       }),
                                     ],
                                     1
@@ -1632,11 +1646,7 @@ var render = function () {
                 _vm._v(" "),
                 _c("div", [
                   _vm.dog.height
-                    ? _c("span", [
-                        _vm._v(
-                          _vm._s(_vm.inchesToFeet(_vm.dog.height)) + " ft"
-                        ),
-                      ])
+                    ? _c("span", [_vm._v(_vm._s(_vm.dog.height))])
                     : _c(
                         "span",
                         [
@@ -1737,16 +1747,7 @@ var render = function () {
               _vm._v(" "),
               _c(
                 "v-tab-item",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.dog.gender === "female",
-                      expression: "dog.gender==='female'",
-                    },
-                  ],
-                },
+                { attrs: { name: "traits" } },
                 [
                   _c(
                     "v-row",
@@ -1837,6 +1838,7 @@ var render = function () {
                       expression: "dog.gender==='female'",
                     },
                   ],
+                  attrs: { name: "heats" },
                 },
                 [
                   _c(
@@ -1845,13 +1847,78 @@ var render = function () {
                     [
                       _c(
                         "v-row",
+                        { attrs: { "no-gutters": "" } },
+                        [
+                          _c(
+                            "v-col",
+                            { attrs: { cols: "1", offset: "11" } },
+                            [
+                              _c(
+                                "v-menu",
+                                {
+                                  attrs: { "offset-y": "" },
+                                  scopedSlots: _vm._u([
+                                    {
+                                      key: "activator",
+                                      fn: function (ref) {
+                                        var on = ref.on
+                                        var attrs = ref.attrs
+                                        return [
+                                          _c(
+                                            "v-icon",
+                                            _vm._g(
+                                              _vm._b(
+                                                { attrs: { fab: "" } },
+                                                "v-icon",
+                                                attrs,
+                                                false
+                                              ),
+                                              on
+                                            ),
+                                            [
+                                              _vm._v(
+                                                "\n                    mdi-dots-vertical\n                  "
+                                              ),
+                                            ]
+                                          ),
+                                        ]
+                                      },
+                                    },
+                                  ]),
+                                },
+                                [
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-list",
+                                    [
+                                      _c(
+                                        "v-list-item",
+                                        [
+                                          _c("DogHeatDialog", {
+                                            attrs: { dog: _vm.dog },
+                                          }),
+                                        ],
+                                        1
+                                      ),
+                                    ],
+                                    1
+                                  ),
+                                ],
+                                1
+                              ),
+                            ],
+                            1
+                          ),
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-row",
+                        { attrs: { "no-gutters": "" } },
                         [
                           _c("v-col", [
-                            _vm._v(
-                              "\n              " +
-                                _vm._s(_vm.dog.heats) +
-                                "\n            "
-                            ),
+                            _c("pre", [_vm._v(_vm._s(_vm.dog.heats))]),
                           ]),
                         ],
                         1
@@ -1874,6 +1941,7 @@ var render = function () {
                       expression: "dog.gender==='male'",
                     },
                   ],
+                  attrs: { name: "studding" },
                 },
                 [
                   _c("v-container", { attrs: { fluid: "" } }, [
@@ -1894,12 +1962,11 @@ var render = function () {
                       expression: "dog.gender==='female'",
                     },
                   ],
+                  attrs: { name: "litters" },
                 },
                 [
                   _c("v-container", { attrs: { fluid: "" } }, [
-                    _vm._v(
-                      "\n          " + _vm._s(_vm.dog.litters) + "\n        "
-                    ),
+                    _c("pre", [_vm._v(_vm._s(_vm.dog.litters))]),
                   ]),
                 ],
                 1
@@ -1907,6 +1974,7 @@ var render = function () {
               _vm._v(" "),
               _c(
                 "v-tab-item",
+                { attrs: { name: "more" } },
                 [
                   _c("v-container", { attrs: { fluid: "" } }, [
                     _vm._v("\n          More\n        "),
