@@ -33,11 +33,22 @@ export const ouncesToLbs = (ounces) => {
 };
 
 export const inchesToFeet = (inches) => {
-  if (inches === null) {
+  // if no inches, return 0
+  if (!inches) {
     return null;
   }
-  // return with  2 decimals
-  return Math.round(inches / 12 * 100) / 100;
+
+  // remove any text 'inches' or 'g' or 'in' and whitespace
+  let _inches = inches.replace(/[^0-9.]/g, '');
+
+  // if inches is null return null
+  if (_inches === '') {
+    return null;
+  }
+
+  // force to 2 decimal places
+  _inches = Math.round(_inches * 0.0833 * 100) / 100;
+  return parseFloat(_inches).toFixed(2);
 };
 
 // convert birthdate to age

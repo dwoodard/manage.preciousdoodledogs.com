@@ -71,7 +71,7 @@ class DogTest extends TestCase
     public function dog_should_have_a_relationship_with_called_traits()
     {
         $dog = Dog::factory()->create();
-        $traits = Traits::factory()->create();
+        $traits = Traits::factory()->create(['dog_id' => $dog->id]);
         $dog->traits()->save($traits);
         $this->assertEquals($dog->traits->toArray(), $traits->toArray());
     }
@@ -149,7 +149,9 @@ class DogTest extends TestCase
         $this->actingAs($loggedInUser);
 
         $dog = Dog::factory()->create();
-        $traits = Traits::factory()->create();
+        $traits = Traits::factory()->create([
+            'dog_id' => $dog->id,
+        ]);
         $measurements = Measurement::factory()->create([
             'unit' => Measurement::units['weight'],
             'type' => 'weight',

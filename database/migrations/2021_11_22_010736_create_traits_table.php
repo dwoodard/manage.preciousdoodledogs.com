@@ -15,7 +15,7 @@ class CreateTraitsTable extends Migration
     {
         Schema::create('traits', function (Blueprint $table) {
             $table->id();
-            $table->string('dog_id');
+            $table->string('dog_id')->nullable();
 
             // Traits
             $table->string("MC1R")->nullable();

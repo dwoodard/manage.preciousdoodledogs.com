@@ -172,12 +172,22 @@ var ouncesToLbs = function ouncesToLbs(ounces) {
   return parseFloat(_ounces).toFixed(2);
 };
 var inchesToFeet = function inchesToFeet(inches) {
-  if (inches === null) {
+  // if no inches, return 0
+  if (!inches) {
     return null;
-  } // return with  2 decimals
+  } // remove any text 'inches' or 'g' or 'in' and whitespace
 
 
-  return Math.round(inches / 12 * 100) / 100;
+  var _inches = inches.replace(/[^0-9.]/g, ''); // if inches is null return null
+
+
+  if (_inches === '') {
+    return null;
+  } // force to 2 decimal places
+
+
+  _inches = Math.round(_inches * 0.0833 * 100) / 100;
+  return parseFloat(_inches).toFixed(2);
 }; // convert birthdate to age
 
 var age = function age(birthdate) {

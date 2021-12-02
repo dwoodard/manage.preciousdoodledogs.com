@@ -281,7 +281,13 @@ class Dog extends Model implements HasMedia
                 ->map(function ($media) {
                     return $media->toArray();
                 }),
-            'calculations' => [
+        ];
+
+        if ($this->gender === 'female') {
+            $dog['litters'] = $this->litters;
+            $dog['heats'] = $this->heats()->get()->pluck('heat_at')->join(',');
+
+            $dog['calculations'] = [
                 'next_est_mated_at' => $this->next_est_mated_at,
                 'xray_est_at' => $this->xray_est_at,
                 'latest_mated_at' => $this->latest_mated_at,
@@ -290,15 +296,9 @@ class Dog extends Model implements HasMedia
                 'days_until_next_heat' => $this->days_until_next_heat,
                 'next_est_heat_date' => $this->next_est_heat_date,
                 'next_due_date' => $this->next_due_date
-            ]
-
-
-        ];
-
-        if ($this->gender === 'female') {
-            $dog['litters'] = $this->litters;
-            $dog['heats'] = $this->heats()->get()->pluck('heat_at')->join(',');
+            ];
         }
+
         if ($this->gender === 'male') {
             $dog['outside_stud'] = $this->outside_stud;
             $dog['can_stud'] = $this->can_stud;

@@ -18,11 +18,14 @@ class TraitsFactory extends Factory
     {
         $traitOptions = collect();
         // create a new dog
-        $traitOptions['dog_id'] = Dog::factory()->create()->id;
+        $traitOptions['dog_id'] = Dog::factory()->make();
 
         TraitOptions::all()->each(function ($trait) use (&$traitOptions) {
             $traitOptions["$trait->code"] = $this->faker->randomElement($trait->alleles ? explode(',', $trait->alleles) : "");
         });
+
+
+
 
         return $traitOptions->toArray();
 

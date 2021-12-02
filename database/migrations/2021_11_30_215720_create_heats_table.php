@@ -15,7 +15,7 @@ class CreateHeatsTable extends Migration
     {
         Schema::create('heats', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('dog_id');
+            $table->unsignedBigInteger('dog_id')->nullable();
             $table->date('heat_at');
             $table->timestamps();
         });

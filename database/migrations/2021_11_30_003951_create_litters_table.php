@@ -15,7 +15,7 @@ class CreateLittersTable extends Migration
     {
         Schema::create('litters', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('dame_id'); // Dog ID
+            $table->unsignedBigInteger('dame_id')->nullable(); // Dog ID
             $table->unsignedBigInteger('stud_id')->nullable(); // Dog ID
             $table->enum('status', ['expected', 'born', 'sold', 'delivered'])->default('expected');
             $table->date('mated_at')->nullable();

@@ -1,6 +1,282 @@
 "use strict";
 (self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_pages_Admin_Dogs_index_vue"],{
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'DogBreedingDialog',
+  props: {
+    dog: {}
+  },
+  data: function data() {
+    return {
+      showAddBreeding: false
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogCard.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogCard.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _components_dogs_DogBreedingDialog__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/dogs/DogBreedingDialog */ "./resources/js/components/dogs/DogBreedingDialog.vue");
+/* harmony import */ var _components_dogs_DogHeatDialog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/dogs/DogHeatDialog */ "./resources/js/components/dogs/DogHeatDialog.vue");
+/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/helper */ "./resources/js/helper.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'DogCard',
+  props: {
+    dog: {}
+  },
+  data: function data() {
+    return {
+      selectedTab: '',
+      showAddBreeding: false,
+      showAddHeat: false
+    };
+  },
+  methods: {
+    ouncesToLbs: _helper__WEBPACK_IMPORTED_MODULE_2__.ouncesToLbs,
+    age: _helper__WEBPACK_IMPORTED_MODULE_2__.age,
+    inchesToFeet: _helper__WEBPACK_IMPORTED_MODULE_2__.inchesToFeet,
+    getImage: function getImage(dog) {
+      return dog.media.length > 0 ? dog.media[0].original_url : '/images/defaults/no-dog.png';
+    }
+  },
+  components: {
+    DogBreedingDialog: _components_dogs_DogBreedingDialog__WEBPACK_IMPORTED_MODULE_0__["default"],
+    DogHeatDialog: _components_dogs_DogHeatDialog__WEBPACK_IMPORTED_MODULE_1__["default"]
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogHeatDialog.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogHeatDialog.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'DogBreedingDialog',
+  props: {
+    dog: {}
+  },
+  data: function data() {
+    return {
+      showAddHeat: false
+    };
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/Admin/Layout.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/layouts/Admin/Layout.vue?vue&type=script&lang=js& ***!
@@ -198,6 +474,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _layouts_Admin_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/layouts/Admin/Layout */ "./resources/js/layouts/Admin/Layout.vue");
 /* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/helper */ "./resources/js/helper.js");
+/* harmony import */ var _components_dogs_DogCard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/dogs/DogCard */ "./resources/js/components/dogs/DogCard.vue");
 //
 //
 //
@@ -373,82 +650,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  layout: _layouts_Admin_Layout__WEBPACK_IMPORTED_MODULE_0__["default"],
   props: {
     dogs: {
       type: Array,
@@ -480,7 +685,6 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
-    age: _helper__WEBPACK_IMPORTED_MODULE_1__.age,
     ouncesToLbs: _helper__WEBPACK_IMPORTED_MODULE_1__.ouncesToLbs,
     traits: function traits(_traits) {
       // keep everything but the keys dog_id and id
@@ -511,11 +715,12 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
       return i;
-    },
-    getImage: function getImage(dog) {
-      return dog.media.length > 0 ? dog.media[0].original_url : '/images/defaults/no-dog.png';
     }
-  }
+  },
+  components: {
+    DogCard: _components_dogs_DogCard__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  layout: _layouts_Admin_Layout__WEBPACK_IMPORTED_MODULE_0__["default"]
 });
 
 /***/ }),
@@ -603,12 +808,22 @@ var ouncesToLbs = function ouncesToLbs(ounces) {
   return parseFloat(_ounces).toFixed(2);
 };
 var inchesToFeet = function inchesToFeet(inches) {
-  if (inches === null) {
+  // if no inches, return 0
+  if (!inches) {
     return null;
-  } // return with  2 decimals
+  } // remove any text 'inches' or 'g' or 'in' and whitespace
 
 
-  return Math.round(inches / 12 * 100) / 100;
+  var _inches = inches.replace(/[^0-9.]/g, ''); // if inches is null return null
+
+
+  if (_inches === '') {
+    return null;
+  } // force to 2 decimal places
+
+
+  _inches = Math.round(_inches * 0.0833 * 100) / 100;
+  return parseFloat(_inches).toFixed(2);
 }; // convert birthdate to age
 
 var age = function age(birthdate) {
@@ -630,42 +845,42 @@ var age = function age(birthdate) {
 
 /***/ }),
 
-/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Admin/Dogs/index.vue?vue&type=style&index=0&id=4bbaea3a&scoped=true&lang=css&":
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Admin/Dogs/index.vue?vue&type=style&index=0&id=4bbaea3a&scoped=true&lang=css& ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogCard.vue?vue&type=style&index=0&id=42575cbf&scoped=true&lang=css&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogCard.vue?vue&type=style&index=0&id=42575cbf&scoped=true&lang=css& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/laravel-mix/node_modules/css-loader/dist/runtime/api.js */ "./node_modules/laravel-mix/node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/laravel-mix/node_modules/css-loader/dist/runtime/api.js */ "./node_modules/laravel-mix/node_modules/css-loader/dist/runtime/api.js");
 /* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
 // Imports
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.card-male[data-v-4bbaea3a] {\n  border: 2px solid rgba(0, 0, 255, 0.8)\n}\n.card-female[data-v-4bbaea3a] {\n  border: 2px solid hotpink;\n}\n/*\n.container{\n  outline: 2px solid green;\n}\n.row{\n  outline: 2px solid red;\n}\n.col{\n  outline: 2px solid blue;\n}*/\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.header[data-v-42575cbf]{\n  padding: 10px;\n}\n.header--female[data-v-42575cbf]{\n  background: hotpink;\n}\n.header--male[data-v-42575cbf]{\n  background: rgba(14, 130, 213);\n}\n.card-male[data-v-42575cbf] {\n  border: 2px solid rgba(14, 130, 213);\n}\n.card-female[data-v-42575cbf] {\n  border: 2px solid hotpink;\n}\n\n/*\n.container{\n  outline: 2px solid green;\n}\n.row{\n  outline: 2px solid red;\n}\n.col{\n  outline: 2px solid blue;\n}*/\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Admin/Dogs/index.vue?vue&type=style&index=0&id=4bbaea3a&scoped=true&lang=css&":
-/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Admin/Dogs/index.vue?vue&type=style&index=0&id=4bbaea3a&scoped=true&lang=css& ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogCard.vue?vue&type=style&index=0&id=42575cbf&scoped=true&lang=css&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogCard.vue?vue&type=style&index=0&id=42575cbf&scoped=true&lang=css& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_4bbaea3a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./index.vue?vue&type=style&index=0&id=4bbaea3a&scoped=true&lang=css& */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Admin/Dogs/index.vue?vue&type=style&index=0&id=4bbaea3a&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DogCard_vue_vue_type_style_index_0_id_42575cbf_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DogCard.vue?vue&type=style&index=0&id=42575cbf&scoped=true&lang=css& */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogCard.vue?vue&type=style&index=0&id=42575cbf&scoped=true&lang=css&");
 
             
 
@@ -674,11 +889,127 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_4bbaea3a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DogCard_vue_vue_type_style_index_0_id_42575cbf_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_4bbaea3a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DogCard_vue_vue_type_style_index_0_id_42575cbf_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./resources/js/components/dogs/DogBreedingDialog.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/components/dogs/DogBreedingDialog.vue ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _DogBreedingDialog_vue_vue_type_template_id_363f1276___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DogBreedingDialog.vue?vue&type=template&id=363f1276& */ "./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=template&id=363f1276&");
+/* harmony import */ var _DogBreedingDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DogBreedingDialog.vue?vue&type=script&lang=js& */ "./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _DogBreedingDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DogBreedingDialog_vue_vue_type_template_id_363f1276___WEBPACK_IMPORTED_MODULE_0__.render,
+  _DogBreedingDialog_vue_vue_type_template_id_363f1276___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/dogs/DogBreedingDialog.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/dogs/DogCard.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/components/dogs/DogCard.vue ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _DogCard_vue_vue_type_template_id_42575cbf_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DogCard.vue?vue&type=template&id=42575cbf&scoped=true& */ "./resources/js/components/dogs/DogCard.vue?vue&type=template&id=42575cbf&scoped=true&");
+/* harmony import */ var _DogCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DogCard.vue?vue&type=script&lang=js& */ "./resources/js/components/dogs/DogCard.vue?vue&type=script&lang=js&");
+/* harmony import */ var _DogCard_vue_vue_type_style_index_0_id_42575cbf_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DogCard.vue?vue&type=style&index=0&id=42575cbf&scoped=true&lang=css& */ "./resources/js/components/dogs/DogCard.vue?vue&type=style&index=0&id=42575cbf&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _DogCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DogCard_vue_vue_type_template_id_42575cbf_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _DogCard_vue_vue_type_template_id_42575cbf_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "42575cbf",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/dogs/DogCard.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/dogs/DogHeatDialog.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/components/dogs/DogHeatDialog.vue ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _DogHeatDialog_vue_vue_type_template_id_d081d872___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DogHeatDialog.vue?vue&type=template&id=d081d872& */ "./resources/js/components/dogs/DogHeatDialog.vue?vue&type=template&id=d081d872&");
+/* harmony import */ var _DogHeatDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DogHeatDialog.vue?vue&type=script&lang=js& */ "./resources/js/components/dogs/DogHeatDialog.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _DogHeatDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DogHeatDialog_vue_vue_type_template_id_d081d872___WEBPACK_IMPORTED_MODULE_0__.render,
+  _DogHeatDialog_vue_vue_type_template_id_d081d872___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/dogs/DogHeatDialog.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
 
@@ -768,25 +1099,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _index_vue_vue_type_template_id_4bbaea3a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=4bbaea3a&scoped=true& */ "./resources/js/pages/Admin/Dogs/index.vue?vue&type=template&id=4bbaea3a&scoped=true&");
+/* harmony import */ var _index_vue_vue_type_template_id_4bbaea3a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=4bbaea3a& */ "./resources/js/pages/Admin/Dogs/index.vue?vue&type=template&id=4bbaea3a&");
 /* harmony import */ var _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js& */ "./resources/js/pages/Admin/Dogs/index.vue?vue&type=script&lang=js&");
-/* harmony import */ var _index_vue_vue_type_style_index_0_id_4bbaea3a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index.vue?vue&type=style&index=0&id=4bbaea3a&scoped=true&lang=css& */ "./resources/js/pages/Admin/Dogs/index.vue?vue&type=style&index=0&id=4bbaea3a&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
-;
 
 
 /* normalize component */
-
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _index_vue_vue_type_template_id_4bbaea3a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
-  _index_vue_vue_type_template_id_4bbaea3a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _index_vue_vue_type_template_id_4bbaea3a___WEBPACK_IMPORTED_MODULE_0__.render,
+  _index_vue_vue_type_template_id_4bbaea3a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
-  "4bbaea3a",
+  null,
   null
   
 )
@@ -795,6 +1124,51 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 if (false) { var api; }
 component.options.__file = "resources/js/pages/Admin/Dogs/index.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DogBreedingDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DogBreedingDialog.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DogBreedingDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/dogs/DogCard.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/dogs/DogCard.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DogCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DogCard.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogCard.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DogCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/dogs/DogHeatDialog.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/dogs/DogHeatDialog.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DogHeatDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DogHeatDialog.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogHeatDialog.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DogHeatDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -843,14 +1217,62 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/pages/Admin/Dogs/index.vue?vue&type=style&index=0&id=4bbaea3a&scoped=true&lang=css&":
-/*!**********************************************************************************************************!*\
-  !*** ./resources/js/pages/Admin/Dogs/index.vue?vue&type=style&index=0&id=4bbaea3a&scoped=true&lang=css& ***!
-  \**********************************************************************************************************/
+/***/ "./resources/js/components/dogs/DogCard.vue?vue&type=style&index=0&id=42575cbf&scoped=true&lang=css&":
+/*!***********************************************************************************************************!*\
+  !*** ./resources/js/components/dogs/DogCard.vue?vue&type=style&index=0&id=42575cbf&scoped=true&lang=css& ***!
+  \***********************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_4bbaea3a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader/dist/cjs.js!../../../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./index.vue?vue&type=style&index=0&id=4bbaea3a&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Admin/Dogs/index.vue?vue&type=style&index=0&id=4bbaea3a&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DogCard_vue_vue_type_style_index_0_id_42575cbf_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DogCard.vue?vue&type=style&index=0&id=42575cbf&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogCard.vue?vue&type=style&index=0&id=42575cbf&scoped=true&lang=css&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=template&id=363f1276&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=template&id=363f1276& ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogBreedingDialog_vue_vue_type_template_id_363f1276___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogBreedingDialog_vue_vue_type_template_id_363f1276___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogBreedingDialog_vue_vue_type_template_id_363f1276___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DogBreedingDialog.vue?vue&type=template&id=363f1276& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=template&id=363f1276&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/dogs/DogCard.vue?vue&type=template&id=42575cbf&scoped=true&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/dogs/DogCard.vue?vue&type=template&id=42575cbf&scoped=true& ***!
+  \*********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogCard_vue_vue_type_template_id_42575cbf_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogCard_vue_vue_type_template_id_42575cbf_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogCard_vue_vue_type_template_id_42575cbf_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DogCard.vue?vue&type=template&id=42575cbf&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogCard.vue?vue&type=template&id=42575cbf&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/dogs/DogHeatDialog.vue?vue&type=template&id=d081d872&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/dogs/DogHeatDialog.vue?vue&type=template&id=d081d872& ***!
+  \***************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogHeatDialog_vue_vue_type_template_id_d081d872___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogHeatDialog_vue_vue_type_template_id_d081d872___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogHeatDialog_vue_vue_type_template_id_d081d872___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DogHeatDialog.vue?vue&type=template&id=d081d872& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogHeatDialog.vue?vue&type=template&id=d081d872&");
 
 
 /***/ }),
@@ -887,18 +1309,715 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/pages/Admin/Dogs/index.vue?vue&type=template&id=4bbaea3a&scoped=true&":
-/*!********************************************************************************************!*\
-  !*** ./resources/js/pages/Admin/Dogs/index.vue?vue&type=template&id=4bbaea3a&scoped=true& ***!
-  \********************************************************************************************/
+/***/ "./resources/js/pages/Admin/Dogs/index.vue?vue&type=template&id=4bbaea3a&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/pages/Admin/Dogs/index.vue?vue&type=template&id=4bbaea3a& ***!
+  \********************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_4bbaea3a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_4bbaea3a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_4bbaea3a___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_4bbaea3a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_4bbaea3a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./index.vue?vue&type=template&id=4bbaea3a&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Admin/Dogs/index.vue?vue&type=template&id=4bbaea3a&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_4bbaea3a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./index.vue?vue&type=template&id=4bbaea3a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Admin/Dogs/index.vue?vue&type=template&id=4bbaea3a&");
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=template&id=363f1276&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=template&id=363f1276& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-dialog",
+    {
+      attrs: { "max-width": "600px" },
+      scopedSlots: _vm._u([
+        {
+          key: "activator",
+          fn: function (ref) {
+            var on = ref.on
+            var attrs = ref.attrs
+            return [
+              _c(
+                "v-btn",
+                _vm._g(
+                  _vm._b(
+                    { attrs: { elevation: "0", width: "100%" } },
+                    "v-btn",
+                    attrs,
+                    false
+                  ),
+                  on
+                ),
+                [
+                  _c("v-icon", [_vm._v("mdi-dna")]),
+                  _vm._v("\n      Add Breeding\n    "),
+                ],
+                1
+              ),
+            ]
+          },
+        },
+      ]),
+      model: {
+        value: _vm.showAddBreeding,
+        callback: function ($$v) {
+          _vm.showAddBreeding = $$v
+        },
+        expression: "showAddBreeding",
+      },
+    },
+    [
+      _vm._v(" "),
+      _c(
+        "v-card",
+        [
+          _c("v-card-title", [_vm._v("Add Breeding")]),
+          _vm._v(" "),
+          _c("v-card-text", [_c("pre", [_vm._v(_vm._s(_vm.dog))])]),
+        ],
+        1
+      ),
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogCard.vue?vue&type=template&id=42575cbf&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogCard.vue?vue&type=template&id=42575cbf&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-card",
+    {
+      staticClass: "mx-auto",
+      class: {
+        "card-male": _vm.dog.gender === "male",
+        "card-female": _vm.dog.gender === "female",
+      },
+      attrs: { elevation: 0, outlined: "", "max-width": "350", height: "100%" },
+    },
+    [
+      _c(
+        "template",
+        { slot: "progress" },
+        [
+          _c("v-progress-linear", {
+            attrs: { height: "10", indeterminate: "" },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-row",
+        { attrs: { "no-gutters": "" } },
+        [
+          _c(
+            "v-col",
+            [
+              _c(
+                "v-sheet",
+                { staticClass: "header", class: "header--" + _vm.dog.gender },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "d-flex justify-space-between" },
+                    [
+                      _c("v-icon", [_vm._v("mdi-graph-outline")]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("small", [
+                          _c("b", [_vm._v(_vm._s(_vm.dog.name))]),
+                          _vm._v(" "),
+                          _c("span", { staticStyle: { display: "block" } }, [
+                            _vm._v(
+                              _vm._s(_vm.dog.generation) +
+                                " " +
+                                _vm._s(_vm.dog.size) +
+                                " " +
+                                _vm._s(_vm.dog.breed)
+                            ),
+                          ]),
+                        ]),
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "v-menu",
+                        {
+                          attrs: { "offset-y": "" },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "activator",
+                              fn: function (ref) {
+                                var on = ref.on
+                                var attrs = ref.attrs
+                                return [
+                                  _c(
+                                    "v-icon",
+                                    _vm._g(
+                                      _vm._b(
+                                        { attrs: { fab: "" } },
+                                        "v-icon",
+                                        attrs,
+                                        false
+                                      ),
+                                      on
+                                    ),
+                                    [
+                                      _vm._v(
+                                        "\n                mdi-dots-vertical\n              "
+                                      ),
+                                    ]
+                                  ),
+                                ]
+                              },
+                            },
+                          ]),
+                        },
+                        [
+                          _vm._v(" "),
+                          _c(
+                            "v-list",
+                            [
+                              _c(
+                                "v-list-item",
+                                [
+                                  _c(
+                                    "inertia-link",
+                                    {
+                                      directives: [
+                                        { name: "ripple", rawName: "v-ripple" },
+                                      ],
+                                      attrs: {
+                                        href: _vm.route("admin.dogs.edit", {
+                                          dog: _vm.dog.id,
+                                        }),
+                                        as: "v-list-item",
+                                      },
+                                    },
+                                    [
+                                      _c("v-icon", [
+                                        _vm._v("mdi-circle-edit-outline"),
+                                      ]),
+                                      _vm._v(
+                                        "\n                  Edit\n                "
+                                      ),
+                                    ],
+                                    1
+                                  ),
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _vm.dog.gender === "female"
+                                ? _c(
+                                    "v-list-item",
+                                    [
+                                      _c("DogBreedingDialog", {
+                                        attrs: {
+                                          dog: _vm.dog,
+                                          "show-add-breeding":
+                                            _vm.showAddBreeding,
+                                        },
+                                      }),
+                                    ],
+                                    1
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.dog.gender === "female"
+                                ? _c(
+                                    "v-list-item",
+                                    [
+                                      _c("DogHeatDialog", {
+                                        attrs: {
+                                          dog: _vm.dog,
+                                          "show-add-heat": _vm.showAddHeat,
+                                        },
+                                      }),
+                                    ],
+                                    1
+                                  )
+                                : _vm._e(),
+                            ],
+                            1
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                ]
+              ),
+            ],
+            1
+          ),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-row",
+        { attrs: { "no-gutters": "", "p-0": "", justify: "space-between" } },
+        [
+          _c(
+            "v-col",
+            { attrs: { cols: "6" } },
+            [
+              _c("v-img", {
+                attrs: {
+                  src: _vm.getImage(_vm.dog),
+                  "aspect-ratio": "1.61",
+                  contain: "",
+                },
+              }),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-col",
+            { attrs: { cols: "6" } },
+            [
+              _c("v-card", { attrs: { elevation: "0" } }, [
+                _c("div", [
+                  _vm.dog.size
+                    ? _c("span", [_vm._v(_vm._s(_vm.dog.size))])
+                    : _c(
+                        "span",
+                        [
+                          _c("inertia-link", { attrs: { href: "#" } }, [
+                            _vm._v("Add Size"),
+                          ]),
+                        ],
+                        1
+                      ),
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm.dog.weight
+                    ? _c("span", [
+                        _vm._v(
+                          _vm._s(_vm.ouncesToLbs(_vm.dog.weight)) + " lbs"
+                        ),
+                      ])
+                    : _c(
+                        "span",
+                        [
+                          _c("inertia-link", { attrs: { href: "#" } }, [
+                            _vm._v("Add Weight"),
+                          ]),
+                        ],
+                        1
+                      ),
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm.dog.height
+                    ? _c("span", [
+                        _vm._v(
+                          _vm._s(_vm.inchesToFeet(_vm.dog.height)) + " ft"
+                        ),
+                      ])
+                    : _c(
+                        "span",
+                        [
+                          _c("inertia-link", { attrs: { href: "#" } }, [
+                            _vm._v("Add Height"),
+                          ]),
+                        ],
+                        1
+                      ),
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm.dog.birthday
+                    ? _c("span", [_vm._v(_vm._s(_vm.age(_vm.dog.birthday)))])
+                    : _c(
+                        "span",
+                        [
+                          _c("inertia-link", { attrs: { href: "#" } }, [
+                            _vm._v("Add Birthday"),
+                          ]),
+                        ],
+                        1
+                      ),
+                ]),
+              ]),
+            ],
+            1
+          ),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-row",
+        { attrs: { "no-gutters": "" } },
+        [
+          _c(
+            "v-tabs",
+            {
+              attrs: { "show-arrows": "" },
+              model: {
+                value: _vm.selectedTab,
+                callback: function ($$v) {
+                  _vm.selectedTab = $$v
+                },
+                expression: "selectedTab",
+              },
+            },
+            [
+              _c("v-tab", [_vm._v("Traits")]),
+              _vm._v(" "),
+              _c(
+                "v-tab",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.dog.gender === "female",
+                      expression: "dog.gender==='female'",
+                    },
+                  ],
+                },
+                [_vm._v("Heats")]
+              ),
+              _vm._v(" "),
+              _c(
+                "v-tab",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.dog.gender === "male",
+                      expression: "dog.gender==='male'",
+                    },
+                  ],
+                },
+                [_vm._v("Studding")]
+              ),
+              _vm._v(" "),
+              _c(
+                "v-tab",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.dog.gender === "female",
+                      expression: "dog.gender==='female'",
+                    },
+                  ],
+                },
+                [_vm._v("Litters")]
+              ),
+              _vm._v(" "),
+              _c("v-tab", [_vm._v("More")]),
+              _vm._v(" "),
+              _c(
+                "v-tab-item",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.dog.gender === "female",
+                      expression: "dog.gender==='female'",
+                    },
+                  ],
+                },
+                [
+                  _c(
+                    "v-row",
+                    { staticClass: "pa-3", attrs: { "no-gutters": "" } },
+                    [
+                      _c("v-col", { attrs: { cols: "6" } }, [
+                        _c("abbr", { attrs: { title: "E Locus (MC1R)" } }, [
+                          _vm._v("E"),
+                        ]),
+                        _vm._v(": " + _vm._s(_vm.dog.traits.MC1R) + " "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("abbr", { attrs: { title: "K Locus (CBD103)" } }, [
+                          _vm._v("K"),
+                        ]),
+                        _vm._v(": " + _vm._s(_vm.dog.traits.CBD103) + " "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("abbr", { attrs: { title: "A Locus (ASIP)" } }, [
+                          _vm._v("A"),
+                        ]),
+                        _vm._v(": " + _vm._s(_vm.dog.traits.ASIP) + " "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("abbr", { attrs: { title: "D Locus (MLPH)" } }, [
+                          _vm._v("D"),
+                        ]),
+                        _vm._v(": " + _vm._s(_vm.dog.traits.MLPH) + " "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("abbr", { attrs: { title: "B Locus (TYRP1)" } }, [
+                          _vm._v("B"),
+                        ]),
+                        _vm._v(": " + _vm._s(_vm.dog.traits.TYRP1) + " "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("abbr", { attrs: { title: "S Locus (MITF)" } }, [
+                          _vm._v("S"),
+                        ]),
+                        _vm._v(": " + _vm._s(_vm.dog.traits.MITF) + " "),
+                        _c("br"),
+                      ]),
+                      _vm._v(" "),
+                      _c("v-col", { attrs: { cols: "6" } }, [
+                        _c(
+                          "abbr",
+                          { attrs: { title: "Furnishings (RSPO2)" } },
+                          [_vm._v("Furnishings")]
+                        ),
+                        _vm._v(": " + _vm._s(_vm.dog.traits.RSPO2) + " "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("abbr", { attrs: { title: "Shedding (MC5R)" } }, [
+                          _vm._v("Shedding"),
+                        ]),
+                        _vm._v(": " + _vm._s(_vm.dog.traits.MC5R) + " "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c(
+                          "abbr",
+                          { attrs: { title: "Coat Texture (KRT71)" } },
+                          [_vm._v("Coat Curl")]
+                        ),
+                        _vm._v(": " + _vm._s(_vm.dog.traits.KRT71) + " "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("abbr", { attrs: { title: "Coat Length (FGF5)" } }, [
+                          _vm._v("Coat Length"),
+                        ]),
+                        _vm._v(": " + _vm._s(_vm.dog.traits.FGF5) + " "),
+                        _c("br"),
+                      ]),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-tab-item",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.dog.gender === "female",
+                      expression: "dog.gender==='female'",
+                    },
+                  ],
+                },
+                [
+                  _c(
+                    "v-container",
+                    { attrs: { fluid: "" } },
+                    [
+                      _c(
+                        "v-row",
+                        [
+                          _c("v-col", [
+                            _vm._v(
+                              "\n              " +
+                                _vm._s(_vm.dog.heats) +
+                                "\n            "
+                            ),
+                          ]),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-tab-item",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.dog.gender === "male",
+                      expression: "dog.gender==='male'",
+                    },
+                  ],
+                },
+                [
+                  _c("v-container", { attrs: { fluid: "" } }, [
+                    _vm._v("\n          Studding\n        "),
+                  ]),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-tab-item",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.dog.gender === "female",
+                      expression: "dog.gender==='female'",
+                    },
+                  ],
+                },
+                [
+                  _c("v-container", { attrs: { fluid: "" } }, [
+                    _vm._v(
+                      "\n          " + _vm._s(_vm.dog.litters) + "\n        "
+                    ),
+                  ]),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-tab-item",
+                [
+                  _c("v-container", { attrs: { fluid: "" } }, [
+                    _vm._v("\n          More\n        "),
+                  ]),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
+        ],
+        1
+      ),
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogHeatDialog.vue?vue&type=template&id=d081d872&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogHeatDialog.vue?vue&type=template&id=d081d872& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-dialog",
+    {
+      attrs: { "max-width": "600px" },
+      scopedSlots: _vm._u([
+        {
+          key: "activator",
+          fn: function (ref) {
+            var on = ref.on
+            var attrs = ref.attrs
+            return [
+              _c(
+                "v-btn",
+                _vm._g(
+                  _vm._b(
+                    { attrs: { elevation: "0", width: "100%", align: "left" } },
+                    "v-btn",
+                    attrs,
+                    false
+                  ),
+                  on
+                ),
+                [
+                  _c("v-icon", [_vm._v("mdi-calendar")]),
+                  _vm._v("\n      Add Heat\n    "),
+                ],
+                1
+              ),
+            ]
+          },
+        },
+      ]),
+      model: {
+        value: _vm.showAddHeat,
+        callback: function ($$v) {
+          _vm.showAddHeat = $$v
+        },
+        expression: "showAddHeat",
+      },
+    },
+    [
+      _vm._v(" "),
+      _c(
+        "v-card",
+        [
+          _c("v-card-title", [_vm._v("Add Heat")]),
+          _vm._v(" "),
+          _c("v-card-text", [_c("pre", [_vm._v(_vm._s(_vm.dog))])]),
+        ],
+        1
+      ),
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
 
 
 /***/ }),
@@ -1260,10 +2379,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Admin/Dogs/index.vue?vue&type=template&id=4bbaea3a&scoped=true&":
-/*!***********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Admin/Dogs/index.vue?vue&type=template&id=4bbaea3a&scoped=true& ***!
-  \***********************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Admin/Dogs/index.vue?vue&type=template&id=4bbaea3a&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Admin/Dogs/index.vue?vue&type=template&id=4bbaea3a& ***!
+  \***********************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -1488,359 +2607,7 @@ var render = function () {
                             xl: "2",
                           },
                         },
-                        [
-                          _c("v-hover", {
-                            scopedSlots: _vm._u(
-                              [
-                                {
-                                  key: "default",
-                                  fn: function (ref) {
-                                    var hover = ref.hover
-                                    return [
-                                      _c(
-                                        "v-card",
-                                        {
-                                          staticClass: "mx-auto",
-                                          class: {
-                                            "card-male": dog.gender === "male",
-                                            "card-female":
-                                              dog.gender == "female",
-                                          },
-                                          attrs: {
-                                            elevation: hover ? 12 : 0,
-                                            outlined: "",
-                                            "max-width": "350",
-                                            height: "100%",
-                                          },
-                                        },
-                                        [
-                                          _c(
-                                            "template",
-                                            { slot: "progress" },
-                                            [
-                                              _c("v-progress-linear", {
-                                                attrs: {
-                                                  height: "10",
-                                                  indeterminate: "",
-                                                },
-                                              }),
-                                            ],
-                                            1
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "v-row",
-                                            { attrs: { "no-gutters": "" } },
-                                            [
-                                              _c(
-                                                "v-col",
-                                                { attrs: { cols: "11" } },
-                                                [
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "pa-4 justify-space-between bg-red",
-                                                    },
-                                                    [
-                                                      _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "d-flex column",
-                                                        },
-                                                        [
-                                                          _c("span", [
-                                                            _vm._v(
-                                                              _vm._s(dog.name) +
-                                                                " (" +
-                                                                _vm._s(
-                                                                  _vm.ouncesToLbs(
-                                                                    dog.weight
-                                                                  )
-                                                                ) +
-                                                                " lbs )"
-                                                            ),
-                                                          ]),
-                                                        ]
-                                                      ),
-                                                      _vm._v(" "),
-                                                      _c("v-spacer"),
-                                                      _vm._v(" "),
-                                                      _c("div", [
-                                                        _c("span", [
-                                                          _vm._v(
-                                                            _vm._s(
-                                                              _vm.age(
-                                                                dog.birthday
-                                                              )
-                                                            )
-                                                          ),
-                                                        ]),
-                                                      ]),
-                                                    ],
-                                                    1
-                                                  ),
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "v-col",
-                                                {
-                                                  attrs: {
-                                                    cols: "1",
-                                                    "align-self": "center",
-                                                  },
-                                                },
-                                                [
-                                                  _c(
-                                                    "v-menu",
-                                                    {
-                                                      attrs: { "offset-y": "" },
-                                                      scopedSlots: _vm._u(
-                                                        [
-                                                          {
-                                                            key: "activator",
-                                                            fn: function (ref) {
-                                                              var on = ref.on
-                                                              var attrs =
-                                                                ref.attrs
-                                                              return [
-                                                                _c(
-                                                                  "v-icon",
-                                                                  _vm._g(
-                                                                    _vm._b(
-                                                                      {
-                                                                        attrs: {
-                                                                          fab: "",
-                                                                        },
-                                                                      },
-                                                                      "v-icon",
-                                                                      attrs,
-                                                                      false
-                                                                    ),
-                                                                    on
-                                                                  ),
-                                                                  [
-                                                                    _vm._v(
-                                                                      "\n                          mdi-dots-vertical\n                        "
-                                                                    ),
-                                                                  ]
-                                                                ),
-                                                              ]
-                                                            },
-                                                          },
-                                                        ],
-                                                        null,
-                                                        true
-                                                      ),
-                                                    },
-                                                    [
-                                                      _vm._v(" "),
-                                                      _c(
-                                                        "v-list",
-                                                        [
-                                                          _c(
-                                                            "v-list-item",
-                                                            [
-                                                              _c(
-                                                                "inertia-link",
-                                                                {
-                                                                  directives: [
-                                                                    {
-                                                                      name: "ripple",
-                                                                      rawName:
-                                                                        "v-ripple",
-                                                                    },
-                                                                  ],
-                                                                  attrs: {
-                                                                    href: _vm.route(
-                                                                      "admin.dogs.edit",
-                                                                      {
-                                                                        dog: dog.id,
-                                                                      }
-                                                                    ),
-                                                                    as: "v-list-item",
-                                                                  },
-                                                                },
-                                                                [
-                                                                  _c("v-icon", [
-                                                                    _vm._v(
-                                                                      "mdi-circle-edit-outline"
-                                                                    ),
-                                                                  ]),
-                                                                  _vm._v(
-                                                                    "\n                            Edit\n                          "
-                                                                  ),
-                                                                ],
-                                                                1
-                                                              ),
-                                                            ],
-                                                            1
-                                                          ),
-                                                          _vm._v(" "),
-                                                          dog.gender ===
-                                                          "female"
-                                                            ? _c(
-                                                                "v-list-item",
-                                                                [
-                                                                  _c(
-                                                                    "inertia-link",
-                                                                    {
-                                                                      directives:
-                                                                        [
-                                                                          {
-                                                                            name: "ripple",
-                                                                            rawName:
-                                                                              "v-ripple",
-                                                                          },
-                                                                        ],
-                                                                      attrs: {
-                                                                        href: _vm.route(
-                                                                          "admin.dogs.edit",
-                                                                          {
-                                                                            dog: dog.id,
-                                                                          }
-                                                                        ),
-                                                                        as: "v-list-item",
-                                                                      },
-                                                                    },
-                                                                    [
-                                                                      _c(
-                                                                        "v-icon",
-                                                                        [
-                                                                          _vm._v(
-                                                                            "mdi-dna"
-                                                                          ),
-                                                                        ]
-                                                                      ),
-                                                                      _vm._v(
-                                                                        "\n                            Add Breeding\n                          "
-                                                                      ),
-                                                                    ],
-                                                                    1
-                                                                  ),
-                                                                ],
-                                                                1
-                                                              )
-                                                            : _vm._e(),
-                                                          _vm._v(" "),
-                                                          dog.gender ===
-                                                          "female"
-                                                            ? _c(
-                                                                "v-list-item",
-                                                                [
-                                                                  _c(
-                                                                    "inertia-link",
-                                                                    {
-                                                                      directives:
-                                                                        [
-                                                                          {
-                                                                            name: "ripple",
-                                                                            rawName:
-                                                                              "v-ripple",
-                                                                          },
-                                                                        ],
-                                                                      attrs: {
-                                                                        href: _vm.route(
-                                                                          "admin.dogs.edit",
-                                                                          {
-                                                                            dog: dog.id,
-                                                                          }
-                                                                        ),
-                                                                        as: "v-list-item",
-                                                                      },
-                                                                    },
-                                                                    [
-                                                                      _c(
-                                                                        "v-icon",
-                                                                        [
-                                                                          _vm._v(
-                                                                            "mdi-calendar-month-outline"
-                                                                          ),
-                                                                        ]
-                                                                      ),
-                                                                      _vm._v(
-                                                                        "\n                            Add Heat\n                          "
-                                                                      ),
-                                                                    ],
-                                                                    1
-                                                                  ),
-                                                                ],
-                                                                1
-                                                              )
-                                                            : _vm._e(),
-                                                        ],
-                                                        1
-                                                      ),
-                                                    ],
-                                                    1
-                                                  ),
-                                                ],
-                                                1
-                                              ),
-                                            ],
-                                            1
-                                          ),
-                                          _vm._v(" "),
-                                          _c("v-img", {
-                                            attrs: {
-                                              src: _vm.getImage(dog),
-                                              "aspect-ratio": "1.61",
-                                              contain: "",
-                                            },
-                                          }),
-                                          _vm._v(" "),
-                                          _c(
-                                            "v-row",
-                                            { staticClass: "pa-4" },
-                                            [
-                                              dog.traits
-                                                ? _c(
-                                                    "v-col",
-                                                    { attrs: { cols: "12" } },
-                                                    _vm._l(
-                                                      dog.traits,
-                                                      function (trait, index) {
-                                                        return _c(
-                                                          "span",
-                                                          {
-                                                            key: index,
-                                                            staticClass: "mr-2",
-                                                          },
-                                                          [
-                                                            trait
-                                                              ? _c("v-chip", [
-                                                                  _vm._v(
-                                                                    _vm._s(
-                                                                      trait
-                                                                    )
-                                                                  ),
-                                                                ])
-                                                              : _vm._e(),
-                                                          ],
-                                                          1
-                                                        )
-                                                      }
-                                                    ),
-                                                    0
-                                                  )
-                                                : _vm._e(),
-                                            ],
-                                            1
-                                          ),
-                                        ],
-                                        2
-                                      ),
-                                    ]
-                                  },
-                                },
-                              ],
-                              null,
-                              true
-                            ),
-                          }),
-                        ],
+                        [_c("DogCard", { attrs: { dog: dog } })],
                         1
                       )
                     }),
@@ -1895,31 +2662,23 @@ var render = function () {
                       var item = ref.item
                       return [
                         item.gender === "female"
-                          ? _c(
-                              "span",
-                              { staticStyle: { background: "pink" } },
-                              [
-                                _vm._v(
-                                  "\n            " +
-                                    _vm._s(item.gender) +
-                                    "\n          "
-                                ),
-                              ]
-                            )
+                          ? _c("span", { staticStyle: { color: "deeppink" } }, [
+                              _vm._v(
+                                "\n            " +
+                                  _vm._s(item.gender) +
+                                  "\n          "
+                              ),
+                            ])
                           : _vm._e(),
                         _vm._v(" "),
                         item.gender === "male"
-                          ? _c(
-                              "span",
-                              { staticStyle: { background: "lightskyblue" } },
-                              [
-                                _vm._v(
-                                  "\n            " +
-                                    _vm._s(item.gender) +
-                                    "\n          "
-                                ),
-                              ]
-                            )
+                          ? _c("span", { staticStyle: { color: "blue" } }, [
+                              _vm._v(
+                                "\n            " +
+                                  _vm._s(item.gender) +
+                                  "\n          "
+                              ),
+                            ])
                           : _vm._e(),
                       ]
                     },
@@ -1960,7 +2719,8 @@ var render = function () {
                       var item = ref.item
                       return [
                         _c(
-                          "span",
+                          "div",
+                          { staticClass: "d-flex col" },
                           [
                             _c(
                               "inertia-link",

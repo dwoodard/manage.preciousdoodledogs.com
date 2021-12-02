@@ -75,80 +75,7 @@
         <v-container pa-0 fluid>
           <v-row>
             <v-col v-for="(dog, index) in filterDogs" :key="index" cols="12" sm="6" md="4" lg="3" xl="2">
-              <v-hover v-slot="{ hover }">
-                <v-card
-                  :class="{'card-male': dog.gender === 'male', 'card-female': dog.gender == 'female'}"
-                  :elevation="hover ? 12 : 0"
-                  outlined
-                  class="mx-auto"
-                  max-width="350"
-                  height="100%">
-                  <template slot="progress">
-                    <v-progress-linear
-                      height="10"
-                      indeterminate/>
-                  </template>
-                  <v-row no-gutters>
-                    <v-col cols="11">
-                      <div class="pa-4 justify-space-between bg-red">
-                        <div class="d-flex column">
-                          <span>{{ dog.name }} ({{ ouncesToLbs(dog.weight) }} lbs )</span>
-                        </div>
-                        <v-spacer/>
-                        <div>
-                          <span>{{ age(dog.birthday) }}</span>
-                        </div>
-                      </div>
-                    </v-col>
-
-                    <v-col cols="1" align-self="center">
-                      <v-menu offset-y>
-                        <template #activator="{ on, attrs }">
-                          <v-icon fab
-                                  v-bind="attrs"
-                                  v-on="on">
-                            mdi-dots-vertical
-                          </v-icon>
-                        </template>
-                        <v-list>
-                          <v-list-item>
-                            <inertia-link v-ripple :href="route('admin.dogs.edit', {dog:dog.id})" as="v-list-item">
-                              <v-icon>mdi-circle-edit-outline</v-icon>
-                              Edit
-                            </inertia-link>
-                          </v-list-item>
-
-
-                          <v-list-item v-if="dog.gender === 'female'">
-                            <inertia-link v-ripple :href="route('admin.dogs.edit', {dog:dog.id})" as="v-list-item">
-                              <v-icon>mdi-dna</v-icon>
-                              Add Breeding
-                            </inertia-link>
-                          </v-list-item>
-
-                          <v-list-item v-if="dog.gender === 'female'">
-                            <inertia-link v-ripple :href="route('admin.dogs.edit', {dog:dog.id})" as="v-list-item">
-                              <v-icon>mdi-calendar-month-outline</v-icon>
-                              Add Heat
-                            </inertia-link>
-                          </v-list-item>
-                        </v-list>
-                      </v-menu>
-                    </v-col>
-                  </v-row>
-                  <v-img
-                    :src="getImage(dog)"
-                    aspect-ratio="1.61"
-                    contain/>
-                  <v-row class="pa-4">
-                    <v-col v-if="dog.traits" cols="12">
-                      <span v-for="(trait, index) in dog.traits" :key="index" class="mr-2">
-                        <v-chip v-if="trait">{{ trait }}</v-chip>
-                      </span>
-                    </v-col>
-                  </v-row>
-                </v-card>
-              </v-hover>
+              <DogCard :dog="dog"/>
             </v-col>
           </v-row>
         </v-container>
@@ -182,11 +109,11 @@
 
 
           <template #item.gender="{ item }">
-            <span v-if="item.gender === 'female'" style="background: pink">
+            <span v-if="item.gender === 'female'" style="color: deeppink">
               {{ item.gender }}
             </span>
 
-            <span v-if="item.gender === 'male'" style="background: lightskyblue">
+            <span v-if="item.gender === 'male'" style="color: blue">
               {{ item.gender }}
             </span>
           </template>
@@ -194,6 +121,7 @@
           <template #item.weight="{ item }">
             <span>
               {{ ouncesToLbs(item.weight) }}
+            </span>
             </span>
           </template>
 
@@ -204,14 +132,14 @@
           </template>
 
           <template #item.actions="{ item }">
-            <span>
+            <div class="d-flex col">
               <inertia-link :href="route('admin.dogs.edit', {dog:item.id})" as="v-list-item">
                 <v-icon>mdi-circle-edit-outline</v-icon>
               </inertia-link>
               <inertia-link :href="route('admin.dogs.destroy', {dog:item.id})" as="v-list-item">
                 <v-icon>mdi-delete</v-icon>
               </inertia-link>
-            </span>
+            </div>
           </template>
 
 
@@ -247,11 +175,11 @@
 
 <script>
   import Layout from '@/layouts/Admin/Layout';
-  import {ouncesToLbs, age} from '@/helper';
+  import {age, ouncesToLbs} from '@/helper';
+  import DogCard from '@/components/dogs/DogCard';
 
 
   export default {
-    layout: Layout,
     props: {
       dogs: {
         type: Array,
@@ -263,6 +191,7 @@
         tab: 0,
         search: '',
         showAddDog: false,
+
         singleExpand: true,
         expanded: []
       };
@@ -280,8 +209,8 @@
       }
     },
     methods: {
-      age,
       ouncesToLbs,
+
       traits(traits) {
         // keep everything but the keys dog_id and id
         return Object.keys(traits).reduce((acc, key) => {
@@ -309,31 +238,14 @@
         });
 
         return i;
-      },
-
-      getImage(dog) {
-        return dog.media.length > 0 ? dog.media[0].original_url : '/images/defaults/no-dog.png';
       }
-    }
+
+
+    },
+    components: {
+      DogCard
+    },
+    layout: Layout
 
   };
 </script>
-
-<style scoped>
-.card-male {
-  border: 2px solid rgba(0, 0, 255, 0.8)
-}
-.card-female {
-  border: 2px solid hotpink;
-}
-/*
-.container{
-  outline: 2px solid green;
-}
-.row{
-  outline: 2px solid red;
-}
-.col{
-  outline: 2px solid blue;
-}*/
-</style>

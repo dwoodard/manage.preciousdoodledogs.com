@@ -15,7 +15,7 @@ class HeatFactory extends Factory
     public function definition()
     {
         return [
-            'dog_id' => Dog::factory()->create()->id,
+            'dog_id' => null,
             'heat_at' => $this->faker->dateTimeBetween('-6 months', 'now'),
         ];
     }

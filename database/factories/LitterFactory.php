@@ -15,11 +15,11 @@ class LitterFactory extends Factory
     public function definition()
     {
         return [
-            'dame_id' => Dog::factory()->create()->id,
-            'stud_id' => Dog::factory()->create()->id,
-            'mated_at' => now(),
+            'dame_id' => null,
+            'stud_id' => null,
+            'mated_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
             'status' => $this->faker->randomElement(['expected', 'born', 'sold', 'delivered']),
-            'got_pregnant' => $this->faker->boolean,
+            'got_pregnant' => rand(0, 100) > 99,
         ];
     }
 }
