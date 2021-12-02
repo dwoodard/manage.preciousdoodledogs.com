@@ -51,6 +51,8 @@ class DatabaseSeeder extends Seeder
                             'dog_id' => $dog->id,
                             'heat_at' => Carbon::now()
                                 ->subWeeks($i * Dog::WEEKS_BETWEEN_HEATS)
+                                ->subDays(rand(0, 14))
+                                ->addDays(rand(0, 14))
                                 ->format('Y-m-d')
                         ]));
                 }
