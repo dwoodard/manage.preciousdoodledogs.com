@@ -45,6 +45,7 @@
     "vue-loader": "^15.9.6",
     "vue-meta": "^2.3.1",
     "vue-template-compiler": "^2.6.12",
-    "vuetify": "^2.5.4"
+    "vuetify": "^2.5.4",
+    "fuse.js": "^6.4.6"
   }
 }

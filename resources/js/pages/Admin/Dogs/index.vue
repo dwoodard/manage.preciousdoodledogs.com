@@ -122,7 +122,6 @@
             <span>
               {{ ouncesToLbs(item.weight) }}
             </span>
-            </span>
           </template>
 
           <template #item.traits="{ item }">
@@ -174,10 +173,10 @@
 </template>
 
 <script>
+  import Fuse from 'fuse.js';
   import Layout from '@/layouts/Admin/Layout';
   import {age, ouncesToLbs} from '@/helper';
   import DogCard from '@/components/dogs/DogCard';
-
 
   export default {
     props: {
@@ -198,11 +197,45 @@
     },
     computed: {
       filterDogs() {
-        if (this.search) {
-          return this.dogs.filter((dog) => {
-            return dog.name?.toLowerCase()
-              .includes(this.search.toLowerCase());
-          });
+        if (typeof this.search === 'string' && this.search.length) {
+          // fuse options
+          const options = {
+            shouldSort: true,
+            threshold: 0.6,
+            location: 0,
+            distance: 25,
+            maxPatternLength: 32,
+            minMatchCharLength: 1,
+            keys: [
+              'id',
+              'name',
+              'gender',
+              'breed',
+              'size',
+              'generation',
+              'birthday',
+              'age.readable',
+              'traits.MC1R',
+              'traits.MC1R',
+              'traits.CBD103',
+              'traits.ASIP',
+              'traits.MLPH',
+              'traits.TYRP1',
+              'traits.MITF',
+              'traits.RSPO2',
+              'traits.MC5R',
+              'traits.KRT71',
+              'traits.FGF5'
+            ]
+          };
+
+          // fuse instance
+
+          const fuse = new Fuse(this.dogs, options);
+
+          const results = fuse.search(this.search);
+
+          return results.map((item) => { return item.item; });
         }
 
         return this.dogs;

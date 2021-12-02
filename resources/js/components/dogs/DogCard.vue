@@ -78,7 +78,7 @@
           </div>
 
           <div>
-            <span v-if="dog.birthday">{{ age(dog.birthday) }}</span>
+            <span v-if="dog.birthday"> {{ age(dog.birthday) }} {{ dog.birthday }}</span>
             <span v-else><inertia-link href="#">Add Birthday</inertia-link></span>
           </div>
         </v-card>
