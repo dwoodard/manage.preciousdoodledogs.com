@@ -47,11 +47,16 @@
       </v-col>
 
       <v-col>
-        <v-text-field
+        <v-autocomplete
           v-model="search"
+          class="ma-0 pa-0"
+          chips
+          deletable-chips
           append-icon="mdi-magnify"
           label="Search"
+          :items="autocompleteItems"
           clearable
+          auto-select-first
           single-line
           hide-details/>
       </v-col>
@@ -196,16 +201,21 @@
       };
     },
     computed: {
+      autocompleteItems() {
+        return this.dogs.map((item) => { return `${item.name}`; });
+      },
+
       filterDogs() {
         if (typeof this.search === 'string' && this.search.length) {
           // fuse options
           const options = {
             shouldSort: true,
-            threshold: 0.6,
+            threshold: 0.4,
             location: 0,
             distance: 25,
             maxPatternLength: 32,
             minMatchCharLength: 1,
+            useExtendedSearch: true,
             keys: [
               'id',
               'name',

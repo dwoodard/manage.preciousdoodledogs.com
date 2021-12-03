@@ -14,6 +14,7 @@ class Puppy extends Model
     protected $fillable = [
         'litter_id',
         'name',
+        'gender',
         'adult_name',
         'collar_color',
     ];

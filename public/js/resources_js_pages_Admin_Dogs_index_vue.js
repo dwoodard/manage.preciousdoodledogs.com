@@ -318,6 +318,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -890,6 +894,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -911,16 +920,22 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   computed: {
+    autocompleteItems: function autocompleteItems() {
+      return this.dogs.map(function (item) {
+        return "".concat(item.name);
+      });
+    },
     filterDogs: function filterDogs() {
       if (typeof this.search === 'string' && this.search.length) {
         // fuse options
         var options = {
           shouldSort: true,
-          threshold: 0.6,
+          threshold: 0.4,
           location: 0,
           distance: 25,
           maxPatternLength: 32,
           minMatchCharLength: 1,
+          useExtendedSearch: true,
           keys: ['id', 'name', 'gender', 'breed', 'size', 'generation', 'birthday', 'age.readable', 'traits.MC1R', 'traits.MC1R', 'traits.CBD103', 'traits.ASIP', 'traits.MLPH', 'traits.TYRP1', 'traits.MITF', 'traits.RSPO2', 'traits.MC5R', 'traits.KRT71', 'traits.FGF5']
         }; // fuse instance
 
@@ -990,8 +1005,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "pascalToTitleCase": () => (/* binding */ pascalToTitleCase),
 /* harmony export */   "ouncesToLbs": () => (/* binding */ ouncesToLbs),
 /* harmony export */   "inchesToFeet": () => (/* binding */ inchesToFeet),
-/* harmony export */   "age": () => (/* binding */ age),
-/* harmony export */   "timeFromNow": () => (/* binding */ timeFromNow)
+/* harmony export */   "age": () => (/* binding */ age)
 /* harmony export */ });
 var toTitleCase = function toTitleCase(str) {
   return str.replace(/\w\S*/g, function (txt) {
@@ -1092,55 +1106,6 @@ var age = function age(birthdate) {
 
   var year = years === 1 ? 'year' : 'years';
   return "".concat(years, " ").concat(year);
-}; // calculate day, weeks months and years from date
-// eslint-disable-next-line consistent-return
-
-var timeFromNow = function timeFromNow(date, unitOfTime) {
-  if (!date || date === '') {
-    return null;
-  } // given the date of birth, calculate the age
-
-
-  var today = new Date();
-  var birthDate = new Date(date); // age is the number of full years
-
-  var age = today.getFullYear() - birthDate.getFullYear(); // age is in years, so if the current month is before the birth month, then we're not full years yet
-
-  var years = today.getMonth() < birthDate.getMonth() ? age - 1 : age; // singular or plural year
-
-  var year = years === 1 ? 'year' : 'years'; // if unit of time is year, return years
-
-  if (unitOfTime === 'year') {
-    return "".concat(years, " ").concat(year);
-  } // if unit of time is month, return months
-
-
-  if (unitOfTime === 'month') {
-    var months = today.getMonth() - birthDate.getMonth();
-    var month = months === 1 ? 'month' : 'months';
-    return "".concat(months, " ").concat(month);
-  } // if unit of time is week, return weeks
-
-
-  if (unitOfTime === 'week') {
-    var weeks = Math.floor(today.getTime() / (1000 * 60 * 60 * 24 * 7)) - Math.floor(birthDate.getTime() / (1000 * 60 * 60 * 24 * 7));
-    var week = weeks === 1 ? 'week' : 'weeks';
-    return "".concat(weeks, " ").concat(week);
-  } // if unit of time is day, return days
-
-
-  if (unitOfTime === 'day') {
-    var days = Math.floor(today.getTime() / (1000 * 60 * 60 * 24)) - Math.floor(birthDate.getTime() / (1000 * 60 * 60 * 24));
-    var day = days === 1 ? 'day' : 'days';
-    return "".concat(days, " ").concat(day);
-  } // if unit of time is hour, return hours
-
-
-  if (unitOfTime === 'hour') {
-    var hours = Math.floor(today.getTime() / (1000 * 60 * 60)) - Math.floor(birthDate.getTime() / (1000 * 60 * 60));
-    var hour = hours === 1 ? 'hour' : 'hours';
-    return "".concat(hours, " ").concat(hour);
-  }
 };
 
 /***/ }),
@@ -3931,6 +3896,22 @@ var render = function () {
                 ]),
                 _vm._v(" "),
                 _c("div", [
+                  _vm.dog.birthday
+                    ? _c("span", [
+                        _vm._v(" " + _vm._s(_vm.age(_vm.dog.birthday)) + " "),
+                      ])
+                    : _c(
+                        "span",
+                        [
+                          _c("inertia-link", { attrs: { href: "#" } }, [
+                            _vm._v("Add Birthday"),
+                          ]),
+                        ],
+                        1
+                      ),
+                ]),
+                _vm._v(" "),
+                _c("div", [
                   _vm.dog.height
                     ? _c("span", [_vm._v(_vm._s(_vm.dog.height))])
                     : _c(
@@ -3945,24 +3926,9 @@ var render = function () {
                 ]),
                 _vm._v(" "),
                 _c("div", [
-                  _vm.dog.birthday
-                    ? _c("span", [
-                        _vm._v(
-                          " " +
-                            _vm._s(_vm.age(_vm.dog.birthday)) +
-                            " " +
-                            _vm._s(_vm.dog.birthday)
-                        ),
-                      ])
-                    : _c(
-                        "span",
-                        [
-                          _c("inertia-link", { attrs: { href: "#" } }, [
-                            _vm._v("Add Birthday"),
-                          ]),
-                        ],
-                        1
-                      ),
+                  _vm._v(
+                    "\n          " + _vm._s(_vm.dog.birthday) + "\n        "
+                  ),
                 ]),
               ]),
             ],
@@ -5396,11 +5362,16 @@ var render = function () {
           _c(
             "v-col",
             [
-              _c("v-text-field", {
+              _c("v-autocomplete", {
+                staticClass: "ma-0 pa-0",
                 attrs: {
+                  chips: "",
+                  "deletable-chips": "",
                   "append-icon": "mdi-magnify",
                   label: "Search",
+                  items: _vm.autocompleteItems,
                   clearable: "",
+                  "auto-select-first": "",
                   "single-line": "",
                   "hide-details": "",
                 },

@@ -17,6 +17,7 @@ class CreatePuppiesTable extends Migration
             $table->id();
             $table->unsignedInteger('litter_id')->nullable();
             $table->string('name', 45)->nullable();
+            $table->enum('gender', ['male', 'female'])->nullable();
             $table->string('adult_name', 45)->nullable();
             $table->string('collar_color', 45)->nullable();
             $table->dateTime('birthday')->nullable();

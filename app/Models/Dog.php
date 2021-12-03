@@ -284,7 +284,7 @@ class Dog extends Model implements HasMedia
         ];
 
         if ($this->gender === 'female') {
-            $dog['litters'] = $this->litters;
+            $dog['litters'] = $this->litters()->get()->toArray();
             $dog['heats']['all'] = $this->heats()
                 //desc heat_at
                     ->orderBy('heat_at', 'desc')

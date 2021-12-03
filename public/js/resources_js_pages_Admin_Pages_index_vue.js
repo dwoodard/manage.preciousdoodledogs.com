@@ -460,8 +460,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "pascalToTitleCase": () => (/* binding */ pascalToTitleCase),
 /* harmony export */   "ouncesToLbs": () => (/* binding */ ouncesToLbs),
 /* harmony export */   "inchesToFeet": () => (/* binding */ inchesToFeet),
-/* harmony export */   "age": () => (/* binding */ age),
-/* harmony export */   "timeFromNow": () => (/* binding */ timeFromNow)
+/* harmony export */   "age": () => (/* binding */ age)
 /* harmony export */ });
 var toTitleCase = function toTitleCase(str) {
   return str.replace(/\w\S*/g, function (txt) {
@@ -562,55 +561,6 @@ var age = function age(birthdate) {
 
   var year = years === 1 ? 'year' : 'years';
   return "".concat(years, " ").concat(year);
-}; // calculate day, weeks months and years from date
-// eslint-disable-next-line consistent-return
-
-var timeFromNow = function timeFromNow(date, unitOfTime) {
-  if (!date || date === '') {
-    return null;
-  } // given the date of birth, calculate the age
-
-
-  var today = new Date();
-  var birthDate = new Date(date); // age is the number of full years
-
-  var age = today.getFullYear() - birthDate.getFullYear(); // age is in years, so if the current month is before the birth month, then we're not full years yet
-
-  var years = today.getMonth() < birthDate.getMonth() ? age - 1 : age; // singular or plural year
-
-  var year = years === 1 ? 'year' : 'years'; // if unit of time is year, return years
-
-  if (unitOfTime === 'year') {
-    return "".concat(years, " ").concat(year);
-  } // if unit of time is month, return months
-
-
-  if (unitOfTime === 'month') {
-    var months = today.getMonth() - birthDate.getMonth();
-    var month = months === 1 ? 'month' : 'months';
-    return "".concat(months, " ").concat(month);
-  } // if unit of time is week, return weeks
-
-
-  if (unitOfTime === 'week') {
-    var weeks = Math.floor(today.getTime() / (1000 * 60 * 60 * 24 * 7)) - Math.floor(birthDate.getTime() / (1000 * 60 * 60 * 24 * 7));
-    var week = weeks === 1 ? 'week' : 'weeks';
-    return "".concat(weeks, " ").concat(week);
-  } // if unit of time is day, return days
-
-
-  if (unitOfTime === 'day') {
-    var days = Math.floor(today.getTime() / (1000 * 60 * 60 * 24)) - Math.floor(birthDate.getTime() / (1000 * 60 * 60 * 24));
-    var day = days === 1 ? 'day' : 'days';
-    return "".concat(days, " ").concat(day);
-  } // if unit of time is hour, return hours
-
-
-  if (unitOfTime === 'hour') {
-    var hours = Math.floor(today.getTime() / (1000 * 60 * 60)) - Math.floor(birthDate.getTime() / (1000 * 60 * 60));
-    var hour = hours === 1 ? 'hour' : 'hours';
-    return "".concat(hours, " ").concat(hour);
-  }
 };
 
 /***/ }),
