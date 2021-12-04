@@ -29,6 +29,8 @@ class Puppy extends Model
         return $this->litter->hasOne('App\Models\Dog', 'id', 'dame_id');
     }
 
-
-
+    public function father()
+    {
+        return $this->litter->hasOne('App\Models\Dog', 'id', 'sire_id');
+    }
 }

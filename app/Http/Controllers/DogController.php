@@ -48,6 +48,7 @@ class DogController extends Controller
     public function store(Request $request)
     {
         $dog = Dog::create($request->all());
+        $dog->traits()->create(['dog_id' => $dog->id]);
 
         //validation
         $request->validate([

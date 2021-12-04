@@ -9,7 +9,6 @@
 
     <form @submit.prevent="update">
       <div v-if="form.isDirty">
-        <!--      submit-->
         <v-btn type="submit"
                color="primary"
                :loading="form.loading">
