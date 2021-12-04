@@ -18,4 +18,16 @@ class TraitOptions extends Model
         'description',
         'alleles',
     ];
+
+    //toArray
+    public function toArray()
+    {
+        return [
+            'category' => $this->category,
+            'trait' => $this->trait,
+            'code' => $this->code,
+            'description' => $this->description,
+            'alleles' => $this->alleles,
+        ];
+    }
 }

@@ -18,7 +18,7 @@
     "trait": "Intensity Loci",
     "code": "Intensity Loci",
     "description": "Areas of a dog\"s coat where dark (black or brown) pigment is not expressed either contain red/yellow pigment, or no pigment at all. Five locations across five chromosomes explain approximately 70% of red pigmentation intensity Variation across all dogs. Dogs with a result of Intense Red Pigmentation will likely have deep red hair like an Irish Setter or apricot hair like some Poodles, dogs with a result of Intermediate Red Pigmentation will likely have tan or yellow hair like a Soft-Coated Wheaten Terrier, and dogs with Dilute Red Pigmentation will likely have cream or white hair like a Samoyed. Because the mutations we test may not directly cause differences in red pigmentation intensity, we consider this to be a linkage test.",
-    "alleles": "Intermediate Red Pigmentation"
+    "alleles": "intermediate-red-pigmentation"
   },
   {
     "category": "Coat Color",

@@ -492,6 +492,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -551,6 +553,31 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     dog: {}
@@ -558,8 +585,30 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {
       showDialog: false,
+      trait_options: [],
       form: this.$inertia.form("EditDogTraits:".concat(this.dog.id), _objectSpread({}, this.dog.traits))
     };
+  },
+  computed: {
+    traitOptionsByCategory: function traitOptionsByCategory() {
+      var traitOptionsByCategory = [];
+      this.trait_options.forEach(function (trait) {
+        var category = trait.category;
+        var traitOptions = traitOptionsByCategory.find(function (traitOptions) {
+          return traitOptions.category === category;
+        });
+
+        if (traitOptions) {
+          traitOptions.traits.push(trait);
+        } else {
+          traitOptionsByCategory.push({
+            category: category,
+            traits: [trait]
+          });
+        }
+      });
+      return traitOptionsByCategory;
+    }
   },
   methods: {
     submit: function submit() {
@@ -571,7 +620,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         });
       }).put(this.route('admin.traits.update', this.dog.id));
       this.showDialog = false;
+    },
+    allelesList: function allelesList(traitOption) {
+      if (!traitOption.alleles) {
+        return [];
+      }
+
+      return traitOption.alleles.split(',');
     }
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
+    // axios get all traits options
+    // eslint-disable-next-line promise/always-return
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get('/admin/trait-options').then(function (response) {
+      _this2.trait_options = response.data;
+    });
   }
 });
 
@@ -4958,272 +5023,51 @@ var render = function () {
               _c(
                 "v-card-text",
                 [
-                  _c("v-text-field", {
-                    attrs: { dense: "", label: "E Locus (MC1R)" },
-                    model: {
-                      value: _vm.form.MC1R,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.form, "MC1R", $$v)
-                      },
-                      expression: "form.MC1R",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("v-text-field", {
-                    attrs: { dense: "", label: "K Locus (CBD103)" },
-                    model: {
-                      value: _vm.form.CBD103,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.form, "CBD103", $$v)
-                      },
-                      expression: "form.CBD103",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("v-text-field", {
-                    attrs: { dense: "", label: "A Locus (ASIP)" },
-                    model: {
-                      value: _vm.form.ASIP,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.form, "ASIP", $$v)
-                      },
-                      expression: "form.ASIP",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("v-text-field", {
-                    attrs: { dense: "", label: "D Locus (MLPH)" },
-                    model: {
-                      value: _vm.form.MLPH,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.form, "MLPH", $$v)
-                      },
-                      expression: "form.MLPH",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("v-text-field", {
-                    attrs: { dense: "", label: "B Locus (TYRP1)" },
-                    model: {
-                      value: _vm.form.TYRP1,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.form, "TYRP1", $$v)
-                      },
-                      expression: "form.TYRP1",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("v-text-field", {
-                    attrs: { dense: "", label: "S Locus (MITF)" },
-                    model: {
-                      value: _vm.form.MITF,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.form, "MITF", $$v)
-                      },
-                      expression: "form.MITF",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("v-text-field", {
-                    attrs: { dense: "", label: "H Locus (Harlequin)" },
-                    model: {
-                      value: _vm.form.Harlequin,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.form, "Harlequin", $$v)
-                      },
-                      expression: "form.Harlequin",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("v-text-field", {
-                    attrs: { dense: "", label: "Furnishings (RSPO2)" },
-                    model: {
-                      value: _vm.form.RSPO2,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.form, "RSPO2", $$v)
-                      },
-                      expression: "form.RSPO2",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("v-text-field", {
-                    attrs: { dense: "", label: "Coat Length (FGF5)" },
-                    model: {
-                      value: _vm.form.FGF5,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.form, "FGF5", $$v)
-                      },
-                      expression: "form.FGF5",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("v-text-field", {
-                    attrs: { dense: "", label: "Shedding (MC5R)" },
-                    model: {
-                      value: _vm.form.MC5R,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.form, "MC5R", $$v)
-                      },
-                      expression: "form.MC5R",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("v-text-field", {
-                    attrs: { dense: "", label: "Hairlessness (FOXI3)" },
-                    model: {
-                      value: _vm.form.FOXI3,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.form, "FOXI3", $$v)
-                      },
-                      expression: "form.FOXI3",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("v-text-field", {
-                    attrs: {
-                      dense: "",
-                      label: "Oculocutaneous Albinism Type 2 (SLC45A2)",
-                    },
-                    model: {
-                      value: _vm.form.SLC45A2,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.form, "SLC45A2", $$v)
-                      },
-                      expression: "form.SLC45A2",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("v-text-field", {
-                    attrs: { dense: "", label: "Coat Texture (KRT71)" },
-                    model: {
-                      value: _vm.form.KRT71,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.form, "KRT71", $$v)
-                      },
-                      expression: "form.KRT71",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("v-text-field", {
-                    attrs: { dense: "", label: "Muzzle Length (BMP3)" },
-                    model: {
-                      value: _vm.form.BMP3,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.form, "BMP3", $$v)
-                      },
-                      expression: "form.BMP3",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("v-text-field", {
-                    attrs: { dense: "", label: "Tail Length (T)" },
-                    model: {
-                      value: _vm.form.T,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.form, "T", $$v)
-                      },
-                      expression: "form.T",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("v-text-field", {
-                    attrs: { dense: "", label: "Hind Dewclaws (LMBR1)" },
-                    model: {
-                      value: _vm.form.LMBR1,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.form, "LMBR1", $$v)
-                      },
-                      expression: "form.LMBR1",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("v-text-field", {
-                    attrs: { dense: "", label: "Blue Eye Color (ALX4)" },
-                    model: {
-                      value: _vm.form.ALX4,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.form, "ALX4", $$v)
-                      },
-                      expression: "form.ALX4",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("v-text-field", {
-                    attrs: { dense: "", label: "Body Size (IGF1)" },
-                    model: {
-                      value: _vm.form.IGF1,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.form, "IGF1", $$v)
-                      },
-                      expression: "form.IGF1",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("v-text-field", {
-                    attrs: { dense: "", label: "Body Size (IGFR1)" },
-                    model: {
-                      value: _vm.form.IGFR1,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.form, "IGFR1", $$v)
-                      },
-                      expression: "form.IGFR1",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("v-text-field", {
-                    attrs: { dense: "", label: "Body Size (STC2)" },
-                    model: {
-                      value: _vm.form.STC2,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.form, "STC2", $$v)
-                      },
-                      expression: "form.STC2",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("v-text-field", {
-                    attrs: { dense: "", label: "Body Size (GHR - E191K)" },
-                    model: {
-                      value: _vm.form.E191K,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.form, "E191K", $$v)
-                      },
-                      expression: "form.E191K",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("v-text-field", {
-                    attrs: { dense: "", label: "Body Size (GHR - P177L)" },
-                    model: {
-                      value: _vm.form.P177L,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.form, "P177L", $$v)
-                      },
-                      expression: "form.P177L",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("v-text-field", {
-                    attrs: { dense: "", label: "Altitude Adaptation (EPAS1)" },
-                    model: {
-                      value: _vm.form.EPAS1,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.form, "EPAS1", $$v)
-                      },
-                      expression: "form.EPAS1",
-                    },
-                  }),
-                  _vm._v(" "),
-                  _c("v-text-field", {
-                    attrs: { dense: "", label: "Appetite (POMC)" },
-                    model: {
-                      value: _vm.form.POMC,
-                      callback: function ($$v) {
-                        _vm.$set(_vm.form, "POMC", $$v)
-                      },
-                      expression: "form.POMC",
-                    },
-                  }),
+                  _c(
+                    "v-container",
+                    _vm._l(_vm.traitOptionsByCategory, function (group, index) {
+                      return _c(
+                        "v-card",
+                        { key: index, attrs: { elevation: "0" } },
+                        [
+                          _c("v-card-title", [
+                            _vm._v(
+                              "\n              " +
+                                _vm._s(group.category) +
+                                "\n            "
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "v-card-text",
+                            _vm._l(group.traits, function (trait, j) {
+                              return _c("v-select", {
+                                key: j,
+                                staticClass: "mt-0",
+                                attrs: {
+                                  items: _vm.allelesList(trait),
+                                  clearable: true,
+                                  label: trait.trait,
+                                  "item-text": "name",
+                                  "item-value": "id",
+                                },
+                                model: {
+                                  value: _vm.form[trait.code],
+                                  callback: function ($$v) {
+                                    _vm.$set(_vm.form, trait.code, $$v)
+                                  },
+                                  expression: "form[trait.code]",
+                                },
+                              })
+                            }),
+                            1
+                          ),
+                        ],
+                        1
+                      )
+                    }),
+                    1
+                  ),
                 ],
                 1
               ),
