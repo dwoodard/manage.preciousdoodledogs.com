@@ -577,6 +577,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -5051,6 +5078,84 @@ var render = function () {
                                   "item-text": "name",
                                   "item-value": "id",
                                 },
+                                scopedSlots: _vm._u(
+                                  [
+                                    {
+                                      key: "prepend-inner",
+                                      fn: function () {
+                                        return [
+                                          _c(
+                                            "v-dialog",
+                                            {
+                                              scopedSlots: _vm._u(
+                                                [
+                                                  {
+                                                    key: "activator",
+                                                    fn: function (ref) {
+                                                      var on = ref.on
+                                                      var attrs = ref.attrs
+                                                      return [
+                                                        _c(
+                                                          "v-icon",
+                                                          _vm._g(
+                                                            _vm._b(
+                                                              {},
+                                                              "v-icon",
+                                                              attrs,
+                                                              false
+                                                            ),
+                                                            on
+                                                          ),
+                                                          [
+                                                            _vm._v(
+                                                              "mdi-information-outline"
+                                                            ),
+                                                          ]
+                                                        ),
+                                                      ]
+                                                    },
+                                                  },
+                                                ],
+                                                null,
+                                                true
+                                              ),
+                                            },
+                                            [
+                                              _vm._v(" "),
+                                              _c(
+                                                "v-card",
+                                                [
+                                                  _c("v-card-title", [
+                                                    _vm._v(
+                                                      "\n                        " +
+                                                        _vm._s(trait.trait) +
+                                                        "\n                      "
+                                                    ),
+                                                  ]),
+                                                  _vm._v(" "),
+                                                  _c("v-card-text", [
+                                                    _vm._v(
+                                                      "\n                        " +
+                                                        _vm._s(
+                                                          trait.description
+                                                        ) +
+                                                        "\n                      "
+                                                    ),
+                                                  ]),
+                                                ],
+                                                1
+                                              ),
+                                            ],
+                                            1
+                                          ),
+                                        ]
+                                      },
+                                      proxy: true,
+                                    },
+                                  ],
+                                  null,
+                                  true
+                                ),
                                 model: {
                                   value: _vm.form[trait.code],
                                   callback: function ($$v) {

@@ -39,7 +39,34 @@
                   :label="trait.trait"
                   item-text="name"
                   item-value="id"
-                  class="mt-0"/>
+                  class="mt-0">
+                  <template #prepend-inner>
+                    <v-dialog>
+                      <template #activator="{ on, attrs }">
+                        <v-icon v-bind="attrs" v-on="on">mdi-information-outline</v-icon>
+                      </template>
+
+                      <v-card>
+                        <v-card-title>
+                          {{ trait.trait }}
+                        </v-card-title>
+
+                        <v-card-text>
+                          {{ trait.description }}
+                        </v-card-text>
+                      </v-card>
+                    </v-dialog>
+                  </template>
+                </v-select>
+              </v-card-text>
+            </v-card>
+          </v-container>
+        </v-card-text>
+      </v-card>
+    </form>
+  </v-dialog>
+</template>
+                </v-select>
               </v-card-text>
             </v-card>
           </v-container>
