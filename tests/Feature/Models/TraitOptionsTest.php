@@ -17,6 +17,6 @@ class TraitOptionsTest extends TestCase
     public function it_should_show_all_the_trait_options()
     {
         $traitOptions = TraitOptions::all();
-        $this->assertTrue(count($traitOptions) > 0);
+        $this->assertNotEmpty($traitOptions);
     }
 }
