@@ -69,18 +69,18 @@
         <v-card elevation="0">
           <div>
             <span v-if="dog.weight">{{ ouncesToLbs(dog.weight) }} lbs</span>
-            <span v-else><inertia-link :href="`/admin/dogs/${dog.id}/edit`">Add Weight</inertia-link></span>
+            <span v-else><inertia-link :href="route('admin.dogs.edit', {dog:dog.id})">Add Weight</inertia-link></span>
           </div>
 
 
           <div>
             <span v-if="dog.height">{{ dog.height }}</span>
-            <span v-else><inertia-link href="#">Add Height</inertia-link></span>
+            <span v-else><inertia-link :href="route('admin.dogs.edit', {dog:dog.id})">Add Height</inertia-link></span>
           </div>
 
           <div>
             <span v-if="dog.birthday"> {{ age(dog.birthday) }} </span>
-            <span v-else><inertia-link href="#">Add Birthday</inertia-link></span>
+            <span v-else><inertia-link :href="route('admin.dogs.edit', {dog:dog.id})">Add Birthday</inertia-link></span>
           </div>
 
           <div>

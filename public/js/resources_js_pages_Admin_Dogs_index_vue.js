@@ -4033,7 +4033,9 @@ var render = function () {
                             "inertia-link",
                             {
                               attrs: {
-                                href: "/admin/dogs/" + _vm.dog.id + "/edit",
+                                href: _vm.route("admin.dogs.edit", {
+                                  dog: _vm.dog.id,
+                                }),
                               },
                             },
                             [_vm._v("Add Weight")]
@@ -4049,9 +4051,17 @@ var render = function () {
                     : _c(
                         "span",
                         [
-                          _c("inertia-link", { attrs: { href: "#" } }, [
-                            _vm._v("Add Height"),
-                          ]),
+                          _c(
+                            "inertia-link",
+                            {
+                              attrs: {
+                                href: _vm.route("admin.dogs.edit", {
+                                  dog: _vm.dog.id,
+                                }),
+                              },
+                            },
+                            [_vm._v("Add Height")]
+                          ),
                         ],
                         1
                       ),
@@ -4065,9 +4075,17 @@ var render = function () {
                     : _c(
                         "span",
                         [
-                          _c("inertia-link", { attrs: { href: "#" } }, [
-                            _vm._v("Add Birthday"),
-                          ]),
+                          _c(
+                            "inertia-link",
+                            {
+                              attrs: {
+                                href: _vm.route("admin.dogs.edit", {
+                                  dog: _vm.dog.id,
+                                }),
+                              },
+                            },
+                            [_vm._v("Add Birthday")]
+                          ),
                         ],
                         1
                       ),
