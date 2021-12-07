@@ -38,6 +38,7 @@ class DogTest extends TestCase
     }
 
     // check when there is no birthday, that if age returns null
+
     /** @test */
     public function check_when_there_is_no_birthday_that_if_age_returns_null()
     {
@@ -49,6 +50,7 @@ class DogTest extends TestCase
     }
 
     // check when there is a birthday, that if age returns the age of the dog
+
     /** @test */
     public function check_when_there_is_a_birthday_that_if_age_returns_the_age_of_the_dog()
     {
@@ -77,6 +79,7 @@ class DogTest extends TestCase
     }
 
     // dog can set measurements
+
     /** @test */
     public function dog_can_set_measurements()
     {
@@ -95,6 +98,7 @@ class DogTest extends TestCase
     }
 
     // dog can call DogResource Collection
+
     /** @test */
     public function dog_can_call_dog_resource_collection()
     {
@@ -109,8 +113,8 @@ class DogTest extends TestCase
         // set the measurements for the dogs
         $dogs->each(function ($dog) {
             //create 10 measurements of weight
-            for($i = 0; $i < 10; $i++) {
-                $dog->setMeasurements(['weight' => rand(1, 5), 'height' => rand(3,20)]);
+            for ($i = 0; $i < 10; $i++) {
+                $dog->setMeasurements(['weight' => rand(1, 5), 'height' => rand(3, 20)]);
             }
         });
 
@@ -123,9 +127,9 @@ class DogTest extends TestCase
 
         $weightMeasurements = $firstDog->getMeasurements(Measurement::weight)->map(function ($measurement) {
             return [
-                    'type' => $measurement->type,
-                    'unit' => $measurement->unit,
-                    'value' => (int) $measurement->value,
+                'type' => $measurement->type,
+                'unit' => $measurement->unit,
+                'value' => (int)$measurement->value,
             ];
         });
         //assert that the collection has 10 measurements
@@ -140,6 +144,7 @@ class DogTest extends TestCase
     }
 
     // check if dog has a relationship with traits, measurements and media
+
     /** @test */
     public function check_if_dog_has_a_relationship_with_keys()
     {
@@ -161,7 +166,7 @@ class DogTest extends TestCase
         $dog->traits()->save($traits);
         $dog->measurements()->save($measurements);
 
-         // check if keys (traits, media, measurements) in dog exist
+        // check if keys (traits, media, measurements) in dog exist
         $keys = [
             'traits',
             'media',
@@ -173,6 +178,7 @@ class DogTest extends TestCase
     }
 
     // get dogs next_due_date
+
     /** @test */
     public function get_dogs_next_due_date()
     {
@@ -180,16 +186,15 @@ class DogTest extends TestCase
             'gender' => 'female'
         ]);
         $dog->heats()->save(Heat::factory()->create([
-            'heat_at' => Carbon::now()->subDays(Heat::FIRST_HEAT_ESTIMATE_HEAT_IN_WEEKS),
+            'heat_at' => Carbon::now()->subDays(Heat::BETWEEN_HEATS_IN_WEEKS),
         ]));
-
 
 
         // create 3 litters for this dog
         $litters = Litter::factory()->count(3)->create([
             'dame_id' => $dog->id,
             'stud_id' => Dog::factory()->create()->id,
-            'mated_at' => Carbon::now()->subDays(Dog::PREGNANCY_DURATION_IN_DAYS-1),
+            'mated_at' => Carbon::now()->subDays(Dog::PREGNANCY_DURATION_IN_DAYS - 1),
             'got_pregnant' => true,
         ]);
         $dog->litters()->saveMany($litters);
@@ -200,6 +205,7 @@ class DogTest extends TestCase
     }
 
     // latest Heat
+
     /** @test */
     public function it_can_get_the_latest_heat()
     {
@@ -207,7 +213,7 @@ class DogTest extends TestCase
             'gender' => 'female'
         ]);
 
-        $date = Carbon::now()->subDays(Heat::FIRST_HEAT_ESTIMATE_HEAT_IN_WEEKS);
+        $date = Carbon::now()->subDays(Heat::BETWEEN_HEATS_IN_WEEKS);
 
         $dog->heats()->save(Heat::factory()->create([
             'heat_at' => $date->format('Y-m-d')
@@ -217,6 +223,7 @@ class DogTest extends TestCase
     }
 
     //next_est_mated_at
+
     /** @test */
     public function it_can_get_the_next_est_mated_at()
     {
@@ -239,6 +246,7 @@ class DogTest extends TestCase
     }
 
     // xray_est_at
+
     /** @test */
     public function it_can_get_the_xray_est_at()
     {
@@ -285,6 +293,7 @@ class DogTest extends TestCase
     }
 
     // weeks_between_heats
+
     /** @test */
     public function it_can_get_the_weeks_between_heats()
     {
@@ -314,40 +323,102 @@ class DogTest extends TestCase
         );
 
 
-
-
     }
-    // next_est_heat_date
+
+
+
+    // next_est_heat_date with no heats
+
     /** @test */
-    public function it_can_get_the_next_est_heat_date()
+    public function it_can_get_the_next_est_heat_date_with_no_heats()
     {
         $dog = Dog::factory()->create([
-            'gender' => 'female'
+            'gender' => 'female',
+            'birthday' => '2020-1-1'
+        ]);
+
+//            $heats = collect();
+//        // loop 4 times and push a new factory
+//        for($i = 0; $i < 4; $i++){
+//            $heats->push(
+//                Heat::factory()->create([
+//                'heat_at' => Carbon::now()->subWeeks($i*Dog::WEEKS_BETWEEN_HEATS)->format('Y-m-d')
+//            ]));
+//        }
+//
+//        $dog->heats()->saveMany($heats);
+
+        $next_est_heat_date = Carbon::parse($dog->birthday)
+            ->addMonths(9)
+            ->format('Y-m-d');
+
+        // assert that there are no heats
+        $this->assertEquals(0, $dog->heats->count());
+
+        // if dogs birthday is 2020-1-1, the next est heat date should be 2020-10-1
+        $this->assertEquals($next_est_heat_date, $dog->next_est_heat_date);
+    }
+
+    /** @test */
+    public function it_can_get_the_next_est_heat_date_with_1_heat()
+    {
+        $dog = Dog::factory()->create([
+            'gender' => 'female',
+            'birthday' => '2020-1-1'
         ]);
 
         $heats = collect();
+        $heats->push(Heat::factory()->create([
+            'heat_at' => Carbon::parse($dog->birthday)
+                ->addMonths(9)
+                ->format('Y-m-d')
+        ]));
 
-        // loop 4 times and push a new factory
-        for($i = 0; $i < 4; $i++){
-            $heats->push(
-                Heat::factory()->create([
-                'heat_at' => Carbon::now()->subWeeks($i*Dog::WEEKS_BETWEEN_HEATS)->format('Y-m-d')
-            ]));
-        }
 
         $dog->heats()->saveMany($heats);
 
-        $next_est_heat_date = Carbon::parse($dog->heats->sortByDesc('heat_at')->first()->heat_at)
-            ->addWeeks(Dog::WEEKS_BETWEEN_HEATS)
-            ->format('Y-m-d');
+        // assert that there is only 1 heat
+        $this->assertEquals(1, $dog->heats->count());
 
+        //last heat plus weeks between heats
         $this->assertEquals(
-            $next_est_heat_date,
+            Carbon::parse($heats->last()->heat_at)
+                ->addWeeks(Heat::BETWEEN_HEATS_IN_WEEKS)
+                ->format('Y-m-d'),
             $dog->next_est_heat_date
         );
-
     }
 
+    /** @test */
+    public function it_can_get_the_next_est_heat_date_with_2_or_more_heat()
+    {
+        $dog = Dog::factory()->create([
+            'gender' => 'female',
+            'birthday' => '2020-1-1'
+        ]);
+
+        $heats = collect([
+            Heat::factory()->create(['dog_id' => $dog->id, 'heat_at' => Carbon::parse('2020-1-1')->format('Y-m-d')]),
+            Heat::factory()->create(['dog_id' => $dog->id, 'heat_at' => Carbon::parse('2020-1-1')->addWeeks(Heat::BETWEEN_HEATS_IN_WEEKS)->format('Y-m-d')]),
+        ]);
+
+        $this->assertEquals(2, $dog->heats->count());
+
+        // diff in weeks between the last heat and the next heat
+        $diff = $dog->heats->map(function($heat){
+            return Carbon::parse($heat->heat_at)
+                ->addWeeks(Heat::BETWEEN_HEATS_IN_WEEKS)
+                ->diffInWeeks(Carbon::parse($heat->heat_at));
+        })->avg();
+
+        $heatsInWeeks  = $dog->heats->map(function($heat){
+            return Carbon::parse($heat->heat_at)
+                ->addWeeks(Heat::BETWEEN_HEATS_IN_WEEKS)
+                ->diffInWeeks(Carbon::parse($heat->heat_at));
+        });
+
+        $this->assertEquals(28, $heatsInWeeks->avg());
+    }
 
 
 }

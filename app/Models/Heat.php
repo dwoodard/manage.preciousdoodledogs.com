@@ -9,6 +9,15 @@ class Heat extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'dog_id',
+        'heat_at'
+    ];
+
     const BETWEEN_HEATS_IN_WEEKS = 28; // average number of heats in weeks
-    const FIRST_HEAT_ESTIMATE_HEAT_IN_WEEKS = 9; // first heat estimate in weeks
+
+    public function toArray()
+    {
+        return parent::toArray();
+    }
 }

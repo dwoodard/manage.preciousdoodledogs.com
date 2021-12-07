@@ -58,7 +58,7 @@
               offset-y
               max-width="290px"
               min-width="290px">
-              <template #activator="{ on }">
+              <template #activator="{ on}">
                 <v-text-field
                   label="Birthdate"
                   prepend-icon="mdi-calendar"
@@ -78,7 +78,6 @@
               </template>
               <v-date-picker
                 v-model="form.birthday"
-                locale="en-in"
                 scrollable
                 no-title
                 @input="fromDateMenu = false"/>

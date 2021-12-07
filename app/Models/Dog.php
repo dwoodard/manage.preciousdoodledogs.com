@@ -223,19 +223,56 @@ class Dog extends Model implements HasMedia
     // next_est_heat_date
     public function getNextEstHeatDateAttribute()
     {
-        // $dog->latest_heat + weeks([weeks_between_heats]) (more calcs on the model)
-        $heat = $this->latest_heat;
-        $weeks_between_heats = $this->weeks_between_heats;
-
-        if (!$heat || !$weeks_between_heats) {
+        // if no bithday, return null
+        if ($this->birthday === null) {
             return null;
         }
 
-        $next_est_heat_date = Carbon::parse($heat)->addWeeks($weeks_between_heats)->format('Y-m-d');
+        $heats = $this->heats()->orderBy('heat_at', 'asc')->pluck('heat_at');
+
+        // if no heats, return 9 months from birthday
+        if ($heats->count() === 0) {
+            return $this->birthday->addMonths(9)->format('Y-m-d');
+        }
+
+
+        // if one heat estimate the next heat date which is weeks between heats
+        if ($heats->count() === 1) {
+            return Carbon::parse($this->latest_heat)
+                ->addWeeks(Heat::BETWEEN_HEATS_IN_WEEKS)
+                ->format('Y-m-d');
+        }
+
+
+        // if dog has 2 or more heats, estimate the next heat date by calculating the weeks between
+        // all the heats and getting the average and add it to the last heat date
+        if ($heats->count() > 1) {
+
+            $weeks_between_heats = $heats->map(function ($heat, $key) use ($heats) {
+
+                //check if the last key in the array
+                if ($key === $heats->count() - 1) {
+                    return null;
+                }
+
+                $heat1 = Carbon::parse($heats[$key]);
+                $heat2 = Carbon::parse($heats[$key + 1]);
+
+                return $heat1->diffInWeeks($heat2);
+
+            });
+
+        }
+
+        // $weeks_between_heats get average in weeks
+        $weeks_between_heats = collect($weeks_between_heats)->avg();
+
+        // add weeks between heats to the last heat date
+        $next_est_heat_date = Carbon::parse($this->latest_heat)
+            ->addWeeks($weeks_between_heats)
+            ->format('Y-m-d');
 
         return $next_est_heat_date;
-
-
     }
 
     //next_due_date
@@ -284,16 +321,18 @@ class Dog extends Model implements HasMedia
         ];
 
         if ($this->gender === 'female') {
-            $dog['litters'] = $this->litters()->get()->toArray();
+            $dog['litters'] = $this->litters()
+                ->get()
+                ->toArray();
             $dog['heats']['all'] = $this->heats()
-                //desc heat_at
-                    ->orderBy('heat_at', 'desc')
-                ->get('heat_at')->pluck('heat_at');
-            $dog['heats']['next_est_heat'] = $this->next_est_heat_date;
+                ->orderBy('heat_at', 'desc')
+                ->get()
+                ->toArray();
+            $dog['heats']['next_est_heat_date'] = $this->next_est_heat_date;
+            $dog['heats']['next_est_mated_at'] = $this->next_est_mated_at;
 
             // get all measurements of progesterone
             $dog['heats']['progesterone'] = $this->getMeasurements('progesterone');
-
 
 
             $dog['calculations'] = [

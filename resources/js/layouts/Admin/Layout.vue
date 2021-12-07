@@ -7,8 +7,6 @@
         <ProfileMenu/>
       </v-app-bar>
 
-      <!-- <AdminNav/> -->
-
 
       <v-main>
         <slot></slot>
@@ -52,22 +50,26 @@
 <script>
   import ProfileMenu from '@/layouts/nav/ProfileMenu';
   import MainNav from '@/layouts/nav/MainNav';
-  import AdminNav from '@/layouts/Admin/nav/AdminNav';
 
   export default {
     data() {
       return {
         bottomDrawer: null,
-        touching: false
+        touching: false,
+        showSnackbar: false,
+        snackbarText: ''
       };
     },
     methods: {
+      updateSnackbar(data) {
+        debugger;
+        console.log(data);
+      },
       toggleBottomDrawer(drawer) {
         this.bottomDrawer = drawer;
       }
     },
     components: {
-      AdminNav,
       MainNav,
       ProfileMenu
     }

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Heat;
+
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class HeatController extends Controller
 {
@@ -35,7 +37,10 @@ class HeatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // store the heat
+        Heat::create($request->all());
+        return redirect()->back();
+
     }
 
     /**
@@ -65,11 +70,12 @@ class HeatController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Heat  $heat
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Heat $heat)
+    public function update(Request $request, Heat $heat): \Illuminate\Http\RedirectResponse
     {
-        //
+        Heat::findOrFail($heat->id)->update($request->all());
+        return redirect()->back();
     }
 
     /**
@@ -80,6 +86,7 @@ class HeatController extends Controller
      */
     public function destroy(Heat $heat)
     {
-        //
+        // delete the heat
+        Heat::findOrFail($heat->id)->delete();
     }
 }

@@ -104,8 +104,8 @@
             { text: 'Size', value: 'size' },
             { text: 'Age (months)', value: 'age.months' },
             { text: 'Weight (lbs)', value: 'weight' },
+            { text: 'Next Est Heat', value: 'heats.next_est_heat_date' },
             { text: 'Next Est Xray', value: 'calculations.xray_est_at' },
-            { text: 'Traits' , value: 'traits' },
             { text: 'Actions', value: 'actions' }
           ]"
           :items="dogs"

@@ -19,6 +19,9 @@ Route::group(['as'=>'admin.','middleware' => ['web','role:admin']], function(){
     // Traits Options
     Route::resource('trait-options', 'TraitOptionsController');
 
+    // Heats
+    Route::resource('heats', 'HeatController');
+
 
     // Litters
     Route::resource('litters', 'LitterController');
