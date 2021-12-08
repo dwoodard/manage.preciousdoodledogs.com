@@ -25962,6 +25962,12 @@ var render = function () {
                                                 [
                                                   _c(
                                                     "v-expansion-panel-header",
+                                                    {
+                                                      attrs: {
+                                                        color: "pink accent-1",
+                                                        ripple: "",
+                                                      },
+                                                    },
                                                     [
                                                       _vm._v(
                                                         "\n                      " +

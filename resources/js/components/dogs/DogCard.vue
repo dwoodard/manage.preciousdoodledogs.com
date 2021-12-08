@@ -170,7 +170,7 @@
                 <div v-for="(heat, index) in dog.heats.all" :key="index">
                   <v-expansion-panels v-model="openHeatPanel[index]" accordion>
                     <v-expansion-panel @change="closeAllPanels">
-                      <v-expansion-panel-header>
+                      <v-expansion-panel-header color="pink accent-1" ripple>
                         {{ toOrdinal((dog.heats.all.length - index)) }}: {{ heat.heat_at }} ({{ moment(heat.heat_at).fromNow() }})
                       </v-expansion-panel-header>
                       <v-expansion-panel-content>
