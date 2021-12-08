@@ -23,9 +23,9 @@ class MeasurementFactory extends Factory
             'weight',
             'height',
             'temperature',
+            'progesterone'
 
         ]);
-
 
 
         return [
@@ -49,6 +49,8 @@ class MeasurementFactory extends Factory
                 return $this->faker->randomElement(['cm', 'in']);
             case 'temperature':
                 return $this->faker->randomElement(['C', 'F']);
+            case 'progesterone':
+                return $this->faker->randomElement(['ng/mL']);
         }
     }
 }

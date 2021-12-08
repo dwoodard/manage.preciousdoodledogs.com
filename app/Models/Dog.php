@@ -324,15 +324,13 @@ class Dog extends Model implements HasMedia
             $dog['litters'] = $this->litters()
                 ->get()
                 ->toArray();
-            $dog['heats']['all'] = $this->heats()
+            $dog['heats']['all'] = $this->heats()->with('measurements')
                 ->orderBy('heat_at', 'desc')
                 ->get()
                 ->toArray();
             $dog['heats']['next_est_heat_date'] = $this->next_est_heat_date;
             $dog['heats']['next_est_mated_at'] = $this->next_est_mated_at;
 
-            // get all measurements of progesterone
-            $dog['heats']['progesterone'] = $this->getMeasurements('progesterone');
 
 
             $dog['calculations'] = [

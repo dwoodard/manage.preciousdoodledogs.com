@@ -334,13 +334,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -25862,79 +25855,61 @@ var render = function () {
                               _c(
                                 "v-col",
                                 [
-                                  _c(
-                                    "v-container",
-                                    [
-                                      _c("p", [
-                                        _c("b", [
-                                          _vm._v(
-                                            "Next Est Heat (" +
-                                              _vm._s(
-                                                _vm.toOrdinal(
-                                                  _vm.dog.heats.all.length + 1
-                                                )
-                                              ) +
-                                              "):"
-                                          ),
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("br"),
-                                        _vm._v(
-                                          "\n                  " +
-                                            _vm._s(
-                                              _vm.dog.heats.next_est_heat_date
-                                            ) +
-                                            " ( " +
-                                            _vm._s(
-                                              _vm
-                                                .moment(
-                                                  _vm.dog.heats
-                                                    .next_est_heat_date
-                                                )
-                                                .fromNow(true)
-                                            ) +
-                                            ")\n                "
-                                        ),
-                                      ]),
-                                      _vm._v(" "),
-                                      _vm._l(
-                                        _vm.dog.heats.all,
-                                        function (heat, index) {
-                                          return _c("div", { key: index }, [
-                                            _vm._v(
-                                              "\n                  " +
-                                                _vm._s(
-                                                  _vm.toOrdinal(
-                                                    _vm.dog.heats.all.length -
-                                                      index
-                                                  )
-                                                ) +
-                                                ": " +
-                                                _vm._s(heat.heat_at) +
-                                                " (" +
-                                                _vm._s(
-                                                  _vm
-                                                    .moment(heat.heat_at)
-                                                    .fromNow()
-                                                ) +
-                                                ")\n                "
-                                            ),
-                                          ])
-                                        }
+                                  _c("p", [
+                                    _c("b", [
+                                      _vm._v(
+                                        "Next Est Heat (" +
+                                          _vm._s(
+                                            _vm.toOrdinal(
+                                              _vm.dog.heats.all.length + 1
+                                            )
+                                          ) +
+                                          "):"
                                       ),
-                                      _vm._v(" "),
-                                      _c("p", { staticClass: "mt-2" }, [
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("br"),
+                                    _vm._v(
+                                      "\n                " +
+                                        _vm._s(
+                                          _vm.dog.heats.next_est_heat_date
+                                        ) +
+                                        " ( " +
+                                        _vm._s(
+                                          _vm
+                                            .moment(
+                                              _vm.dog.heats.next_est_heat_date
+                                            )
+                                            .fromNow(true)
+                                        ) +
+                                        ")\n              "
+                                    ),
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._l(
+                                    _vm.dog.heats.all,
+                                    function (heat, index) {
+                                      return _c("div", { key: index }, [
                                         _vm._v(
-                                          "\n                  progesterone: " +
-                                            _vm._s(_vm.dog.heats.progesterone) +
-                                            "\n                "
+                                          "\n                " +
+                                            _vm._s(
+                                              _vm.toOrdinal(
+                                                _vm.dog.heats.all.length - index
+                                              )
+                                            ) +
+                                            ": " +
+                                            _vm._s(heat.heat_at) +
+                                            " (" +
+                                            _vm._s(
+                                              _vm.moment(heat.heat_at).fromNow()
+                                            ) +
+                                            ")\n              "
                                         ),
-                                      ]),
-                                    ],
-                                    2
+                                      ])
+                                    }
                                   ),
                                 ],
-                                1
+                                2
                               ),
                             ],
                             1

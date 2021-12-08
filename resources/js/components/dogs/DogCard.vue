@@ -70,7 +70,6 @@
           aspect-ratio="1.61"
           contain/>
       </v-col>
-
       <v-col cols="6">
         <v-card elevation="0">
           <div>
@@ -166,20 +165,14 @@
 
             <v-row v-if="dog.gender ==='female'" no-gutters>
               <v-col>
-                <v-container>
-                  <p>
-                    <b>Next Est Heat ({{ toOrdinal(dog.heats.all.length + 1 ) }}):</b> <br/>
-                    {{ dog.heats.next_est_heat_date }} ( {{ moment(dog.heats.next_est_heat_date).fromNow(true) }})
-                  </p>
+                <p>
+                  <b>Next Est Heat ({{ toOrdinal(dog.heats.all.length + 1 ) }}):</b> <br/>
+                  {{ dog.heats.next_est_heat_date }} ( {{ moment(dog.heats.next_est_heat_date).fromNow(true) }})
+                </p>
 
-                  <div v-for="(heat, index) in dog.heats.all" :key="index">
-                    {{ toOrdinal((dog.heats.all.length - index)) }}: {{ heat.heat_at }} ({{ moment(heat.heat_at).fromNow() }})
-                  </div>
-
-                  <p class="mt-2">
-                    progesterone: {{ dog.heats.progesterone }}
-                  </p>
-                </v-container>
+                <div v-for="(heat, index) in dog.heats.all" :key="index">
+                  {{ toOrdinal((dog.heats.all.length - index)) }}: {{ heat.heat_at }} ({{ moment(heat.heat_at).fromNow() }})
+                </div>
               </v-col>
             </v-row>
           </v-container>
@@ -285,6 +278,7 @@
   import DogHeatDialog from '@/components/dogs/DogHeatDialog';
   import DogLittersDialog from '@/components/dogs/DogLittersDialog';
   import DogFamilyDialog from '@/components/dogs/DogFamilyDialog';
+
   import {age, inchesToFeet, ouncesToLbs} from '@/helper';
 
   const converter = require('number-to-words-en');

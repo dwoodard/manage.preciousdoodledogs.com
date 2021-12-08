@@ -24,15 +24,22 @@ class DatabaseSeeder extends Seeder
         ]);
 
         //for each dog
-        $dogs->each(function($dog){
+        $dogs->each(function ($dog) {
 
-            $dog->measurements()->saveMany(
-                \App\Models\Measurement::factory()->count(10)
-                    ->create([
-                        'measureable_type' => 'App\Models\Dog',
-                        'measureable_id' => $dog->id,
-                    ])
-            );
+            // measurement under a dog only
+            $type = ['weight', 'height', 'temperature'][rand(0,2)];
+
+            $measurements = \App\Models\Measurement::factory()->count(10)
+                ->create([
+                    'measureable_type' => 'App\Models\Dog',
+                    'measureable_id' => $dog->id,
+                    // random element from array
+                    'type' => $type,
+                    'value' => rand(1, 100),
+                ]);
+
+
+            $dog->measurements()->saveMany($measurements);
 
             $dog->traits()->saveMany(\App\Models\Traits::factory()->count(1)->create([
                 'dog_id' => $dog->id,
@@ -58,12 +65,22 @@ class DatabaseSeeder extends Seeder
                 }
 
                 $dog->heats()->saveMany($heats);
+
+                // for each heat save a related measurement "progesterone"
+                $heats->each(function ($heat) use ($dog) {
+                    $heat->measurements()->saveMany(
+                        [\App\Models\Measurement::factory()->create([
+                            'measureable_type' => \App\Models\Heat::class,
+                            'measureable_id' => $heat->id,
+                            'type' => 'progesterone',
+                            'value' => rand(1, 10),
+                            'unit' => 'ng/mL'
+                        ])
+                        ]);
+                });
             }
 
         });
-
-
-
 
 
     }
