@@ -4,7 +4,7 @@
       <v-btn v-bind="attrs" elevation="0" width="100%" align="left"
              v-on="on">
         <v-icon>mdi-dna</v-icon>
-        Add Litters
+        Add Litters...
       </v-btn>
     </template>
     <v-card>

@@ -4,7 +4,7 @@
       <v-btn v-bind="attrs" elevation="0" width="100%" align="left"
              v-on="on">
         <v-icon>mdi-account-group</v-icon>
-        Add Family
+        Add Family...
       </v-btn>
     </template>
     <v-card>

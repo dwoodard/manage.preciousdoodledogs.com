@@ -34,12 +34,18 @@
                 </v-icon>
               </template>
               <v-list>
-                <v-list-item>
-                  <inertia-link v-ripple :href="route('admin.dogs.edit', {dog:dog.id})" as="v-list-item">
-                    <v-icon>mdi-circle-edit-outline</v-icon>
-                    Edit
-                  </inertia-link>
-                </v-list-item>
+                <!-- <v-list-item>-->
+                <!--   <inertia-link v-ripple :href="`/admin/dogs/${dog.id}`" as="v-list-item">-->
+                <!--     <v-icon>mdi-circle-edit-outline</v-icon>-->
+                <!--     Details-->
+                <!--   </inertia-link>-->
+                <!-- </v-list-item>-->
+
+
+                <inertia-link v-ripple :href="route('admin.dogs.edit', {dog:dog.id})" as="v-list-item">
+                  <v-icon>mdi-circle-edit-outline</v-icon>
+                  Edit
+                </inertia-link>
 
 
                 <v-list-item v-if="dog.gender === 'female'">
@@ -79,12 +85,8 @@
           </div>
 
           <div>
-            <span v-if="dog.birthday"> {{ age(dog.birthday) }} </span>
+            <span v-if="dog.birthday"> {{ dog.birthday }} ({{ age(dog.birthday, true) }})</span>
             <span v-else><inertia-link :href="route('admin.dogs.edit', {dog:dog.id})">Add Birthday</inertia-link></span>
-          </div>
-
-          <div>
-            {{ dog.birthday }}
           </div>
         </v-card>
       </v-col>
@@ -162,9 +164,22 @@
               </v-col>
             </v-row>
 
-            <v-row no-gutters>
+            <v-row v-if="dog.gender ==='female'" no-gutters>
               <v-col>
-                <pre>{{ dog.heats }}</pre>
+                <v-container>
+                  <p>
+                    <b>Next Est Heat ({{ toOrdinal(dog.heats.all.length + 1 ) }}):</b> <br/>
+                    {{ dog.heats.next_est_heat_date }} ( {{ moment(dog.heats.next_est_heat_date).fromNow(true) }})
+                  </p>
+
+                  <div v-for="(heat, index) in dog.heats.all" :key="index">
+                    {{ toOrdinal((dog.heats.all.length - index)) }}: {{ heat.heat_at }} ({{ moment(heat.heat_at).fromNow() }})
+                  </div>
+
+                  <p class="mt-2">
+                    progesterone: {{ dog.heats.progesterone }}
+                  </p>
+                </v-container>
               </v-col>
             </v-row>
           </v-container>
@@ -264,12 +279,15 @@
   </v-card>
 </template>
 <script>
+  import moment from 'moment';
   import DogTraitsDialog from '@/components/dogs/DogTraitsDialog';
   import DogBreedingDialog from '@/components/dogs/DogBreedingDialog';
   import DogHeatDialog from '@/components/dogs/DogHeatDialog';
   import DogLittersDialog from '@/components/dogs/DogLittersDialog';
   import DogFamilyDialog from '@/components/dogs/DogFamilyDialog';
   import {age, inchesToFeet, ouncesToLbs} from '@/helper';
+
+  const converter = require('number-to-words-en');
 
   export default {
     name: 'DogCard',
@@ -284,6 +302,8 @@
       };
     },
     methods: {
+      moment,
+      toOrdinal: converter.toOrdinal,
       ouncesToLbs,
       age,
       inchesToFeet,

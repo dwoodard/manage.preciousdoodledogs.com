@@ -4,13 +4,13 @@
       <v-btn v-bind="attrs" elevation="0" width="100%"
              v-on="on">
         <v-icon>mdi-calendar</v-icon>
-        Add Heat
+        Add Heat...
       </v-btn>
     </template>
     <v-sheet>
       <v-card>
         <v-card-title>
-          <span class="headline">Add Heat for {{ dog.name }} ({{ yearsOld }}) </span>
+          <span class="headline">Add Heat for {{ dog.name }} ({{ ageOld }}) </span>
         </v-card-title>
         <v-card-text>
           <v-form @submit.prevent="addHeatSubmit">
@@ -66,7 +66,6 @@
 <script>
   import axios from 'axios';
   import moment from 'moment';
-  import {age} from '@/helper';
 
   const converter = require('number-to-words-en');
 
@@ -93,7 +92,7 @@
       dogHeats() {
         return this.dog.heats.all;
       },
-      yearsOld() {
+      ageOld() {
         // check if dog age is a year or more
         const hasYears = moment().diff(this.dog.birthday, 'years') > 0;
 
@@ -107,6 +106,8 @@
           const months = moment().diff(this.dog.birthday, 'months');
           return `${months} months`;
         }
+
+        return 'Unknown';
       }
     },
     methods: {

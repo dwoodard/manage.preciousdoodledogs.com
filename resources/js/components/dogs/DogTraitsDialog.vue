@@ -4,7 +4,7 @@
       <v-btn v-bind="attrs" elevation="0" width="100%" align="left"
              v-on="on">
         <v-icon>mdi-dna</v-icon>
-        Add Traits
+        Add Traits...
       </v-btn>
     </template>
     <form @submit.prevent="submit">

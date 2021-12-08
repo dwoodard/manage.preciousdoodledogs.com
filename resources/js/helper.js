@@ -52,7 +52,7 @@ export const inchesToFeet = (inches) => {
 };
 
 // convert birthdate to age
-export const age = (birthdate) => {
+export const age = (birthdate, onlyNumber = false) => {
   if (!birthdate || birthdate === '') {
     return null;
   }
@@ -63,6 +63,10 @@ export const age = (birthdate) => {
 
   // age is the number of full years
   const age = today.getFullYear() - birthDate.getFullYear();
+
+  if (onlyNumber) {
+    return age;
+  }
 
   // age is in years, so if the current month is before the birth month, then we're not full years yet
   const years = today.getMonth() < birthDate.getMonth() ? age - 1 : age;

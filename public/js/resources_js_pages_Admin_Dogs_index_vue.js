@@ -53,12 +53,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _components_dogs_DogTraitsDialog__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/dogs/DogTraitsDialog */ "./resources/js/components/dogs/DogTraitsDialog.vue");
-/* harmony import */ var _components_dogs_DogBreedingDialog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/dogs/DogBreedingDialog */ "./resources/js/components/dogs/DogBreedingDialog.vue");
-/* harmony import */ var _components_dogs_DogHeatDialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/dogs/DogHeatDialog */ "./resources/js/components/dogs/DogHeatDialog.vue");
-/* harmony import */ var _components_dogs_DogLittersDialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/dogs/DogLittersDialog */ "./resources/js/components/dogs/DogLittersDialog.vue");
-/* harmony import */ var _components_dogs_DogFamilyDialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/components/dogs/DogFamilyDialog */ "./resources/js/components/dogs/DogFamilyDialog.vue");
-/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/helper */ "./resources/js/helper.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_dogs_DogTraitsDialog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/dogs/DogTraitsDialog */ "./resources/js/components/dogs/DogTraitsDialog.vue");
+/* harmony import */ var _components_dogs_DogBreedingDialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/dogs/DogBreedingDialog */ "./resources/js/components/dogs/DogBreedingDialog.vue");
+/* harmony import */ var _components_dogs_DogHeatDialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/dogs/DogHeatDialog */ "./resources/js/components/dogs/DogHeatDialog.vue");
+/* harmony import */ var _components_dogs_DogLittersDialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/components/dogs/DogLittersDialog */ "./resources/js/components/dogs/DogLittersDialog.vue");
+/* harmony import */ var _components_dogs_DogFamilyDialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/components/dogs/DogFamilyDialog */ "./resources/js/components/dogs/DogFamilyDialog.vue");
+/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/helper */ "./resources/js/helper.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -329,6 +346,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+var converter = __webpack_require__(/*! number-to-words-en */ "./node_modules/number-to-words-en/numberToWords.min.js");
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'DogCard',
@@ -343,19 +364,21 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    ouncesToLbs: _helper__WEBPACK_IMPORTED_MODULE_5__.ouncesToLbs,
-    age: _helper__WEBPACK_IMPORTED_MODULE_5__.age,
-    inchesToFeet: _helper__WEBPACK_IMPORTED_MODULE_5__.inchesToFeet,
+    moment: (moment__WEBPACK_IMPORTED_MODULE_0___default()),
+    toOrdinal: converter.toOrdinal,
+    ouncesToLbs: _helper__WEBPACK_IMPORTED_MODULE_6__.ouncesToLbs,
+    age: _helper__WEBPACK_IMPORTED_MODULE_6__.age,
+    inchesToFeet: _helper__WEBPACK_IMPORTED_MODULE_6__.inchesToFeet,
     getImage: function getImage(dog) {
       return dog.media.length > 0 ? dog.media[0].original_url : '/images/defaults/no-dog.png';
     }
   },
   components: {
-    DogBreedingDialog: _components_dogs_DogBreedingDialog__WEBPACK_IMPORTED_MODULE_1__["default"],
-    DogHeatDialog: _components_dogs_DogHeatDialog__WEBPACK_IMPORTED_MODULE_2__["default"],
-    DogLittersDialog: _components_dogs_DogLittersDialog__WEBPACK_IMPORTED_MODULE_3__["default"],
-    DogTraitsDialog: _components_dogs_DogTraitsDialog__WEBPACK_IMPORTED_MODULE_0__["default"],
-    DogFamilyDialog: _components_dogs_DogFamilyDialog__WEBPACK_IMPORTED_MODULE_4__["default"]
+    DogBreedingDialog: _components_dogs_DogBreedingDialog__WEBPACK_IMPORTED_MODULE_2__["default"],
+    DogHeatDialog: _components_dogs_DogHeatDialog__WEBPACK_IMPORTED_MODULE_3__["default"],
+    DogLittersDialog: _components_dogs_DogLittersDialog__WEBPACK_IMPORTED_MODULE_4__["default"],
+    DogTraitsDialog: _components_dogs_DogTraitsDialog__WEBPACK_IMPORTED_MODULE_1__["default"],
+    DogFamilyDialog: _components_dogs_DogFamilyDialog__WEBPACK_IMPORTED_MODULE_5__["default"]
   }
 });
 
@@ -418,7 +441,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/helper */ "./resources/js/helper.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -493,7 +515,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-
 var converter = __webpack_require__(/*! number-to-words-en */ "./node_modules/number-to-words-en/numberToWords.min.js");
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -518,7 +539,7 @@ var converter = __webpack_require__(/*! number-to-words-en */ "./node_modules/nu
     dogHeats: function dogHeats() {
       return this.dog.heats.all;
     },
-    yearsOld: function yearsOld() {
+    ageOld: function ageOld() {
       // check if dog age is a year or more
       var hasYears = moment__WEBPACK_IMPORTED_MODULE_1___default()().diff(this.dog.birthday, 'years') > 0;
 
@@ -532,6 +553,8 @@ var converter = __webpack_require__(/*! number-to-words-en */ "./node_modules/nu
         var months = moment__WEBPACK_IMPORTED_MODULE_1___default()().diff(this.dog.birthday, 'months');
         return "".concat(months, " months");
       }
+
+      return 'Unknown';
     }
   },
   methods: {
@@ -1251,6 +1274,8 @@ var inchesToFeet = function inchesToFeet(inches) {
 }; // convert birthdate to age
 
 var age = function age(birthdate) {
+  var onlyNumber = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
   if (!birthdate || birthdate === '') {
     return null;
   } // given the date of birth, calculate the age
@@ -1259,7 +1284,12 @@ var age = function age(birthdate) {
   var today = new Date();
   var birthDate = new Date(birthdate); // age is the number of full years
 
-  var age = today.getFullYear() - birthDate.getFullYear(); // age is in years, so if the current month is before the birth month, then we're not full years yet
+  var age = today.getFullYear() - birthDate.getFullYear();
+
+  if (onlyNumber) {
+    return age;
+  } // age is in years, so if the current month is before the birth month, then we're not full years yet
+
 
   var years = today.getMonth() < birthDate.getMonth() ? age - 1 : age; // singular or plural year
 
@@ -25201,7 +25231,7 @@ var render = function () {
                 ),
                 [
                   _c("v-icon", [_vm._v("mdi-dna")]),
-                  _vm._v("\n      Add Breeding\n    "),
+                  _vm._v("\n      Add Breeding...\n    "),
                 ],
                 1
               ),
@@ -25349,30 +25379,24 @@ var render = function () {
                             "v-list",
                             [
                               _c(
-                                "v-list-item",
+                                "inertia-link",
+                                {
+                                  directives: [
+                                    { name: "ripple", rawName: "v-ripple" },
+                                  ],
+                                  attrs: {
+                                    href: _vm.route("admin.dogs.edit", {
+                                      dog: _vm.dog.id,
+                                    }),
+                                    as: "v-list-item",
+                                  },
+                                },
                                 [
-                                  _c(
-                                    "inertia-link",
-                                    {
-                                      directives: [
-                                        { name: "ripple", rawName: "v-ripple" },
-                                      ],
-                                      attrs: {
-                                        href: _vm.route("admin.dogs.edit", {
-                                          dog: _vm.dog.id,
-                                        }),
-                                        as: "v-list-item",
-                                      },
-                                    },
-                                    [
-                                      _c("v-icon", [
-                                        _vm._v("mdi-circle-edit-outline"),
-                                      ]),
-                                      _vm._v(
-                                        "\n                  Edit\n                "
-                                      ),
-                                    ],
-                                    1
+                                  _c("v-icon", [
+                                    _vm._v("mdi-circle-edit-outline"),
+                                  ]),
+                                  _vm._v(
+                                    "\n                Edit\n              "
                                   ),
                                 ],
                                 1
@@ -25494,7 +25518,13 @@ var render = function () {
                 _c("div", [
                   _vm.dog.birthday
                     ? _c("span", [
-                        _vm._v(" " + _vm._s(_vm.age(_vm.dog.birthday)) + " "),
+                        _vm._v(
+                          " " +
+                            _vm._s(_vm.dog.birthday) +
+                            " (" +
+                            _vm._s(_vm.age(_vm.dog.birthday, true)) +
+                            ")"
+                        ),
                       ])
                     : _c(
                         "span",
@@ -25513,12 +25543,6 @@ var render = function () {
                         ],
                         1
                       ),
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _vm._v(
-                    "\n          " + _vm._s(_vm.dog.birthday) + "\n        "
-                  ),
                 ]),
               ]),
             ],
@@ -25830,16 +25854,92 @@ var render = function () {
                         1
                       ),
                       _vm._v(" "),
-                      _c(
-                        "v-row",
-                        { attrs: { "no-gutters": "" } },
-                        [
-                          _c("v-col", [
-                            _c("pre", [_vm._v(_vm._s(_vm.dog.heats))]),
-                          ]),
-                        ],
-                        1
-                      ),
+                      _vm.dog.gender === "female"
+                        ? _c(
+                            "v-row",
+                            { attrs: { "no-gutters": "" } },
+                            [
+                              _c(
+                                "v-col",
+                                [
+                                  _c(
+                                    "v-container",
+                                    [
+                                      _c("p", [
+                                        _c("b", [
+                                          _vm._v(
+                                            "Next Est Heat (" +
+                                              _vm._s(
+                                                _vm.toOrdinal(
+                                                  _vm.dog.heats.all.length + 1
+                                                )
+                                              ) +
+                                              "):"
+                                          ),
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("br"),
+                                        _vm._v(
+                                          "\n                  " +
+                                            _vm._s(
+                                              _vm.dog.heats.next_est_heat_date
+                                            ) +
+                                            " ( " +
+                                            _vm._s(
+                                              _vm
+                                                .moment(
+                                                  _vm.dog.heats
+                                                    .next_est_heat_date
+                                                )
+                                                .fromNow(true)
+                                            ) +
+                                            ")\n                "
+                                        ),
+                                      ]),
+                                      _vm._v(" "),
+                                      _vm._l(
+                                        _vm.dog.heats.all,
+                                        function (heat, index) {
+                                          return _c("div", { key: index }, [
+                                            _vm._v(
+                                              "\n                  " +
+                                                _vm._s(
+                                                  _vm.toOrdinal(
+                                                    _vm.dog.heats.all.length -
+                                                      index
+                                                  )
+                                                ) +
+                                                ": " +
+                                                _vm._s(heat.heat_at) +
+                                                " (" +
+                                                _vm._s(
+                                                  _vm
+                                                    .moment(heat.heat_at)
+                                                    .fromNow()
+                                                ) +
+                                                ")\n                "
+                                            ),
+                                          ])
+                                        }
+                                      ),
+                                      _vm._v(" "),
+                                      _c("p", { staticClass: "mt-2" }, [
+                                        _vm._v(
+                                          "\n                  progesterone: " +
+                                            _vm._s(_vm.dog.heats.progesterone) +
+                                            "\n                "
+                                        ),
+                                      ]),
+                                    ],
+                                    2
+                                  ),
+                                ],
+                                1
+                              ),
+                            ],
+                            1
+                          )
+                        : _vm._e(),
                     ],
                     1
                   ),
@@ -26187,7 +26287,7 @@ var render = function () {
                 ),
                 [
                   _c("v-icon", [_vm._v("mdi-account-group")]),
-                  _vm._v("\n      Add Family\n    "),
+                  _vm._v("\n      Add Family...\n    "),
                 ],
                 1
               ),
@@ -26265,7 +26365,7 @@ var render = function () {
                 ),
                 [
                   _c("v-icon", [_vm._v("mdi-calendar")]),
-                  _vm._v("\n      Add Heat\n    "),
+                  _vm._v("\n      Add Heat...\n    "),
                 ],
                 1
               ),
@@ -26295,7 +26395,7 @@ var render = function () {
                     "Add Heat for " +
                       _vm._s(_vm.dog.name) +
                       " (" +
-                      _vm._s(_vm.yearsOld) +
+                      _vm._s(_vm.ageOld) +
                       ") "
                   ),
                 ]),
@@ -26581,7 +26681,7 @@ var render = function () {
                 ),
                 [
                   _c("v-icon", [_vm._v("mdi-dna")]),
-                  _vm._v("\n      Add Litters\n    "),
+                  _vm._v("\n      Add Litters...\n    "),
                 ],
                 1
               ),
@@ -26659,7 +26759,7 @@ var render = function () {
                 ),
                 [
                   _c("v-icon", [_vm._v("mdi-dna")]),
-                  _vm._v("\n      Add Traits\n    "),
+                  _vm._v("\n      Add Traits...\n    "),
                 ],
                 1
               ),

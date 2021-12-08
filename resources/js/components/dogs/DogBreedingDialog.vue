@@ -4,7 +4,7 @@
       <v-btn v-bind="attrs" elevation="0" width="100%"
              v-on="on">
         <v-icon>mdi-dna</v-icon>
-        Add Breeding
+        Add Breeding...
       </v-btn>
     </template>
     <v-card>

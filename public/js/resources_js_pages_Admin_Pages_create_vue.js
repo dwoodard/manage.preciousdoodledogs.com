@@ -191,6 +191,8 @@ var inchesToFeet = function inchesToFeet(inches) {
 }; // convert birthdate to age
 
 var age = function age(birthdate) {
+  var onlyNumber = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
   if (!birthdate || birthdate === '') {
     return null;
   } // given the date of birth, calculate the age
@@ -199,7 +201,12 @@ var age = function age(birthdate) {
   var today = new Date();
   var birthDate = new Date(birthdate); // age is the number of full years
 
-  var age = today.getFullYear() - birthDate.getFullYear(); // age is in years, so if the current month is before the birth month, then we're not full years yet
+  var age = today.getFullYear() - birthDate.getFullYear();
+
+  if (onlyNumber) {
+    return age;
+  } // age is in years, so if the current month is before the birth month, then we're not full years yet
+
 
   var years = today.getMonth() < birthDate.getMonth() ? age - 1 : age; // singular or plural year
 
