@@ -19,7 +19,7 @@ class Heat extends Model
     // heats have measurements polymorphism
     public function measurements(): \Illuminate\Database\Eloquent\Relations\MorphMany
     {
-        return $this->morphMany(Measurement::class, 'measureable');
+        return $this->morphMany(Measurement::class, 'measureable')->orderBy('measured_at', 'asc');
     }
 
 

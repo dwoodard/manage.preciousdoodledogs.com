@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
         $dogs->each(function ($dog) {
 
             // measurement under a dog only
-            $type = ['weight', 'height', 'temperature'][rand(0,2)];
+            $type = ['weight', 'height', 'temperature'][rand(0, 2)];
 
             $measurements = \App\Models\Measurement::factory()->count(10)
                 ->create([
@@ -68,15 +68,16 @@ class DatabaseSeeder extends Seeder
 
                 // for each heat save a related measurement "progesterone"
                 $heats->each(function ($heat) use ($dog) {
-                    $heat->measurements()->saveMany(
-                        [\App\Models\Measurement::factory()->create([
-                            'measureable_type' => \App\Models\Heat::class,
-                            'measureable_id' => $heat->id,
-                            'type' => 'progesterone',
-                            'value' => rand(1, 10),
-                            'unit' => 'ng/mL'
-                        ])
-                        ]);
+
+                    $measurements = \App\Models\Measurement::factory()->count(rand(0, 5))->create([
+                        'measureable_type' => \App\Models\Heat::class,
+                        'measureable_id' => $heat->id,
+                        'type' => 'progesterone',
+                        'unit' => 'ng/mL'
+                    ]);
+
+
+                    $heat->measurements()->saveMany($measurements);
                 });
             }
 

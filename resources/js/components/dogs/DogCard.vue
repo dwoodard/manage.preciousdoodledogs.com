@@ -117,7 +117,6 @@
                   <v-list-item>
                     <DogTraitsDialog :dog="dog"/>
                   </v-list-item>
-                  <!-- add progesterone-->
                 </v-list>
               </v-menu>
             </v-col>
@@ -157,12 +156,10 @@
                     <v-list-item>
                       <DogHeatDialog :dog="dog"/>
                     </v-list-item>
-                    <!-- add progesterone-->
                   </v-list>
                 </v-menu>
               </v-col>
             </v-row>
-
             <v-row v-if="dog.gender ==='female'" no-gutters>
               <v-col>
                 <p>
@@ -171,7 +168,43 @@
                 </p>
 
                 <div v-for="(heat, index) in dog.heats.all" :key="index">
-                  {{ toOrdinal((dog.heats.all.length - index)) }}: {{ heat.heat_at }} ({{ moment(heat.heat_at).fromNow() }})
+                  <v-expansion-panels v-model="openHeatPanel[index]">
+                    <v-expansion-panel @change="closeAllPanels">
+                      <v-expansion-panel-header>
+                        {{ toOrdinal((dog.heats.all.length - index)) }}: {{ heat.heat_at }} ({{ moment(heat.heat_at).fromNow() }})
+                      </v-expansion-panel-header>
+                      <v-expansion-panel-content>
+                        <div v-if="getProgesterone(heat).length === 0">
+                          <p>No progesterone measurement</p>
+                        </div>
+
+                        <div v-else-if="getProgesterone(heat).length ===1">
+                          <p v-for="progesterone in getProgesterone(heat)">
+                            {{ progesterone.measured_at }}: <b>{{ progesterone.value }}</b>
+                          </p>
+                        </div>
+                        <div v-else>
+                          <v-sheet color="" class="pa-3">
+                            <v-sparkline
+                              color="green"
+                              :value="getProgesterone(heat).map((item) => parseInt(item.value))"
+                              height="100"
+                              padding="24"
+                              stroke-linecap="round"
+                              smooth>
+                              <template #label="item">
+                                ng/mL {{ item.value }}
+                              </template>
+                            </v-sparkline>
+                          </v-sheet>
+
+                          <p v-for="progesterone in getProgesterone(heat)">
+                            {{ progesterone.measured_at }}: <b>{{ progesterone.value }}</b>
+                          </p>
+                        </div>
+                      </v-expansion-panel-content>
+                    </v-expansion-panel>
+                  </v-expansion-panels>
                 </div>
               </v-col>
             </v-row>
@@ -228,7 +261,6 @@
                     <v-list-item>
                       <DogFamilyDialog :dog="dog"/>
                     </v-list-item>
-                    <!-- add progesterone-->
                   </v-list>
                 </v-menu>
               </v-col>
@@ -292,7 +324,8 @@
       return {
         selectedTab: '',
         showAddBreeding: false,
-        showAddHeat: false
+        showAddHeat: false,
+        openHeatPanel: []
       };
     },
     methods: {
@@ -303,6 +336,13 @@
       inchesToFeet,
       getImage(dog) {
         return dog.media.length > 0 ? dog.media[0].original_url : '/images/defaults/no-dog.png';
+      },
+      getProgesterone(heat) {
+        return heat.measurements.filter((item) => item.type === 'progesterone');
+      },
+
+      closeAllPanels() {
+        this.openHeatPanel = [];
       }
     },
     components: {

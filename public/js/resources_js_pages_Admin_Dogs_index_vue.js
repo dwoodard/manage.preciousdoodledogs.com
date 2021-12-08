@@ -334,6 +334,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -353,7 +385,8 @@ var converter = __webpack_require__(/*! number-to-words-en */ "./node_modules/nu
     return {
       selectedTab: '',
       showAddBreeding: false,
-      showAddHeat: false
+      showAddHeat: false,
+      openHeatPanel: []
     };
   },
   methods: {
@@ -364,6 +397,14 @@ var converter = __webpack_require__(/*! number-to-words-en */ "./node_modules/nu
     inchesToFeet: _helper__WEBPACK_IMPORTED_MODULE_6__.inchesToFeet,
     getImage: function getImage(dog) {
       return dog.media.length > 0 ? dog.media[0].original_url : '/images/defaults/no-dog.png';
+    },
+    getProgesterone: function getProgesterone(heat) {
+      return heat.measurements.filter(function (item) {
+        return item.type === 'progesterone';
+      });
+    },
+    closeAllPanels: function closeAllPanels() {
+      this.openHeatPanel = [];
     }
   },
   components: {
@@ -25889,23 +25930,218 @@ var render = function () {
                                   _vm._l(
                                     _vm.dog.heats.all,
                                     function (heat, index) {
-                                      return _c("div", { key: index }, [
-                                        _vm._v(
-                                          "\n                " +
-                                            _vm._s(
-                                              _vm.toOrdinal(
-                                                _vm.dog.heats.all.length - index
-                                              )
-                                            ) +
-                                            ": " +
-                                            _vm._s(heat.heat_at) +
-                                            " (" +
-                                            _vm._s(
-                                              _vm.moment(heat.heat_at).fromNow()
-                                            ) +
-                                            ")\n              "
-                                        ),
-                                      ])
+                                      return _c(
+                                        "div",
+                                        { key: index },
+                                        [
+                                          _c(
+                                            "v-expansion-panels",
+                                            {
+                                              model: {
+                                                value: _vm.openHeatPanel[index],
+                                                callback: function ($$v) {
+                                                  _vm.$set(
+                                                    _vm.openHeatPanel,
+                                                    index,
+                                                    $$v
+                                                  )
+                                                },
+                                                expression:
+                                                  "openHeatPanel[index]",
+                                              },
+                                            },
+                                            [
+                                              _c(
+                                                "v-expansion-panel",
+                                                {
+                                                  on: {
+                                                    change: _vm.closeAllPanels,
+                                                  },
+                                                },
+                                                [
+                                                  _c(
+                                                    "v-expansion-panel-header",
+                                                    [
+                                                      _vm._v(
+                                                        "\n                      " +
+                                                          _vm._s(
+                                                            _vm.toOrdinal(
+                                                              _vm.dog.heats.all
+                                                                .length - index
+                                                            )
+                                                          ) +
+                                                          ": " +
+                                                          _vm._s(heat.heat_at) +
+                                                          " (" +
+                                                          _vm._s(
+                                                            _vm
+                                                              .moment(
+                                                                heat.heat_at
+                                                              )
+                                                              .fromNow()
+                                                          ) +
+                                                          ")\n                    "
+                                                      ),
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "v-expansion-panel-content",
+                                                    [
+                                                      _vm.getProgesterone(heat)
+                                                        .length === 0
+                                                        ? _c("div", [
+                                                            _c("p", [
+                                                              _vm._v(
+                                                                "No progesterone measurement"
+                                                              ),
+                                                            ]),
+                                                          ])
+                                                        : _vm.getProgesterone(
+                                                            heat
+                                                          ).length === 1
+                                                        ? _c(
+                                                            "div",
+                                                            _vm._l(
+                                                              _vm.getProgesterone(
+                                                                heat
+                                                              ),
+                                                              function (
+                                                                progesterone
+                                                              ) {
+                                                                return _c("p", [
+                                                                  _vm._v(
+                                                                    "\n                          " +
+                                                                      _vm._s(
+                                                                        progesterone.measured_at
+                                                                      ) +
+                                                                      ": "
+                                                                  ),
+                                                                  _c("b", [
+                                                                    _vm._v(
+                                                                      _vm._s(
+                                                                        progesterone.value
+                                                                      )
+                                                                    ),
+                                                                  ]),
+                                                                ])
+                                                              }
+                                                            ),
+                                                            0
+                                                          )
+                                                        : _c(
+                                                            "div",
+                                                            [
+                                                              _c(
+                                                                "v-sheet",
+                                                                {
+                                                                  staticClass:
+                                                                    "pa-3",
+                                                                  attrs: {
+                                                                    color: "",
+                                                                  },
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "v-sparkline",
+                                                                    {
+                                                                      attrs: {
+                                                                        color:
+                                                                          "green",
+                                                                        value:
+                                                                          _vm
+                                                                            .getProgesterone(
+                                                                              heat
+                                                                            )
+                                                                            .map(
+                                                                              function (
+                                                                                item
+                                                                              ) {
+                                                                                return parseInt(
+                                                                                  item.value
+                                                                                )
+                                                                              }
+                                                                            ),
+                                                                        height:
+                                                                          "100",
+                                                                        padding:
+                                                                          "24",
+                                                                        "stroke-linecap":
+                                                                          "round",
+                                                                        smooth:
+                                                                          "",
+                                                                      },
+                                                                      scopedSlots:
+                                                                        _vm._u(
+                                                                          [
+                                                                            {
+                                                                              key: "label",
+                                                                              fn: function (
+                                                                                item
+                                                                              ) {
+                                                                                return [
+                                                                                  _vm._v(
+                                                                                    "\n                              ng/mL " +
+                                                                                      _vm._s(
+                                                                                        item.value
+                                                                                      ) +
+                                                                                      "\n                            "
+                                                                                  ),
+                                                                                ]
+                                                                              },
+                                                                            },
+                                                                          ],
+                                                                          null,
+                                                                          true
+                                                                        ),
+                                                                    }
+                                                                  ),
+                                                                ],
+                                                                1
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _vm._l(
+                                                                _vm.getProgesterone(
+                                                                  heat
+                                                                ),
+                                                                function (
+                                                                  progesterone
+                                                                ) {
+                                                                  return _c(
+                                                                    "p",
+                                                                    [
+                                                                      _vm._v(
+                                                                        "\n                          " +
+                                                                          _vm._s(
+                                                                            progesterone.measured_at
+                                                                          ) +
+                                                                          ": "
+                                                                      ),
+                                                                      _c("b", [
+                                                                        _vm._v(
+                                                                          _vm._s(
+                                                                            progesterone.value
+                                                                          )
+                                                                        ),
+                                                                      ]),
+                                                                    ]
+                                                                  )
+                                                                }
+                                                              ),
+                                                            ],
+                                                            2
+                                                          ),
+                                                    ]
+                                                  ),
+                                                ],
+                                                1
+                                              ),
+                                            ],
+                                            1
+                                          ),
+                                        ],
+                                        1
+                                      )
                                     }
                                   ),
                                 ],
