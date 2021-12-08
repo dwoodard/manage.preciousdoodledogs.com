@@ -25937,6 +25937,7 @@ var render = function () {
                                           _c(
                                             "v-expansion-panels",
                                             {
+                                              attrs: { accordion: "" },
                                               model: {
                                                 value: _vm.openHeatPanel[index],
                                                 callback: function ($$v) {
