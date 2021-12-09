@@ -53,7 +53,7 @@ __webpack_require__.r(__webpack_exports__);
         return this.value;
       },
       set: function set(val) {
-        this.$emit('update:value', val);
+        this.$emit('input', val);
       }
     }
   }
@@ -196,31 +196,38 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }));
     },
     update: function update(measurement) {
-      this.$inertia.post("/admin/measurements/".concat(measurement.id), _objectSpread(_objectSpread({}, this.newProgesterone), {}, {
+      var _this = this;
+
+      this.showSnackbar = true;
+      this.snackbarText = 'Processing';
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/admin/measurements/".concat(measurement.id), _objectSpread(_objectSpread({}, this.newProgesterone), {}, {
         measured_at: measurement.measured_at,
         value: measurement.value,
-        _method: 'PUT',
-        onSuccess: function onSuccess() {
-          this.showSnackbar = true;
-          this.snackbarText = 'Heat Updated';
-        }
-      }));
+        _method: 'PUT'
+      })) // eslint-disable-next-line promise/always-return
+      .then(function () {
+        _this.showSnackbar = true;
+        _this.snackbarText = 'Heat Updated';
+      })["catch"](function () {
+        _this.showSnackbar = true;
+        _this.snackbarText = 'Error updating measurement';
+      });
     },
     removeMeasurement: function removeMeasurement(measurement) {
-      var _this = this;
+      var _this2 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default().post("/admin/measurements/".concat(measurement.id), {
         _method: 'DELETE'
       }) // eslint-disable-next-line promise/always-return
       .then(function () {
         // remove from array
-        _this.measurementProgesterones.splice(_this.measurementProgesterones.indexOf(measurement), 1);
+        _this2.measurementProgesterones.splice(_this2.measurementProgesterones.indexOf(measurement), 1);
 
-        _this.showSnackbar = true;
-        _this.snackbarText = 'Measurement deleted';
+        _this2.showSnackbar = true;
+        _this2.snackbarText = 'Measurement deleted';
       })["catch"](function () {
-        _this.showSnackbar = true;
-        _this.snackbarText = 'Error deleting measurement';
+        _this2.showSnackbar = true;
+        _this2.snackbarText = 'Error deleting measurement';
       });
     }
   },
@@ -659,9 +666,15 @@ var converter = __webpack_require__(/*! number-to-words-en */ "./node_modules/nu
     },
     dayFromHeat: function dayFromHeat(heat, progesterone) {
       var start = this.moment(heat.heat_at, 'YYYY-MM-DD');
-      var end = this.moment(progesterone.measured_at).startOf('day'); // Difference in number of days
+      var end = this.moment(progesterone.measured_at).startOf('day');
+      var days = this.moment(end).diff(start, 'days');
 
-      return "".concat(this.toOrdinal(this.moment(end).diff(start, 'days')), " day");
+      if (!days) {
+        return '---';
+      } // Difference in number of days
+
+
+      return "".concat(this.toOrdinal(days), " day");
     }
   },
   components: {
@@ -26115,6 +26128,7 @@ var render = function () {
       _c(
         "v-snackbar",
         {
+          attrs: { timeout: "2500" },
           scopedSlots: _vm._u([
             {
               key: "action",

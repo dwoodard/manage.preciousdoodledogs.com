@@ -42,7 +42,7 @@
           return this.value;
         },
         set(val) {
-          this.$emit('update:value', val);
+          this.$emit('input', val);
         }
       }
     }

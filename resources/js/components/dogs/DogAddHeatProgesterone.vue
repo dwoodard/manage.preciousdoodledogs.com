@@ -59,7 +59,7 @@
       </v-container>
     </v-sheet>
 
-    <v-snackbar v-model="showSnackbar">
+    <v-snackbar v-model="showSnackbar" timeout="2500">
       {{ snackbarText }}
       <template #action="{ attrs }">
         <v-btn
@@ -119,16 +119,24 @@
         });
       },
       update(measurement) {
-        this.$inertia.post(`/admin/measurements/${measurement.id}`, {
+        this.showSnackbar = true;
+        this.snackbarText = 'Processing';
+
+        axios.post(`/admin/measurements/${measurement.id}`, {
           ...this.newProgesterone,
           measured_at: measurement.measured_at,
           value: measurement.value,
-          _method: 'PUT',
-          onSuccess() {
+          _method: 'PUT'
+        })
+          // eslint-disable-next-line promise/always-return
+          .then(() => {
             this.showSnackbar = true;
             this.snackbarText = 'Heat Updated';
-          }
-        });
+          })
+          .catch(() => {
+            this.showSnackbar = true;
+            this.snackbarText = 'Error updating measurement';
+          });
       },
       removeMeasurement(measurement) {
         axios.post(`/admin/measurements/${measurement.id}`, {

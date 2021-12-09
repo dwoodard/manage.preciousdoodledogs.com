@@ -367,8 +367,14 @@
         const start = this.moment(heat.heat_at, 'YYYY-MM-DD');
         const end = this.moment(progesterone.measured_at).startOf('day');
 
+        const days = this.moment(end).diff(start, 'days');
+
+        if (!days) {
+          return '---';
+        }
+
         // Difference in number of days
-        return `${this.toOrdinal(this.moment(end).diff(start, 'days'))} day`;
+        return `${this.toOrdinal(days)} day`;
       }
     },
     components: {
