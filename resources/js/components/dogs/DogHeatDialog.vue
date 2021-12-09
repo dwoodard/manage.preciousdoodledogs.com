@@ -1,12 +1,12 @@
 <template>
   <v-dialog v-model="showModal" max-width="600px">
     <template #activator="{ on, attrs }">
-      <v-btn v-bind="attrs" elevation="0" width="100%"
-             v-on="on">
+      <v-btn v-bind="attrs" elevation="0" width="100%" v-on="on">
         <v-icon>mdi-calendar</v-icon>
         Add Heat...
       </v-btn>
     </template>
+
     <v-sheet>
       <v-card>
         <v-card-title>

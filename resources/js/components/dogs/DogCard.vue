@@ -174,6 +174,25 @@
                         {{ toOrdinal((dog.heats.all.length - index)) }}: {{ heat.heat_at }} ({{ moment(heat.heat_at).fromNow() }})
                       </v-expansion-panel-header>
                       <v-expansion-panel-content>
+                        <v-row no-gutters class="py-2">
+                          <v-col cols="1" offset="11">
+                            <v-menu offset-y>
+                              <template #activator="{ on, attrs }">
+                                <v-icon fab
+                                        v-bind="attrs"
+                                        v-on="on">
+                                  mdi-dots-vertical
+                                </v-icon>
+                              </template>
+                              <v-list>
+                                <v-list-item>
+                                  <DogAddHeatProgesterone :heat="heat"/>
+                                </v-list-item>
+                              </v-list>
+                            </v-menu>
+                          </v-col>
+                        </v-row>
+
                         <div v-if="getProgesterone(heat).length === 0">
                           <p>No progesterone measurement</p>
                         </div>
@@ -231,7 +250,6 @@
                     <v-list-item>
                       <DogLittersDialog :dog="dog"/>
                     </v-list-item>
-                    <!-- add progesterone-->
                   </v-list>
                 </v-menu>
               </v-col>
@@ -312,6 +330,7 @@
   import DogFamilyDialog from '@/components/dogs/DogFamilyDialog';
 
   import {age, inchesToFeet, ouncesToLbs} from '@/helper';
+  import DogAddHeatProgesterone from '@/components/dogs/DogAddHeatProgesterone';
 
   const converter = require('number-to-words-en');
 
@@ -346,6 +365,7 @@
       }
     },
     components: {
+      DogAddHeatProgesterone,
       DogBreedingDialog,
       DogHeatDialog,
       DogLittersDialog,

@@ -1,5 +1,209 @@
 (self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_pages_Admin_Dogs_index_vue"],{
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/InputDate.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/InputDate.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+// <InputDate :value.sync="SomeValue"/>
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    value: {},
+    type: {
+      type: String,
+      "default": 'date'
+    },
+    label: {
+      type: String,
+      "default": ''
+    }
+  },
+  computed: {
+    inputValue: {
+      get: function get() {
+        return this.value;
+      },
+      set: function set(val) {
+        this.$emit('update:value', val);
+      }
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogAddHeatProgesterone.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogAddHeatProgesterone.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_InputDate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/InputDate */ "./resources/js/components/InputDate.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    heat: {
+      type: Object,
+      required: true
+    }
+  },
+  data: function data() {
+    return {
+      showModal: false,
+      showSnackbar: false,
+      snackbarText: '',
+      newProgesterone: this.$inertia.form("EditDogHeats:".concat(this.heat.id), {
+        heat_id: this.heat.id,
+        measured_at: new Date().toISOString().substring(0, 10),
+        value: 0
+      })
+    };
+  },
+  computed: {
+    measurementProgesterones: function measurementProgesterones() {
+      return this.heat.measurements;
+    }
+  },
+  methods: {
+    addHeatProgesteroneSubmit: function addHeatProgesteroneSubmit() {},
+    update: function update(measurement) {
+      this.$inertia.post("/admin/measurements/progesterone/".concat(measurement.id), {
+        measured_at: measurement.measured_at,
+        value: measurement.value
+      });
+    },
+    removeMeasurement: function removeMeasurement(measurement) {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/admin/measuement/".concat(measurement.id), {
+        _method: 'DELETE'
+      }).then(function () {
+        _this.showSnackbar = true;
+        _this.snackbarText = 'Measurement deleted';
+      })["catch"](function () {
+        _this.showSnackbar = true;
+        _this.snackbarText = 'Error deleting measurement';
+      });
+    }
+  },
+  components: {
+    InputDate: _components_InputDate__WEBPACK_IMPORTED_MODULE_1__["default"]
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=script&lang=js& ***!
@@ -61,6 +265,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_dogs_DogLittersDialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/components/dogs/DogLittersDialog */ "./resources/js/components/dogs/DogLittersDialog.vue");
 /* harmony import */ var _components_dogs_DogFamilyDialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/components/dogs/DogFamilyDialog */ "./resources/js/components/dogs/DogFamilyDialog.vue");
 /* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/helper */ "./resources/js/helper.js");
+/* harmony import */ var _components_dogs_DogAddHeatProgesterone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/components/dogs/DogAddHeatProgesterone */ "./resources/js/components/dogs/DogAddHeatProgesterone.vue");
 //
 //
 //
@@ -366,6 +571,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -408,6 +632,7 @@ var converter = __webpack_require__(/*! number-to-words-en */ "./node_modules/nu
     }
   },
   components: {
+    DogAddHeatProgesterone: _components_dogs_DogAddHeatProgesterone__WEBPACK_IMPORTED_MODULE_7__["default"],
     DogBreedingDialog: _components_dogs_DogBreedingDialog__WEBPACK_IMPORTED_MODULE_2__["default"],
     DogHeatDialog: _components_dogs_DogHeatDialog__WEBPACK_IMPORTED_MODULE_3__["default"],
     DogLittersDialog: _components_dogs_DogLittersDialog__WEBPACK_IMPORTED_MODULE_4__["default"],
@@ -24634,6 +24859,84 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./resources/js/components/InputDate.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/components/InputDate.vue ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _InputDate_vue_vue_type_template_id_91b73686___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./InputDate.vue?vue&type=template&id=91b73686& */ "./resources/js/components/InputDate.vue?vue&type=template&id=91b73686&");
+/* harmony import */ var _InputDate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./InputDate.vue?vue&type=script&lang=js& */ "./resources/js/components/InputDate.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _InputDate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _InputDate_vue_vue_type_template_id_91b73686___WEBPACK_IMPORTED_MODULE_0__.render,
+  _InputDate_vue_vue_type_template_id_91b73686___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/InputDate.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/dogs/DogAddHeatProgesterone.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/dogs/DogAddHeatProgesterone.vue ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _DogAddHeatProgesterone_vue_vue_type_template_id_66c24ac2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DogAddHeatProgesterone.vue?vue&type=template&id=66c24ac2& */ "./resources/js/components/dogs/DogAddHeatProgesterone.vue?vue&type=template&id=66c24ac2&");
+/* harmony import */ var _DogAddHeatProgesterone_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DogAddHeatProgesterone.vue?vue&type=script&lang=js& */ "./resources/js/components/dogs/DogAddHeatProgesterone.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _DogAddHeatProgesterone_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DogAddHeatProgesterone_vue_vue_type_template_id_66c24ac2___WEBPACK_IMPORTED_MODULE_0__.render,
+  _DogAddHeatProgesterone_vue_vue_type_template_id_66c24ac2___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/dogs/DogAddHeatProgesterone.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/dogs/DogBreedingDialog.vue":
 /*!************************************************************!*\
   !*** ./resources/js/components/dogs/DogBreedingDialog.vue ***!
@@ -24948,6 +25251,38 @@ component.options.__file = "resources/js/pages/Admin/Dogs/index.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/InputDate.vue?vue&type=script&lang=js&":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/InputDate.vue?vue&type=script&lang=js& ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_InputDate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./InputDate.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/InputDate.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_InputDate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/dogs/DogAddHeatProgesterone.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/dogs/DogAddHeatProgesterone.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DogAddHeatProgesterone_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DogAddHeatProgesterone.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogAddHeatProgesterone.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DogAddHeatProgesterone_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************!*\
   !*** ./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=script&lang=js& ***!
@@ -25089,6 +25424,40 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/InputDate.vue?vue&type=template&id=91b73686&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/InputDate.vue?vue&type=template&id=91b73686& ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InputDate_vue_vue_type_template_id_91b73686___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InputDate_vue_vue_type_template_id_91b73686___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InputDate_vue_vue_type_template_id_91b73686___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./InputDate.vue?vue&type=template&id=91b73686& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/InputDate.vue?vue&type=template&id=91b73686&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/dogs/DogAddHeatProgesterone.vue?vue&type=template&id=66c24ac2&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/components/dogs/DogAddHeatProgesterone.vue?vue&type=template&id=66c24ac2& ***!
+  \************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogAddHeatProgesterone_vue_vue_type_template_id_66c24ac2___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogAddHeatProgesterone_vue_vue_type_template_id_66c24ac2___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogAddHeatProgesterone_vue_vue_type_template_id_66c24ac2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DogAddHeatProgesterone.vue?vue&type=template&id=66c24ac2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogAddHeatProgesterone.vue?vue&type=template&id=66c24ac2&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=template&id=363f1276&":
 /*!*******************************************************************************************!*\
   !*** ./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=template&id=363f1276& ***!
@@ -25221,6 +25590,456 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_4bbaea3a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_4bbaea3a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./index.vue?vue&type=template&id=4bbaea3a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Admin/Dogs/index.vue?vue&type=template&id=4bbaea3a&");
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/InputDate.vue?vue&type=template&id=91b73686&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/InputDate.vue?vue&type=template&id=91b73686& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass:
+        "v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted",
+    },
+    [
+      _c("div", { staticClass: "v-input__control" }, [
+        _c("div", { staticClass: "v-input__slot" }, [
+          _c("div", { staticClass: "v-text-field__slot" }, [
+            _c(
+              "label",
+              {
+                staticClass: "v-label v-label--active theme--light",
+                staticStyle: {
+                  left: "0px",
+                  right: "auto",
+                  position: "absolute",
+                },
+              },
+              [
+                _vm._t("label", function () {
+                  return [_vm._v(_vm._s(_vm.label))]
+                }),
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c("input", {
+              staticStyle: { "font-size": "1rem" },
+              attrs: { type: _vm.type, required: "" },
+              domProps: { value: _vm.inputValue },
+            }),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "v-text-field__details" }, [
+          _c("div", { staticClass: "v-messages theme--light" }, [
+            _c(
+              "div",
+              { staticClass: "v-messages__wrapper" },
+              [_vm._t("message")],
+              2
+            ),
+          ]),
+        ]),
+      ]),
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogAddHeatProgesterone.vue?vue&type=template&id=66c24ac2&":
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogAddHeatProgesterone.vue?vue&type=template&id=66c24ac2& ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-dialog",
+    {
+      attrs: { "max-width": "600px" },
+      scopedSlots: _vm._u([
+        {
+          key: "activator",
+          fn: function (ref) {
+            var on = ref.on
+            var attrs = ref.attrs
+            return [
+              _c(
+                "v-btn",
+                _vm._g(
+                  _vm._b(
+                    { attrs: { elevation: "0", width: "100%" } },
+                    "v-btn",
+                    attrs,
+                    false
+                  ),
+                  on
+                ),
+                [
+                  _c("v-icon", [_vm._v("mdi-clipboard-plus-outline")]),
+                  _vm._v("\n      Add Progesterone...\n    "),
+                ],
+                1
+              ),
+            ]
+          },
+        },
+      ]),
+      model: {
+        value: _vm.showModal,
+        callback: function ($$v) {
+          _vm.showModal = $$v
+        },
+        expression: "showModal",
+      },
+    },
+    [
+      _vm._v(" "),
+      _c(
+        "v-sheet",
+        [
+          _c(
+            "v-card",
+            [
+              _c(
+                "v-card-title",
+                [
+                  _c("span", { staticClass: "headline" }, [
+                    _vm._v("Add Progesterone"),
+                  ]),
+                  _vm._v(" "),
+                  _c("v-spacer"),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-card-text",
+                [
+                  _c(
+                    "v-form",
+                    {
+                      on: {
+                        submit: function ($event) {
+                          $event.preventDefault()
+                          return _vm.addHeatProgesteroneSubmit.apply(
+                            null,
+                            arguments
+                          )
+                        },
+                      },
+                    },
+                    [
+                      _c(
+                        "v-row",
+                        [
+                          _c(
+                            "v-col",
+                            { attrs: { cols: "12", xs: "12", sm: "6" } },
+                            [
+                              _c("v-text-field", {
+                                attrs: {
+                                  label: "Progesterone",
+                                  type: "number",
+                                  required: "",
+                                },
+                                scopedSlots: _vm._u([
+                                  {
+                                    key: "append",
+                                    fn: function () {
+                                      return [_vm._v("ng/mL")]
+                                    },
+                                    proxy: true,
+                                  },
+                                ]),
+                                model: {
+                                  value: _vm.newProgesterone.value,
+                                  callback: function ($$v) {
+                                    _vm.$set(_vm.newProgesterone, "value", $$v)
+                                  },
+                                  expression: "newProgesterone.value",
+                                },
+                              }),
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-col",
+                            { attrs: { cols: "12", xs: "12", sm: "6" } },
+                            [
+                              _c("InputDate", {
+                                attrs: {
+                                  value: _vm.newProgesterone.measured_at,
+                                  label: "Date",
+                                },
+                                on: {
+                                  "update:value": function ($event) {
+                                    return _vm.$set(
+                                      _vm.newProgesterone,
+                                      "measured_at",
+                                      $event
+                                    )
+                                  },
+                                },
+                              }),
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-col",
+                            { attrs: { cols: "12", offset: "7" } },
+                            [
+                              _c(
+                                "v-btn",
+                                {
+                                  attrs: {
+                                    color: "green white--text",
+                                    type: "submit",
+                                  },
+                                },
+                                [_vm._v(" Add Progesterone")]
+                              ),
+                            ],
+                            1
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-container",
+            { attrs: { fluid: "" } },
+            _vm._l(_vm.measurementProgesterones, function (measurement, index) {
+              return _c(
+                "form",
+                {
+                  key: index,
+                  on: {
+                    submit: function ($event) {
+                      $event.preventDefault()
+                      return _vm.update(measurement)
+                    },
+                  },
+                },
+                [
+                  _c(
+                    "v-card",
+                    { staticClass: "rounded-0", attrs: { elevation: "0" } },
+                    [
+                      _c(
+                        "v-container",
+                        { attrs: { fluid: "" } },
+                        [
+                          _c(
+                            "v-row",
+                            {
+                              staticStyle: {
+                                "border-top": "1px solid #e2e2e2",
+                              },
+                            },
+                            [
+                              _c(
+                                "v-col",
+                                { attrs: { cols: "6", xs: "6" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      label: "Progesterone",
+                                      required: "",
+                                    },
+                                    on: {
+                                      change: function ($event) {
+                                        return _vm.update(measurement)
+                                      },
+                                    },
+                                    scopedSlots: _vm._u(
+                                      [
+                                        {
+                                          key: "append",
+                                          fn: function () {
+                                            return [
+                                              _vm._v(_vm._s(measurement.unit)),
+                                            ]
+                                          },
+                                          proxy: true,
+                                        },
+                                      ],
+                                      null,
+                                      true
+                                    ),
+                                    model: {
+                                      value: measurement.value,
+                                      callback: function ($$v) {
+                                        _vm.$set(measurement, "value", $$v)
+                                      },
+                                      expression: "measurement.value",
+                                    },
+                                  }),
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-col",
+                                { attrs: { cols: "5", xs: "5" } },
+                                [
+                                  _c("InputDate", {
+                                    attrs: {
+                                      value: measurement.measured_at,
+                                      label: "Date",
+                                    },
+                                    on: {
+                                      "update:value": function ($event) {
+                                        return _vm.$set(
+                                          measurement,
+                                          "measured_at",
+                                          $event
+                                        )
+                                      },
+                                      change: function ($event) {
+                                        return _vm.update(measurement)
+                                      },
+                                    },
+                                  }),
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-col",
+                                {
+                                  attrs: {
+                                    cols: "1",
+                                    xs: "1",
+                                    "align-self": "center",
+                                  },
+                                },
+                                [
+                                  _c(
+                                    "v-btn",
+                                    {
+                                      attrs: { icon: "" },
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.removeMeasurement(
+                                            _vm.measurements
+                                          )
+                                        },
+                                      },
+                                    },
+                                    [_c("v-icon", [_vm._v("mdi-delete")])],
+                                    1
+                                  ),
+                                ],
+                                1
+                              ),
+                            ],
+                            1
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              )
+            }),
+            0
+          ),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-snackbar",
+        {
+          scopedSlots: _vm._u([
+            {
+              key: "action",
+              fn: function (ref) {
+                var attrs = ref.attrs
+                return [
+                  _c(
+                    "v-btn",
+                    _vm._b(
+                      {
+                        attrs: { text: "" },
+                        on: {
+                          click: function ($event) {
+                            _vm.showSnackbar = false
+                          },
+                        },
+                      },
+                      "v-btn",
+                      attrs,
+                      false
+                    ),
+                    [_vm._v("\n        Close\n      ")]
+                  ),
+                ]
+              },
+            },
+          ]),
+          model: {
+            value: _vm.showSnackbar,
+            callback: function ($$v) {
+              _vm.showSnackbar = $$v
+            },
+            expression: "showSnackbar",
+          },
+        },
+        [_vm._v("\n    " + _vm._s(_vm.snackbarText) + "\n    ")]
+      ),
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
 
 
 /***/ }),
@@ -25995,6 +26814,107 @@ var render = function () {
                                                   _c(
                                                     "v-expansion-panel-content",
                                                     [
+                                                      _c(
+                                                        "v-row",
+                                                        {
+                                                          staticClass: "py-2",
+                                                          attrs: {
+                                                            "no-gutters": "",
+                                                          },
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "v-col",
+                                                            {
+                                                              attrs: {
+                                                                cols: "1",
+                                                                offset: "11",
+                                                              },
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "v-menu",
+                                                                {
+                                                                  attrs: {
+                                                                    "offset-y":
+                                                                      "",
+                                                                  },
+                                                                  scopedSlots:
+                                                                    _vm._u(
+                                                                      [
+                                                                        {
+                                                                          key: "activator",
+                                                                          fn: function (
+                                                                            ref
+                                                                          ) {
+                                                                            var on =
+                                                                              ref.on
+                                                                            var attrs =
+                                                                              ref.attrs
+                                                                            return [
+                                                                              _c(
+                                                                                "v-icon",
+                                                                                _vm._g(
+                                                                                  _vm._b(
+                                                                                    {
+                                                                                      attrs:
+                                                                                        {
+                                                                                          fab: "",
+                                                                                        },
+                                                                                    },
+                                                                                    "v-icon",
+                                                                                    attrs,
+                                                                                    false
+                                                                                  ),
+                                                                                  on
+                                                                                ),
+                                                                                [
+                                                                                  _vm._v(
+                                                                                    "\n                                mdi-dots-vertical\n                              "
+                                                                                  ),
+                                                                                ]
+                                                                              ),
+                                                                            ]
+                                                                          },
+                                                                        },
+                                                                      ],
+                                                                      null,
+                                                                      true
+                                                                    ),
+                                                                },
+                                                                [
+                                                                  _vm._v(" "),
+                                                                  _c(
+                                                                    "v-list",
+                                                                    [
+                                                                      _c(
+                                                                        "v-list-item",
+                                                                        [
+                                                                          _c(
+                                                                            "DogAddHeatProgesterone",
+                                                                            {
+                                                                              attrs:
+                                                                                {
+                                                                                  heat: heat,
+                                                                                },
+                                                                            }
+                                                                          ),
+                                                                        ],
+                                                                        1
+                                                                      ),
+                                                                    ],
+                                                                    1
+                                                                  ),
+                                                                ],
+                                                                1
+                                                              ),
+                                                            ],
+                                                            1
+                                                          ),
+                                                        ],
+                                                        1
+                                                      ),
+                                                      _vm._v(" "),
                                                       _vm.getProgesterone(heat)
                                                         .length === 0
                                                         ? _c("div", [
@@ -26138,7 +27058,8 @@ var render = function () {
                                                             ],
                                                             2
                                                           ),
-                                                    ]
+                                                    ],
+                                                    1
                                                   ),
                                                 ],
                                                 1
