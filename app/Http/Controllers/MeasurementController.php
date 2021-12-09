@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Heat;
 use App\Models\Measurement;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,8 @@ class MeasurementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Measurement::create($request->all());
+        return redirect()->back();
     }
 
     /**
@@ -69,7 +71,8 @@ class MeasurementController extends Controller
      */
     public function update(Request $request, Measurement $measurement)
     {
-        //
+        Measurement::findOrFail($measurement->id)->update($request->all());
+        return redirect()->back();
     }
 
     /**
@@ -80,6 +83,6 @@ class MeasurementController extends Controller
      */
     public function destroy(Measurement $measurement)
     {
-        //
+        Measurement::findOrFail($measurement->id)->delete();
     }
 }

@@ -22,6 +22,8 @@ Route::group(['as'=>'admin.','middleware' => ['web','role:admin']], function(){
     // Heats
     Route::resource('heats', 'HeatController');
 
+    // Measurements
+    Route::resource('measurements', 'MeasurementController');
 
     // Litters
     Route::resource('litters', 'LitterController');

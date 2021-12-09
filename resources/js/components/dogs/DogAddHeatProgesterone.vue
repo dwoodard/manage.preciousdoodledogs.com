@@ -40,15 +40,15 @@
             <v-container fluid>
               <v-row style="border-top: 1px solid #e2e2e2;">
                 <v-col cols="6" xs="6">
-                  <v-text-field v-model="measurement.value" label="Progesterone" required @change="update(measurement)">
+                  <v-text-field v-model="measurement.value" type="number" label="Progesterone" required @input="update(measurement)">
                     <template #append>{{ measurement.unit }}</template>
                   </v-text-field>
                 </v-col>
                 <v-col cols="5" xs="5">
-                  <InputDate :value.sync="measurement.measured_at" label="Date" @change="update(measurement)"/>
+                  <InputDate v-model="measurement.measured_at" :value.sync="measurement.measured_at" label="Date" @input="update(measurement)"/>
                 </v-col>
                 <v-col cols="1" xs="1" align-self="center">
-                  <v-btn icon @click="removeMeasurement(measurements)">
+                  <v-btn icon @click="removeMeasurement(measurement)">
                     <v-icon>mdi-delete</v-icon>
                   </v-btn>
                 </v-col>
@@ -88,10 +88,13 @@
         showModal: false,
         showSnackbar: false,
         snackbarText: '',
-        newProgesterone: this.$inertia.form(`EditDogHeats:${this.heat.id}`, {
-          heat_id: this.heat.id,
-          measured_at: (new Date()).toISOString().substring(0, 10),
-          value: 0
+        newProgesterone: this.$inertia.form(`EditDogHeatsMeasurement:${this.heat.id}`, {
+          measureable_type: 'App\\Models\\Heat',
+          measureable_id: this.heat.id,
+          type: 'progesterone',
+          value: 0,
+          unit: 'ng/mL',
+          measured_at: (new Date()).toISOString().substring(0, 10)
         })
 
       };
@@ -102,18 +105,40 @@
       }
     },
     methods: {
-      addHeatProgesteroneSubmit() {},
+      addHeatProgesteroneSubmit() {
+        this.showSnackbar = true;
+        this.snackbarText = 'Processing';
+
+        this.newProgesterone.post('/admin/measurements', {
+          ...this.newProgesterone,
+          onSuccess() {
+            this.showSnackbar = true;
+            this.snackbarText = 'Heat Added';
+          }
+
+        });
+      },
       update(measurement) {
-        this.$inertia.post(`/admin/measurements/progesterone/${measurement.id}`, {
+        this.$inertia.post(`/admin/measurements/${measurement.id}`, {
+          ...this.newProgesterone,
           measured_at: measurement.measured_at,
-          value: measurement.value
+          value: measurement.value,
+          _method: 'PUT',
+          onSuccess() {
+            this.showSnackbar = true;
+            this.snackbarText = 'Heat Updated';
+          }
         });
       },
       removeMeasurement(measurement) {
-        axios.post(`/admin/measuement/${measurement.id}`, {
+        axios.post(`/admin/measurements/${measurement.id}`, {
           _method: 'DELETE'
         })
+          // eslint-disable-next-line promise/always-return
           .then(() => {
+            // remove from array
+            this.measurementProgesterones.splice(this.measurementProgesterones.indexOf(measurement), 1);
+
             this.showSnackbar = true;
             this.snackbarText = 'Measurement deleted';
           })

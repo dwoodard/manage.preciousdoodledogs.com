@@ -75,6 +75,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_InputDate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/InputDate */ "./resources/js/components/InputDate.vue");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -163,10 +169,13 @@ __webpack_require__.r(__webpack_exports__);
       showModal: false,
       showSnackbar: false,
       snackbarText: '',
-      newProgesterone: this.$inertia.form("EditDogHeats:".concat(this.heat.id), {
-        heat_id: this.heat.id,
-        measured_at: new Date().toISOString().substring(0, 10),
-        value: 0
+      newProgesterone: this.$inertia.form("EditDogHeatsMeasurement:".concat(this.heat.id), {
+        measureable_type: 'App\\Models\\Heat',
+        measureable_id: this.heat.id,
+        type: 'progesterone',
+        value: 0,
+        unit: 'ng/mL',
+        measured_at: new Date().toISOString().substring(0, 10)
       })
     };
   },
@@ -176,19 +185,37 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
-    addHeatProgesteroneSubmit: function addHeatProgesteroneSubmit() {},
+    addHeatProgesteroneSubmit: function addHeatProgesteroneSubmit() {
+      this.showSnackbar = true;
+      this.snackbarText = 'Processing';
+      this.newProgesterone.post('/admin/measurements', _objectSpread(_objectSpread({}, this.newProgesterone), {}, {
+        onSuccess: function onSuccess() {
+          this.showSnackbar = true;
+          this.snackbarText = 'Heat Added';
+        }
+      }));
+    },
     update: function update(measurement) {
-      this.$inertia.post("/admin/measurements/progesterone/".concat(measurement.id), {
+      this.$inertia.post("/admin/measurements/".concat(measurement.id), _objectSpread(_objectSpread({}, this.newProgesterone), {}, {
         measured_at: measurement.measured_at,
-        value: measurement.value
-      });
+        value: measurement.value,
+        _method: 'PUT',
+        onSuccess: function onSuccess() {
+          this.showSnackbar = true;
+          this.snackbarText = 'Heat Updated';
+        }
+      }));
     },
     removeMeasurement: function removeMeasurement(measurement) {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/admin/measuement/".concat(measurement.id), {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/admin/measurements/".concat(measurement.id), {
         _method: 'DELETE'
-      }).then(function () {
+      }) // eslint-disable-next-line promise/always-return
+      .then(function () {
+        // remove from array
+        _this.measurementProgesterones.splice(_this.measurementProgesterones.indexOf(measurement), 1);
+
         _this.showSnackbar = true;
         _this.snackbarText = 'Measurement deleted';
       })["catch"](function () {
@@ -629,6 +656,12 @@ var converter = __webpack_require__(/*! number-to-words-en */ "./node_modules/nu
     },
     closeAllPanels: function closeAllPanels() {
       this.openHeatPanel = [];
+    },
+    dayFromHeat: function dayFromHeat(heat, progesterone) {
+      var start = this.moment(heat.heat_at, 'YYYY-MM-DD');
+      var end = this.moment(progesterone.measured_at).startOf('day'); // Difference in number of days
+
+      return "".concat(this.toOrdinal(this.moment(end).diff(start, 'days')), " day");
     }
   },
   components: {
@@ -25638,11 +25671,85 @@ var render = function () {
               2
             ),
             _vm._v(" "),
-            _c("input", {
-              staticStyle: { "font-size": "1rem" },
-              attrs: { type: _vm.type, required: "" },
-              domProps: { value: _vm.inputValue },
-            }),
+            _vm.type === "checkbox"
+              ? _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.inputValue,
+                      expression: "inputValue",
+                    },
+                  ],
+                  staticStyle: { "font-size": "1rem" },
+                  attrs: { required: "", type: "checkbox" },
+                  domProps: {
+                    checked: Array.isArray(_vm.inputValue)
+                      ? _vm._i(_vm.inputValue, null) > -1
+                      : _vm.inputValue,
+                  },
+                  on: {
+                    change: function ($event) {
+                      var $$a = _vm.inputValue,
+                        $$el = $event.target,
+                        $$c = $$el.checked ? true : false
+                      if (Array.isArray($$a)) {
+                        var $$v = null,
+                          $$i = _vm._i($$a, $$v)
+                        if ($$el.checked) {
+                          $$i < 0 && (_vm.inputValue = $$a.concat([$$v]))
+                        } else {
+                          $$i > -1 &&
+                            (_vm.inputValue = $$a
+                              .slice(0, $$i)
+                              .concat($$a.slice($$i + 1)))
+                        }
+                      } else {
+                        _vm.inputValue = $$c
+                      }
+                    },
+                  },
+                })
+              : _vm.type === "radio"
+              ? _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.inputValue,
+                      expression: "inputValue",
+                    },
+                  ],
+                  staticStyle: { "font-size": "1rem" },
+                  attrs: { required: "", type: "radio" },
+                  domProps: { checked: _vm._q(_vm.inputValue, null) },
+                  on: {
+                    change: function ($event) {
+                      _vm.inputValue = null
+                    },
+                  },
+                })
+              : _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.inputValue,
+                      expression: "inputValue",
+                    },
+                  ],
+                  staticStyle: { "font-size": "1rem" },
+                  attrs: { required: "", type: _vm.type },
+                  domProps: { value: _vm.inputValue },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.inputValue = $event.target.value
+                    },
+                  },
+                }),
           ]),
         ]),
         _vm._v(" "),
@@ -25885,11 +25992,12 @@ var render = function () {
                                 [
                                   _c("v-text-field", {
                                     attrs: {
+                                      type: "number",
                                       label: "Progesterone",
                                       required: "",
                                     },
                                     on: {
-                                      change: function ($event) {
+                                      input: function ($event) {
                                         return _vm.update(measurement)
                                       },
                                     },
@@ -25937,9 +26045,20 @@ var render = function () {
                                           $event
                                         )
                                       },
-                                      change: function ($event) {
+                                      input: function ($event) {
                                         return _vm.update(measurement)
                                       },
+                                    },
+                                    model: {
+                                      value: measurement.measured_at,
+                                      callback: function ($$v) {
+                                        _vm.$set(
+                                          measurement,
+                                          "measured_at",
+                                          $$v
+                                        )
+                                      },
+                                      expression: "measurement.measured_at",
                                     },
                                   }),
                                 ],
@@ -25963,7 +26082,7 @@ var render = function () {
                                       on: {
                                         click: function ($event) {
                                           return _vm.removeMeasurement(
-                                            _vm.measurements
+                                            measurement
                                           )
                                         },
                                       },
@@ -26934,24 +27053,36 @@ var render = function () {
                                                                 heat
                                                               ),
                                                               function (
-                                                                progesterone
+                                                                progesterone,
+                                                                j
                                                               ) {
-                                                                return _c("p", [
-                                                                  _vm._v(
-                                                                    "\n                          " +
-                                                                      _vm._s(
-                                                                        progesterone.measured_at
-                                                                      ) +
-                                                                      ": "
-                                                                  ),
-                                                                  _c("b", [
+                                                                return _c(
+                                                                  "p",
+                                                                  { key: j },
+                                                                  [
                                                                     _vm._v(
-                                                                      _vm._s(
-                                                                        progesterone.value
-                                                                      )
+                                                                      "\n                          " +
+                                                                        _vm._s(
+                                                                          progesterone.measured_at
+                                                                        ) +
+                                                                        " (" +
+                                                                        _vm._s(
+                                                                          _vm.dayFromHeat(
+                                                                            heat,
+                                                                            progesterone
+                                                                          )
+                                                                        ) +
+                                                                        "): "
                                                                     ),
-                                                                  ]),
-                                                                ])
+                                                                    _c("b", [
+                                                                      _vm._v(
+                                                                        _vm._s(
+                                                                          progesterone.value
+                                                                        )
+                                                                      ),
+                                                                    ]),
+                                                                  ]
+                                                                )
                                                               }
                                                             ),
                                                             0
@@ -27032,17 +27163,26 @@ var render = function () {
                                                                   heat
                                                                 ),
                                                                 function (
-                                                                  progesterone
+                                                                  progesterone,
+                                                                  k
                                                                 ) {
                                                                   return _c(
                                                                     "p",
+                                                                    { key: k },
                                                                     [
                                                                       _vm._v(
                                                                         "\n                          " +
                                                                           _vm._s(
                                                                             progesterone.measured_at
                                                                           ) +
-                                                                          ": "
+                                                                          " (" +
+                                                                          _vm._s(
+                                                                            _vm.dayFromHeat(
+                                                                              heat,
+                                                                              progesterone
+                                                                            )
+                                                                          ) +
+                                                                          "): "
                                                                       ),
                                                                       _c("b", [
                                                                         _vm._v(

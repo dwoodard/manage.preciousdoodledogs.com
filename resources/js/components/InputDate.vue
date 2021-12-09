@@ -7,7 +7,7 @@
             <!-- slot label -->
             <slot name="label">{{ label }}</slot>
           </label>
-          <input :type="type" :value="inputValue" required style="font-size: 1rem"/>
+          <input v-model="inputValue" :type="type" required style="font-size: 1rem"/>
         </div>
       </div>
       <div class="v-text-field__details">

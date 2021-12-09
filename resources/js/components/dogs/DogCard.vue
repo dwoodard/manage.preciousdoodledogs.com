@@ -198,8 +198,8 @@
                         </div>
 
                         <div v-else-if="getProgesterone(heat).length ===1">
-                          <p v-for="progesterone in getProgesterone(heat)">
-                            {{ progesterone.measured_at }}: <b>{{ progesterone.value }}</b>
+                          <p v-for="(progesterone, j) in getProgesterone(heat)" :key="j">
+                            {{ progesterone.measured_at }} ({{ dayFromHeat(heat, progesterone) }}): <b>{{ progesterone.value }}</b>
                           </p>
                         </div>
                         <div v-else>
@@ -217,8 +217,8 @@
                             </v-sparkline>
                           </v-sheet>
 
-                          <p v-for="progesterone in getProgesterone(heat)">
-                            {{ progesterone.measured_at }}: <b>{{ progesterone.value }}</b>
+                          <p v-for="(progesterone,k) in getProgesterone(heat)" :key="k">
+                            {{ progesterone.measured_at }} ({{ dayFromHeat(heat, progesterone) }}): <b>{{ progesterone.value }}</b>
                           </p>
                         </div>
                       </v-expansion-panel-content>
@@ -362,6 +362,13 @@
 
       closeAllPanels() {
         this.openHeatPanel = [];
+      },
+      dayFromHeat(heat, progesterone) {
+        const start = this.moment(heat.heat_at, 'YYYY-MM-DD');
+        const end = this.moment(progesterone.measured_at).startOf('day');
+
+        // Difference in number of days
+        return `${this.toOrdinal(this.moment(end).diff(start, 'days'))} day`;
       }
     },
     components: {
