@@ -79,7 +79,7 @@
       <v-tab-item>
         <v-container pa-0 fluid>
           <v-row>
-            <v-col v-for="(dog, index) in filterDogs" :key="index" cols="12" sm="6" md="4" lg="3" xl="2">
+            <v-col v-for="(dog, index) in filterDogs" :key="index" cols="12" sm="6" md="4" lg="3">
               <DogCard :dog="dog"/>
             </v-col>
           </v-row>

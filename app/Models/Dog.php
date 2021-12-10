@@ -332,7 +332,6 @@ class Dog extends Model implements HasMedia
             $dog['heats']['next_est_mated_at'] = $this->next_est_mated_at;
 
 
-
             $dog['calculations'] = [
                 'next_est_mated_at' => $this->next_est_mated_at,
                 'xray_est_at' => $this->xray_est_at,

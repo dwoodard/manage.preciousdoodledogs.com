@@ -25,7 +25,7 @@
                 <InputDate :value.sync="newProgesterone.measured_at" label="Date"/>
               </v-col>
 
-              <v-col cols="12" offset="7">
+              <v-col cols="12">
                 <v-btn color="green white--text" type="submit"> Add Progesterone</v-btn>
               </v-col>
             </v-row>
@@ -39,12 +39,12 @@
           <v-card elevation="0" class="rounded-0">
             <v-container fluid>
               <v-row style="border-top: 1px solid #e2e2e2;">
-                <v-col cols="6" xs="6">
+                <v-col cols="12" xs="12" md="6">
                   <v-text-field v-model="measurement.value" type="number" label="Progesterone" required @input="update(measurement)">
                     <template #append>{{ measurement.unit }}</template>
                   </v-text-field>
                 </v-col>
-                <v-col cols="5" xs="5">
+                <v-col cols="11" xs="1" md="5">
                   <InputDate v-model="measurement.measured_at" :value.sync="measurement.measured_at" label="Date" @input="update(measurement)"/>
                 </v-col>
                 <v-col cols="1" xs="1" align-self="center">

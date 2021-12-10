@@ -35,6 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 // <InputDate :value.sync="SomeValue"/>
+// <InputDate v-model="form.someValue" :value.sync="form.someValue" label="Date" @input="update(arg)"/>
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     value: {},
@@ -61,10 +62,684 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogAddHeatProgesterone.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogAddHeatProgesterone.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'DogBreedingDialog',
+  props: {
+    dog: {}
+  },
+  data: function data() {
+    return {
+      showDialog: false
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogCard.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogCard.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuetify_lib_util_colors__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuetify/lib/util/colors */ "./node_modules/vuetify/lib/util/colors.js");
+/* harmony import */ var _components_dogs_DogTraitsDialog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/dogs/DogTraitsDialog */ "./resources/js/components/dogs/DogTraitsDialog.vue");
+/* harmony import */ var _components_dogs_DogBreedingDialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/dogs/DogBreedingDialog */ "./resources/js/components/dogs/DogBreedingDialog.vue");
+/* harmony import */ var _components_dogs_DogHeatDialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/dogs/DogHeatDialog */ "./resources/js/components/dogs/DogHeatDialog.vue");
+/* harmony import */ var _components_dogs_DogLittersDialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/components/dogs/DogLittersDialog */ "./resources/js/components/dogs/DogLittersDialog.vue");
+/* harmony import */ var _components_dogs_DogHeatProgesteroneDialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/components/dogs/DogHeatProgesteroneDialog */ "./resources/js/components/dogs/DogHeatProgesteroneDialog.vue");
+/* harmony import */ var _components_dogs_DogFamilyDialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/components/dogs/DogFamilyDialog */ "./resources/js/components/dogs/DogFamilyDialog.vue");
+/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/helper */ "./resources/js/helper.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+
+
+
+
+
+var converter = __webpack_require__(/*! number-to-words-en */ "./node_modules/number-to-words-en/numberToWords.min.js");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'DogCard',
+  props: {
+    dog: {}
+  },
+  data: function data() {
+    return {
+      colors: vuetify_lib_util_colors__WEBPACK_IMPORTED_MODULE_8__["default"],
+      selectedTab: '',
+      showAddBreeding: false,
+      showAddHeat: false,
+      openHeatPanel: []
+    };
+  },
+  methods: {
+    moment: (moment__WEBPACK_IMPORTED_MODULE_0___default()),
+    toOrdinal: converter.toOrdinal,
+    ouncesToLbs: _helper__WEBPACK_IMPORTED_MODULE_7__.ouncesToLbs,
+    age: _helper__WEBPACK_IMPORTED_MODULE_7__.age,
+    inchesToFeet: _helper__WEBPACK_IMPORTED_MODULE_7__.inchesToFeet,
+    getImage: function getImage(dog) {
+      return dog.media.length > 0 ? dog.media[0].original_url : '/images/defaults/no-dog.png';
+    },
+    getProgesterone: function getProgesterone(heat) {
+      return heat.measurements.filter(function (item) {
+        return item.type === 'progesterone';
+      });
+    },
+    closeAllPanels: function closeAllPanels() {
+      this.openHeatPanel = [];
+    },
+    dayFromHeat: function dayFromHeat(heat, progesterone) {
+      var start = this.moment(heat.heat_at, 'YYYY-MM-DD');
+      var end = this.moment(progesterone.measured_at).startOf('day');
+      var days = this.moment(end).diff(start, 'days');
+
+      if (!days) {
+        return '---';
+      } // Difference in number of days
+
+
+      return "".concat(this.toOrdinal(days), " day");
+    }
+  },
+  components: {
+    DogHeatProgesteroneDialog: _components_dogs_DogHeatProgesteroneDialog__WEBPACK_IMPORTED_MODULE_5__["default"],
+    DogBreedingDialog: _components_dogs_DogBreedingDialog__WEBPACK_IMPORTED_MODULE_2__["default"],
+    DogHeatDialog: _components_dogs_DogHeatDialog__WEBPACK_IMPORTED_MODULE_3__["default"],
+    DogLittersDialog: _components_dogs_DogLittersDialog__WEBPACK_IMPORTED_MODULE_4__["default"],
+    DogTraitsDialog: _components_dogs_DogTraitsDialog__WEBPACK_IMPORTED_MODULE_1__["default"],
+    DogFamilyDialog: _components_dogs_DogFamilyDialog__WEBPACK_IMPORTED_MODULE_6__["default"]
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogFamilyDialog.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogFamilyDialog.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'DogBreedingDialog',
+  props: {
+    dog: {}
+  },
+  data: function data() {
+    return {
+      showDialog: false
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogHeatDialog.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogHeatDialog.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+var converter = __webpack_require__(/*! number-to-words-en */ "./node_modules/number-to-words-en/numberToWords.min.js");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    dog: {}
+  },
+  data: function data() {
+    return {
+      fromDateMenu: null,
+      fromDateVal: new Date(),
+      showDialog: false,
+      newHeat: this.$inertia.form("EditDogHeats:".concat(this.dog.id), {
+        dog_id: this.dog.id,
+        heat_at: new Date().toISOString().substring(0, 10)
+      }),
+      showSnackbar: false,
+      snackbarText: '',
+      form: this.$inertia.form("EditDogHeats:".concat(this.dog.id), _objectSpread({}, this.dog.heats.all))
+    };
+  },
+  computed: {
+    dogHeats: function dogHeats() {
+      return this.dog.heats.all;
+    },
+    ageOld: function ageOld() {
+      // check if dog age is a year or more
+      var hasYears = moment__WEBPACK_IMPORTED_MODULE_1___default()().diff(this.dog.birthday, 'years') > 0;
+
+      if (hasYears) {
+        var years = moment__WEBPACK_IMPORTED_MODULE_1___default()().diff(this.dog.birthday, 'years');
+        return "".concat(years, " years");
+      } // if not, return the difference in months
+
+
+      if (hasYears === false) {
+        var months = moment__WEBPACK_IMPORTED_MODULE_1___default()().diff(this.dog.birthday, 'months');
+        return "".concat(months, " months");
+      }
+
+      return 'Unknown';
+    }
+  },
+  methods: {
+    moment: (moment__WEBPACK_IMPORTED_MODULE_1___default()),
+    toOrdinal: converter.toOrdinal,
+    addHeatSubmit: function addHeatSubmit() {
+      this.showSnackbar = true;
+      this.snackbarText = 'Processing';
+      this.newHeat.post('/admin/heats', {
+        dog_id: this.dog.id,
+        heat_at: this.newHeat.heat_at,
+        onSuccess: function onSuccess() {
+          this.showSnackbar = true;
+          this.snackbarText = 'Heat Added';
+        }
+      });
+    },
+    update: function update(heat) {
+      var that = this;
+      that.showSnackbar = true;
+      that.snackbarText = 'Heat updating';
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/admin/heats/".concat(heat.id), _objectSpread(_objectSpread({}, heat), {}, {
+        _method: 'PUT'
+      })) // eslint-disable-next-line promise/always-return
+      .then(function (response) {
+        that.showSnackbar = true;
+        that.snackbarText = 'Heat updated';
+      })["catch"](function (error) {});
+    },
+    removeHeat: function removeHeat(heat) {
+      var _this = this;
+
+      var that = this;
+      that.showSnackbar = true;
+      that.snackbarText = 'Processing';
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/admin/heats/".concat(heat.id), {
+        _method: 'DELETE'
+      }) // eslint-disable-next-line promise/always-return
+      .then(function (response) {
+        // remove from array
+        _this.dog.heats.all.splice(_this.dog.heats.all.indexOf(heat), 1);
+
+        that.showSnackbar = true;
+        that.snackbarText = 'Heat removed';
+      })["catch"](function (error) {});
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogHeatProgesteroneDialog.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogHeatProgesteroneDialog.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -238,679 +913,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'DogBreedingDialog',
-  props: {
-    dog: {}
-  },
-  data: function data() {
-    return {
-      showAddBreeding: false
-    };
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogCard.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogCard.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_dogs_DogTraitsDialog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/dogs/DogTraitsDialog */ "./resources/js/components/dogs/DogTraitsDialog.vue");
-/* harmony import */ var _components_dogs_DogBreedingDialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/dogs/DogBreedingDialog */ "./resources/js/components/dogs/DogBreedingDialog.vue");
-/* harmony import */ var _components_dogs_DogHeatDialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/dogs/DogHeatDialog */ "./resources/js/components/dogs/DogHeatDialog.vue");
-/* harmony import */ var _components_dogs_DogLittersDialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/components/dogs/DogLittersDialog */ "./resources/js/components/dogs/DogLittersDialog.vue");
-/* harmony import */ var _components_dogs_DogFamilyDialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/components/dogs/DogFamilyDialog */ "./resources/js/components/dogs/DogFamilyDialog.vue");
-/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/helper */ "./resources/js/helper.js");
-/* harmony import */ var _components_dogs_DogAddHeatProgesterone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/components/dogs/DogAddHeatProgesterone */ "./resources/js/components/dogs/DogAddHeatProgesterone.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-
-
-
-
-
-var converter = __webpack_require__(/*! number-to-words-en */ "./node_modules/number-to-words-en/numberToWords.min.js");
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'DogCard',
-  props: {
-    dog: {}
-  },
-  data: function data() {
-    return {
-      selectedTab: '',
-      showAddBreeding: false,
-      showAddHeat: false,
-      openHeatPanel: []
-    };
-  },
-  methods: {
-    moment: (moment__WEBPACK_IMPORTED_MODULE_0___default()),
-    toOrdinal: converter.toOrdinal,
-    ouncesToLbs: _helper__WEBPACK_IMPORTED_MODULE_6__.ouncesToLbs,
-    age: _helper__WEBPACK_IMPORTED_MODULE_6__.age,
-    inchesToFeet: _helper__WEBPACK_IMPORTED_MODULE_6__.inchesToFeet,
-    getImage: function getImage(dog) {
-      return dog.media.length > 0 ? dog.media[0].original_url : '/images/defaults/no-dog.png';
-    },
-    getProgesterone: function getProgesterone(heat) {
-      return heat.measurements.filter(function (item) {
-        return item.type === 'progesterone';
-      });
-    },
-    closeAllPanels: function closeAllPanels() {
-      this.openHeatPanel = [];
-    },
-    dayFromHeat: function dayFromHeat(heat, progesterone) {
-      var start = this.moment(heat.heat_at, 'YYYY-MM-DD');
-      var end = this.moment(progesterone.measured_at).startOf('day');
-      var days = this.moment(end).diff(start, 'days');
-
-      if (!days) {
-        return '---';
-      } // Difference in number of days
-
-
-      return "".concat(this.toOrdinal(days), " day");
-    }
-  },
-  components: {
-    DogAddHeatProgesterone: _components_dogs_DogAddHeatProgesterone__WEBPACK_IMPORTED_MODULE_7__["default"],
-    DogBreedingDialog: _components_dogs_DogBreedingDialog__WEBPACK_IMPORTED_MODULE_2__["default"],
-    DogHeatDialog: _components_dogs_DogHeatDialog__WEBPACK_IMPORTED_MODULE_3__["default"],
-    DogLittersDialog: _components_dogs_DogLittersDialog__WEBPACK_IMPORTED_MODULE_4__["default"],
-    DogTraitsDialog: _components_dogs_DogTraitsDialog__WEBPACK_IMPORTED_MODULE_1__["default"],
-    DogFamilyDialog: _components_dogs_DogFamilyDialog__WEBPACK_IMPORTED_MODULE_5__["default"]
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogFamilyDialog.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogFamilyDialog.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'DogBreedingDialog',
-  props: {
-    dog: {}
-  },
-  data: function data() {
-    return {
-      showAddHeat: false
-    };
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogHeatDialog.vue?vue&type=script&lang=js&":
-/*!*************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogHeatDialog.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-var converter = __webpack_require__(/*! number-to-words-en */ "./node_modules/number-to-words-en/numberToWords.min.js");
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: {
-    dog: {}
-  },
-  data: function data() {
-    return {
-      fromDateMenu: null,
-      fromDateVal: new Date(),
-      showModal: false,
-      newHeat: this.$inertia.form("EditDogHeats:".concat(this.dog.id), {
-        dog_id: this.dog.id,
-        heat_at: new Date().toISOString().substring(0, 10)
-      }),
-      showSnackbar: false,
-      snackbarText: '',
-      form: this.$inertia.form("EditDogHeats:".concat(this.dog.id), _objectSpread({}, this.dog.heats.all))
-    };
-  },
-  computed: {
-    dogHeats: function dogHeats() {
-      return this.dog.heats.all;
-    },
-    ageOld: function ageOld() {
-      // check if dog age is a year or more
-      var hasYears = moment__WEBPACK_IMPORTED_MODULE_1___default()().diff(this.dog.birthday, 'years') > 0;
-
-      if (hasYears) {
-        var years = moment__WEBPACK_IMPORTED_MODULE_1___default()().diff(this.dog.birthday, 'years');
-        return "".concat(years, " years");
-      } // if not, return the difference in months
-
-
-      if (hasYears === false) {
-        var months = moment__WEBPACK_IMPORTED_MODULE_1___default()().diff(this.dog.birthday, 'months');
-        return "".concat(months, " months");
-      }
-
-      return 'Unknown';
-    }
-  },
-  methods: {
-    moment: (moment__WEBPACK_IMPORTED_MODULE_1___default()),
-    toOrdinal: converter.toOrdinal,
-    addHeatSubmit: function addHeatSubmit() {
-      this.showSnackbar = true;
-      this.snackbarText = 'Processing';
-      this.newHeat.post('/admin/heats', {
-        dog_id: this.dog.id,
-        heat_at: this.newHeat.heat_at,
-        onSuccess: function onSuccess() {
-          this.showSnackbar = true;
-          this.snackbarText = 'Heat Added';
-        }
-      });
-    },
-    update: function update(heat) {
-      var that = this;
-      that.showSnackbar = true;
-      that.snackbarText = 'Heat updating';
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/admin/heats/".concat(heat.id), _objectSpread(_objectSpread({}, heat), {}, {
-        _method: 'PUT'
-      })) // eslint-disable-next-line promise/always-return
-      .then(function (response) {
-        that.showSnackbar = true;
-        that.snackbarText = 'Heat updated';
-      })["catch"](function (error) {});
-    },
-    removeHeat: function removeHeat(heat) {
-      var _this = this;
-
-      var that = this;
-      that.showSnackbar = true;
-      that.snackbarText = 'Processing';
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/admin/heats/".concat(heat.id), {
-        _method: 'DELETE'
-      }) // eslint-disable-next-line promise/always-return
-      .then(function (response) {
-        // remove from array
-        _this.dog.heats.all.splice(_this.dog.heats.all.indexOf(heat), 1);
-
-        that.showSnackbar = true;
-        that.snackbarText = 'Heat removed';
-      })["catch"](function (error) {});
-    }
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogLittersDialog.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogLittersDialog.vue?vue&type=script&lang=js& ***!
@@ -945,7 +947,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      showAddHeat: false
+      showDialog: false
     };
   }
 });
@@ -3416,7 +3418,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.header[data-v-42575cbf]{\n  padding: 10px;\n}\n.header--female[data-v-42575cbf]{\n  background: hotpink;\n}\n.header--male[data-v-42575cbf]{\n  background: rgba(14, 130, 213);\n}\n.card-male[data-v-42575cbf] {\n  border: 2px solid rgba(14, 130, 213);\n}\n.card-female[data-v-42575cbf] {\n  border: 2px solid hotpink;\n}\n\n/*\n.container{\n  outline: 2px solid green;\n}\n.row{\n  outline: 2px solid red;\n}\n.col{\n  outline: 2px solid blue;\n}*/\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.header[data-v-42575cbf]{\n  padding: 10px;\n}\n.header--female[data-v-42575cbf]{\n  background: #ebacff;\n  background: linear-gradient(0deg,  #ffdcfd 0%, #ebacff 100%);\n}\n.header--male[data-v-42575cbf]{\n  background: #77C3F2;\n  background: linear-gradient(0deg, #77C3F2 0%, #41a8e8 100%);\n}\n.card-male[data-v-42575cbf] {\n  border: 2px solid #77C3F2;\n}\n.card-female[data-v-42575cbf] {\n  border: 2px solid #ebacff;\n}\n\n/*\n.container{\n  outline: 2px solid green;\n}\n.row{\n  outline: 2px solid red;\n}\n.col{\n  outline: 2px solid blue;\n}\n*/\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -24944,45 +24946,6 @@ component.options.__file = "resources/js/components/InputDate.vue"
 
 /***/ }),
 
-/***/ "./resources/js/components/dogs/DogAddHeatProgesterone.vue":
-/*!*****************************************************************!*\
-  !*** ./resources/js/components/dogs/DogAddHeatProgesterone.vue ***!
-  \*****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _DogAddHeatProgesterone_vue_vue_type_template_id_66c24ac2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DogAddHeatProgesterone.vue?vue&type=template&id=66c24ac2& */ "./resources/js/components/dogs/DogAddHeatProgesterone.vue?vue&type=template&id=66c24ac2&");
-/* harmony import */ var _DogAddHeatProgesterone_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DogAddHeatProgesterone.vue?vue&type=script&lang=js& */ "./resources/js/components/dogs/DogAddHeatProgesterone.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _DogAddHeatProgesterone_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _DogAddHeatProgesterone_vue_vue_type_template_id_66c24ac2___WEBPACK_IMPORTED_MODULE_0__.render,
-  _DogAddHeatProgesterone_vue_vue_type_template_id_66c24ac2___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/dogs/DogAddHeatProgesterone.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
 /***/ "./resources/js/components/dogs/DogBreedingDialog.vue":
 /*!************************************************************!*\
   !*** ./resources/js/components/dogs/DogBreedingDialog.vue ***!
@@ -25137,6 +25100,45 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/components/dogs/DogHeatDialog.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/dogs/DogHeatProgesteroneDialog.vue":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/dogs/DogHeatProgesteroneDialog.vue ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _DogHeatProgesteroneDialog_vue_vue_type_template_id_259b2354___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DogHeatProgesteroneDialog.vue?vue&type=template&id=259b2354& */ "./resources/js/components/dogs/DogHeatProgesteroneDialog.vue?vue&type=template&id=259b2354&");
+/* harmony import */ var _DogHeatProgesteroneDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DogHeatProgesteroneDialog.vue?vue&type=script&lang=js& */ "./resources/js/components/dogs/DogHeatProgesteroneDialog.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _DogHeatProgesteroneDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DogHeatProgesteroneDialog_vue_vue_type_template_id_259b2354___WEBPACK_IMPORTED_MODULE_0__.render,
+  _DogHeatProgesteroneDialog_vue_vue_type_template_id_259b2354___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/dogs/DogHeatProgesteroneDialog.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -25313,22 +25315,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/dogs/DogAddHeatProgesterone.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************!*\
-  !*** ./resources/js/components/dogs/DogAddHeatProgesterone.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DogAddHeatProgesterone_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DogAddHeatProgesterone.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogAddHeatProgesterone.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DogAddHeatProgesterone_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
 /***/ "./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************!*\
   !*** ./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=script&lang=js& ***!
@@ -25390,6 +25376,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DogHeatDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DogHeatDialog.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogHeatDialog.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DogHeatDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/dogs/DogHeatProgesteroneDialog.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/dogs/DogHeatProgesteroneDialog.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DogHeatProgesteroneDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DogHeatProgesteroneDialog.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogHeatProgesteroneDialog.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DogHeatProgesteroneDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -25487,23 +25489,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/dogs/DogAddHeatProgesterone.vue?vue&type=template&id=66c24ac2&":
-/*!************************************************************************************************!*\
-  !*** ./resources/js/components/dogs/DogAddHeatProgesterone.vue?vue&type=template&id=66c24ac2& ***!
-  \************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogAddHeatProgesterone_vue_vue_type_template_id_66c24ac2___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogAddHeatProgesterone_vue_vue_type_template_id_66c24ac2___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
-/* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogAddHeatProgesterone_vue_vue_type_template_id_66c24ac2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DogAddHeatProgesterone.vue?vue&type=template&id=66c24ac2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogAddHeatProgesterone.vue?vue&type=template&id=66c24ac2&");
-
-
-/***/ }),
-
 /***/ "./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=template&id=363f1276&":
 /*!*******************************************************************************************!*\
   !*** ./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=template&id=363f1276& ***!
@@ -25568,6 +25553,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogHeatDialog_vue_vue_type_template_id_d081d872___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogHeatDialog_vue_vue_type_template_id_d081d872___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DogHeatDialog.vue?vue&type=template&id=d081d872& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogHeatDialog.vue?vue&type=template&id=d081d872&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/dogs/DogHeatProgesteroneDialog.vue?vue&type=template&id=259b2354&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/dogs/DogHeatProgesteroneDialog.vue?vue&type=template&id=259b2354& ***!
+  \***************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogHeatProgesteroneDialog_vue_vue_type_template_id_259b2354___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogHeatProgesteroneDialog_vue_vue_type_template_id_259b2354___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogHeatProgesteroneDialog_vue_vue_type_template_id_259b2354___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DogHeatProgesteroneDialog.vue?vue&type=template&id=259b2354& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogHeatProgesteroneDialog.vue?vue&type=template&id=259b2354&");
 
 
 /***/ }),
@@ -25787,396 +25789,6 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogAddHeatProgesterone.vue?vue&type=template&id=66c24ac2&":
-/*!***************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogAddHeatProgesterone.vue?vue&type=template&id=66c24ac2& ***!
-  \***************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function () {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "v-dialog",
-    {
-      attrs: { "max-width": "600px" },
-      scopedSlots: _vm._u([
-        {
-          key: "activator",
-          fn: function (ref) {
-            var on = ref.on
-            var attrs = ref.attrs
-            return [
-              _c(
-                "v-btn",
-                _vm._g(
-                  _vm._b(
-                    { attrs: { elevation: "0", width: "100%" } },
-                    "v-btn",
-                    attrs,
-                    false
-                  ),
-                  on
-                ),
-                [
-                  _c("v-icon", [_vm._v("mdi-clipboard-plus-outline")]),
-                  _vm._v("\n      Add Progesterone...\n    "),
-                ],
-                1
-              ),
-            ]
-          },
-        },
-      ]),
-      model: {
-        value: _vm.showModal,
-        callback: function ($$v) {
-          _vm.showModal = $$v
-        },
-        expression: "showModal",
-      },
-    },
-    [
-      _vm._v(" "),
-      _c(
-        "v-sheet",
-        [
-          _c(
-            "v-card",
-            [
-              _c(
-                "v-card-title",
-                [
-                  _c("span", { staticClass: "headline" }, [
-                    _vm._v("Add Progesterone"),
-                  ]),
-                  _vm._v(" "),
-                  _c("v-spacer"),
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-card-text",
-                [
-                  _c(
-                    "v-form",
-                    {
-                      on: {
-                        submit: function ($event) {
-                          $event.preventDefault()
-                          return _vm.addHeatProgesteroneSubmit.apply(
-                            null,
-                            arguments
-                          )
-                        },
-                      },
-                    },
-                    [
-                      _c(
-                        "v-row",
-                        [
-                          _c(
-                            "v-col",
-                            { attrs: { cols: "12", xs: "12", sm: "6" } },
-                            [
-                              _c("v-text-field", {
-                                attrs: {
-                                  label: "Progesterone",
-                                  type: "number",
-                                  required: "",
-                                },
-                                scopedSlots: _vm._u([
-                                  {
-                                    key: "append",
-                                    fn: function () {
-                                      return [_vm._v("ng/mL")]
-                                    },
-                                    proxy: true,
-                                  },
-                                ]),
-                                model: {
-                                  value: _vm.newProgesterone.value,
-                                  callback: function ($$v) {
-                                    _vm.$set(_vm.newProgesterone, "value", $$v)
-                                  },
-                                  expression: "newProgesterone.value",
-                                },
-                              }),
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-col",
-                            { attrs: { cols: "12", xs: "12", sm: "6" } },
-                            [
-                              _c("InputDate", {
-                                attrs: {
-                                  value: _vm.newProgesterone.measured_at,
-                                  label: "Date",
-                                },
-                                on: {
-                                  "update:value": function ($event) {
-                                    return _vm.$set(
-                                      _vm.newProgesterone,
-                                      "measured_at",
-                                      $event
-                                    )
-                                  },
-                                },
-                              }),
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-col",
-                            { attrs: { cols: "12", offset: "7" } },
-                            [
-                              _c(
-                                "v-btn",
-                                {
-                                  attrs: {
-                                    color: "green white--text",
-                                    type: "submit",
-                                  },
-                                },
-                                [_vm._v(" Add Progesterone")]
-                              ),
-                            ],
-                            1
-                          ),
-                        ],
-                        1
-                      ),
-                    ],
-                    1
-                  ),
-                ],
-                1
-              ),
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-container",
-            { attrs: { fluid: "" } },
-            _vm._l(_vm.measurementProgesterones, function (measurement, index) {
-              return _c(
-                "form",
-                {
-                  key: index,
-                  on: {
-                    submit: function ($event) {
-                      $event.preventDefault()
-                      return _vm.update(measurement)
-                    },
-                  },
-                },
-                [
-                  _c(
-                    "v-card",
-                    { staticClass: "rounded-0", attrs: { elevation: "0" } },
-                    [
-                      _c(
-                        "v-container",
-                        { attrs: { fluid: "" } },
-                        [
-                          _c(
-                            "v-row",
-                            {
-                              staticStyle: {
-                                "border-top": "1px solid #e2e2e2",
-                              },
-                            },
-                            [
-                              _c(
-                                "v-col",
-                                { attrs: { cols: "6", xs: "6" } },
-                                [
-                                  _c("v-text-field", {
-                                    attrs: {
-                                      type: "number",
-                                      label: "Progesterone",
-                                      required: "",
-                                    },
-                                    on: {
-                                      input: function ($event) {
-                                        return _vm.update(measurement)
-                                      },
-                                    },
-                                    scopedSlots: _vm._u(
-                                      [
-                                        {
-                                          key: "append",
-                                          fn: function () {
-                                            return [
-                                              _vm._v(_vm._s(measurement.unit)),
-                                            ]
-                                          },
-                                          proxy: true,
-                                        },
-                                      ],
-                                      null,
-                                      true
-                                    ),
-                                    model: {
-                                      value: measurement.value,
-                                      callback: function ($$v) {
-                                        _vm.$set(measurement, "value", $$v)
-                                      },
-                                      expression: "measurement.value",
-                                    },
-                                  }),
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-col",
-                                { attrs: { cols: "5", xs: "5" } },
-                                [
-                                  _c("InputDate", {
-                                    attrs: {
-                                      value: measurement.measured_at,
-                                      label: "Date",
-                                    },
-                                    on: {
-                                      "update:value": function ($event) {
-                                        return _vm.$set(
-                                          measurement,
-                                          "measured_at",
-                                          $event
-                                        )
-                                      },
-                                      input: function ($event) {
-                                        return _vm.update(measurement)
-                                      },
-                                    },
-                                    model: {
-                                      value: measurement.measured_at,
-                                      callback: function ($$v) {
-                                        _vm.$set(
-                                          measurement,
-                                          "measured_at",
-                                          $$v
-                                        )
-                                      },
-                                      expression: "measurement.measured_at",
-                                    },
-                                  }),
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-col",
-                                {
-                                  attrs: {
-                                    cols: "1",
-                                    xs: "1",
-                                    "align-self": "center",
-                                  },
-                                },
-                                [
-                                  _c(
-                                    "v-btn",
-                                    {
-                                      attrs: { icon: "" },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.removeMeasurement(
-                                            measurement
-                                          )
-                                        },
-                                      },
-                                    },
-                                    [_c("v-icon", [_vm._v("mdi-delete")])],
-                                    1
-                                  ),
-                                ],
-                                1
-                              ),
-                            ],
-                            1
-                          ),
-                        ],
-                        1
-                      ),
-                    ],
-                    1
-                  ),
-                ],
-                1
-              )
-            }),
-            0
-          ),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "v-snackbar",
-        {
-          attrs: { timeout: "2500" },
-          scopedSlots: _vm._u([
-            {
-              key: "action",
-              fn: function (ref) {
-                var attrs = ref.attrs
-                return [
-                  _c(
-                    "v-btn",
-                    _vm._b(
-                      {
-                        attrs: { text: "" },
-                        on: {
-                          click: function ($event) {
-                            _vm.showSnackbar = false
-                          },
-                        },
-                      },
-                      "v-btn",
-                      attrs,
-                      false
-                    ),
-                    [_vm._v("\n        Close\n      ")]
-                  ),
-                ]
-              },
-            },
-          ]),
-          model: {
-            value: _vm.showSnackbar,
-            callback: function ($$v) {
-              _vm.showSnackbar = $$v
-            },
-            expression: "showSnackbar",
-          },
-        },
-        [_vm._v("\n    " + _vm._s(_vm.snackbarText) + "\n    ")]
-      ),
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=template&id=363f1276&":
 /*!**********************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=template&id=363f1276& ***!
@@ -26226,11 +25838,11 @@ var render = function () {
         },
       ]),
       model: {
-        value: _vm.showAddBreeding,
+        value: _vm.showDialog,
         callback: function ($$v) {
-          _vm.showAddBreeding = $$v
+          _vm.showDialog = $$v
         },
-        expression: "showAddBreeding",
+        expression: "showDialog",
       },
     },
     [
@@ -26916,8 +26528,10 @@ var render = function () {
                                                     "v-expansion-panel-header",
                                                     {
                                                       attrs: {
-                                                        color: "pink accent-1",
                                                         ripple: "",
+                                                        color:
+                                                          _vm.colors.pink
+                                                            .lighten5,
                                                       },
                                                     },
                                                     [
@@ -27024,7 +26638,7 @@ var render = function () {
                                                                         "v-list-item",
                                                                         [
                                                                           _c(
-                                                                            "DogAddHeatProgesterone",
+                                                                            "DogHeatProgesteroneDialog",
                                                                             {
                                                                               attrs:
                                                                                 {
@@ -27153,11 +26767,11 @@ var render = function () {
                                                                               ) {
                                                                                 return [
                                                                                   _vm._v(
-                                                                                    "\n                              ng/mL " +
+                                                                                    "\n                              " +
                                                                                       _vm._s(
                                                                                         item.value
                                                                                       ) +
-                                                                                      "\n                            "
+                                                                                      " ng/mL\n                            "
                                                                                   ),
                                                                                 ]
                                                                               },
@@ -27589,11 +27203,11 @@ var render = function () {
         },
       ]),
       model: {
-        value: _vm.showAddHeat,
+        value: _vm.showDialog,
         callback: function ($$v) {
-          _vm.showAddHeat = $$v
+          _vm.showDialog = $$v
         },
-        expression: "showAddHeat",
+        expression: "showDialog",
       },
     },
     [
@@ -27667,11 +27281,11 @@ var render = function () {
         },
       ]),
       model: {
-        value: _vm.showModal,
+        value: _vm.showDialog,
         callback: function ($$v) {
-          _vm.showModal = $$v
+          _vm.showDialog = $$v
         },
-        expression: "showModal",
+        expression: "showDialog",
       },
     },
     [
@@ -27934,6 +27548,396 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogHeatProgesteroneDialog.vue?vue&type=template&id=259b2354&":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogHeatProgesteroneDialog.vue?vue&type=template&id=259b2354& ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-dialog",
+    {
+      attrs: { "max-width": "600px" },
+      scopedSlots: _vm._u([
+        {
+          key: "activator",
+          fn: function (ref) {
+            var on = ref.on
+            var attrs = ref.attrs
+            return [
+              _c(
+                "v-btn",
+                _vm._g(
+                  _vm._b(
+                    { attrs: { elevation: "0", width: "100%" } },
+                    "v-btn",
+                    attrs,
+                    false
+                  ),
+                  on
+                ),
+                [
+                  _c("v-icon", [_vm._v("mdi-clipboard-plus-outline")]),
+                  _vm._v("\n      Add Progesterone...\n    "),
+                ],
+                1
+              ),
+            ]
+          },
+        },
+      ]),
+      model: {
+        value: _vm.showModal,
+        callback: function ($$v) {
+          _vm.showModal = $$v
+        },
+        expression: "showModal",
+      },
+    },
+    [
+      _vm._v(" "),
+      _c(
+        "v-sheet",
+        [
+          _c(
+            "v-card",
+            [
+              _c(
+                "v-card-title",
+                [
+                  _c("span", { staticClass: "headline" }, [
+                    _vm._v("Add Progesterone"),
+                  ]),
+                  _vm._v(" "),
+                  _c("v-spacer"),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-card-text",
+                [
+                  _c(
+                    "v-form",
+                    {
+                      on: {
+                        submit: function ($event) {
+                          $event.preventDefault()
+                          return _vm.addHeatProgesteroneSubmit.apply(
+                            null,
+                            arguments
+                          )
+                        },
+                      },
+                    },
+                    [
+                      _c(
+                        "v-row",
+                        [
+                          _c(
+                            "v-col",
+                            { attrs: { cols: "12", xs: "12", sm: "6" } },
+                            [
+                              _c("v-text-field", {
+                                attrs: {
+                                  label: "Progesterone",
+                                  type: "number",
+                                  required: "",
+                                },
+                                scopedSlots: _vm._u([
+                                  {
+                                    key: "append",
+                                    fn: function () {
+                                      return [_vm._v("ng/mL")]
+                                    },
+                                    proxy: true,
+                                  },
+                                ]),
+                                model: {
+                                  value: _vm.newProgesterone.value,
+                                  callback: function ($$v) {
+                                    _vm.$set(_vm.newProgesterone, "value", $$v)
+                                  },
+                                  expression: "newProgesterone.value",
+                                },
+                              }),
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-col",
+                            { attrs: { cols: "12", xs: "12", sm: "6" } },
+                            [
+                              _c("InputDate", {
+                                attrs: {
+                                  value: _vm.newProgesterone.measured_at,
+                                  label: "Date",
+                                },
+                                on: {
+                                  "update:value": function ($event) {
+                                    return _vm.$set(
+                                      _vm.newProgesterone,
+                                      "measured_at",
+                                      $event
+                                    )
+                                  },
+                                },
+                              }),
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-col",
+                            { attrs: { cols: "12" } },
+                            [
+                              _c(
+                                "v-btn",
+                                {
+                                  attrs: {
+                                    color: "green white--text",
+                                    type: "submit",
+                                  },
+                                },
+                                [_vm._v(" Add Progesterone")]
+                              ),
+                            ],
+                            1
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-container",
+            { attrs: { fluid: "" } },
+            _vm._l(_vm.measurementProgesterones, function (measurement, index) {
+              return _c(
+                "form",
+                {
+                  key: index,
+                  on: {
+                    submit: function ($event) {
+                      $event.preventDefault()
+                      return _vm.update(measurement)
+                    },
+                  },
+                },
+                [
+                  _c(
+                    "v-card",
+                    { staticClass: "rounded-0", attrs: { elevation: "0" } },
+                    [
+                      _c(
+                        "v-container",
+                        { attrs: { fluid: "" } },
+                        [
+                          _c(
+                            "v-row",
+                            {
+                              staticStyle: {
+                                "border-top": "1px solid #e2e2e2",
+                              },
+                            },
+                            [
+                              _c(
+                                "v-col",
+                                { attrs: { cols: "12", xs: "12", md: "6" } },
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      type: "number",
+                                      label: "Progesterone",
+                                      required: "",
+                                    },
+                                    on: {
+                                      input: function ($event) {
+                                        return _vm.update(measurement)
+                                      },
+                                    },
+                                    scopedSlots: _vm._u(
+                                      [
+                                        {
+                                          key: "append",
+                                          fn: function () {
+                                            return [
+                                              _vm._v(_vm._s(measurement.unit)),
+                                            ]
+                                          },
+                                          proxy: true,
+                                        },
+                                      ],
+                                      null,
+                                      true
+                                    ),
+                                    model: {
+                                      value: measurement.value,
+                                      callback: function ($$v) {
+                                        _vm.$set(measurement, "value", $$v)
+                                      },
+                                      expression: "measurement.value",
+                                    },
+                                  }),
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-col",
+                                { attrs: { cols: "11", xs: "1", md: "5" } },
+                                [
+                                  _c("InputDate", {
+                                    attrs: {
+                                      value: measurement.measured_at,
+                                      label: "Date",
+                                    },
+                                    on: {
+                                      "update:value": function ($event) {
+                                        return _vm.$set(
+                                          measurement,
+                                          "measured_at",
+                                          $event
+                                        )
+                                      },
+                                      input: function ($event) {
+                                        return _vm.update(measurement)
+                                      },
+                                    },
+                                    model: {
+                                      value: measurement.measured_at,
+                                      callback: function ($$v) {
+                                        _vm.$set(
+                                          measurement,
+                                          "measured_at",
+                                          $$v
+                                        )
+                                      },
+                                      expression: "measurement.measured_at",
+                                    },
+                                  }),
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-col",
+                                {
+                                  attrs: {
+                                    cols: "1",
+                                    xs: "1",
+                                    "align-self": "center",
+                                  },
+                                },
+                                [
+                                  _c(
+                                    "v-btn",
+                                    {
+                                      attrs: { icon: "" },
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.removeMeasurement(
+                                            measurement
+                                          )
+                                        },
+                                      },
+                                    },
+                                    [_c("v-icon", [_vm._v("mdi-delete")])],
+                                    1
+                                  ),
+                                ],
+                                1
+                              ),
+                            ],
+                            1
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              )
+            }),
+            0
+          ),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-snackbar",
+        {
+          attrs: { timeout: "2500" },
+          scopedSlots: _vm._u([
+            {
+              key: "action",
+              fn: function (ref) {
+                var attrs = ref.attrs
+                return [
+                  _c(
+                    "v-btn",
+                    _vm._b(
+                      {
+                        attrs: { text: "" },
+                        on: {
+                          click: function ($event) {
+                            _vm.showSnackbar = false
+                          },
+                        },
+                      },
+                      "v-btn",
+                      attrs,
+                      false
+                    ),
+                    [_vm._v("\n        Close\n      ")]
+                  ),
+                ]
+              },
+            },
+          ]),
+          model: {
+            value: _vm.showSnackbar,
+            callback: function ($$v) {
+              _vm.showSnackbar = $$v
+            },
+            expression: "showSnackbar",
+          },
+        },
+        [_vm._v("\n    " + _vm._s(_vm.snackbarText) + "\n    ")]
+      ),
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogLittersDialog.vue?vue&type=template&id=f833b1dc&":
 /*!*********************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogLittersDialog.vue?vue&type=template&id=f833b1dc& ***!
@@ -27983,11 +27987,11 @@ var render = function () {
         },
       ]),
       model: {
-        value: _vm.showAddHeat,
+        value: _vm.showDialog,
         callback: function ($$v) {
-          _vm.showAddHeat = $$v
+          _vm.showDialog = $$v
         },
-        expression: "showAddHeat",
+        expression: "showDialog",
       },
     },
     [
@@ -28633,13 +28637,7 @@ var render = function () {
                         "v-col",
                         {
                           key: index,
-                          attrs: {
-                            cols: "12",
-                            sm: "6",
-                            md: "4",
-                            lg: "3",
-                            xl: "2",
-                          },
+                          attrs: { cols: "12", sm: "6", md: "4", lg: "3" },
                         },
                         [_c("DogCard", { attrs: { dog: dog } })],
                         1

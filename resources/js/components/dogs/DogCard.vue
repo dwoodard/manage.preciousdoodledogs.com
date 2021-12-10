@@ -106,9 +106,7 @@
             <v-col cols="1" offset="11">
               <v-menu offset-y>
                 <template #activator="{ on, attrs }">
-                  <v-icon fab
-                          v-bind="attrs"
-                          v-on="on">
+                  <v-icon fab v-bind="attrs" v-on="on">
                     mdi-dots-vertical
                   </v-icon>
                 </template>
@@ -170,7 +168,7 @@
                 <div v-for="(heat, index) in dog.heats.all" :key="index">
                   <v-expansion-panels v-model="openHeatPanel[index]" accordion>
                     <v-expansion-panel @change="closeAllPanels">
-                      <v-expansion-panel-header color="pink accent-1" ripple>
+                      <v-expansion-panel-header ripple :color="colors.pink.lighten5">
                         {{ toOrdinal((dog.heats.all.length - index)) }}: {{ heat.heat_at }} ({{ moment(heat.heat_at).fromNow() }})
                       </v-expansion-panel-header>
                       <v-expansion-panel-content>
@@ -186,7 +184,7 @@
                               </template>
                               <v-list>
                                 <v-list-item>
-                                  <DogAddHeatProgesterone :heat="heat"/>
+                                  <DogHeatProgesteroneDialog :heat="heat"/>
                                 </v-list-item>
                               </v-list>
                             </v-menu>
@@ -212,7 +210,7 @@
                               stroke-linecap="round"
                               smooth>
                               <template #label="item">
-                                ng/mL {{ item.value }}
+                                {{ item.value }} ng/mL
                               </template>
                             </v-sparkline>
                           </v-sheet>
@@ -323,14 +321,15 @@
 </template>
 <script>
   import moment from 'moment';
+  import colors from 'vuetify/lib/util/colors';
   import DogTraitsDialog from '@/components/dogs/DogTraitsDialog';
   import DogBreedingDialog from '@/components/dogs/DogBreedingDialog';
   import DogHeatDialog from '@/components/dogs/DogHeatDialog';
   import DogLittersDialog from '@/components/dogs/DogLittersDialog';
+  import DogHeatProgesteroneDialog from '@/components/dogs/DogHeatProgesteroneDialog';
   import DogFamilyDialog from '@/components/dogs/DogFamilyDialog';
 
   import {age, inchesToFeet, ouncesToLbs} from '@/helper';
-  import DogAddHeatProgesterone from '@/components/dogs/DogAddHeatProgesterone';
 
   const converter = require('number-to-words-en');
 
@@ -341,6 +340,7 @@
     },
     data() {
       return {
+        colors,
         selectedTab: '',
         showAddBreeding: false,
         showAddHeat: false,
@@ -348,6 +348,7 @@
       };
     },
     methods: {
+
       moment,
       toOrdinal: converter.toOrdinal,
       ouncesToLbs,
@@ -378,7 +379,7 @@
       }
     },
     components: {
-      DogAddHeatProgesterone,
+      DogHeatProgesteroneDialog,
       DogBreedingDialog,
       DogHeatDialog,
       DogLittersDialog,
@@ -393,20 +394,21 @@
 }
 
 .header--female{
-  background: hotpink;
-
+  background: #ebacff;
+  background: linear-gradient(0deg,  #ffdcfd 0%, #ebacff 100%);
 }
 .header--male{
-  background: rgba(14, 130, 213);
+  background: #77C3F2;
+  background: linear-gradient(0deg, #77C3F2 0%, #41a8e8 100%);
 }
 
 .card-male {
-  border: 2px solid rgba(14, 130, 213);
+  border: 2px solid #77C3F2;
 }
 
 
 .card-female {
-  border: 2px solid hotpink;
+  border: 2px solid #ebacff;
 }
 
 /*
@@ -418,5 +420,6 @@
 }
 .col{
   outline: 2px solid blue;
-}*/
+}
+*/
 </style>

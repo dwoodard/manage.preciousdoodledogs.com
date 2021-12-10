@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="showModal" max-width="600px">
+  <v-dialog v-model="showDialog" max-width="600px">
     <template #activator="{ on, attrs }">
       <v-btn v-bind="attrs" elevation="0" width="100%" v-on="on">
         <v-icon>mdi-calendar</v-icon>
@@ -77,7 +77,7 @@
       return {
         fromDateMenu: null,
         fromDateVal: new Date(),
-        showModal: false,
+        showDialog: false,
         newHeat: this.$inertia.form(`EditDogHeats:${this.dog.id}`, {
           dog_id: this.dog.id,
           heat_at: (new Date()).toISOString().substring(0, 10)

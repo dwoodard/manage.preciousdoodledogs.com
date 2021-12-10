@@ -2,16 +2,17 @@ import Vue from 'vue';
 import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.css';
 import '@mdi/font/css/materialdesignicons.css';
+import colors from 'vuetify/lib/util/colors';
 
 Vue.use(Vuetify);
 
 const opts = {
   theme: {
     // disable: true,
-    dark: false,
+    // dark: false,
     themes: {
       light: {
-        primary: '#4caf50',
+        primary: colors.indigo.base,
         accent: '#40c346',
         secondary: '#03a9f4',
         info: '#2196f3',
@@ -42,7 +43,6 @@ const opts = {
         warm: '#F2F0EB',
         cool: '#F9F9F9'
       }
-
     }
   }
 };

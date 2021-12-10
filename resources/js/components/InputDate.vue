@@ -23,6 +23,7 @@
 </template>
 <script>
   // <InputDate :value.sync="SomeValue"/>
+  // <InputDate v-model="form.someValue" :value.sync="form.someValue" label="Date" @input="update(arg)"/>
 
   export default {
     props: {

@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="showAddBreeding" max-width="600px">
+  <v-dialog v-model="showDialog" max-width="600px">
     <template #activator="{ on, attrs }">
       <v-btn v-bind="attrs" elevation="0" width="100%"
              v-on="on">
@@ -24,7 +24,7 @@
 
     data() {
       return {
-        showAddBreeding: false
+        showDialog: false
       };
     }
   };

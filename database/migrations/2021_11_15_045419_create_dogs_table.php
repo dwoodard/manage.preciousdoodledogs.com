@@ -21,6 +21,9 @@ class CreateDogsTable extends Migration
             $table->string('size')->nullable(); //(mini, toy, teacup, standard, medium, micro, pocket)
             $table->string('generation')->nullable(); //(f1b, f1, f2b, f2bb, multigen)
             $table->string('gender')->nullable();
+            $table->string('akc')->nullable();
+            $table->string('ckc')->nullable();
+            $table->string('embark')->nullable();
             $table->boolean('outside_stud')->nullable();
             $table->boolean('can_stud')->nullable();
             $table->date('retired_at')->nullable();
