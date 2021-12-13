@@ -27844,44 +27844,20 @@ var render = function () {
                         [
                           _c(
                             "v-col",
-                            {
-                              attrs: {
-                                cols: "12",
-                                sm: "6",
-                                md: "4",
-                                lg: "3",
-                                xl: "2",
-                              },
-                            },
+                            { attrs: { cols: "12" } },
                             [_c("DogNotes", { attrs: { dog: _vm.dog } })],
                             1
                           ),
                           _vm._v(" "),
-                          _c(
-                            "v-col",
-                            {
-                              attrs: {
-                                cols: "12",
-                                sm: "6",
-                                md: "4",
-                                lg: "3",
-                                xl: "2",
-                              },
-                            },
-                            [
-                              _c("div", [
-                                _vm._v("AKC: " + _vm._s(_vm.dog.akc)),
-                              ]),
-                              _vm._v(" "),
-                              _c("div", [
-                                _vm._v("CKC: " + _vm._s(_vm.dog.ckc)),
-                              ]),
-                              _vm._v(" "),
-                              _c("div", [
-                                _vm._v("EMBARK: " + _vm._s(_vm.dog.embark)),
-                              ]),
-                            ]
-                          ),
+                          _c("v-col", { attrs: { cols: "12" } }, [
+                            _c("div", [_vm._v("AKC: " + _vm._s(_vm.dog.akc))]),
+                            _vm._v(" "),
+                            _c("div", [_vm._v("CKC: " + _vm._s(_vm.dog.ckc))]),
+                            _vm._v(" "),
+                            _c("div", [
+                              _vm._v("EMBARK: " + _vm._s(_vm.dog.embark)),
+                            ]),
+                          ]),
                         ],
                         1
                       ),

@@ -285,10 +285,10 @@
 
             <!--Notes-->
             <v-row no-gutters>
-              <v-col cols="12" sm="6" md="4" lg="3" xl="2">
+              <v-col cols="12">
                 <DogNotes :dog="dog"/>
               </v-col>
-              <v-col cols="12" sm="6" md="4" lg="3" xl="2">
+              <v-col cols="12">
                 <div>AKC: {{ dog.akc }}</div>
                 <div>CKC: {{ dog.ckc }}</div>
                 <div>EMBARK: {{ dog.embark }}</div>

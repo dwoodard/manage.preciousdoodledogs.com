@@ -158,6 +158,16 @@
           </v-card-text>
         </v-card>
       </v-col>
+      <v-col cols="12" sm="6" md="4">
+        <v-card>
+          <v-card-title>
+            Notes
+          </v-card-title>
+          <v-card-text>
+            <DogNotes :dog="dog"/>
+          </v-card-text>
+        </v-card>
+      </v-col>
     </v-row>
   </v-container>
 </template>
@@ -166,6 +176,7 @@
   import Layout from '@/layouts/Admin/Layout';
   import {age, inchesToFeet, ouncesToLbs} from '@/helper';
   import DogWeightChart from '@/components/dogs/DogWeightChart';
+  import DogNotes from '@/components/dogs/forms/DogNotes';
 
   export default {
     props: {
@@ -224,7 +235,10 @@
       }
 
     },
-    components: {DogWeightChart},
+    components: {
+      DogNotes,
+      DogWeightChart
+    },
     layout: Layout,
     remember: 'form'
   };
