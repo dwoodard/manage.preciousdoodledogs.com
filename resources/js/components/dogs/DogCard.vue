@@ -285,12 +285,10 @@
 
             <!--Notes-->
             <v-row no-gutters>
-              <v-col cols="6">
-                <v-textarea label="Notes">
-                  {{ dog.notes }}
-                </v-textarea>
+              <v-col cols="12" sm="6" md="4" lg="3" xl="2">
+                <DogNotes :dog="dog"/>
               </v-col>
-              <v-col cols="6">
+              <v-col cols="12" sm="6" md="4" lg="3" xl="2">
                 <div>AKC: {{ dog.akc }}</div>
                 <div>CKC: {{ dog.ckc }}</div>
                 <div>EMBARK: {{ dog.embark }}</div>
@@ -330,6 +328,7 @@
   import DogFamilyDialog from '@/components/dogs/DogFamilyDialog';
 
   import {age, inchesToFeet, ouncesToLbs} from '@/helper';
+  import DogNotes from '@/components/dogs/forms/DogNotes';
 
   const converter = require('number-to-words-en');
 
@@ -379,6 +378,7 @@
       }
     },
     components: {
+      DogNotes,
       DogHeatProgesteroneDialog,
       DogBreedingDialog,
       DogHeatDialog,

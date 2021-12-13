@@ -30,6 +30,10 @@ class Dog extends Model implements HasMedia
         'outside_stud',
         'can_stud',
         'retired_at',
+        'akc',
+        'ckc',
+        'embark',
+        'notes'
     ];
 
     protected $casts = [
@@ -310,6 +314,10 @@ class Dog extends Model implements HasMedia
             'age' => $this->age,
             'size' => $this->size,
             'generation' => $this->generation,
+            'notes' => $this->notes,
+            'akc' => $this->akc,
+            'ckc' => $this->ckc,
+            'embark' => $this->embark,
             'weight' => $this->getLatestMeasurement('weight'),
             'height' => $this->getLatestMeasurement('height'),
             'measurements' => $this->getMeasurements(),
