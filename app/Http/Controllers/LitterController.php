@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dog;
 use App\Models\Litter;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -18,11 +19,14 @@ class LitterController extends Controller
     {
         // data
 
+        $get = null;
+
         $data = [
-            'litters' => Litter::all()
+            'litters' => Litter::active()
+                ->get()
+                ->load(['dame','stud', 'puppies'])
         ];
-
-
+//        return $data['litters'];
         return Inertia::render('Admin/Litters/Index', $data);
     }
 

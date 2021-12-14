@@ -57,7 +57,9 @@ class Dog extends Model implements HasMedia
     // litters
     public function litters(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(Litter::class, 'dame_id', 'id');
+        return $this->hasMany(Litter::class, 'dame_id', 'id')
+            ->where('dame_id', $this->id)
+            ->orderBy('mated_at', 'desc');
     }
 
     // measurements
@@ -302,7 +304,9 @@ class Dog extends Model implements HasMedia
 
         return null;
     }
-
+    public function simple(){
+        return parent::toArray();
+    }
     public function toArray()
     {
         $dog = [
@@ -329,9 +333,9 @@ class Dog extends Model implements HasMedia
         ];
 
         if ($this->gender === 'female') {
-            $dog['litters'] = $this->litters()
-                ->get()
-                ->toArray();
+            $dog['litters'] = $this->litters()->without('litters')->get()->toArray();
+
+
             $dog['heats']['all'] = $this->heats()->with('measurements')
                 ->orderBy('heat_at', 'desc')
                 ->get()

@@ -29066,7 +29066,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("v-textarea", {
-    attrs: { label: "Notes" },
+    attrs: { label: "Notes", dense: "", "hide-details": "" },
     on: { input: _vm.update },
     model: {
       value: _vm.notes,

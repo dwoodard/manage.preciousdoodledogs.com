@@ -18,7 +18,7 @@ class LitterFactory extends Factory
             'dame_id' => null,
             'stud_id' => null,
             'mated_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
-            'status' => $this->faker->randomElement(['expected', 'born', 'sold', 'delivered']),
+            'archived_at' => rand(0, 100) < 2 ? $this->faker->dateTimeBetween('-1 year', 'now') : null,
             'got_pregnant' => rand(0, 100) > 99,
         ];
     }

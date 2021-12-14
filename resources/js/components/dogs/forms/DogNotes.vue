@@ -1,5 +1,5 @@
 <template>
-  <v-textarea v-model="notes" label="Notes" @input="update"/>
+  <v-textarea v-model="notes" label="Notes" dense hide-details @input="update"/>
 </template>
 <script>
   import axios from 'axios';

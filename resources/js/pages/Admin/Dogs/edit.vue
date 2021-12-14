@@ -125,15 +125,26 @@
                   item-text="name"
                   item-value="id"/>
 
-        <!--        <v-text-field v-model="form.weight"-->
-        <!--                      type="number"-->
-        <!--                      :error-messages="form.errors.weight"-->
-        <!--                      :label="`Weight (${form.weight} oz)  (${ouncesToLbs(form.weight)} lbs) `"/>-->
-
-        <!--        <v-text-field v-model="form.height"-->
-        <!--                      type="number"-->
-        <!--                      :error-messages="form.errors.height"-->
-        <!--                      :label="`Height (inches) ${inchesToFeet(form.height)}  (feet)`"/>-->
+        <v-row>
+          <v-col cols="12" sm="4">
+            <v-text-field
+              v-model="form.akc"
+              :error-messages="form.errors.akc"
+              label="AKC"/>
+          </v-col>
+          <v-col cols="12" sm="4">
+            <v-text-field
+              v-model="form.ckc"
+              :error-messages="form.errors.ckc"
+              label="CKC"/>
+          </v-col>
+          <v-col cols="12" sm="4">
+            <v-text-field
+              v-model="form.embark"
+              :error-messages="form.errors.embark"
+              label="Embark"/>
+          </v-col>
+        </v-row>
       </v-container>
 
       <progress v-if="form.imageProgress" :value="form.imageProgress" max="100">
@@ -199,8 +210,9 @@
           generation: this.dog.generation,
           outside_stud: this.dog.outside_stud,
           can_stud: this.dog.can_stud,
-          // weight: this.dog.weight,
-          // height: this.dog.height,
+          akc: this.dog.akc,
+          ckc: this.dog.ckc,
+          embark: this.dog.embark,
           media: this.dog.media,
           image: null
         })

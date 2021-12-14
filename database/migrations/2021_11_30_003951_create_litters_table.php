@@ -17,8 +17,8 @@ class CreateLittersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('dame_id')->nullable(); // Dog ID
             $table->unsignedBigInteger('stud_id')->nullable(); // Dog ID
-            $table->enum('status', ['expected', 'born', 'sold', 'delivered'])->default('expected');
             $table->date('mated_at')->nullable();
+            $table->date('archived_at')->nullable();
             $table->boolean('got_pregnant')->default(true);
             $table->timestamps();
         });

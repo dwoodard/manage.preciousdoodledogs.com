@@ -39,10 +39,12 @@ class DogController extends Controller
 
     public function edit(Dog $dog)
     {
+        $data = [
+            'dog' => $dog->toArray()
+        ];
+//        return $data['dog'];
 
-        return Inertia::render('Admin/Dogs/edit', [
-            'dog' => $dog->toArray(),
-        ]);
+        return Inertia::render('Admin/Dogs/edit', $data);
     }
 
     public function store(Request $request)

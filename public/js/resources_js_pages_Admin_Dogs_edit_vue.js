@@ -400,6 +400,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -424,8 +435,9 @@ __webpack_require__.r(__webpack_exports__);
         generation: this.dog.generation,
         outside_stud: this.dog.outside_stud,
         can_stud: this.dog.can_stud,
-        // weight: this.dog.weight,
-        // height: this.dog.height,
+        akc: this.dog.akc,
+        ckc: this.dog.ckc,
+        embark: this.dog.embark,
         media: this.dog.media,
         image: null
       })
@@ -1627,7 +1639,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("v-textarea", {
-    attrs: { label: "Notes" },
+    attrs: { label: "Notes", dense: "", "hide-details": "" },
     on: { input: _vm.update },
     model: {
       value: _vm.notes,
@@ -2105,6 +2117,75 @@ var render = function () {
                   expression: "form.generation",
                 },
               }),
+              _vm._v(" "),
+              _c(
+                "v-row",
+                [
+                  _c(
+                    "v-col",
+                    { attrs: { cols: "12", sm: "4" } },
+                    [
+                      _c("v-text-field", {
+                        attrs: {
+                          "error-messages": _vm.form.errors.akc,
+                          label: "AKC",
+                        },
+                        model: {
+                          value: _vm.form.akc,
+                          callback: function ($$v) {
+                            _vm.$set(_vm.form, "akc", $$v)
+                          },
+                          expression: "form.akc",
+                        },
+                      }),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-col",
+                    { attrs: { cols: "12", sm: "4" } },
+                    [
+                      _c("v-text-field", {
+                        attrs: {
+                          "error-messages": _vm.form.errors.ckc,
+                          label: "CKC",
+                        },
+                        model: {
+                          value: _vm.form.ckc,
+                          callback: function ($$v) {
+                            _vm.$set(_vm.form, "ckc", $$v)
+                          },
+                          expression: "form.ckc",
+                        },
+                      }),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-col",
+                    { attrs: { cols: "12", sm: "4" } },
+                    [
+                      _c("v-text-field", {
+                        attrs: {
+                          "error-messages": _vm.form.errors.embark,
+                          label: "Embark",
+                        },
+                        model: {
+                          value: _vm.form.embark,
+                          callback: function ($$v) {
+                            _vm.$set(_vm.form, "embark", $$v)
+                          },
+                          expression: "form.embark",
+                        },
+                      }),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
             ],
             1
           ),
