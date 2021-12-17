@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 export const toTitleCase = (str) => str.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
 
 export const toKebabCase = (str) => str.replace(/([a-z])([A-Z])/g, '$1-$2').replace(/\s+/g, '-').toLowerCase();
@@ -75,4 +77,28 @@ export const age = (birthdate, onlyNumber = false) => {
   const year = years === 1 ? 'year' : 'years';
 
   return `${years} ${year}`;
+};
+
+export const formatDate = (date, formatPattern = 'short') => {
+  if (!date) {
+    return null;
+  }
+
+  const dateFormats = {
+    long: 'MMMM Do, YYYY',
+    short: 'MMM Do, YYYY',
+    numeric: 'M/D/Y',
+    time: 'h:mm a'
+  };
+
+  const pattern = formatPattern.split(' ');
+  const dateFormat = pattern.map((part) => {
+    // if part is time add a space to the beginning and it's the last part
+    if (part === 'time' && pattern.indexOf(part) === pattern.length - 1) {
+      return ` ${dateFormats[part]}`;
+    }
+    return dateFormats[part];
+  }).join('');
+
+  return moment(date).format(dateFormat);
 };

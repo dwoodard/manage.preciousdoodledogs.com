@@ -1,27 +1,24 @@
 <template>
   <v-dialog v-model="showDialog" max-width="600px">
     <template #activator="{ on, attrs }">
-      <v-btn v-bind="attrs" elevation="0" width="100%" align="left"
-             v-on="on">
-        <v-icon>mdi-dna</v-icon>
-        Add Litters...
+      <v-btn color="error" v-bind="attrs" width="100%" elevation="0" align="left" v-on="on">
+        <v-icon>mdi-delete-circle</v-icon>
+        Archive...
       </v-btn>
     </template>
     <v-card>
-      <v-card-title>Add Litter</v-card-title>
+      <v-card-title>Archive Litter</v-card-title>
       <v-card-text>
-        <div>stud</div>
-        <div>ai date (mated_at)</div>
-
-        <pre>{{ dog }}</pre>
+        <pre>{{ litter }}</pre>
       </v-card-text>
     </v-card>
   </v-dialog>
 </template>
 <script>
+
   export default {
     props: {
-      dog: {}
+      litter: {}
     },
     data() {
       return {

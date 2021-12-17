@@ -11,6 +11,7 @@
     "import/no-unresolved": 0,
     "import/no-extranous-dependencies": 0,
     "no-restricted-globals": 0,
-    "vue/require-default-prop": 0
+    "vue/require-default-prop": 0,
+    "vue/valid-v-slot": 0
   }
 }

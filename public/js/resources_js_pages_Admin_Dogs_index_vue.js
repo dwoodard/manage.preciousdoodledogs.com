@@ -942,6 +942,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     dog: {}
@@ -1546,8 +1549,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "pascalToTitleCase": () => (/* binding */ pascalToTitleCase),
 /* harmony export */   "ouncesToLbs": () => (/* binding */ ouncesToLbs),
 /* harmony export */   "inchesToFeet": () => (/* binding */ inchesToFeet),
-/* harmony export */   "age": () => (/* binding */ age)
+/* harmony export */   "age": () => (/* binding */ age),
+/* harmony export */   "formatDate": () => (/* binding */ formatDate)
 /* harmony export */ });
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
+
 var toTitleCase = function toTitleCase(str) {
   return str.replace(/\w\S*/g, function (txt) {
     return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
@@ -1654,6 +1661,30 @@ var age = function age(birthdate) {
 
   var year = years === 1 ? 'year' : 'years';
   return "".concat(years, " ").concat(year);
+};
+var formatDate = function formatDate(date) {
+  var formatPattern = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'short';
+
+  if (!date) {
+    return null;
+  }
+
+  var dateFormats = {
+    "long": 'MMMM Do, YYYY',
+    "short": 'MMM Do, YYYY',
+    numeric: 'M/D/Y',
+    time: 'h:mm a'
+  };
+  var pattern = formatPattern.split(' ');
+  var dateFormat = pattern.map(function (part) {
+    // if part is time add a space to the beginning and it's the last part
+    if (part === 'time' && pattern.indexOf(part) === pattern.length - 1) {
+      return " ".concat(dateFormats[part]);
+    }
+
+    return dateFormats[part];
+  }).join('');
+  return moment__WEBPACK_IMPORTED_MODULE_0___default()(date).format(dateFormat);
 };
 
 /***/ }),
@@ -28777,7 +28808,13 @@ var render = function () {
         [
           _c("v-card-title", [_vm._v("Add Litter")]),
           _vm._v(" "),
-          _c("v-card-text", [_c("pre", [_vm._v(_vm._s(_vm.dog))])]),
+          _c("v-card-text", [
+            _c("div", [_vm._v("stud")]),
+            _vm._v(" "),
+            _c("div", [_vm._v("ai date (mated_at)")]),
+            _vm._v(" "),
+            _c("pre", [_vm._v(_vm._s(_vm.dog))]),
+          ]),
         ],
         1
       ),

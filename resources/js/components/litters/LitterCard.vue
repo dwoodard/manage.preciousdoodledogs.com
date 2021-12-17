@@ -1,28 +1,49 @@
 <template>
   <v-container fluid>
-    <v-card>
-      <v-row>
-        <v-col cols="3">
-          <v-row>
-            <v-col data-dog="mom">
-              <v-img
-                :src="getImage(litter.dame)"
-                aspect-ratio="1.61"
-                contain/>
+    <v-card outlined>
+      <v-row no-gutters>
+        <v-col cols="4">
+          <v-row no-gutters>
+            <v-col cols="6" data-dog="mom" align="center">
+              <v-img :src="getImage(litter.dame)" aspect-ratio="1.61" contain/>
+
+              <span v-if="litter.dame">
+                {{ litter.dame.name }}
+              </span>
             </v-col>
-            <v-col data-dog="dad">
-              <v-img
-                :src="getImage(litter.stud)"
-                aspect-ratio="1.61"
-                contain/>
+
+            <v-col cols="6" data-dog="dad" align="center">
+              <v-img :src="getImage(litter.stud)" aspect-ratio="1.61" contain/>
+              <span v-if="litter.stud">
+                {{ litter.stud.name }}
+              </span>
+              <span v-else>
+                <small>(<a href="#">add a stud</a>)</small>
+              </span>
             </v-col>
           </v-row>
         </v-col>
+
         <v-col>
-          details
+          <v-container>
+            <div>
+              Breed Date:
+              {{ formatDate(litter.mated_at) }} ({{ moment(litter.mated_at).fromNow() }})
+            </div>
+            <div>
+              Due Date:
+              {{ formatDate(litter.dame.calculations.next_due_date) }} ({{ moment(litter.dame.calculations.next_due_date).fromNow() }})
+            </div>
+            <div v-if="puppiesBirthdate">
+              Born:
+              {{ formatDate(puppiesBirthdate) }}  ({{ moment(puppiesBirthdate).fromNow() }})
+            </div>
+          </v-container>
         </v-col>
-        <v-spacer/>
-        <v-col cols="1">
+
+        <!--        <v-spacer/>-->
+
+        <v-col cols="1" align="right" class="pa-2">
           <v-menu offset-y>
             <template #activator="{ on, attrs }">
               <v-icon fab
@@ -33,34 +54,63 @@
             </template>
             <v-list>
               <v-list-item>
-                <v-btn>
+                <v-btn width="100%" align="left">
                   <v-icon small>mdi-pencil</v-icon>
                   Edit
                 </v-btn>
               </v-list-item>
+
+              <v-list-item>
+                <v-btn color="primary"><v-icon>mdi-plus</v-icon> Add Puppy</v-btn>
+              </v-list-item>
+
+              <v-list-item>
+                <LitterArchiveDialog :litter="litter"/>
+              </v-list-item>
             </v-list>
           </v-menu>
         </v-col>
-        </v-spacer>
       </v-row>
-      {{ litter }}
-      <v-card-text>
-        <v-row>
-          <v-col/>
-        </v-row>
-      </v-card-text>
 
-      <v-card-actions>
-        <!-- Add Puppy-->
-        <v-btn color="primary"><v-icon>mdi-plus</v-icon> Add Puppy</v-btn>
-        <v-spacer/>
-        <v-btn color="error"><v-icon>mdi-delete</v-icon>Delete</v-btn>
-      </v-card-actions>
+      <v-card-text>
+        <div v-if="litter.puppies.length">
+          <v-data-table :headers="puppyHeaders"
+
+                        :items="litter.puppies"
+
+                        dense>
+            <template #item.gender="{ item }">
+              <div :class="[
+                {'pink lighten-3 white--text pa-2': item.gender === 'female'},
+                {'blue lighten-3 white--text pa-2': item.gender === 'male'}
+              ]">
+                {{ item.gender === 'female' ? 'f' : 'm' }}
+              </div>
+            </template>
+
+            <template #item.collar_color="{ item }">
+              <div :class="[ `${item.collar_color} pa-2 white--text` ]">
+                {{ item.collar_color }}
+              </div>
+            </template>
+
+            <template #item.birthday="{ item }">
+              <div>
+                {{ formatDate(item.birthday, 'numeric time') }}
+              </div>
+            </template>
+          </v-data-table>
+        </div>
+      </v-card-text>
     </v-card>
   </v-container>
 </template>
 
 <script>
+
+  import moment from 'moment';
+  import LitterArchiveDialog from '@/components/litters/LitterArchiveDialog';
+  import {formatDate} from '@/helper';
 
   export default {
     props: {
@@ -69,7 +119,38 @@
         required: true
       }
     },
+    computed: {
+      puppiesBirthdate() {
+        // if no puppies, return empty string
+        if (!this.litter.puppies.length) {
+          return '';
+        }
+
+
+        return moment(this.litter.puppies[0].birthday);
+      },
+      // eslint-disable-next-line vue/return-in-computed-property
+      puppyHeaders() {
+        const headers = [
+          {text: 'Name', value: 'name'},
+          {text: 'Gender', value: 'gender'},
+          {text: 'Collar Color', value: 'collar_color'},
+          {text: 'Birthday', value: 'birthday'}
+        ];
+
+        const hasAdultName = this.litter.puppies.some((obj) => !!obj.adult_name);
+
+        if (hasAdultName) {
+          headers.splice(2, 0, {text: 'Adult Name', value: 'adult_name'});
+        }
+
+
+        return headers;
+      }
+    },
     methods: {
+      moment,
+      formatDate,
       getImage(dog) {
         // check if dog.media exists
         if (!dog?.media) {
@@ -79,7 +160,8 @@
         return dog.media.length > 0 ? dog.media[0].original_url : '/images/defaults/no-dog.png';
       }
 
-    }
+    },
+    components: {LitterArchiveDialog}
 
   };
 </script>

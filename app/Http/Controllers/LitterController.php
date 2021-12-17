@@ -26,7 +26,7 @@ class LitterController extends Controller
                 ->get()
                 ->load(['dame','stud', 'puppies'])
         ];
-//        return $data['litters'];
+//        return $data['litters'][0];
         return Inertia::render('Admin/Litters/Index', $data);
     }
 
