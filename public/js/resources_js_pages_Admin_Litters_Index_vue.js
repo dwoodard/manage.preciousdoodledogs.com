@@ -160,9 +160,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
@@ -22610,6 +22607,7 @@ var render = function () {
                       attrs: {
                         headers: _vm.puppyHeaders,
                         items: _vm.litter.puppies,
+                        "hide-default-footer": "",
                         dense: "",
                       },
                       scopedSlots: _vm._u(

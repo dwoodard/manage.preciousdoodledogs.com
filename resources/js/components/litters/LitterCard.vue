@@ -41,8 +41,6 @@
           </v-container>
         </v-col>
 
-        <!--        <v-spacer/>-->
-
         <v-col cols="1" align="right" class="pa-2">
           <v-menu offset-y>
             <template #activator="{ on, attrs }">
@@ -75,9 +73,8 @@
       <v-card-text>
         <div v-if="litter.puppies.length">
           <v-data-table :headers="puppyHeaders"
-
                         :items="litter.puppies"
-
+                        hide-default-footer
                         dense>
             <template #item.gender="{ item }">
               <div :class="[

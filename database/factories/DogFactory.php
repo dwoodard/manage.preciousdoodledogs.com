@@ -24,7 +24,8 @@ class DogFactory extends Factory
             "generation" => $this->faker->randomElement(["f1b", "f1", "f2b", "f2bb", "multigen"]),
             "birthday" => $this->faker->dateTimeBetween('-6 year', 'now'),
             "gender" => $gender,
-            "outside_stud" => $gender !== 'female' ? $this->faker->numberBetween(0,1) : null,
+            "outside_stud" => $gender == 'male' ? $this->faker->numberBetween(0,1) : null,
+            "can_stud" => $gender == 'male' ? $this->faker->numberBetween(0,1) : null,
             "retired_at" => rand(0,100) > 75 ? $this->faker->dateTimeBetween('-1 year', 'now') : null,
         ];
     }

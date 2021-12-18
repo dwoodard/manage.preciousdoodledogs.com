@@ -15,11 +15,41 @@ class PuppyFactory extends Factory
     public function definition()
     {
         return [
-            'litter_id' => Litter::factory()->create()->id,
+            'litter_id' => null,
             'name' => $this->faker->name,
-            'adult_name' => $this->faker->name,
-            'collar_color' => $this->faker->colorName,
+            'gender' => $this->faker->randomElement(['male', 'female']),
+            'adult_name' => rand(0, 1) ? $this->faker->name : null,
+            'collar_color' => $this->faker->randomElement($this->getCollorColors()),
             'birthday' => $this->faker->dateTimeBetween('-6 months', '-1 days')
         ];
+    }
+
+    /**
+     * @return string[]
+     */
+    private function getCollorColors(): array
+    {
+        $collorColors = [
+            'red',
+            'pink',
+            'purple',
+            'deep-purple',
+            'indigo',
+            'blue',
+            'light-blue',
+            'cyan',
+            'teal',
+            'green',
+            'light-green',
+            'lime',
+            'yellow',
+            'amber',
+            'orange',
+            'deep-orange',
+            'brown',
+            'blue-grey',
+            'grey'
+        ];
+        return $collorColors;
     }
 }

@@ -19,6 +19,13 @@ class Puppy extends Model
         'collar_color',
     ];
 
+    // measurements
+    public function measurements(): \Illuminate\Database\Eloquent\Relations\MorphMany
+    {
+        // polymorphic relationship
+        return $this->morphMany(Measurement::class, 'measureable');
+    }
+
     public function litter()
     {
         return $this->belongsTo('App\Models\Litter');

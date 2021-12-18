@@ -15,12 +15,14 @@ class CreatePuppiesTable extends Migration
     {
         Schema::create('puppies', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('litter_id')->nullable();
+            $table->unsignedBigInteger('litter_id')->nullable();
             $table->string('name', 45)->nullable();
             $table->enum('gender', ['male', 'female'])->nullable();
             $table->string('adult_name', 45)->nullable();
             $table->string('collar_color', 45)->nullable();
             $table->dateTime('birthday')->nullable();
+            $table->string('price')->nullable();
+            $table->boolean('paid')->default(false);
             $table->timestamps();
         });
     }
