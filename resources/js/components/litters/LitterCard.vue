@@ -26,6 +26,10 @@
 
         <v-col>
           <v-container>
+            <div v-if="litter.archive_reason">
+              Archived: {{ litter.archive_reason }} @ {{ formatDate(litter.archived_at) }}
+            </div>
+
             <div>
               Breed Date:
               {{ formatDate(litter.mated_at) }} ({{ moment(litter.mated_at).fromNow() }})
@@ -51,15 +55,15 @@
               </v-icon>
             </template>
             <v-list>
-              <v-list-item>
+              <inertia-link :href="`/admin/litters/${litter.id}/edit`" as="v-list-item">
                 <v-btn width="100%" align="left">
                   <v-icon small>mdi-pencil</v-icon>
                   Edit
                 </v-btn>
-              </v-list-item>
+              </inertia-link>
 
               <v-list-item>
-                <v-btn color="primary"><v-icon>mdi-plus</v-icon> Add Puppy</v-btn>
+                <v-btn width="100%" color="primary"><v-icon>mdi-plus</v-icon> Add Puppy</v-btn>
               </v-list-item>
 
               <v-list-item>
@@ -76,17 +80,18 @@
                         :items="litter.puppies"
                         hide-default-footer
                         dense>
+            #
             <template #item.gender="{ item }">
               <div :class="[
-                {'pink lighten-3 white--text pa-2': item.gender === 'female'},
-                {'blue lighten-3 white--text pa-2': item.gender === 'male'}
+                {'pink lighten-3 white--text': item.gender === 'female'},
+                {'blue lighten-3 white--text': item.gender === 'male'}
               ]">
                 {{ item.gender === 'female' ? 'f' : 'm' }}
               </div>
             </template>
 
             <template #item.collar_color="{ item }">
-              <div :class="[ `${item.collar_color} pa-2 white--text` ]">
+              <div :class="[ `${item.collar_color}  white--text` ]">
                 {{ item.collar_color }}
               </div>
             </template>
@@ -95,6 +100,13 @@
               <div>
                 {{ formatDate(item.birthday, 'numeric time') }}
               </div>
+            </template>
+
+            <!-- Actions-->
+            <template #item.actions="{ item }">
+              <inertia-link :href="`/admin/puppies/${item.id}/edit`" as="v-list-item">
+                <v-icon small>mdi-pencil</v-icon>
+              </inertia-link>
             </template>
           </v-data-table>
         </div>
@@ -132,7 +144,10 @@
           {text: 'Name', value: 'name'},
           {text: 'Gender', value: 'gender'},
           {text: 'Collar Color', value: 'collar_color'},
-          {text: 'Birthday', value: 'birthday'}
+          {text: 'Birthday', value: 'birthday'},
+          {
+            text: 'Actions', value: 'actions'
+          }
         ];
 
         const hasAdultName = this.litter.puppies.some((obj) => !!obj.adult_name);
@@ -156,6 +171,7 @@
 
         return dog.media.length > 0 ? dog.media[0].original_url : '/images/defaults/no-dog.png';
       }
+
 
     },
     components: {LitterArchiveDialog}

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Puppy;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class PuppyController extends Controller
 {
@@ -14,7 +15,20 @@ class PuppyController extends Controller
      */
     public function index()
     {
-        //
+        $dogs = Puppy::with([
+            'media',
+            'measurements',
+            'heats',
+            'litters',
+            'traits'])
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        $data = [
+            'dogs' => $dogs->toArray()
+        ];
+
+        return Inertia::render('Admin/Puppies/index', $data);
     }
 
     /**
@@ -57,7 +71,7 @@ class PuppyController extends Controller
      */
     public function edit(Puppy $puppy)
     {
-        //
+        return Inertia::render('Admin/Puppies/edit', []);
     }
 
     /**

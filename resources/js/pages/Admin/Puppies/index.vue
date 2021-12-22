@@ -1,11 +1,15 @@
 <template>
-$END$
+  <div>
+    <h1>Puppies</h1>
+  </div>
 </template>
 
 <script>
-export default {
-name: "index.vue"
-}
+  import Layout from '@/layouts/Admin/Layout';
+
+  export default {
+    layout: Layout
+  };
 </script>
 
 <style scoped>

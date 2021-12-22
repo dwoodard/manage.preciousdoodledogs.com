@@ -17,17 +17,39 @@ class LitterController extends Controller
      */
     public function index()
     {
-        // data
-
-        $get = null;
+        $litters = !request()->has('showArchived')
+            ? Litter::active()->get()->load(['dame', 'stud', 'puppies'])
+            : Litter::archived()->get()->load(['dame', 'stud', 'puppies']);
 
         $data = [
-            'litters' => Litter::active()
-                ->get()
-                ->load(['dame','stud', 'puppies'])
+            'litters' => $litters
         ];
 //        return $data['litters'][0];
-        return Inertia::render('Admin/Litters/Index', $data);
+        return Inertia::render('Admin/Litters/index', $data);
+    }
+
+    //edit
+    public function edit(Litter $litter)
+    {
+        $data = [
+            'litter' => $litter->load(['dame', 'stud', 'puppies'])
+        ];
+
+        return Inertia::render('Admin/Litters/edit', $data);
+    }
+
+    public function update(Request $request, Litter $litter)
+    {
+        if ($request->input('archive_reason')) {
+            $request->merge(['archived_at' => now()]);
+        } else {
+            $request->merge(['archived_at' => null]);
+        }
+
+        $litter->update($request->all());
+        $litter->save();
+
+        return redirect()->back();
     }
 
 }

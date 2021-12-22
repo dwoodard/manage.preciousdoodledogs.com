@@ -13,6 +13,8 @@ class Litter extends Model
         "dame_id",
         "stud_id",
         "mated_at",
+        "archived_at",
+        "archive_reason",
         "got_pregnant",
         "archived_at",
     ];

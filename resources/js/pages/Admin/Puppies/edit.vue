@@ -1,11 +1,15 @@
 <template>
-$END$
+  <div>
+    <h1>
+      Edit Puppy
+    </h1>
+  </div>
 </template>
 
 <script>
-export default {
-name: "edit.vue"
-}
+  export default {
+
+  };
 </script>
 
 <style scoped>

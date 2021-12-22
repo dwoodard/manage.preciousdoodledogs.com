@@ -2,10 +2,44 @@
   <v-container fluid>
     <v-row>
       <v-col>
-        <!--header-->
         <h1>
-          Litters
+          Litters <span v-if="showArchive">(Archived)</span>
         </h1>
+      </v-col>
+
+      <v-spacer/>
+      <v-col align="right">
+        <v-menu offset-y>
+          <template #activator="{ on, attrs }">
+            <v-icon fab
+                    v-bind="attrs"
+                    v-on="on">
+              mdi-dots-vertical
+            </v-icon>
+          </template>
+
+
+          </v-btn>
+          <v-list class="pa-0">
+            <inertia-link as="v-list-item"
+                          class="pa-2"
+                          dark
+                          :href="litterIndexLink"
+                          :class="{
+                            'danger': !showArchive,
+                            'success': showArchive
+                          }">
+              <span v-if="showArchive">
+                <v-icon>mdi-folder</v-icon>
+                Show Active
+              </span>
+              <span v-else>
+                <v-icon>mdi-delete</v-icon>
+                Show Archived
+              </span>
+            </inertia-link>
+          </v-list>
+        </v-menu>
       </v-col>
     </v-row>
 
@@ -34,12 +68,17 @@
         })
       };
     },
+    computed: {
+      showArchive() {
+        return this.$page.url.includes('showArchived');
+      },
+
+      litterIndexLink() {
+        return this.showArchive ? '/admin/litters' : '/admin/litters?showArchived';
+      }
+    },
     components: {
       LitterCard
     }
   };
 </script>
-
-<style scoped>
-
-</style>

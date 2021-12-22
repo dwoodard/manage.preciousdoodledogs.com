@@ -9,12 +9,15 @@
     <v-card>
       <v-card-title>Archive Litter</v-card-title>
       <v-card-text>
-        <pre>{{ litter }}</pre>
+        <LitterArchive :litter="litter" @archived="archived"/>
       </v-card-text>
     </v-card>
   </v-dialog>
 </template>
 <script>
+
+  import LitterArchive from '@/components/litters/forms/LitterArchive';
+  import {formatDate} from '@/helper';
 
   export default {
     props: {
@@ -24,6 +27,14 @@
       return {
         showDialog: false
       };
+    },
+    methods: {
+      archived() {
+        this.showDialog = false;
+      }
+    },
+    components: {
+      LitterArchive
     }
   };
 </script>
