@@ -2,7 +2,7 @@
   <div>
     <v-app>
       <v-app-bar clipped-left app>
-        <MainNav/>
+        <!--        <MainNav/>-->
         <v-spacer/>
         <ProfileMenu/>
       </v-app-bar>

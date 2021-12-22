@@ -22182,13 +22182,7 @@ var render = function () {
           _c(
             "v-app-bar",
             { attrs: { "clipped-left": "", app: "" } },
-            [
-              _c("MainNav"),
-              _vm._v(" "),
-              _c("v-spacer"),
-              _vm._v(" "),
-              _c("ProfileMenu"),
-            ],
+            [_c("v-spacer"), _vm._v(" "), _c("ProfileMenu")],
             1
           ),
           _vm._v(" "),

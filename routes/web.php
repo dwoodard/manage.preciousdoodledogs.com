@@ -48,10 +48,12 @@ Route::put('/user/profile-information', [\App\Http\Controllers\ProfileInformatio
 
 //Welcome
 Route::get('/',  function(){
-    return Inertia::render('Welcome', [
-        'laravelVersion' => \Illuminate\Foundation\Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+    return redirect('/admin/dogs');
+
+//    return Inertia::render('Welcome', [
+//        'laravelVersion' => \Illuminate\Foundation\Application::VERSION,
+//        'phpVersion' => PHP_VERSION,
+//    ]);
 
 })
 ->name('home');
