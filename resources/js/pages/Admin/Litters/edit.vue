@@ -23,14 +23,29 @@
 
           <v-list>
             <v-list-item>
-              <v-btn icon class="blue--text" @click="$inertia.visit('/admin/litters')">
-                <v-icon>mdi-chevron-left</v-icon>
-              </v-btn>
+              <v-list-item-icon>
+                <v-icon>mdi-archive</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title>Archive</v-list-item-title>
             </v-list-item>
           </v-list>
         </v-menu>
       </v-col>
     </v-row>
+
+    <!--V card-->
+    <v-card outlined>
+      <v-card-title>
+        <v-row>
+          <v-col>
+            <pre>{{ litter.dame.media }}</pre>
+          </v-col>
+          <v-col>
+            <pre>{{ litter.stud.media }}</pre>
+          </v-col>
+        </v-row>
+      </v-card-title>
+    </v-card>
   </v-container>
 </template>
 

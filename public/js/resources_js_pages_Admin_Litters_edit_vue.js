@@ -137,6 +137,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   layout: _layouts_Admin_Layout__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -529,25 +544,45 @@ var render = function () {
                         "v-list-item",
                         [
                           _c(
-                            "v-btn",
-                            {
-                              staticClass: "blue--text",
-                              attrs: { icon: "" },
-                              on: {
-                                click: function ($event) {
-                                  return _vm.$inertia.visit("/admin/litters")
-                                },
-                              },
-                            },
-                            [_c("v-icon", [_vm._v("mdi-chevron-left")])],
+                            "v-list-item-icon",
+                            [_c("v-icon", [_vm._v("mdi-archive")])],
                             1
                           ),
+                          _vm._v(" "),
+                          _c("v-list-item-title", [_vm._v("Archive")]),
                         ],
                         1
                       ),
                     ],
                     1
                   ),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-card",
+        { attrs: { outlined: "" } },
+        [
+          _c(
+            "v-card-title",
+            [
+              _c(
+                "v-row",
+                [
+                  _c("v-col", [
+                    _c("pre", [_vm._v(_vm._s(_vm.litter.dame.media))]),
+                  ]),
+                  _vm._v(" "),
+                  _c("v-col", [
+                    _c("pre", [_vm._v(_vm._s(_vm.litter.stud.media))]),
+                  ]),
                 ],
                 1
               ),
