@@ -4,77 +4,77 @@
     "trait": "E Locus (MC1R)",
     "code": "MC1R",
     "description": "The E Locus determines if and where a dog can produce dark (black or brown) hair. Dogs with two copies of the recessive e allele do not produce dark hairs at all, and will be red over their entire body. The shade of red, which can range from a deep copper to yellow/gold to cream, is dependent on other genetic factors including the Intensity loci. In addition to determining if a dog can develop dark hairs at all, the E Locus can give a dog a black mask or widow’s peak, unless the dog has overriding coat color genetic factors. Dogs with one or two copies of the Em allele usually have a melanistic mask (dark facial hair as commonly seen in the German Shepherd and Pug). Dogs with no copies of Em but one or two copies of the Eg allele usually have a melanistic widow's peak (dark forehead hair as commonly seen in the Afghan Hound and Borzoi, where it is called either grizzle or domino)",
-    "alleles": "Em,Eg,Ee"
+    "alleles": "ee,Em,Eg,Ee"
   },
   {
     "category": "Coat Color",
     "trait": "K Locus (CBD103)",
     "code": "CBD103",
     "description": "The K Locus KB allele overrides the A Locus, meaning that it prevents the A Locus genotype from affecting coat color. For this reason, the KB allele is referred to as the dominant black allele. As a result, dogs with at least one KB allele will usually have solid black or brown coats (or red/cream coats if they are ee at the E Locus) regardless of their genotype at the A Locus, although several other genes could impact the dog’s coat and cause other patterns, such as white spotting. Dogs with the kyky genotype will show a coat color pattern based on the genotype they have at the A Locus. Dogs who test as KBky may be brindle rather than black or brown.",
-    "alleles": "KBky"
+    "alleles": "KBKB,KBky,kyKB,kyky"
   },
   {
     "category": "Coat Color",
     "trait": "Intensity Loci",
     "code": "Intensity Loci",
     "description": "Areas of a dog\"s coat where dark (black or brown) pigment is not expressed either contain red/yellow pigment, or no pigment at all. Five locations across five chromosomes explain approximately 70% of red pigmentation intensity Variation across all dogs. Dogs with a result of Intense Red Pigmentation will likely have deep red hair like an Irish Setter or apricot hair like some Poodles, dogs with a result of Intermediate Red Pigmentation will likely have tan or yellow hair like a Soft-Coated Wheaten Terrier, and dogs with Dilute Red Pigmentation will likely have cream or white hair like a Samoyed. Because the mutations we test may not directly cause differences in red pigmentation intensity, we consider this to be a linkage test.",
-    "alleles": "intermediate-red-pigmentation"
+    "alleles": "intense-red,intermediate-red,dilute-red"
   },
   {
     "category": "Coat Color",
     "trait": "A Locus (ASIP)",
     "code": "ASIP",
     "description": "The A Locus controls switching between black and red pigment in hair cells, but it will only be expressed in dogs that are not ee at the E Locus and are kyky at the K Locus. Sable (also called Fawn) dogs have a mostly or entirely red coat with some interspersed black hairs. Agouti (also called Wolf Sable) dogs have red hairs with black tips, mostly on their head and back. Black and tan dogs are mostly black or brown with lighter patches on their cheeks, eyebrows, chest, and legs. Recessive black dogs have solid-colored black or brown coats.",
-    "alleles": "ayat"
+    "alleles": "aa,aat,ata,atat,ayat"
   },
   {
     "category": "Coat Color",
     "trait": "D Locus (MLPH)",
     "code": "MLPH",
     "description": "The D locus result that we report is determined by two different genetic variants that can work together to cause diluted pigmentation. These are the common d allele, also known as d1, and a less common allele known as d2. Dogs with two d alleles, regardless of which variant, will have all black pigment lightened (diluted) to gray, or brown pigment lightened to lighter brown in their hair, skin, and sometimes eyes. There are many breed-specific names for these dilute colors, such as blue, charcoal, fawn, silver, and Isabella. Note that in certain breeds, dilute dogs have a higher incidence of Color Dilution Alopecia. Dogs with one d allele will not be dilute, but can pass the d allele on to their puppies. To view your dog’s d1 and d2 test results, click the SEE DETAILS link in the upper right hand corner of the Base Coat Color section of the Traits page, and then click the VIEW SUBLOCUS RESULTS link at the bottom of the page.",
-    "alleles": "DD"
+    "alleles": "dd,Dd,DD"
   },
   {
     "category": "Coat Color",
     "trait": "B Locus (TYRP1)",
     "code": "TYRP1",
     "description": "Dogs with two copies of the b allele produce brown pigment instead of black in both their hair and skin. Dogs with one copy of the b allele will produce black pigment, but can pass the b allele on to their puppies. E Locus ee dogs that carry two b alleles will have red or cream coats, but have brown noses, eye rims, and footpads (sometimes referred to as Dudley Nose in Labrador Retrievers). Liver or chocolate is the preferred color term for brown in most breeds; in the Doberman Pinscher it is referred to as red.",
-    "alleles": "BB"
+    "alleles": "BB,Bb,bb"
   },
   {
     "category": "Coat Color",
     "trait": "S Locus (MITF)",
     "code": "MITF",
     "description": "The S Locus determines white spotting and pigment distribution. MITF controls where pigment is produced, and an insertion in the MITF gene causes a loss of pigment in the coat and skin, resulting in white hair and/or pink skin. Dogs with two copies of this variant will likely have breed-dependent white patterning, with a nearly white, parti, or piebald coat. Dogs with one copy of this variant will have more limited white spotting and may be considered flash, parti or piebald. This MITF variant does not explain all white spotting patterns in dogs and other variants are currently being researched. Some dogs may have small amounts of white on the paws, chest, face, or tail regardless of their S Locus genotype.",
-    "alleles": "SS"
+    "alleles": "spsp,Ssp,SS"
   },
   {
     "category": "Coat Color",
     "trait": "H Locus (Harlequin)",
     "code": "H",
     "description": "This pattern is recognized in Great Danes and causes dogs to have a white coat with patches of darker pigment. A dog with an Hh result will be harlequin if they are also M*m or M*M* at the M Locus and are not ee at the E locus. Dogs with a result of hh will not be harlequin. This trait is thought to be homozygous lethal; a living dog with an HH genotype has never been found.",
-    "alleles": "hh"
+    "alleles": "hh,Hh,HH"
   },
   {
     "category": "Other Coat Traits",
     "trait": "Furnishings (RSPO2)",
     "code": "RSPO2",
     "description": "Dogs with one or two copies of the F allele have furnishings: the mustache, beard, and eyebrows characteristic of breeds like the Schnauzer, Scottish Terrier, and Wire Haired Dachshund. A dog with two I alleles will not have furnishings, which is sometimes called an improper coat in breeds where furnishings are part of the breed standard. The mutation is a genetic insertion which we measure indirectly using a linkage test highly correlated with the insertion.",
-    "alleles": "FF"
+    "alleles": "FF,FI,II"
   },
   {
     "category": "Other Coat Traits",
     "trait": "Coat Length (FGF5)",
     "code": "FGF5",
     "description": "The FGF5 gene is known to affect hair length in many different species, including cats, dogs, mice, and humans. In dogs, the T allele confers a long, silky haircoat as observed in the Yorkshire Terrier and the Long Haired Whippet. The ancestral G allele causes a shorter coat as seen in the Boxer or the American Staffordshire Terrier. In certain breeds (such as Corgi), the long hair coat is described as fluff.",
-    "alleles": "GT"
+    "alleles": "TT,TG,GG,GT"
   },
   {
     "category": "Other Coat Traits",
     "trait": "Shedding (MC5R)",
     "code": "MC5R",
     "description": "Dogs with at least one copy of the ancestral C allele, like many Labradors and German Shepherd Dogs, are heavy or seasonal shedders, while those with two copies of the T allele, including many Boxers, Shih Tzus and Chihuahuas, tend to be lighter shedders. Dogs with furnished/wire-haired coats caused by RSPO2 (the furnishings gene) tend to be low shedders regardless of their genotype at this gene.",
-    "alleles": "CT"
+    "alleles": "TT,CT,CC"
   },
   {
     "category": "Other Coat Traits",
@@ -95,7 +95,7 @@
     "trait": "Coat Texture (KRT71)",
     "code": "KRT71",
     "description": "Dogs with a long coat and at least one copy of the T allele have a wavy or curly coat characteristic of Poodles and Bichon Frises. Dogs with two copies of the ancestral C allele are likely to have a straight coat, but there are other factors that can cause a curly coat, for example if they at least one F allele for the Furnishings (RSPO2) gene then they are likely to have a curly coat. Dogs with short coats may carry one or two copies of the T allele but still have straight coats",
-    "alleles": "CT"
+    "alleles": "TT,CT,CC"
   },
   {
     "category": "Other Body Features",
@@ -173,5 +173,19 @@
     "code": "POMC",
     "description": "Normal food motivation",
     "alleles": "NN"
+  },
+  {
+    "category": "Coat Color",
+    "trait": "Merle",
+    "code": "merle",
+    "description": "",
+    "alleles": "mm,Mm,MM"
+  },
+  {
+    "category": "Coat Color",
+    "trait": "R",
+    "code": "R",
+    "description": "",
+    "alleles": "rr,Rr,RR"
   }
 ]
