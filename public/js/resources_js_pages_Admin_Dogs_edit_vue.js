@@ -411,6 +411,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -23519,7 +23520,13 @@ var render = function () {
                 attrs: {
                   "error-messages": _vm.form.errors.breed,
                   label: "Breed",
-                  items: ["poodle", "goldendoodles", "labradoodle", "cavapoo"],
+                  items: [
+                    "poodle",
+                    "goldendoodles",
+                    "labradoodle",
+                    "bernedoodle",
+                    "cavapoo",
+                  ],
                   "item-text": "name",
                   "item-value": "id",
                 },

@@ -248,6 +248,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -22481,7 +22482,13 @@ var render = function () {
                 attrs: {
                   "error-messages": _vm.form.errors.breed,
                   label: "Breed",
-                  items: ["poodle", "goldendoodles", "labradoodle", "cavapoo"],
+                  items: [
+                    "poodle",
+                    "goldendoodles",
+                    "labradoodle",
+                    "bernedoodle",
+                    "cavapoo",
+                  ],
                   "item-text": "name",
                   "item-value": "id",
                 },

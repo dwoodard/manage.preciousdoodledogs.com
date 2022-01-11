@@ -102,6 +102,7 @@
                     'poodle',
                     'goldendoodles',
                     'labradoodle',
+                    'bernedoodle',
                     'cavapoo'
                   ]"
                   item-text="name"
