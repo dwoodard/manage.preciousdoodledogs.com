@@ -4,7 +4,7 @@
     "trait": "E Locus (MC1R)",
     "code": "MC1R",
     "description": "The E Locus determines if and where a dog can produce dark (black or brown) hair. Dogs with two copies of the recessive e allele do not produce dark hairs at all, and will be red over their entire body. The shade of red, which can range from a deep copper to yellow/gold to cream, is dependent on other genetic factors including the Intensity loci. In addition to determining if a dog can develop dark hairs at all, the E Locus can give a dog a black mask or widow’s peak, unless the dog has overriding coat color genetic factors. Dogs with one or two copies of the Em allele usually have a melanistic mask (dark facial hair as commonly seen in the German Shepherd and Pug). Dogs with no copies of Em but one or two copies of the Eg allele usually have a melanistic widow's peak (dark forehead hair as commonly seen in the Afghan Hound and Borzoi, where it is called either grizzle or domino)",
-    "alleles": "ee,Em,Eg,Ee"
+    "alleles": "ee,Ee,EE,Em,Eg"
   },
   {
     "category": "Coat Color",
