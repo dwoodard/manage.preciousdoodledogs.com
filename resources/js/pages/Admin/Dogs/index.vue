@@ -77,6 +77,16 @@
     <v-tabs-items v-model="tab">
       <!--  Card view    -->
       <v-tab-item>
+        <v-btn-toggle v-model="toggle_gender">
+          <v-btn value="female">
+            F ({{ genderCount('female') }})
+          </v-btn>
+          <v-btn value="male">
+            M ({{ genderCount('male') }})
+          </v-btn>
+        </v-btn-toggle>
+
+
         <v-container pa-0 fluid>
           <v-row>
             <v-col v-for="(dog, index) in filterDogs" :key="index" cols="12" sm="6" md="4" lg="3">
@@ -195,6 +205,7 @@
         tab: 0,
         search: '',
         showAddDog: false,
+        toggle_gender: undefined,
 
         singleExpand: true,
         expanded: []
@@ -204,7 +215,6 @@
       autocompleteItems() {
         return this.dogs.map((item) => { return `${item.name}`; });
       },
-
       filterDogs() {
         if (typeof this.search === 'string' && this.search.length) {
           // fuse options
@@ -248,12 +258,19 @@
           return results.map((item) => { return item.item; });
         }
 
-        return this.dogs;
+        if (this.toggle_gender === undefined) {
+          return this.dogs;
+        }
+
+        return this.dogs.filter((dog) => dog.gender === this.toggle_gender);
       }
     },
     methods: {
       ouncesToLbs,
-
+      genderCount(gender) {
+        const dogs = this.dogs.filter((dog) => dog.gender === gender);
+        return dogs.length;
+      },
       traits(traits) {
         // keep everything but the keys dog_id and id
         return Object.keys(traits).reduce((acc, key) => {

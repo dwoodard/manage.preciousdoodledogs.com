@@ -445,6 +445,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -1442,6 +1443,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -1458,6 +1469,7 @@ __webpack_require__.r(__webpack_exports__);
       tab: 0,
       search: '',
       showAddDog: false,
+      toggle_gender: undefined,
       singleExpand: true,
       expanded: []
     };
@@ -1469,6 +1481,8 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     filterDogs: function filterDogs() {
+      var _this = this;
+
       if (typeof this.search === 'string' && this.search.length) {
         // fuse options
         var options = {
@@ -1489,11 +1503,23 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
 
-      return this.dogs;
+      if (this.toggle_gender === undefined) {
+        return this.dogs;
+      }
+
+      return this.dogs.filter(function (dog) {
+        return dog.gender === _this.toggle_gender;
+      });
     }
   },
   methods: {
     ouncesToLbs: _helper__WEBPACK_IMPORTED_MODULE_2__.ouncesToLbs,
+    genderCount: function genderCount(gender) {
+      var dogs = this.dogs.filter(function (dog) {
+        return dog.gender === gender;
+      });
+      return dogs.length;
+    },
     traits: function traits(_traits) {
       // keep everything but the keys dog_id and id
       return Object.keys(_traits).reduce(function (acc, key) {
@@ -3501,7 +3527,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.header[data-v-42575cbf]{\n  padding: 10px;\n}\n.header--female[data-v-42575cbf]{\n  background: #ebacff;\n  background: linear-gradient(0deg,  #ffdcfd 0%, #ebacff 100%);\n}\n.header--male[data-v-42575cbf]{\n  background: #77C3F2;\n  background: linear-gradient(0deg, #77C3F2 0%, #41a8e8 100%);\n}\n.card-male[data-v-42575cbf] {\n  border: 2px solid #77C3F2;\n}\n.card-female[data-v-42575cbf] {\n  border: 2px solid #ebacff;\n}\n\n/*\n.container{\n  outline: 2px solid green;\n}\n.row{\n  outline: 2px solid red;\n}\n.col{\n  outline: 2px solid blue;\n}\n*/\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.header[data-v-42575cbf]{\n  padding: 10px;\n}\n.header--female[data-v-42575cbf]{\n  background: #ebacff;\n}\n.header--male[data-v-42575cbf]{\n  background: #3394ff;\n}\n.card-male[data-v-42575cbf] {\n  border: 4px solid #3394ff;\n}\n.card-female[data-v-42575cbf] {\n  border: 4px solid #ebacff;\n}\n\n/*\n.container{\n  outline: 2px solid green;\n}\n.row{\n  outline: 2px solid red;\n}\n.col{\n  outline: 2px solid blue;\n}\n*/\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -26982,8 +27008,6 @@ var render = function () {
               },
             },
             [
-              _c("v-tab", [_vm._v("Traits")]),
-              _vm._v(" "),
               _c(
                 "v-tab",
                 {
@@ -27006,12 +27030,12 @@ var render = function () {
                     {
                       name: "show",
                       rawName: "v-show",
-                      value: _vm.dog.gender === "male",
-                      expression: "dog.gender === 'male'",
+                      value: _vm.dog.gender === "female",
+                      expression: "dog.gender === 'female'",
                     },
                   ],
                 },
-                [_vm._v("Studding")]
+                [_vm._v("Litters")]
               ),
               _vm._v(" "),
               _c(
@@ -27021,165 +27045,17 @@ var render = function () {
                     {
                       name: "show",
                       rawName: "v-show",
-                      value: _vm.dog.gender === "female",
-                      expression: "dog.gender === 'female'",
+                      value: _vm.dog.gender === "male",
+                      expression: "dog.gender === 'male'",
                     },
                   ],
                 },
-                [_vm._v("Litters")]
+                [_vm._v("Studding")]
               ),
+              _vm._v(" "),
+              _c("v-tab", [_vm._v("Traits")]),
               _vm._v(" "),
               _c("v-tab", [_vm._v("More")]),
-              _vm._v(" "),
-              _c(
-                "v-tab-item",
-                { attrs: { name: "traits" } },
-                [
-                  _c(
-                    "v-row",
-                    { attrs: { "no-gutters": "" } },
-                    [
-                      _c(
-                        "v-col",
-                        { attrs: { cols: "1", offset: "11" } },
-                        [
-                          _c(
-                            "v-menu",
-                            {
-                              attrs: { "offset-y": "" },
-                              scopedSlots: _vm._u([
-                                {
-                                  key: "activator",
-                                  fn: function (ref) {
-                                    var on = ref.on
-                                    var attrs = ref.attrs
-                                    return [
-                                      _c(
-                                        "v-icon",
-                                        _vm._g(
-                                          _vm._b(
-                                            { attrs: { fab: "" } },
-                                            "v-icon",
-                                            attrs,
-                                            false
-                                          ),
-                                          on
-                                        ),
-                                        [
-                                          _vm._v(
-                                            "\n                  mdi-dots-vertical\n                "
-                                          ),
-                                        ]
-                                      ),
-                                    ]
-                                  },
-                                },
-                              ]),
-                            },
-                            [
-                              _vm._v(" "),
-                              _c(
-                                "v-list",
-                                [
-                                  _c(
-                                    "v-list-item",
-                                    [
-                                      _c("DogTraitsDialog", {
-                                        attrs: { dog: _vm.dog },
-                                      }),
-                                    ],
-                                    1
-                                  ),
-                                ],
-                                1
-                              ),
-                            ],
-                            1
-                          ),
-                        ],
-                        1
-                      ),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-row",
-                    { staticClass: "pa-3", attrs: { "no-gutters": "" } },
-                    [
-                      _c("v-col", { attrs: { cols: "6" } }, [
-                        _c("abbr", { attrs: { title: "E Locus (MC1R)" } }, [
-                          _vm._v("E"),
-                        ]),
-                        _vm._v(": " + _vm._s(_vm.dog.traits.MC1R) + " "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("abbr", { attrs: { title: "K Locus (CBD103)" } }, [
-                          _vm._v("K"),
-                        ]),
-                        _vm._v(": " + _vm._s(_vm.dog.traits.CBD103) + " "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("abbr", { attrs: { title: "A Locus (ASIP)" } }, [
-                          _vm._v("A"),
-                        ]),
-                        _vm._v(": " + _vm._s(_vm.dog.traits.ASIP) + " "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("abbr", { attrs: { title: "D Locus (MLPH)" } }, [
-                          _vm._v("D"),
-                        ]),
-                        _vm._v(": " + _vm._s(_vm.dog.traits.MLPH) + " "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("abbr", { attrs: { title: "B Locus (TYRP1)" } }, [
-                          _vm._v("B"),
-                        ]),
-                        _vm._v(": " + _vm._s(_vm.dog.traits.TYRP1) + " "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("abbr", { attrs: { title: "S Locus (MITF)" } }, [
-                          _vm._v("S"),
-                        ]),
-                        _vm._v(": " + _vm._s(_vm.dog.traits.MITF) + " "),
-                        _c("br"),
-                      ]),
-                      _vm._v(" "),
-                      _c("v-col", { attrs: { cols: "6" } }, [
-                        _c(
-                          "abbr",
-                          { attrs: { title: "Furnishings (RSPO2)" } },
-                          [_vm._v("Furnishings")]
-                        ),
-                        _vm._v(": " + _vm._s(_vm.dog.traits.RSPO2) + " "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("abbr", { attrs: { title: "Shedding (MC5R)" } }, [
-                          _vm._v("Shedding"),
-                        ]),
-                        _vm._v(": " + _vm._s(_vm.dog.traits.MC5R) + " "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c(
-                          "abbr",
-                          { attrs: { title: "Coat Texture (KRT71)" } },
-                          [_vm._v("Coat Curl")]
-                        ),
-                        _vm._v(": " + _vm._s(_vm.dog.traits.KRT71) + " "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("abbr", { attrs: { title: "Coat Length (FGF5)" } }, [
-                          _vm._v("Coat Length"),
-                        ]),
-                        _vm._v(": " + _vm._s(_vm.dog.traits.FGF5) + " "),
-                        _c("br"),
-                      ]),
-                    ],
-                    1
-                  ),
-                ],
-                1
-              ),
               _vm._v(" "),
               _c(
                 "v-tab-item",
@@ -27676,27 +27552,6 @@ var render = function () {
                     {
                       name: "show",
                       rawName: "v-show",
-                      value: _vm.dog.gender === "male",
-                      expression: "dog.gender === 'male'",
-                    },
-                  ],
-                  attrs: { name: "studding" },
-                },
-                [
-                  _c("v-container", { attrs: { fluid: "" } }, [
-                    _vm._v("\n          Studding\n        "),
-                  ]),
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-tab-item",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
                       value: _vm.dog.gender === "female",
                       expression: "dog.gender === 'female'",
                     },
@@ -27786,6 +27641,177 @@ var render = function () {
                         ],
                         1
                       ),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-tab-item",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.dog.gender === "male",
+                      expression: "dog.gender === 'male'",
+                    },
+                  ],
+                  attrs: { name: "studding" },
+                },
+                [
+                  _c("v-container", { attrs: { fluid: "" } }, [
+                    _vm._v("\n          Studding\n        "),
+                  ]),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-tab-item",
+                { attrs: { name: "traits" } },
+                [
+                  _c(
+                    "v-row",
+                    { attrs: { "no-gutters": "" } },
+                    [
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "1", offset: "11" } },
+                        [
+                          _c(
+                            "v-menu",
+                            {
+                              attrs: { "offset-y": "" },
+                              scopedSlots: _vm._u([
+                                {
+                                  key: "activator",
+                                  fn: function (ref) {
+                                    var on = ref.on
+                                    var attrs = ref.attrs
+                                    return [
+                                      _c(
+                                        "v-icon",
+                                        _vm._g(
+                                          _vm._b(
+                                            { attrs: { fab: "" } },
+                                            "v-icon",
+                                            attrs,
+                                            false
+                                          ),
+                                          on
+                                        ),
+                                        [
+                                          _vm._v(
+                                            "\n                  mdi-dots-vertical\n                "
+                                          ),
+                                        ]
+                                      ),
+                                    ]
+                                  },
+                                },
+                              ]),
+                            },
+                            [
+                              _vm._v(" "),
+                              _c(
+                                "v-list",
+                                [
+                                  _c(
+                                    "v-list-item",
+                                    [
+                                      _c("DogTraitsDialog", {
+                                        attrs: { dog: _vm.dog },
+                                      }),
+                                    ],
+                                    1
+                                  ),
+                                ],
+                                1
+                              ),
+                            ],
+                            1
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-row",
+                    { staticClass: "pa-3", attrs: { "no-gutters": "" } },
+                    [
+                      _c("v-col", { attrs: { cols: "6" } }, [
+                        _c("abbr", { attrs: { title: "E Locus (MC1R)" } }, [
+                          _vm._v("E"),
+                        ]),
+                        _vm._v(": " + _vm._s(_vm.dog.traits.MC1R) + " "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("abbr", { attrs: { title: "K Locus (CBD103)" } }, [
+                          _vm._v("K"),
+                        ]),
+                        _vm._v(": " + _vm._s(_vm.dog.traits.CBD103) + " "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("abbr", { attrs: { title: "A Locus (ASIP)" } }, [
+                          _vm._v("A"),
+                        ]),
+                        _vm._v(": " + _vm._s(_vm.dog.traits.ASIP) + " "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("abbr", { attrs: { title: "D Locus (MLPH)" } }, [
+                          _vm._v("D"),
+                        ]),
+                        _vm._v(": " + _vm._s(_vm.dog.traits.MLPH) + " "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("abbr", { attrs: { title: "B Locus (TYRP1)" } }, [
+                          _vm._v("B"),
+                        ]),
+                        _vm._v(": " + _vm._s(_vm.dog.traits.TYRP1) + " "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("abbr", { attrs: { title: "S Locus (MITF)" } }, [
+                          _vm._v("S"),
+                        ]),
+                        _vm._v(": " + _vm._s(_vm.dog.traits.MITF) + " "),
+                        _c("br"),
+                      ]),
+                      _vm._v(" "),
+                      _c("v-col", { attrs: { cols: "6" } }, [
+                        _c(
+                          "abbr",
+                          { attrs: { title: "Furnishings (RSPO2)" } },
+                          [_vm._v("Furnishings")]
+                        ),
+                        _vm._v(": " + _vm._s(_vm.dog.traits.RSPO2) + " "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("abbr", { attrs: { title: "Shedding (MC5R)" } }, [
+                          _vm._v("Shedding"),
+                        ]),
+                        _vm._v(": " + _vm._s(_vm.dog.traits.MC5R) + " "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c(
+                          "abbr",
+                          { attrs: { title: "Coat Texture (KRT71)" } },
+                          [_vm._v("Coat Curl")]
+                        ),
+                        _vm._v(": " + _vm._s(_vm.dog.traits.KRT71) + " "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("abbr", { attrs: { title: "Coat Length (FGF5)" } }, [
+                          _vm._v("Coat Length"),
+                        ]),
+                        _vm._v(": " + _vm._s(_vm.dog.traits.FGF5) + " "),
+                        _c("br"),
+                      ]),
                     ],
                     1
                   ),
@@ -29468,6 +29494,37 @@ var render = function () {
           _c(
             "v-tab-item",
             [
+              _c(
+                "v-btn-toggle",
+                {
+                  model: {
+                    value: _vm.toggle_gender,
+                    callback: function ($$v) {
+                      _vm.toggle_gender = $$v
+                    },
+                    expression: "toggle_gender",
+                  },
+                },
+                [
+                  _c("v-btn", { attrs: { value: "female" } }, [
+                    _vm._v(
+                      "\n          F (" +
+                        _vm._s(_vm.genderCount("female")) +
+                        ")\n        "
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("v-btn", { attrs: { value: "male" } }, [
+                    _vm._v(
+                      "\n          M (" +
+                        _vm._s(_vm.genderCount("male")) +
+                        ")\n        "
+                    ),
+                  ]),
+                ],
+                1
+              ),
+              _vm._v(" "),
               _c(
                 "v-container",
                 { attrs: { "pa-0": "", fluid: "" } },

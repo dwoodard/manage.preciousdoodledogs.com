@@ -94,48 +94,14 @@
     <v-row no-gutters>
       <v-tabs v-model="selectedTab" show-arrows grow>
         <!--DogCard Tabs-->
-        <v-tab>Traits</v-tab>
         <v-tab v-show="dog.gender === 'female'">Heats</v-tab>
-        <v-tab v-show="dog.gender === 'male'">Studding</v-tab>
         <v-tab v-show="dog.gender === 'female'">Litters</v-tab>
+        <v-tab v-show="dog.gender === 'male'">Studding</v-tab>
+
+        <v-tab>Traits</v-tab>
         <v-tab>More</v-tab>
 
         <!--Dog Tab Items-->
-        <v-tab-item name="traits">
-          <v-row no-gutters>
-            <v-col cols="1" offset="11">
-              <v-menu offset-y>
-                <template #activator="{ on, attrs }">
-                  <v-icon fab v-bind="attrs" v-on="on">
-                    mdi-dots-vertical
-                  </v-icon>
-                </template>
-                <v-list>
-                  <!-- add heat-->
-                  <v-list-item>
-                    <DogTraitsDialog :dog="dog"/>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
-            </v-col>
-          </v-row>
-          <v-row no-gutters class="pa-3">
-            <v-col cols="6">
-              <abbr title="E Locus (MC1R)">E</abbr>: {{ dog.traits.MC1R }} <br/>
-              <abbr title="K Locus (CBD103)">K</abbr>: {{ dog.traits.CBD103 }} <br/>
-              <abbr title="A Locus (ASIP)">A</abbr>: {{ dog.traits.ASIP }} <br/>
-              <abbr title="D Locus (MLPH)">D</abbr>: {{ dog.traits.MLPH }} <br/>
-              <abbr title="B Locus (TYRP1)">B</abbr>: {{ dog.traits.TYRP1 }} <br/>
-              <abbr title="S Locus (MITF)">S</abbr>: {{ dog.traits.MITF }} <br/>
-            </v-col>
-            <v-col cols="6">
-              <abbr title="Furnishings (RSPO2)">Furnishings</abbr>: {{ dog.traits.RSPO2 }} <br/>
-              <abbr title="Shedding (MC5R)">Shedding</abbr>: {{ dog.traits.MC5R }} <br/>
-              <abbr title="Coat Texture (KRT71)">Coat Curl</abbr>: {{ dog.traits.KRT71 }} <br/>
-              <abbr title="Coat Length (FGF5)">Coat Length</abbr>: {{ dog.traits.FGF5 }} <br/>
-            </v-col>
-          </v-row>
-        </v-tab-item>
         <v-tab-item v-show="dog.gender === 'female'" name="heats">
           <v-container fluid>
             <v-row no-gutters>
@@ -227,11 +193,6 @@
             </v-row>
           </v-container>
         </v-tab-item>
-        <v-tab-item v-show="dog.gender === 'male'" name="studding">
-          <v-container fluid>
-            Studding
-          </v-container>
-        </v-tab-item>
         <v-tab-item v-show="dog.gender === 'female'" name="litters">
           <v-container fluid>
             <v-row no-gutters>
@@ -259,6 +220,46 @@
               </v-col>
             </v-row>
           </v-container>
+        </v-tab-item>
+        <v-tab-item v-show="dog.gender === 'male'" name="studding">
+          <v-container fluid>
+            Studding
+          </v-container>
+        </v-tab-item>
+        <v-tab-item name="traits">
+          <v-row no-gutters>
+            <v-col cols="1" offset="11">
+              <v-menu offset-y>
+                <template #activator="{ on, attrs }">
+                  <v-icon fab v-bind="attrs" v-on="on">
+                    mdi-dots-vertical
+                  </v-icon>
+                </template>
+                <v-list>
+                  <!-- add heat-->
+                  <v-list-item>
+                    <DogTraitsDialog :dog="dog"/>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </v-col>
+          </v-row>
+          <v-row no-gutters class="pa-3">
+            <v-col cols="6">
+              <abbr title="E Locus (MC1R)">E</abbr>: {{ dog.traits.MC1R }} <br/>
+              <abbr title="K Locus (CBD103)">K</abbr>: {{ dog.traits.CBD103 }} <br/>
+              <abbr title="A Locus (ASIP)">A</abbr>: {{ dog.traits.ASIP }} <br/>
+              <abbr title="D Locus (MLPH)">D</abbr>: {{ dog.traits.MLPH }} <br/>
+              <abbr title="B Locus (TYRP1)">B</abbr>: {{ dog.traits.TYRP1 }} <br/>
+              <abbr title="S Locus (MITF)">S</abbr>: {{ dog.traits.MITF }} <br/>
+            </v-col>
+            <v-col cols="6">
+              <abbr title="Furnishings (RSPO2)">Furnishings</abbr>: {{ dog.traits.RSPO2 }} <br/>
+              <abbr title="Shedding (MC5R)">Shedding</abbr>: {{ dog.traits.MC5R }} <br/>
+              <abbr title="Coat Texture (KRT71)">Coat Curl</abbr>: {{ dog.traits.KRT71 }} <br/>
+              <abbr title="Coat Length (FGF5)">Coat Length</abbr>: {{ dog.traits.FGF5 }} <br/>
+            </v-col>
+          </v-row>
         </v-tab-item>
         <v-tab-item name="more">
           <v-container fluid>
@@ -395,20 +396,18 @@
 
 .header--female{
   background: #ebacff;
-  background: linear-gradient(0deg,  #ffdcfd 0%, #ebacff 100%);
 }
 .header--male{
-  background: #77C3F2;
-  background: linear-gradient(0deg, #77C3F2 0%, #41a8e8 100%);
+  background: #3394ff;
 }
 
 .card-male {
-  border: 2px solid #77C3F2;
+  border: 4px solid #3394ff;
 }
 
 
 .card-female {
-  border: 2px solid #ebacff;
+  border: 4px solid #ebacff;
 }
 
 /*
