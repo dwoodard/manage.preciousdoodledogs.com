@@ -5,6 +5,7 @@
     </inertia-link>
 
     <h1 style="display: inline">Add Dog</h1>
+
     <progress v-if="form.imageProgress" :value="form.imageProgress" max="100">
       {{ form.imageProgress }}%
     </progress>
@@ -149,12 +150,14 @@
   import {inchesToFeet, ouncesToLbs, age} from '@/helper';
 
   export default {
+    props: ['auth'],
     data() {
       return {
 
         fromDateMenu: false,
         imageProgress: 0,
         form: this.$inertia.form({
+          user_id: this.auth.user.data.id,
           name: '',
           gender: '',
           birthday: '',

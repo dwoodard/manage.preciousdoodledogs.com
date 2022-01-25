@@ -428,6 +428,7 @@ __webpack_require__.r(__webpack_exports__);
       form: this.$inertia.form("EditDog".concat(this.dog.id), {
         _method: 'put',
         id: this.dog.id,
+        user_id: this.dog.user_id,
         name: this.dog.name,
         gender: this.dog.gender,
         birthday: this.dog.birthday,

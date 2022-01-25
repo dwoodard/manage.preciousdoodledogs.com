@@ -21,6 +21,7 @@ class Dog extends Model implements HasMedia
     protected $table = 'dogs';
 
     protected $fillable = [
+        'user_id',
         'name',
         'breed',
         'gender',
@@ -40,7 +41,11 @@ class Dog extends Model implements HasMedia
         'birthday' => 'date:Y-m-d',
     ];
 
-    // Relationships //
+    // Relationships
+    public function owner()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     // traits
     public function traits(): \Illuminate\Database\Eloquent\Relations\HasOne
@@ -311,6 +316,7 @@ class Dog extends Model implements HasMedia
     {
         $dog = [
             'id' => $this->id,
+            'user_id' => $this->user_id,
             'name' => $this->name,
             'breed' => $this->breed,
             'gender' => $this->gender,

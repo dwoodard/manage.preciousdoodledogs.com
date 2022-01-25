@@ -65,6 +65,11 @@ class User extends Authenticatable
         return SchemalessAttributes::createForModel($this, 'settings');
     }
 
+    public function dogs()
+    {
+        return $this->hasMany('App\Models\Dog');
+    }
+
     public function getIsAdminAttribute()
     {
         return $this->roles()->get()->contains('name', '=','admin');

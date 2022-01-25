@@ -16,7 +16,7 @@ class DogController extends Controller
      */
     public function index()
     {
-        $dogs = Dog::with([
+        $dogs = auth()->user()->dogs()->with([
             'media',
             'measurements',
             'heats',
@@ -42,7 +42,6 @@ class DogController extends Controller
         $data = [
             'dog' => $dog->toArray()
         ];
-//        return $data['dog'];
 
         return Inertia::render('Admin/Dogs/edit', $data);
     }

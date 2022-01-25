@@ -249,14 +249,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['auth'],
   data: function data() {
     return {
       fromDateMenu: false,
       imageProgress: 0,
       form: this.$inertia.form({
+        user_id: this.auth.user.data.id,
         name: '',
         gender: '',
         birthday: '',
