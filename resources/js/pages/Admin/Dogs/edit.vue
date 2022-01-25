@@ -1,10 +1,29 @@
 <template>
   <v-container fluid class="pa-8">
-    <inertia-link href="/admin/dogs" as="span">
-      <v-icon>mdi-arrow-left</v-icon>
-    </inertia-link>
-
-    <h1 style="display: inline-block">Edit Dog</h1>
+    <v-row class="justify-space-between">
+      <v-col>
+        <inertia-link href="/admin/dogs" as="span">
+          <v-icon>mdi-arrow-left</v-icon>
+        </inertia-link>
+        <h1 class="d-inline-block">Edit Dog</h1>
+      </v-col>
+      <v-col class="text-end">
+        <v-menu offset-y>
+          <template #activator="{ on, attrs }">
+            <v-icon fab
+                    v-bind="attrs"
+                    v-on="on">
+              mdi-dots-vertical
+            </v-icon>
+          </template>
+          <v-list>
+            <v-list-item>
+              <DogRetireDialog :dog="dog"/>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </v-col>
+    </v-row>
 
 
     <form @submit.prevent="update">
@@ -189,6 +208,7 @@
   import {age, inchesToFeet, ouncesToLbs} from '@/helper';
   import DogWeightChart from '@/components/dogs/DogWeightChart';
   import DogNotes from '@/components/dogs/forms/DogNotes';
+  import DogRetireDialog from '@/components/dogs/DogRetireDialog';
 
   export default {
     props: {
@@ -250,6 +270,7 @@
 
     },
     components: {
+      DogRetireDialog,
       DogNotes,
       DogWeightChart
     },

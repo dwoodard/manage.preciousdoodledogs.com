@@ -23,6 +23,7 @@ class DogController extends Controller
             'litters',
             'traits'])
             ->orderBy('created_at', 'desc')
+            ->whereNull('retired_at')
             ->get();
 
         $data = [

@@ -34,10 +34,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 // <InputDate :value.sync="SomeValue"/>
 // <InputDate v-model="form.someValue" :value.sync="form.someValue" label="Date" @input="update(arg)"/>
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
+    clear: {
+      type: Boolean,
+      "default": null
+    },
     value: {},
     type: {
       type: String,
@@ -25687,7 +25696,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _InputDate_vue_vue_type_template_id_91b73686___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./InputDate.vue?vue&type=template&id=91b73686& */ "./resources/js/components/InputDate.vue?vue&type=template&id=91b73686&");
+/* harmony import */ var _InputDate_vue_vue_type_template_id_91b73686_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./InputDate.vue?vue&type=template&id=91b73686&scoped=true& */ "./resources/js/components/InputDate.vue?vue&type=template&id=91b73686&scoped=true&");
 /* harmony import */ var _InputDate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./InputDate.vue?vue&type=script&lang=js& */ "./resources/js/components/InputDate.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
@@ -25699,11 +25708,11 @@ __webpack_require__.r(__webpack_exports__);
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _InputDate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _InputDate_vue_vue_type_template_id_91b73686___WEBPACK_IMPORTED_MODULE_0__.render,
-  _InputDate_vue_vue_type_template_id_91b73686___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _InputDate_vue_vue_type_template_id_91b73686_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _InputDate_vue_vue_type_template_id_91b73686_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
-  null,
+  "91b73686",
   null
   
 )
@@ -26296,19 +26305,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/InputDate.vue?vue&type=template&id=91b73686&":
-/*!******************************************************************************!*\
-  !*** ./resources/js/components/InputDate.vue?vue&type=template&id=91b73686& ***!
-  \******************************************************************************/
+/***/ "./resources/js/components/InputDate.vue?vue&type=template&id=91b73686&scoped=true&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/InputDate.vue?vue&type=template&id=91b73686&scoped=true& ***!
+  \******************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InputDate_vue_vue_type_template_id_91b73686___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InputDate_vue_vue_type_template_id_91b73686___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InputDate_vue_vue_type_template_id_91b73686_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InputDate_vue_vue_type_template_id_91b73686_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InputDate_vue_vue_type_template_id_91b73686___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./InputDate.vue?vue&type=template&id=91b73686& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/InputDate.vue?vue&type=template&id=91b73686&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InputDate_vue_vue_type_template_id_91b73686_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./InputDate.vue?vue&type=template&id=91b73686&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/InputDate.vue?vue&type=template&id=91b73686&scoped=true&");
 
 
 /***/ }),
@@ -26483,10 +26492,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/InputDate.vue?vue&type=template&id=91b73686&":
-/*!*********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/InputDate.vue?vue&type=template&id=91b73686& ***!
-  \*********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/InputDate.vue?vue&type=template&id=91b73686&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/InputDate.vue?vue&type=template&id=91b73686&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -26508,105 +26517,126 @@ var render = function () {
     [
       _c("div", { staticClass: "v-input__control" }, [
         _c("div", { staticClass: "v-input__slot" }, [
-          _c("div", { staticClass: "v-text-field__slot" }, [
-            _c(
-              "label",
-              {
-                staticClass: "v-label v-label--active theme--light",
-                staticStyle: {
-                  left: "0px",
-                  right: "auto",
-                  position: "absolute",
+          _c(
+            "div",
+            { staticClass: "v-text-field__slot" },
+            [
+              _c(
+                "label",
+                {
+                  staticClass: "v-label v-label--active theme--light",
+                  staticStyle: {
+                    left: "0px",
+                    right: "auto",
+                    position: "absolute",
+                  },
                 },
-              },
-              [
-                _vm._t("label", function () {
-                  return [_vm._v(_vm._s(_vm.label))]
-                }),
-              ],
-              2
-            ),
-            _vm._v(" "),
-            _vm.type === "checkbox"
-              ? _c("input", {
-                  directives: [
+                [
+                  _vm._t("label", function () {
+                    return [_vm._v(_vm._s(_vm.label))]
+                  }),
+                ],
+                2
+              ),
+              _vm._v(" "),
+              _vm.inputValue && _vm.clear
+                ? _c(
+                    "v-btn",
                     {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.inputValue,
-                      expression: "inputValue",
+                      attrs: { icon: "", elevation: "0", small: "" },
+                      on: {
+                        click: function ($event) {
+                          _vm.inputValue = null
+                        },
+                      },
                     },
-                  ],
-                  staticStyle: { "font-size": "1rem" },
-                  attrs: { required: "", type: "checkbox" },
-                  domProps: {
-                    checked: Array.isArray(_vm.inputValue)
-                      ? _vm._i(_vm.inputValue, null) > -1
-                      : _vm.inputValue,
-                  },
-                  on: {
-                    change: function ($event) {
-                      var $$a = _vm.inputValue,
-                        $$el = $event.target,
-                        $$c = $$el.checked ? true : false
-                      if (Array.isArray($$a)) {
-                        var $$v = null,
-                          $$i = _vm._i($$a, $$v)
-                        if ($$el.checked) {
-                          $$i < 0 && (_vm.inputValue = $$a.concat([$$v]))
+                    [_c("v-icon", [_vm._v("mdi-close-circle")])],
+                    1
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.type === "checkbox"
+                ? _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.inputValue,
+                        expression: "inputValue",
+                      },
+                    ],
+                    staticStyle: { "font-size": "1rem" },
+                    attrs: { required: "", type: "checkbox" },
+                    domProps: {
+                      checked: Array.isArray(_vm.inputValue)
+                        ? _vm._i(_vm.inputValue, null) > -1
+                        : _vm.inputValue,
+                    },
+                    on: {
+                      change: function ($event) {
+                        var $$a = _vm.inputValue,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = null,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 && (_vm.inputValue = $$a.concat([$$v]))
+                          } else {
+                            $$i > -1 &&
+                              (_vm.inputValue = $$a
+                                .slice(0, $$i)
+                                .concat($$a.slice($$i + 1)))
+                          }
                         } else {
-                          $$i > -1 &&
-                            (_vm.inputValue = $$a
-                              .slice(0, $$i)
-                              .concat($$a.slice($$i + 1)))
+                          _vm.inputValue = $$c
                         }
-                      } else {
-                        _vm.inputValue = $$c
-                      }
+                      },
                     },
-                  },
-                })
-              : _vm.type === "radio"
-              ? _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.inputValue,
-                      expression: "inputValue",
+                  })
+                : _vm.type === "radio"
+                ? _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.inputValue,
+                        expression: "inputValue",
+                      },
+                    ],
+                    staticStyle: { "font-size": "1rem" },
+                    attrs: { required: "", type: "radio" },
+                    domProps: { checked: _vm._q(_vm.inputValue, null) },
+                    on: {
+                      change: function ($event) {
+                        _vm.inputValue = null
+                      },
                     },
-                  ],
-                  staticStyle: { "font-size": "1rem" },
-                  attrs: { required: "", type: "radio" },
-                  domProps: { checked: _vm._q(_vm.inputValue, null) },
-                  on: {
-                    change: function ($event) {
-                      _vm.inputValue = null
+                  })
+                : _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.inputValue,
+                        expression: "inputValue",
+                      },
+                    ],
+                    staticStyle: { "font-size": "1rem" },
+                    attrs: { required: "", type: _vm.type },
+                    domProps: { value: _vm.inputValue },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.inputValue = $event.target.value
+                      },
                     },
-                  },
-                })
-              : _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.inputValue,
-                      expression: "inputValue",
-                    },
-                  ],
-                  staticStyle: { "font-size": "1rem" },
-                  attrs: { required: "", type: _vm.type },
-                  domProps: { value: _vm.inputValue },
-                  on: {
-                    input: function ($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.inputValue = $event.target.value
-                    },
-                  },
-                }),
-          ]),
+                  }),
+            ],
+            1
+          ),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "v-text-field__details" }, [

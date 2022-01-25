@@ -336,6 +336,7 @@ class Dog extends Model implements HasMedia
                 ->map(function ($media) {
                     return $media->toArray();
                 }),
+            'retired_at' => $this->retired_at,
         ];
 
         if ($this->gender === 'female') {

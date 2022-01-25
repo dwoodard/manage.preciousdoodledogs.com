@@ -7,6 +7,11 @@
             <!-- slot label -->
             <slot name="label">{{ label }}</slot>
           </label>
+
+          <v-btn v-if="inputValue && clear" icon elevation="0" small @click="inputValue = null">
+            <v-icon>mdi-close-circle</v-icon>
+          </v-btn>
+
           <input v-model="inputValue" :type="type" required style="font-size: 1rem"/>
         </div>
       </div>
@@ -27,6 +32,10 @@
 
   export default {
     props: {
+      clear: {
+        type: Boolean,
+        default: null
+      },
       value: {},
       type: {
         type: String,
@@ -50,3 +59,6 @@
 
   };
 </script>
+<style scoped>
+
+</style>
