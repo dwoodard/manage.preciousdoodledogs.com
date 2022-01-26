@@ -28,9 +28,10 @@
 - dame_id
 - stud_id
 - status ('expected', 'born', 'sold', 'delivered')
-- mated_at (null if not mated)
+- dates (null if not mated)
 - timestamps
 - got_pregnant (boolean default: yes)
+- notes
 -- (calc) birthday = $litter->puppies (orderby birthday of puppy take oldest)
 -- (calc) total =  $litter->puppies->count() 
 -- (calc) females =  $litter->puppies->count() (only females)

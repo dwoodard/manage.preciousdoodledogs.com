@@ -49,7 +49,7 @@
 
 
                 <v-list-item v-if="dog.gender === 'female'">
-                  <DogBreedingDialog :dog="dog"/>
+                  <DogLittersDialog :dog="dog"/>
                 </v-list-item>
 
                 <v-list-item v-if="dog.gender === 'female'">
@@ -322,7 +322,6 @@
   import moment from 'moment';
   import colors from 'vuetify/lib/util/colors';
   import DogTraitsDialog from '@/components/dogs/DogTraitsDialog';
-  import DogBreedingDialog from '@/components/dogs/DogBreedingDialog';
   import DogHeatDialog from '@/components/dogs/DogHeatDialog';
   import DogLittersDialog from '@/components/dogs/DogLittersDialog';
   import DogHeatProgesteroneDialog from '@/components/dogs/DogHeatProgesteroneDialog';
@@ -381,7 +380,6 @@
     components: {
       DogNotes,
       DogHeatProgesteroneDialog,
-      DogBreedingDialog,
       DogHeatDialog,
       DogLittersDialog,
       DogTraitsDialog,

@@ -4,20 +4,35 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\SchemalessAttributes\SchemalessAttributesTrait;
+
 
 class Litter extends Model
 {
     use HasFactory;
+    use SchemalessAttributesTrait;
+
 
     protected $fillable = [
         "dame_id",
         "stud_id",
-        "mated_at",
+        "dates",
         "archived_at",
         "archive_reason",
         "got_pregnant",
+        "notes",
         "archived_at",
     ];
+
+    protected $schemalessAttributes = [
+        'dates',
+    ];
+
+    public function scopeWithDates(): Builder
+    {
+        return $this->dates->modelScope();
+    }
+
 
     public function dame()
     {
@@ -34,7 +49,7 @@ class Litter extends Model
     public function scopeMated($query)
     {
         // get litters that have been mated
-        return $query->where('mated_at', '!=', null);
+        return $query->where('dates', '!=', null);
     }
 
     public function scopeActive($query)
@@ -63,7 +78,7 @@ class Litter extends Model
 ////            'dame' => $this->dame()->get()->toArray(),
 //            'stud_id' => $this->stud_id,
 //            'stud' => $this->stud()->get()->toArray(),
-//            'mated_at' => $this->mated_at,
+//            'dates' => $this->dates,
 //            'archived_at' => $this->archived_at,
 //            'got_pregnant' => $this->got_pregnant,
 //            'puppies' => $this->puppies()->get()->toArray()

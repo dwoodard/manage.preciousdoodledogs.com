@@ -28,6 +28,14 @@ class LitterController extends Controller
         return Inertia::render('Admin/Litters/index', $data);
     }
 
+    public function store(Request $request)
+    {
+
+        $litter = Litter::create($request->all());
+
+        return redirect()->back();
+    }
+
     //edit
     public function edit(Litter $litter)
     {

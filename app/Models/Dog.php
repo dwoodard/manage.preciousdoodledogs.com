@@ -64,7 +64,7 @@ class Dog extends Model implements HasMedia
     {
         return $this->hasMany(Litter::class, 'dame_id', 'id')
             ->where('dame_id', $this->id)
-            ->orderBy('mated_at', 'desc');
+            ->orderBy('dates', 'desc');
     }
 
     // measurements

@@ -32,7 +32,7 @@
 
             <div>
               Breed Date:
-              {{ formatDate(litter.mated_at) }} ({{ moment(litter.mated_at).fromNow() }})
+              {{ formatDate(litter.dates[0]) }} ({{ moment(litter.dates[0]).fromNow() }})
             </div>
             <div>
               Due Date:

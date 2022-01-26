@@ -71,48 +71,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'DogBreedingDialog',
-  props: {
-    dog: {}
-  },
-  data: function data() {
-    return {
-      showDialog: false
-    };
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogCard.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogCard.vue?vue&type=script&lang=js& ***!
@@ -126,15 +84,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vuetify_lib_util_colors__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuetify/lib/util/colors */ "./node_modules/vuetify/lib/util/colors.js");
+/* harmony import */ var vuetify_lib_util_colors__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuetify/lib/util/colors */ "./node_modules/vuetify/lib/util/colors.js");
 /* harmony import */ var _components_dogs_DogTraitsDialog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/dogs/DogTraitsDialog */ "./resources/js/components/dogs/DogTraitsDialog.vue");
-/* harmony import */ var _components_dogs_DogBreedingDialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/dogs/DogBreedingDialog */ "./resources/js/components/dogs/DogBreedingDialog.vue");
-/* harmony import */ var _components_dogs_DogHeatDialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/dogs/DogHeatDialog */ "./resources/js/components/dogs/DogHeatDialog.vue");
-/* harmony import */ var _components_dogs_DogLittersDialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/components/dogs/DogLittersDialog */ "./resources/js/components/dogs/DogLittersDialog.vue");
-/* harmony import */ var _components_dogs_DogHeatProgesteroneDialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/components/dogs/DogHeatProgesteroneDialog */ "./resources/js/components/dogs/DogHeatProgesteroneDialog.vue");
-/* harmony import */ var _components_dogs_DogFamilyDialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/components/dogs/DogFamilyDialog */ "./resources/js/components/dogs/DogFamilyDialog.vue");
-/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/helper */ "./resources/js/helper.js");
-/* harmony import */ var _components_dogs_forms_DogNotes__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/components/dogs/forms/DogNotes */ "./resources/js/components/dogs/forms/DogNotes.vue");
+/* harmony import */ var _components_dogs_DogHeatDialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/dogs/DogHeatDialog */ "./resources/js/components/dogs/DogHeatDialog.vue");
+/* harmony import */ var _components_dogs_DogLittersDialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/dogs/DogLittersDialog */ "./resources/js/components/dogs/DogLittersDialog.vue");
+/* harmony import */ var _components_dogs_DogHeatProgesteroneDialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/components/dogs/DogHeatProgesteroneDialog */ "./resources/js/components/dogs/DogHeatProgesteroneDialog.vue");
+/* harmony import */ var _components_dogs_DogFamilyDialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/components/dogs/DogFamilyDialog */ "./resources/js/components/dogs/DogFamilyDialog.vue");
+/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/helper */ "./resources/js/helper.js");
+/* harmony import */ var _components_dogs_forms_DogNotes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/components/dogs/forms/DogNotes */ "./resources/js/components/dogs/forms/DogNotes.vue");
 //
 //
 //
@@ -455,7 +412,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 
 
 
@@ -475,7 +431,7 @@ var converter = __webpack_require__(/*! number-to-words-en */ "./node_modules/nu
   },
   data: function data() {
     return {
-      colors: vuetify_lib_util_colors__WEBPACK_IMPORTED_MODULE_9__["default"],
+      colors: vuetify_lib_util_colors__WEBPACK_IMPORTED_MODULE_8__["default"],
       selectedTab: '',
       showAddBreeding: false,
       showAddHeat: false,
@@ -485,9 +441,9 @@ var converter = __webpack_require__(/*! number-to-words-en */ "./node_modules/nu
   methods: {
     moment: (moment__WEBPACK_IMPORTED_MODULE_0___default()),
     toOrdinal: converter.toOrdinal,
-    ouncesToLbs: _helper__WEBPACK_IMPORTED_MODULE_7__.ouncesToLbs,
-    age: _helper__WEBPACK_IMPORTED_MODULE_7__.age,
-    inchesToFeet: _helper__WEBPACK_IMPORTED_MODULE_7__.inchesToFeet,
+    ouncesToLbs: _helper__WEBPACK_IMPORTED_MODULE_6__.ouncesToLbs,
+    age: _helper__WEBPACK_IMPORTED_MODULE_6__.age,
+    inchesToFeet: _helper__WEBPACK_IMPORTED_MODULE_6__.inchesToFeet,
     getImage: function getImage(dog) {
       return dog.media.length > 0 ? dog.media[0].original_url : '/images/defaults/no-dog.png';
     },
@@ -513,13 +469,12 @@ var converter = __webpack_require__(/*! number-to-words-en */ "./node_modules/nu
     }
   },
   components: {
-    DogNotes: _components_dogs_forms_DogNotes__WEBPACK_IMPORTED_MODULE_8__["default"],
-    DogHeatProgesteroneDialog: _components_dogs_DogHeatProgesteroneDialog__WEBPACK_IMPORTED_MODULE_5__["default"],
-    DogBreedingDialog: _components_dogs_DogBreedingDialog__WEBPACK_IMPORTED_MODULE_2__["default"],
-    DogHeatDialog: _components_dogs_DogHeatDialog__WEBPACK_IMPORTED_MODULE_3__["default"],
-    DogLittersDialog: _components_dogs_DogLittersDialog__WEBPACK_IMPORTED_MODULE_4__["default"],
+    DogNotes: _components_dogs_forms_DogNotes__WEBPACK_IMPORTED_MODULE_7__["default"],
+    DogHeatProgesteroneDialog: _components_dogs_DogHeatProgesteroneDialog__WEBPACK_IMPORTED_MODULE_4__["default"],
+    DogHeatDialog: _components_dogs_DogHeatDialog__WEBPACK_IMPORTED_MODULE_2__["default"],
+    DogLittersDialog: _components_dogs_DogLittersDialog__WEBPACK_IMPORTED_MODULE_3__["default"],
     DogTraitsDialog: _components_dogs_DogTraitsDialog__WEBPACK_IMPORTED_MODULE_1__["default"],
-    DogFamilyDialog: _components_dogs_DogFamilyDialog__WEBPACK_IMPORTED_MODULE_6__["default"]
+    DogFamilyDialog: _components_dogs_DogFamilyDialog__WEBPACK_IMPORTED_MODULE_5__["default"]
   }
 });
 
@@ -935,6 +890,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_InputDate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/InputDate */ "./resources/js/components/InputDate.vue");
+/* harmony import */ var _components_dogs_lists_DogSelectListItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/dogs/lists/DogSelectListItem */ "./resources/js/components/dogs/lists/DogSelectListItem.vue");
 //
 //
 //
@@ -955,14 +914,133 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     dog: {}
   },
   data: function data() {
     return {
-      showDialog: false
+      snackbar: false,
+      snackbarText: '',
+      showDialog: false,
+      form: this.$inertia.form({
+        dame_id: this.dog.id,
+        stud_id: '',
+        dates: [''],
+        archive_reason: '',
+        got_pregnant: true,
+        notes: '',
+        archived_at: ''
+      })
     };
+  },
+  computed: {
+    studs: function studs() {
+      var studs = this.$page.props.dogs.filter(function (dog) {
+        return dog.gender === 'male';
+      }); // Add a blank other to the end
+
+      studs.push({
+        name: 'other',
+        media: [],
+        id: null
+      });
+      return studs;
+    }
+  },
+  methods: {
+    addDate: function addDate() {
+      this.form.dates.push('');
+    },
+    removeDate: function removeDate(i) {
+      this.form.dates.splice(i, 1);
+    },
+    submit: function submit() {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/admin/litters', this.form.data()) // eslint-disable-next-line promise/always-return
+      .then(function () {
+        _this.showDialog = false;
+        _this.snackbar = true;
+        _this.snackbarText = 'Litter added';
+
+        _this.$inertia.reload();
+      })["catch"](function (result) {
+        console.log(result);
+        _this.snackbar = true;
+        _this.snackbarText = 'There was an error saving the litter.';
+      });
+    }
+  },
+  components: {
+    InputDate: _components_InputDate__WEBPACK_IMPORTED_MODULE_1__["default"],
+    DogSelectListItem: _components_dogs_lists_DogSelectListItem__WEBPACK_IMPORTED_MODULE_2__["default"]
   }
 });
 
@@ -1164,6 +1242,46 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   created: function created() {
     this.update = lodash_debounce__WEBPACK_IMPORTED_MODULE_1___default()(this.updateDog, 1000);
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/lists/DogSelectListItem.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/lists/DogSelectListItem.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    dog: {}
+  },
+  data: function data() {
+    return {};
+  },
+  computed: {},
+  methods: {
+    getImage: function getImage(dog) {
+      return dog.media.length > 0 ? dog.media[0].original_url : '/images/defaults/no-dog.png';
+    }
+  },
+  components: {}
 });
 
 /***/ }),
@@ -25724,45 +25842,6 @@ component.options.__file = "resources/js/components/InputDate.vue"
 
 /***/ }),
 
-/***/ "./resources/js/components/dogs/DogBreedingDialog.vue":
-/*!************************************************************!*\
-  !*** ./resources/js/components/dogs/DogBreedingDialog.vue ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _DogBreedingDialog_vue_vue_type_template_id_363f1276___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DogBreedingDialog.vue?vue&type=template&id=363f1276& */ "./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=template&id=363f1276&");
-/* harmony import */ var _DogBreedingDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DogBreedingDialog.vue?vue&type=script&lang=js& */ "./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _DogBreedingDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _DogBreedingDialog_vue_vue_type_template_id_363f1276___WEBPACK_IMPORTED_MODULE_0__.render,
-  _DogBreedingDialog_vue_vue_type_template_id_363f1276___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/dogs/DogBreedingDialog.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
 /***/ "./resources/js/components/dogs/DogCard.vue":
 /*!**************************************************!*\
   !*** ./resources/js/components/dogs/DogCard.vue ***!
@@ -26038,6 +26117,45 @@ component.options.__file = "resources/js/components/dogs/forms/DogNotes.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/dogs/lists/DogSelectListItem.vue":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/dogs/lists/DogSelectListItem.vue ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _DogSelectListItem_vue_vue_type_template_id_104b5dbc_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DogSelectListItem.vue?vue&type=template&id=104b5dbc&scoped=true& */ "./resources/js/components/dogs/lists/DogSelectListItem.vue?vue&type=template&id=104b5dbc&scoped=true&");
+/* harmony import */ var _DogSelectListItem_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DogSelectListItem.vue?vue&type=script&lang=js& */ "./resources/js/components/dogs/lists/DogSelectListItem.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _DogSelectListItem_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DogSelectListItem_vue_vue_type_template_id_104b5dbc_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _DogSelectListItem_vue_vue_type_template_id_104b5dbc_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "104b5dbc",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/dogs/lists/DogSelectListItem.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/layouts/Admin/Layout.vue":
 /*!***********************************************!*\
   !*** ./resources/js/layouts/Admin/Layout.vue ***!
@@ -26129,22 +26247,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_InputDate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./InputDate.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/InputDate.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_InputDate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=script&lang=js&":
-/*!*************************************************************************************!*\
-  !*** ./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DogBreedingDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DogBreedingDialog.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DogBreedingDialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -26260,6 +26362,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/dogs/lists/DogSelectListItem.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/dogs/lists/DogSelectListItem.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DogSelectListItem_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DogSelectListItem.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/lists/DogSelectListItem.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DogSelectListItem_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/layouts/Admin/Layout.vue?vue&type=script&lang=js&":
 /*!************************************************************************!*\
   !*** ./resources/js/layouts/Admin/Layout.vue?vue&type=script&lang=js& ***!
@@ -26318,23 +26436,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InputDate_vue_vue_type_template_id_91b73686_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InputDate_vue_vue_type_template_id_91b73686_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./InputDate.vue?vue&type=template&id=91b73686&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/InputDate.vue?vue&type=template&id=91b73686&scoped=true&");
-
-
-/***/ }),
-
-/***/ "./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=template&id=363f1276&":
-/*!*******************************************************************************************!*\
-  !*** ./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=template&id=363f1276& ***!
-  \*******************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogBreedingDialog_vue_vue_type_template_id_363f1276___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogBreedingDialog_vue_vue_type_template_id_363f1276___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
-/* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogBreedingDialog_vue_vue_type_template_id_363f1276___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DogBreedingDialog.vue?vue&type=template&id=363f1276& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=template&id=363f1276&");
 
 
 /***/ }),
@@ -26454,6 +26555,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogNotes_vue_vue_type_template_id_543ed27c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogNotes_vue_vue_type_template_id_543ed27c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DogNotes.vue?vue&type=template&id=543ed27c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/forms/DogNotes.vue?vue&type=template&id=543ed27c&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/dogs/lists/DogSelectListItem.vue?vue&type=template&id=104b5dbc&scoped=true&":
+/*!*************************************************************************************************************!*\
+  !*** ./resources/js/components/dogs/lists/DogSelectListItem.vue?vue&type=template&id=104b5dbc&scoped=true& ***!
+  \*************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogSelectListItem_vue_vue_type_template_id_104b5dbc_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogSelectListItem_vue_vue_type_template_id_104b5dbc_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogSelectListItem_vue_vue_type_template_id_104b5dbc_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DogSelectListItem.vue?vue&type=template&id=104b5dbc&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/lists/DogSelectListItem.vue?vue&type=template&id=104b5dbc&scoped=true&");
 
 
 /***/ }),
@@ -26660,84 +26778,6 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=template&id=363f1276&":
-/*!**********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogBreedingDialog.vue?vue&type=template&id=363f1276& ***!
-  \**********************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function () {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "v-dialog",
-    {
-      attrs: { "max-width": "600px" },
-      scopedSlots: _vm._u([
-        {
-          key: "activator",
-          fn: function (ref) {
-            var on = ref.on
-            var attrs = ref.attrs
-            return [
-              _c(
-                "v-btn",
-                _vm._g(
-                  _vm._b(
-                    { attrs: { elevation: "0", width: "100%" } },
-                    "v-btn",
-                    attrs,
-                    false
-                  ),
-                  on
-                ),
-                [
-                  _c("v-icon", [_vm._v("mdi-dna")]),
-                  _vm._v("\n      Add Breeding...\n    "),
-                ],
-                1
-              ),
-            ]
-          },
-        },
-      ]),
-      model: {
-        value: _vm.showDialog,
-        callback: function ($$v) {
-          _vm.showDialog = $$v
-        },
-        expression: "showDialog",
-      },
-    },
-    [
-      _vm._v(" "),
-      _c(
-        "v-card",
-        [
-          _c("v-card-title", [_vm._v("Add Breeding")]),
-          _vm._v(" "),
-          _c("v-card-text", [_c("pre", [_vm._v(_vm._s(_vm.dog))])]),
-        ],
-        1
-      ),
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogCard.vue?vue&type=template&id=42575cbf&scoped=true&":
 /*!************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogCard.vue?vue&type=template&id=42575cbf&scoped=true& ***!
@@ -26875,7 +26915,7 @@ var render = function () {
                                 ? _c(
                                     "v-list-item",
                                     [
-                                      _c("DogBreedingDialog", {
+                                      _c("DogLittersDialog", {
                                         attrs: { dog: _vm.dog },
                                       }),
                                     ],
@@ -28841,7 +28881,7 @@ var render = function () {
                 ),
                 [
                   _c("v-icon", [_vm._v("mdi-dna")]),
-                  _vm._v("\n      Add Litters...\n    "),
+                  _vm._v("\n      Add Breeding/Litters...\n    "),
                 ],
                 1
               ),
@@ -28862,17 +28902,224 @@ var render = function () {
       _c(
         "v-card",
         [
-          _c("v-card-title", [_vm._v("Add Litter")]),
+          _c("v-card-title", [_vm._v("\n      Add Breeding/Litters\n    ")]),
           _vm._v(" "),
-          _c("v-card-text", [
-            _c("div", [_vm._v("stud")]),
+          _c("v-card-subtitle", [
+            _c("div", [
+              _vm._v(
+                "Breeding for dame and stud. Litters will later be added to the breeding."
+              ),
+            ]),
             _vm._v(" "),
-            _c("div", [_vm._v("ai date (mated_at)")]),
-            _vm._v(" "),
-            _c("pre", [_vm._v(_vm._s(_vm.dog))]),
+            _c("div", [_vm._v("If no puppies, mark breeding as not pregnant")]),
           ]),
+          _vm._v(" "),
+          _c(
+            "v-card-text",
+            [
+              _c(
+                "v-row",
+                [
+                  _c(
+                    "v-col",
+                    { attrs: { cols: "4" } },
+                    [
+                      _c("div", [_vm._v("Dame:")]),
+                      _vm._v(" "),
+                      _c("DogSelectListItem", { attrs: { dog: _vm.dog } }),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-col",
+                    { attrs: { cols: "4", offset: "4" } },
+                    [
+                      _c("div", [_vm._v("Stud:")]),
+                      _vm._v(" "),
+                      _c("v-select", {
+                        attrs: {
+                          items: _vm.studs,
+                          "item-value": "id",
+                          "item-text": "name",
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "item",
+                            fn: function (data) {
+                              return [
+                                _c("DogSelectListItem", {
+                                  attrs: { dog: data.item },
+                                }),
+                              ]
+                            },
+                          },
+                          {
+                            key: "selection",
+                            fn: function (data) {
+                              return [
+                                _c("DogSelectListItem", {
+                                  attrs: { dog: data.item },
+                                }),
+                              ]
+                            },
+                          },
+                        ]),
+                        model: {
+                          value: _vm.form.stud_id,
+                          callback: function ($$v) {
+                            _vm.$set(_vm.form, "stud_id", $$v)
+                          },
+                          expression: "form.stud_id",
+                        },
+                      }),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-container",
+                _vm._l(_vm.form.dates, function (date, i) {
+                  return _c(
+                    "div",
+                    { key: "date_" + i },
+                    [
+                      _c(
+                        "v-row",
+                        [
+                          _c(
+                            "v-col",
+                            { attrs: { cols: "11", sm: "11" } },
+                            [
+                              _c("InputDate", {
+                                attrs: {
+                                  label: "Breeding Date " + (i + 1),
+                                  required: i == 0,
+                                },
+                                model: {
+                                  value: _vm.form.dates[i],
+                                  callback: function ($$v) {
+                                    _vm.$set(_vm.form.dates, i, $$v)
+                                  },
+                                  expression: "form.dates[i]",
+                                },
+                              }),
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-col",
+                            { attrs: { cols: "1", sm: "1" } },
+                            [
+                              i > 0
+                                ? _c(
+                                    "v-btn",
+                                    {
+                                      attrs: { icon: "" },
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.removeDate(i)
+                                        },
+                                      },
+                                    },
+                                    [_c("v-icon", [_vm._v("mdi-close")])],
+                                    1
+                                  )
+                                : _vm._e(),
+                            ],
+                            1
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  )
+                }),
+                0
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                [
+                  _c("v-icon", { on: { click: _vm.addDate } }, [
+                    _vm._v("mdi-plus"),
+                  ]),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-row",
+                [
+                  _c(
+                    "v-col",
+                    [
+                      _c("v-textarea", {
+                        attrs: { label: "Notes", clear: "" },
+                        model: {
+                          value: _vm.form.notes,
+                          callback: function ($$v) {
+                            _vm.$set(_vm.form, "notes", $$v)
+                          },
+                          expression: "form.notes",
+                        },
+                      }),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-card-actions",
+            [
+              _c("v-spacer"),
+              _vm._v(" "),
+              _c(
+                "v-btn",
+                {
+                  attrs: { text: "" },
+                  on: {
+                    click: function ($event) {
+                      _vm.showDialog = false
+                    },
+                  },
+                },
+                [_vm._v("Cancel")]
+              ),
+              _vm._v(" "),
+              _c("v-btn", { attrs: { text: "" }, on: { click: _vm.submit } }, [
+                _vm._v("Save"),
+              ]),
+            ],
+            1
+          ),
         ],
         1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-snackbar",
+        {
+          attrs: { timeout: 4000 },
+          model: {
+            value: _vm.snackbar,
+            callback: function ($$v) {
+              _vm.snackbar = $$v
+            },
+            expression: "snackbar",
+          },
+        },
+        [_vm._v("\n    " + _vm._s(_vm.snackbarText) + "\n  ")]
       ),
     ],
     1
@@ -29169,6 +29416,46 @@ var render = function () {
       expression: "notes",
     },
   })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/lists/DogSelectListItem.vue?vue&type=template&id=104b5dbc&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/lists/DogSelectListItem.vue?vue&type=template&id=104b5dbc&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-row",
+    { staticClass: "justify-space-between" },
+    [
+      _c(
+        "v-col",
+        [_c("v-img", { attrs: { width: "50px", src: _vm.getImage(_vm.dog) } })],
+        1
+      ),
+      _vm._v(" "),
+      _c("v-col", { staticClass: "text-end" }, [
+        _vm._v("\n    " + _vm._s(_vm.dog.name) + "\n  "),
+      ]),
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

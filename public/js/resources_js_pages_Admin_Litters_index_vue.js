@@ -23368,9 +23368,9 @@ var render = function () {
                     _c("div", [
                       _vm._v(
                         "\n            Breed Date:\n            " +
-                          _vm._s(_vm.formatDate(_vm.litter.mated_at)) +
+                          _vm._s(_vm.formatDate(_vm.litter.dates[0])) +
                           " (" +
-                          _vm._s(_vm.moment(_vm.litter.mated_at).fromNow()) +
+                          _vm._s(_vm.moment(_vm.litter.dates[0]).fromNow()) +
                           ")\n          "
                       ),
                     ]),
