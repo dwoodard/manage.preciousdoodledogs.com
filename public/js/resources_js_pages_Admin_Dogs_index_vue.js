@@ -537,6 +537,9 @@ __webpack_require__.r(__webpack_exports__);
   computed: {},
   methods: {
     editLitter: function editLitter() {// go to litter edit page
+    },
+    isLitterActive: function isLitterActive(litter) {
+      return litter.archived_at === null;
     }
   },
   components: {
@@ -28241,16 +28244,13 @@ var render = function () {
                                                       "v-list-item-content",
                                                       [
                                                         _c(
-                                                          "v-list-item-title",
+                                                          "inertia-link",
                                                           {
-                                                            on: {
-                                                              click: function (
-                                                                $event
-                                                              ) {
-                                                                return _vm.editLitter(
-                                                                  litter
-                                                                )
-                                                              },
+                                                            attrs: {
+                                                              href: _vm.route(
+                                                                "admin.litters.edit",
+                                                                [litter.id]
+                                                              ),
                                                             },
                                                           },
                                                           [
@@ -28288,7 +28288,7 @@ var render = function () {
                                   1
                                 ),
                                 _vm._v(
-                                  "\n\n\n              Puppies:\n            "
+                                  "\n\n\n              Content for is panel\n            "
                                 ),
                               ],
                               1

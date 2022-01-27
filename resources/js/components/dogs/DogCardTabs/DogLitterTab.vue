@@ -26,9 +26,9 @@
                             <v-icon>mdi-pencil</v-icon>
                           </v-list-item-icon>
                           <v-list-item-content>
-                            <v-list-item-title @click="editLitter(litter)">
+                            <inertia-link :href="route('admin.litters.edit', [litter.id])">
                               Edit
-                            </v-list-item-title>
+                            </inertia-link>
                           </v-list-item-content>
                         </v-list-item>
                         <v-list-item>
@@ -40,7 +40,7 @@
                 </v-row>
 
 
-                Puppies:
+                Content for is panel
               </v-expansion-panel-content>
             </v-expansion-panel>
           </v-expansion-panels>
@@ -66,10 +66,16 @@
 
       };
     },
-    computed: { },
+    computed: {
+
+
+    },
     methods: {
       editLitter() {
         // go to litter edit page
+      },
+      isLitterActive(litter) {
+        return litter.archived_at === null;
       }
     },
     components: {
@@ -79,5 +85,4 @@
 </script>
 
 <style scoped>
-
 </style>

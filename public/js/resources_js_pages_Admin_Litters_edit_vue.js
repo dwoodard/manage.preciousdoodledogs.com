@@ -153,6 +153,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   layout: _layouts_Admin_Layout__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -571,8 +573,10 @@ var render = function () {
         "v-card",
         { attrs: { outlined: "" } },
         [
+          _c("v-card-title", [_vm._v("\n      Edit Litter\n    ")]),
+          _vm._v(" "),
           _c(
-            "v-card-title",
+            "v-card-text",
             [
               _c(
                 "v-row",
@@ -612,8 +616,6 @@ var render = function () {
             ],
             1
           ),
-          _vm._v(" "),
-          _c("v-card-content"),
         ],
         1
       ),

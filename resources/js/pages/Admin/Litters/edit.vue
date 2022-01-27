@@ -36,6 +36,9 @@
     <!--V card-->
     <v-card outlined>
       <v-card-title>
+        Edit Litter
+      </v-card-title>
+      <v-card-text>
         <v-row>
           <v-col>
             <v-img v-if="litter.dame.media.length" width="40" :src="litter.dame.media[0].original_url"/>
@@ -44,8 +47,7 @@
             <v-img v-if="litter.stud.media.length" width="40" :src="litter.stud.media[0].original_url"/>
           </v-col>
         </v-row>
-      </v-card-title>
-      <v-card-content/>
+      </v-card-text>
     </v-card>
   </v-container>
 </template>
