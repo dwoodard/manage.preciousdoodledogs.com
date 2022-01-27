@@ -152,6 +152,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   layout: _layouts_Admin_Layout__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -576,19 +577,43 @@ var render = function () {
               _c(
                 "v-row",
                 [
-                  _c("v-col", [
-                    _c("pre", [_vm._v(_vm._s(_vm.litter.dame.media))]),
-                  ]),
+                  _c(
+                    "v-col",
+                    [
+                      _vm.litter.dame.media.length
+                        ? _c("v-img", {
+                            attrs: {
+                              width: "40",
+                              src: _vm.litter.dame.media[0].original_url,
+                            },
+                          })
+                        : _vm._e(),
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
-                  _c("v-col", [
-                    _c("pre", [_vm._v(_vm._s(_vm.litter.stud.media))]),
-                  ]),
+                  _c(
+                    "v-col",
+                    [
+                      _vm.litter.stud.media.length
+                        ? _c("v-img", {
+                            attrs: {
+                              width: "40",
+                              src: _vm.litter.stud.media[0].original_url,
+                            },
+                          })
+                        : _vm._e(),
+                    ],
+                    1
+                  ),
                 ],
                 1
               ),
             ],
             1
           ),
+          _vm._v(" "),
+          _c("v-card-content"),
         ],
         1
       ),

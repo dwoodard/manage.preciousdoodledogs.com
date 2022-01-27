@@ -65,6 +65,11 @@ class User extends Authenticatable
         return SchemalessAttributes::createForModel($this, 'settings');
     }
 
+    public function litters(){
+        return $this->hasManyThrough('App\Models\Litter', 'App\Models\Dog', 'user_id', 'dame_id');
+
+    }
+
     public function dogs()
     {
         return $this->hasMany('App\Models\Dog');

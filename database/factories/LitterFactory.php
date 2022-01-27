@@ -14,10 +14,16 @@ class LitterFactory extends Factory
      */
     public function definition()
     {
+        //create an array of fake dates
+        $dates = [];
+        for ($i = 0; $i < rand(1, 5); $i++) {
+            $dates[] = $this->faker->dateTimeBetween('-1 year', 'now');
+        }
+
         return [
             'dame_id' => null,
             'stud_id' => null,
-            'mated_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
+            'dates' => $dates,
             'archived_at' => rand(0, 100) < 2 ? $this->faker->dateTimeBetween('-1 year', 'now') : null,
             'got_pregnant' => rand(0, 100) > 99,
         ];

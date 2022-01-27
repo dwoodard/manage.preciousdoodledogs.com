@@ -84,14 +84,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vuetify_lib_util_colors__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuetify/lib/util/colors */ "./node_modules/vuetify/lib/util/colors.js");
+/* harmony import */ var vuetify_lib_util_colors__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuetify/lib/util/colors */ "./node_modules/vuetify/lib/util/colors.js");
 /* harmony import */ var _components_dogs_DogTraitsDialog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/dogs/DogTraitsDialog */ "./resources/js/components/dogs/DogTraitsDialog.vue");
 /* harmony import */ var _components_dogs_DogHeatDialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/dogs/DogHeatDialog */ "./resources/js/components/dogs/DogHeatDialog.vue");
 /* harmony import */ var _components_dogs_DogLittersDialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/dogs/DogLittersDialog */ "./resources/js/components/dogs/DogLittersDialog.vue");
 /* harmony import */ var _components_dogs_DogHeatProgesteroneDialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/components/dogs/DogHeatProgesteroneDialog */ "./resources/js/components/dogs/DogHeatProgesteroneDialog.vue");
 /* harmony import */ var _components_dogs_DogFamilyDialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/components/dogs/DogFamilyDialog */ "./resources/js/components/dogs/DogFamilyDialog.vue");
-/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/helper */ "./resources/js/helper.js");
-/* harmony import */ var _components_dogs_forms_DogNotes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/components/dogs/forms/DogNotes */ "./resources/js/components/dogs/forms/DogNotes.vue");
+/* harmony import */ var _components_dogs_DogCardTabs_DogLitterTab__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/components/dogs/DogCardTabs/DogLitterTab */ "./resources/js/components/dogs/DogCardTabs/DogLitterTab.vue");
+/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/helper */ "./resources/js/helper.js");
+/* harmony import */ var _components_dogs_forms_DogNotes__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/components/dogs/forms/DogNotes */ "./resources/js/components/dogs/forms/DogNotes.vue");
 //
 //
 //
@@ -387,31 +388,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -431,7 +408,7 @@ var converter = __webpack_require__(/*! number-to-words-en */ "./node_modules/nu
   },
   data: function data() {
     return {
-      colors: vuetify_lib_util_colors__WEBPACK_IMPORTED_MODULE_8__["default"],
+      colors: vuetify_lib_util_colors__WEBPACK_IMPORTED_MODULE_9__["default"],
       selectedTab: '',
       showAddBreeding: false,
       showAddHeat: false,
@@ -441,9 +418,9 @@ var converter = __webpack_require__(/*! number-to-words-en */ "./node_modules/nu
   methods: {
     moment: (moment__WEBPACK_IMPORTED_MODULE_0___default()),
     toOrdinal: converter.toOrdinal,
-    ouncesToLbs: _helper__WEBPACK_IMPORTED_MODULE_6__.ouncesToLbs,
-    age: _helper__WEBPACK_IMPORTED_MODULE_6__.age,
-    inchesToFeet: _helper__WEBPACK_IMPORTED_MODULE_6__.inchesToFeet,
+    ouncesToLbs: _helper__WEBPACK_IMPORTED_MODULE_7__.ouncesToLbs,
+    age: _helper__WEBPACK_IMPORTED_MODULE_7__.age,
+    inchesToFeet: _helper__WEBPACK_IMPORTED_MODULE_7__.inchesToFeet,
     getImage: function getImage(dog) {
       return dog.media.length > 0 ? dog.media[0].original_url : '/images/defaults/no-dog.png';
     },
@@ -469,12 +446,101 @@ var converter = __webpack_require__(/*! number-to-words-en */ "./node_modules/nu
     }
   },
   components: {
-    DogNotes: _components_dogs_forms_DogNotes__WEBPACK_IMPORTED_MODULE_7__["default"],
+    DogNotes: _components_dogs_forms_DogNotes__WEBPACK_IMPORTED_MODULE_8__["default"],
     DogHeatProgesteroneDialog: _components_dogs_DogHeatProgesteroneDialog__WEBPACK_IMPORTED_MODULE_4__["default"],
     DogHeatDialog: _components_dogs_DogHeatDialog__WEBPACK_IMPORTED_MODULE_2__["default"],
     DogLittersDialog: _components_dogs_DogLittersDialog__WEBPACK_IMPORTED_MODULE_3__["default"],
     DogTraitsDialog: _components_dogs_DogTraitsDialog__WEBPACK_IMPORTED_MODULE_1__["default"],
-    DogFamilyDialog: _components_dogs_DogFamilyDialog__WEBPACK_IMPORTED_MODULE_5__["default"]
+    DogFamilyDialog: _components_dogs_DogFamilyDialog__WEBPACK_IMPORTED_MODULE_5__["default"],
+    DogLitterTab: _components_dogs_DogCardTabs_DogLitterTab__WEBPACK_IMPORTED_MODULE_6__["default"]
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogCardTabs/DogLitterTab.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogCardTabs/DogLitterTab.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _components_dogs_DogLittersDialog_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/dogs/DogLittersDialog.vue */ "./resources/js/components/dogs/DogLittersDialog.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    dog: {
+      type: Object,
+      required: true
+    }
+  },
+  data: function data() {
+    return {};
+  },
+  computed: {},
+  methods: {
+    editLitter: function editLitter() {// go to litter edit page
+    }
+  },
+  components: {
+    DogLittersDialog: _components_dogs_DogLittersDialog_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
 
@@ -1703,7 +1769,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ouncesToLbs": () => (/* binding */ ouncesToLbs),
 /* harmony export */   "inchesToFeet": () => (/* binding */ inchesToFeet),
 /* harmony export */   "age": () => (/* binding */ age),
-/* harmony export */   "formatDate": () => (/* binding */ formatDate)
+/* harmony export */   "formatDate": () => (/* binding */ formatDate),
+/* harmony export */   "latestDateFromArray": () => (/* binding */ latestDateFromArray)
 /* harmony export */ });
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
@@ -1838,6 +1905,16 @@ var formatDate = function formatDate(date) {
     return dateFormats[part];
   }).join('');
   return moment__WEBPACK_IMPORTED_MODULE_0___default()(date).format(dateFormat);
+};
+var latestDateFromArray = function latestDateFromArray(dates) {
+  if (!dates || dates.length === 0) {
+    return null;
+  }
+
+  var sortedDates = dates.sort(function (a, b) {
+    return new Date(a) - new Date(b);
+  });
+  return sortedDates[sortedDates.length - 1];
 };
 
 /***/ }),
@@ -25883,6 +25960,45 @@ component.options.__file = "resources/js/components/dogs/DogCard.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/dogs/DogCardTabs/DogLitterTab.vue":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/dogs/DogCardTabs/DogLitterTab.vue ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _DogLitterTab_vue_vue_type_template_id_819a951e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DogLitterTab.vue?vue&type=template&id=819a951e&scoped=true& */ "./resources/js/components/dogs/DogCardTabs/DogLitterTab.vue?vue&type=template&id=819a951e&scoped=true&");
+/* harmony import */ var _DogLitterTab_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DogLitterTab.vue?vue&type=script&lang=js& */ "./resources/js/components/dogs/DogCardTabs/DogLitterTab.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _DogLitterTab_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DogLitterTab_vue_vue_type_template_id_819a951e_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _DogLitterTab_vue_vue_type_template_id_819a951e_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "819a951e",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/dogs/DogCardTabs/DogLitterTab.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/dogs/DogFamilyDialog.vue":
 /*!**********************************************************!*\
   !*** ./resources/js/components/dogs/DogFamilyDialog.vue ***!
@@ -26266,6 +26382,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/dogs/DogCardTabs/DogLitterTab.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/dogs/DogCardTabs/DogLitterTab.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DogLitterTab_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DogLitterTab.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogCardTabs/DogLitterTab.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DogLitterTab_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/dogs/DogFamilyDialog.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************!*\
   !*** ./resources/js/components/dogs/DogFamilyDialog.vue?vue&type=script&lang=js& ***!
@@ -26453,6 +26585,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogCard_vue_vue_type_template_id_42575cbf_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogCard_vue_vue_type_template_id_42575cbf_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DogCard.vue?vue&type=template&id=42575cbf&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogCard.vue?vue&type=template&id=42575cbf&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/dogs/DogCardTabs/DogLitterTab.vue?vue&type=template&id=819a951e&scoped=true&":
+/*!**************************************************************************************************************!*\
+  !*** ./resources/js/components/dogs/DogCardTabs/DogLitterTab.vue?vue&type=template&id=819a951e&scoped=true& ***!
+  \**************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogLitterTab_vue_vue_type_template_id_819a951e_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogLitterTab_vue_vue_type_template_id_819a951e_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DogLitterTab_vue_vue_type_template_id_819a951e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DogLitterTab.vue?vue&type=template&id=819a951e&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogCardTabs/DogLitterTab.vue?vue&type=template&id=819a951e&scoped=true&");
 
 
 /***/ }),
@@ -27628,93 +27777,7 @@ var render = function () {
                   ],
                   attrs: { name: "litters" },
                 },
-                [
-                  _c(
-                    "v-container",
-                    { attrs: { fluid: "" } },
-                    [
-                      _c(
-                        "v-row",
-                        { attrs: { "no-gutters": "" } },
-                        [
-                          _c(
-                            "v-col",
-                            { attrs: { cols: "1", offset: "11" } },
-                            [
-                              _c(
-                                "v-menu",
-                                {
-                                  attrs: { "offset-y": "" },
-                                  scopedSlots: _vm._u([
-                                    {
-                                      key: "activator",
-                                      fn: function (ref) {
-                                        var on = ref.on
-                                        var attrs = ref.attrs
-                                        return [
-                                          _c(
-                                            "v-icon",
-                                            _vm._g(
-                                              _vm._b(
-                                                { attrs: { fab: "" } },
-                                                "v-icon",
-                                                attrs,
-                                                false
-                                              ),
-                                              on
-                                            ),
-                                            [
-                                              _vm._v(
-                                                "\n                    mdi-dots-vertical\n                  "
-                                              ),
-                                            ]
-                                          ),
-                                        ]
-                                      },
-                                    },
-                                  ]),
-                                },
-                                [
-                                  _vm._v(" "),
-                                  _c(
-                                    "v-list",
-                                    [
-                                      _c(
-                                        "v-list-item",
-                                        [
-                                          _c("DogLittersDialog", {
-                                            attrs: { dog: _vm.dog },
-                                          }),
-                                        ],
-                                        1
-                                      ),
-                                    ],
-                                    1
-                                  ),
-                                ],
-                                1
-                              ),
-                            ],
-                            1
-                          ),
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-row",
-                        { attrs: { "no-gutters": "" } },
-                        [
-                          _c("v-col", [
-                            _c("pre", [_vm._v(_vm._s(_vm.dog.litters))]),
-                          ]),
-                        ],
-                        1
-                      ),
-                    ],
-                    1
-                  ),
-                ],
+                [_c("DogLitterTab", { attrs: { dog: _vm.dog } })],
                 1
               ),
               _vm._v(" "),
@@ -28048,6 +28111,208 @@ var render = function () {
       ),
     ],
     2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogCardTabs/DogLitterTab.vue?vue&type=template&id=819a951e&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dogs/DogCardTabs/DogLitterTab.vue?vue&type=template&id=819a951e&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-container",
+    { attrs: { fluid: "" } },
+    [
+      _c(
+        "v-row",
+        { attrs: { "no-gutters": "" } },
+        [
+          _c(
+            "v-col",
+            [
+              _vm._l(_vm.dog.litters, function (litter, index) {
+                return _c(
+                  "div",
+                  { key: index },
+                  [
+                    _c(
+                      "v-expansion-panels",
+                      [
+                        _c(
+                          "v-expansion-panel",
+                          [
+                            _c("v-expansion-panel-header", [
+                              _vm._v(
+                                "\n              litter " +
+                                  _vm._s(litter.id) +
+                                  "\n              " +
+                                  _vm._s(index + 1) +
+                                  "\n            "
+                              ),
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "v-expansion-panel-content",
+                              [
+                                _c(
+                                  "v-row",
+                                  { staticClass: "text-end" },
+                                  [
+                                    _c(
+                                      "v-col",
+                                      [
+                                        _c(
+                                          "v-menu",
+                                          {
+                                            attrs: { "offset-y": "" },
+                                            scopedSlots: _vm._u(
+                                              [
+                                                {
+                                                  key: "activator",
+                                                  fn: function (ref) {
+                                                    var on = ref.on
+                                                    var attrs = ref.attrs
+                                                    return [
+                                                      _c(
+                                                        "v-icon",
+                                                        _vm._g(
+                                                          _vm._b(
+                                                            {
+                                                              attrs: {
+                                                                fab: "",
+                                                              },
+                                                            },
+                                                            "v-icon",
+                                                            attrs,
+                                                            false
+                                                          ),
+                                                          on
+                                                        ),
+                                                        [
+                                                          _vm._v(
+                                                            "\n                        mdi-dots-vertical\n                      "
+                                                          ),
+                                                        ]
+                                                      ),
+                                                    ]
+                                                  },
+                                                },
+                                              ],
+                                              null,
+                                              true
+                                            ),
+                                          },
+                                          [
+                                            _vm._v(" "),
+                                            _c(
+                                              "v-list",
+                                              [
+                                                _c(
+                                                  "v-list-item",
+                                                  [
+                                                    _c(
+                                                      "v-list-item-icon",
+                                                      [
+                                                        _c("v-icon", [
+                                                          _vm._v("mdi-pencil"),
+                                                        ]),
+                                                      ],
+                                                      1
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "v-list-item-content",
+                                                      [
+                                                        _c(
+                                                          "v-list-item-title",
+                                                          {
+                                                            on: {
+                                                              click: function (
+                                                                $event
+                                                              ) {
+                                                                return _vm.editLitter(
+                                                                  litter
+                                                                )
+                                                              },
+                                                            },
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              "\n                            Edit\n                          "
+                                                            ),
+                                                          ]
+                                                        ),
+                                                      ],
+                                                      1
+                                                    ),
+                                                  ],
+                                                  1
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "v-list-item",
+                                                  [
+                                                    _c("DogLittersDialog", {
+                                                      attrs: { dog: _vm.dog },
+                                                    }),
+                                                  ],
+                                                  1
+                                                ),
+                                              ],
+                                              1
+                                            ),
+                                          ],
+                                          1
+                                        ),
+                                      ],
+                                      1
+                                    ),
+                                  ],
+                                  1
+                                ),
+                                _vm._v(
+                                  "\n\n\n              Puppies:\n            "
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                )
+              }),
+              _vm._v(" "),
+              _c("pre", [_vm._v(_vm._s(_vm.dog.litters))]),
+            ],
+            2
+          ),
+        ],
+        1
+      ),
+    ],
+    1
   )
 }
 var staticRenderFns = []

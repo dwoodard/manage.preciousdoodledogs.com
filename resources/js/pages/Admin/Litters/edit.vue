@@ -38,13 +38,14 @@
       <v-card-title>
         <v-row>
           <v-col>
-            <pre>{{ litter.dame.media }}</pre>
+            <v-img v-if="litter.dame.media.length" width="40" :src="litter.dame.media[0].original_url"/>
           </v-col>
           <v-col>
-            <pre>{{ litter.stud.media }}</pre>
+            <v-img v-if="litter.stud.media.length" width="40" :src="litter.stud.media[0].original_url"/>
           </v-col>
         </v-row>
       </v-card-title>
+      <v-card-content/>
     </v-card>
   </v-container>
 </template>

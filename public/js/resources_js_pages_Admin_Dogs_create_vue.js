@@ -332,7 +332,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ouncesToLbs": () => (/* binding */ ouncesToLbs),
 /* harmony export */   "inchesToFeet": () => (/* binding */ inchesToFeet),
 /* harmony export */   "age": () => (/* binding */ age),
-/* harmony export */   "formatDate": () => (/* binding */ formatDate)
+/* harmony export */   "formatDate": () => (/* binding */ formatDate),
+/* harmony export */   "latestDateFromArray": () => (/* binding */ latestDateFromArray)
 /* harmony export */ });
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
@@ -467,6 +468,16 @@ var formatDate = function formatDate(date) {
     return dateFormats[part];
   }).join('');
   return moment__WEBPACK_IMPORTED_MODULE_0___default()(date).format(dateFormat);
+};
+var latestDateFromArray = function latestDateFromArray(dates) {
+  if (!dates || dates.length === 0) {
+    return null;
+  }
+
+  var sortedDates = dates.sort(function (a, b) {
+    return new Date(a) - new Date(b);
+  });
+  return sortedDates[sortedDates.length - 1];
 };
 
 /***/ }),

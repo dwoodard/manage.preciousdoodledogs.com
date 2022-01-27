@@ -17,9 +17,13 @@ class LitterController extends Controller
      */
     public function index()
     {
+        //get authenticated user litters
+        $litters = auth()->user()->litters();
+
+
         $litters = !request()->has('showArchived')
-            ? Litter::active()->get()->load(['dame', 'stud', 'puppies'])
-            : Litter::archived()->get()->load(['dame', 'stud', 'puppies']);
+            ? $litters->active()->get()->load(['dame', 'stud', 'puppies'])
+            : $litters->archived()->get()->load(['dame', 'stud', 'puppies']);
 
         $data = [
             'litters' => $litters
@@ -30,9 +34,7 @@ class LitterController extends Controller
 
     public function store(Request $request)
     {
-
         $litter = Litter::create($request->all());
-
         return redirect()->back();
     }
 

@@ -194,32 +194,7 @@
           </v-container>
         </v-tab-item>
         <v-tab-item v-show="dog.gender === 'female'" name="litters">
-          <v-container fluid>
-            <v-row no-gutters>
-              <v-col cols="1" offset="11">
-                <v-menu offset-y>
-                  <template #activator="{ on, attrs }">
-                    <v-icon fab
-                            v-bind="attrs"
-                            v-on="on">
-                      mdi-dots-vertical
-                    </v-icon>
-                  </template>
-                  <v-list>
-                    <v-list-item>
-                      <DogLittersDialog :dog="dog"/>
-                    </v-list-item>
-                  </v-list>
-                </v-menu>
-              </v-col>
-            </v-row>
-
-            <v-row no-gutters>
-              <v-col>
-                <pre>{{ dog.litters }}</pre>
-              </v-col>
-            </v-row>
-          </v-container>
+          <DogLitterTab :dog="dog"/>
         </v-tab-item>
         <v-tab-item v-show="dog.gender === 'male'" name="studding">
           <v-container fluid>
@@ -326,6 +301,7 @@
   import DogLittersDialog from '@/components/dogs/DogLittersDialog';
   import DogHeatProgesteroneDialog from '@/components/dogs/DogHeatProgesteroneDialog';
   import DogFamilyDialog from '@/components/dogs/DogFamilyDialog';
+  import DogLitterTab from '@/components/dogs/DogCardTabs/DogLitterTab';
 
   import {age, inchesToFeet, ouncesToLbs} from '@/helper';
   import DogNotes from '@/components/dogs/forms/DogNotes';
@@ -383,7 +359,8 @@
       DogHeatDialog,
       DogLittersDialog,
       DogTraitsDialog,
-      DogFamilyDialog
+      DogFamilyDialog,
+      DogLitterTab
     }
   };
 </script>

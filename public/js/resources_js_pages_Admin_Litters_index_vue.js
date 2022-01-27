@@ -182,8 +182,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -238,6 +236,17 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     moment: (moment__WEBPACK_IMPORTED_MODULE_0___default()),
     formatDate: _helper__WEBPACK_IMPORTED_MODULE_2__.formatDate,
+    latestDateFromArray: _helper__WEBPACK_IMPORTED_MODULE_2__.latestDateFromArray,
+    breedDate: function breedDate(litter) {
+      if (!(0,_helper__WEBPACK_IMPORTED_MODULE_2__.latestDateFromArray)(litter.dates)) {
+        return '';
+      }
+
+      return " ".concat((0,_helper__WEBPACK_IMPORTED_MODULE_2__.formatDate)((0,_helper__WEBPACK_IMPORTED_MODULE_2__.latestDateFromArray)(litter.dates)), " ( ").concat(moment__WEBPACK_IMPORTED_MODULE_0___default()((0,_helper__WEBPACK_IMPORTED_MODULE_2__.latestDateFromArray)(litter.dates)).fromNow(), ")");
+    },
+    dueDate: function dueDate(litter) {
+      return "".concat((0,_helper__WEBPACK_IMPORTED_MODULE_2__.formatDate)(litter.dame.calculations.next_due_date), " (").concat(moment__WEBPACK_IMPORTED_MODULE_0___default()(litter.dame.calculations.next_due_date).fromNow(), ")");
+    },
     getImage: function getImage(dog) {
       // check if dog.media exists
       if (!(dog !== null && dog !== void 0 && dog.media)) {
@@ -550,7 +559,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ouncesToLbs": () => (/* binding */ ouncesToLbs),
 /* harmony export */   "inchesToFeet": () => (/* binding */ inchesToFeet),
 /* harmony export */   "age": () => (/* binding */ age),
-/* harmony export */   "formatDate": () => (/* binding */ formatDate)
+/* harmony export */   "formatDate": () => (/* binding */ formatDate),
+/* harmony export */   "latestDateFromArray": () => (/* binding */ latestDateFromArray)
 /* harmony export */ });
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
@@ -685,6 +695,16 @@ var formatDate = function formatDate(date) {
     return dateFormats[part];
   }).join('');
   return moment__WEBPACK_IMPORTED_MODULE_0___default()(date).format(dateFormat);
+};
+var latestDateFromArray = function latestDateFromArray(dates) {
+  if (!dates || dates.length === 0) {
+    return null;
+  }
+
+  var sortedDates = dates.sort(function (a, b) {
+    return new Date(a) - new Date(b);
+  });
+  return sortedDates[sortedDates.length - 1];
 };
 
 /***/ }),
@@ -23367,31 +23387,17 @@ var render = function () {
                     _vm._v(" "),
                     _c("div", [
                       _vm._v(
-                        "\n            Breed Date:\n            " +
-                          _vm._s(_vm.formatDate(_vm.litter.dates[0])) +
-                          " (" +
-                          _vm._s(_vm.moment(_vm.litter.dates[0]).fromNow()) +
-                          ")\n          "
+                        "\n            Breed Date: " +
+                          _vm._s(_vm.breedDate(_vm.litter)) +
+                          "\n          "
                       ),
                     ]),
                     _vm._v(" "),
                     _c("div", [
                       _vm._v(
-                        "\n            Due Date:\n            " +
-                          _vm._s(
-                            _vm.formatDate(
-                              _vm.litter.dame.calculations.next_due_date
-                            )
-                          ) +
-                          " (" +
-                          _vm._s(
-                            _vm
-                              .moment(
-                                _vm.litter.dame.calculations.next_due_date
-                              )
-                              .fromNow()
-                          ) +
-                          ")\n          "
+                        "\n            Due Date: " +
+                          _vm._s(_vm.dueDate(_vm.litter)) +
+                          "\n          "
                       ),
                     ]),
                     _vm._v(" "),

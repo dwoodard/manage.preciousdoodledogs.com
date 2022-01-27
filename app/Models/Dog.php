@@ -163,12 +163,28 @@ class Dog extends Model implements HasMedia
         return $xray_est_at;
     }
 
-    // latest_mated_at
+    // latest_mated_at_dates
     public function getLatestMatedAtAttribute()
     {
         if (!$this->litters->count()) {
             return null;
         }
+
+        //check litters for the latest mated at date, loop through array of dates and return the last one
+        $dogLitterDates = $this->litters->map(function ($litter) {
+            return $litter->dates;
+        })->last();
+
+        //if empty, return null
+        if (empty($dogLitterDates)) {
+            return null;
+        }
+
+        $hasDates = $this->litters->where('dates', '!=', null)->last();
+        if(!$hasDates) {
+            return null;
+        }
+
 
         // get the latest heat and add 8 days to it
         $latest_mated_at = (Carbon::parse($this->litters()->orderBy('mated_at', 'desc')->first()->mated_at))
@@ -234,7 +250,7 @@ class Dog extends Model implements HasMedia
     // next_est_heat_date
     public function getNextEstHeatDateAttribute()
     {
-        // if no bithday, return null
+        // if no birthday, return null
         if ($this->birthday === null) {
             return null;
         }
