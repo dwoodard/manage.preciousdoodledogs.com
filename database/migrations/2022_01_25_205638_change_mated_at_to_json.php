@@ -14,7 +14,7 @@ class ChangeMatedAtToJson extends Migration
     public function up()
     {
         Schema::table('litters', function (Blueprint $table) {
-            $table->schemalessAttributes('dates')->after('stud_id');
+            $table->schemalessAttributes('dates_mated_at')->after('stud_id');
             $table->text('notes')->nullable()->after('got_pregnant');
             $table->dropColumn('mated_at');
         });
@@ -28,7 +28,7 @@ class ChangeMatedAtToJson extends Migration
     public function down()
     {
         Schema::table('litters', function (Blueprint $table) {
-            $table->dropColumn('dates');
+            $table->dropColumn('dates_mated_at');
             $table->date('mated_at')->nullable();
             $table->dropColumn('notes');
         });

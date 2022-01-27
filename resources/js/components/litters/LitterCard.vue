@@ -31,10 +31,11 @@
             </div>
 
             <div>
-              Breed Date: {{ breedDate(litter) }}
+              Breed Date: {{ breedDate }}
             </div>
+
             <div>
-              Due Date: {{ dueDate(litter) }}
+              Due Date: {{ dueDate }}
             </div>
             <div v-if="puppiesBirthdate">
               Born:
@@ -117,7 +118,7 @@
 
   import moment from 'moment';
   import LitterArchiveDialog from '@/components/litters/LitterArchiveDialog';
-  import {formatDate, latestDateFromArray} from '@/helper';
+  import {formatDate} from '@/helper';
 
   export default {
     props: {
@@ -127,6 +128,21 @@
       }
     },
     computed: {
+      breedDate() {
+        console.log(this.litter.dates_mated_at);
+
+        if (this.litter.dates_mated_at === null) {
+          return null;
+        }
+
+        return this.litter.dates_mated_at;
+
+        // return ` ${formatDate(latestDateFromArray(this.litter.dates_mated_at))} ( ${moment(latestDateFromArray(this.litter.dates_mated_at)).fromNow()})`;
+      },
+
+      dueDate() {
+        return `${formatDate(this.litter.dame.calculations.next_due_date)} (${moment(this.litter.dame.calculations.next_due_date).fromNow()})`;
+      },
 
       puppiesBirthdate() {
         // if no puppies, return empty string
@@ -160,19 +176,7 @@
     methods: {
       moment,
       formatDate,
-      latestDateFromArray,
 
-      breedDate(litter) {
-        if (!latestDateFromArray(litter.dates)) {
-          return '';
-        }
-
-        return ` ${formatDate(latestDateFromArray(litter.dates))} ( ${moment(latestDateFromArray(litter.dates)).fromNow()})`;
-      },
-
-      dueDate(litter) {
-        return `${formatDate(litter.dame.calculations.next_due_date)} (${moment(litter.dame.calculations.next_due_date).fromNow()})`;
-      },
 
       getImage(dog) {
         // check if dog.media exists

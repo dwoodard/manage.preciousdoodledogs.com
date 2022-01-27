@@ -16,7 +16,7 @@ class Litter extends Model
     protected $fillable = [
         "dame_id",
         "stud_id",
-        "dates",
+        "dates_mated_at",
         "archived_at",
         "archive_reason",
         "got_pregnant",
@@ -25,12 +25,12 @@ class Litter extends Model
     ];
 
     protected $schemalessAttributes = [
-        'dates',
+        'dates_mated_at',
     ];
 
     public function scopeWithDates(): Builder
     {
-        return $this->dates->modelScope();
+        return $this->dates_mated_at->modelScope();
     }
 
 
@@ -46,11 +46,11 @@ class Litter extends Model
         return $this->belongsTo(Dog::class, 'stud_id', 'id');
     }
 
-    public function scopeMated($query)
-    {
-        // get litters that have been mated
-        return $query->where('dates', '!=', null);
-    }
+//    public function scopeMated($query)
+//    {
+//        // get litters that have been mated
+//        return $query->where('dates_mated_at', '!=', null);
+//    }
 
     public function scopeActive($query)
     {
@@ -66,26 +66,7 @@ class Litter extends Model
 
     public function puppies(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(Puppy::class, 'litter_id');
+        return $this->hasMany(Puppy::class, 'litter_id', 'id');
     }
-
-//    public function toArray()
-//    {
-//
-//        $litter = [
-//            'id' => $this->id,
-//            'dame_id' => $this->dame_id,
-////            'dame' => $this->dame()->get()->toArray(),
-//            'stud_id' => $this->stud_id,
-//            'stud' => $this->stud()->get()->toArray(),
-//            'dates' => $this->dates,
-//            'archived_at' => $this->archived_at,
-//            'got_pregnant' => $this->got_pregnant,
-//            'puppies' => $this->puppies()->get()->toArray()
-//        ];
-//
-//        return $litter;
-//    }
-
 
 }

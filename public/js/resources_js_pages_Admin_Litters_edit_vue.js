@@ -581,35 +581,39 @@ var render = function () {
               _c(
                 "v-row",
                 [
-                  _c(
-                    "v-col",
-                    [
-                      _vm.litter.dame.media.length
-                        ? _c("v-img", {
-                            attrs: {
-                              width: "40",
-                              src: _vm.litter.dame.media[0].original_url,
-                            },
-                          })
-                        : _vm._e(),
-                    ],
-                    1
-                  ),
+                  _vm.litter.dame
+                    ? _c(
+                        "v-col",
+                        [
+                          _vm.litter.dame.media.length
+                            ? _c("v-img", {
+                                attrs: {
+                                  width: "40",
+                                  src: _vm.litter.dame.media[0].original_url,
+                                },
+                              })
+                            : _vm._e(),
+                        ],
+                        1
+                      )
+                    : _vm._e(),
                   _vm._v(" "),
-                  _c(
-                    "v-col",
-                    [
-                      _vm.litter.stud.media.length
-                        ? _c("v-img", {
-                            attrs: {
-                              width: "40",
-                              src: _vm.litter.stud.media[0].original_url,
-                            },
-                          })
-                        : _vm._e(),
-                    ],
-                    1
-                  ),
+                  _vm.litter.stud
+                    ? _c(
+                        "v-col",
+                        [
+                          _vm.litter.stud.media.length
+                            ? _c("v-img", {
+                                attrs: {
+                                  width: "40",
+                                  src: _vm.litter.stud.media[0].original_url,
+                                },
+                              })
+                            : _vm._e(),
+                        ],
+                        1
+                      )
+                    : _vm._e(),
                 ],
                 1
               ),

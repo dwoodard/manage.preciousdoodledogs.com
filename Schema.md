@@ -28,7 +28,7 @@
 - dame_id
 - stud_id
 - status ('expected', 'born', 'sold', 'delivered')
-- dates (null if not mated)
+- dates_mated_at (null if not mated)
 - timestamps
 - got_pregnant (boolean default: yes)
 - notes

@@ -469,7 +469,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _components_dogs_DogLittersDialog_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/dogs/DogLittersDialog.vue */ "./resources/js/components/dogs/DogLittersDialog.vue");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_dogs_DogLittersDialog_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/dogs/DogLittersDialog.vue */ "./resources/js/components/dogs/DogLittersDialog.vue");
+/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/helper */ "./resources/js/helper.js");
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -524,6 +533,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     dog: {
@@ -536,6 +547,29 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {},
   methods: {
+    moment: (moment__WEBPACK_IMPORTED_MODULE_0___default()),
+    formatDate: _helper__WEBPACK_IMPORTED_MODULE_2__.formatDate,
+    getImage: function getImage(dog) {
+      if (!dog || dog.media.length === 0) {
+        return '/images/defaults/no-dog.png';
+      }
+
+      return dog.media[0].original_url;
+    },
+    mated_at: function mated_at(litter) {
+      var _litter$dates_mated_a;
+
+      return (_litter$dates_mated_a = litter.dates_mated_at) === null || _litter$dates_mated_a === void 0 ? void 0 : _litter$dates_mated_a[0];
+    },
+    stud: function stud(litter) {
+      if (litter.stud_id == null) {
+        return null;
+      }
+
+      return this.$page.props.dogs.filter(function (dog) {
+        return dog.id === litter.stud_id;
+      })[0];
+    },
     editLitter: function editLitter() {// go to litter edit page
     },
     isLitterActive: function isLitterActive(litter) {
@@ -543,7 +577,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   components: {
-    DogLittersDialog: _components_dogs_DogLittersDialog_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    DogLittersDialog: _components_dogs_DogLittersDialog_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   }
 });
 
@@ -961,8 +995,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_InputDate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/InputDate */ "./resources/js/components/InputDate.vue");
-/* harmony import */ var _components_dogs_lists_DogSelectListItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/dogs/lists/DogSelectListItem */ "./resources/js/components/dogs/lists/DogSelectListItem.vue");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_InputDate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/InputDate */ "./resources/js/components/InputDate.vue");
+/* harmony import */ var _components_dogs_lists_DogSelectListItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/dogs/lists/DogSelectListItem */ "./resources/js/components/dogs/lists/DogSelectListItem.vue");
 //
 //
 //
@@ -1046,6 +1082,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
@@ -1061,7 +1098,7 @@ __webpack_require__.r(__webpack_exports__);
       form: this.$inertia.form({
         dame_id: this.dog.id,
         stud_id: '',
-        dates: [''],
+        dates_mated_at: [moment__WEBPACK_IMPORTED_MODULE_1___default()().format('MM/DD/YYYY')],
         archive_reason: '',
         got_pregnant: true,
         notes: '',
@@ -1085,10 +1122,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     addDate: function addDate() {
-      this.form.dates.push('');
+      this.form.dates_mated_at.push(moment__WEBPACK_IMPORTED_MODULE_1___default()().format('MM/DD/YYYY'));
     },
     removeDate: function removeDate(i) {
-      this.form.dates.splice(i, 1);
+      this.form.dates_mated_at.splice(i, 1);
     },
     submit: function submit() {
       var _this = this;
@@ -1100,6 +1137,8 @@ __webpack_require__.r(__webpack_exports__);
         _this.snackbarText = 'Litter added';
 
         _this.$inertia.reload();
+
+        _this.form.reset();
       })["catch"](function (result) {
         console.log(result);
         _this.snackbar = true;
@@ -1108,8 +1147,8 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   components: {
-    InputDate: _components_InputDate__WEBPACK_IMPORTED_MODULE_1__["default"],
-    DogSelectListItem: _components_dogs_lists_DogSelectListItem__WEBPACK_IMPORTED_MODULE_2__["default"]
+    InputDate: _components_InputDate__WEBPACK_IMPORTED_MODULE_2__["default"],
+    DogSelectListItem: _components_dogs_lists_DogSelectListItem__WEBPACK_IMPORTED_MODULE_3__["default"]
   }
 });
 
@@ -1772,8 +1811,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ouncesToLbs": () => (/* binding */ ouncesToLbs),
 /* harmony export */   "inchesToFeet": () => (/* binding */ inchesToFeet),
 /* harmony export */   "age": () => (/* binding */ age),
-/* harmony export */   "formatDate": () => (/* binding */ formatDate),
-/* harmony export */   "latestDateFromArray": () => (/* binding */ latestDateFromArray)
+/* harmony export */   "formatDate": () => (/* binding */ formatDate)
 /* harmony export */ });
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
@@ -1908,16 +1946,6 @@ var formatDate = function formatDate(date) {
     return dateFormats[part];
   }).join('');
   return moment__WEBPACK_IMPORTED_MODULE_0___default()(date).format(dateFormat);
-};
-var latestDateFromArray = function latestDateFromArray(dates) {
-  if (!dates || dates.length === 0) {
-    return null;
-  }
-
-  var sortedDates = dates.sort(function (a, b) {
-    return new Date(a) - new Date(b);
-  });
-  return sortedDates[sortedDates.length - 1];
 };
 
 /***/ }),
@@ -28150,163 +28178,173 @@ var render = function () {
           _c(
             "v-col",
             [
-              _vm._l(_vm.dog.litters, function (litter, index) {
-                return _c(
-                  "div",
-                  { key: index },
-                  [
-                    _c(
-                      "v-expansion-panels",
-                      [
-                        _c(
-                          "v-expansion-panel",
-                          [
-                            _c("v-expansion-panel-header", [
-                              _vm._v(
-                                "\n              litter " +
-                                  _vm._s(litter.id) +
-                                  "\n              " +
-                                  _vm._s(index + 1) +
-                                  "\n            "
-                              ),
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "v-expansion-panel-content",
-                              [
-                                _c(
-                                  "v-row",
-                                  { staticClass: "text-end" },
-                                  [
-                                    _c(
-                                      "v-col",
-                                      [
-                                        _c(
-                                          "v-menu",
+              _c(
+                "v-expansion-panels",
+                _vm._l(_vm.dog.litters, function (litter, index) {
+                  return _c(
+                    "v-expansion-panel",
+                    { key: index, staticClass: "mb-2" },
+                    [
+                      _c("v-expansion-panel-header", [
+                        _c("div", [
+                          _c(
+                            "div",
+                            [
+                              _c("v-img", {
+                                attrs: {
+                                  "max-width": "50px",
+                                  src: _vm.getImage(_vm.stud(litter)),
+                                },
+                              }),
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _vm.stud(litter)
+                            ? _c("div", [
+                                _vm._v(
+                                  "\n                " +
+                                    _vm._s(_vm.stud(litter).name) +
+                                    "\n              "
+                                ),
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _c("div", [
+                            _vm._v(
+                              "\n                Breed Date: " +
+                                _vm._s(
+                                  _vm.formatDate(
+                                    _vm.moment(_vm.mated_at(litter))
+                                  )
+                                ) +
+                                "\n              "
+                            ),
+                          ]),
+                        ]),
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "v-expansion-panel-content",
+                        [
+                          _c(
+                            "v-row",
+                            { staticClass: "text-end" },
+                            [
+                              _c(
+                                "v-col",
+                                [
+                                  _c(
+                                    "v-menu",
+                                    {
+                                      attrs: { "offset-y": "" },
+                                      scopedSlots: _vm._u(
+                                        [
                                           {
-                                            attrs: { "offset-y": "" },
-                                            scopedSlots: _vm._u(
-                                              [
-                                                {
-                                                  key: "activator",
-                                                  fn: function (ref) {
-                                                    var on = ref.on
-                                                    var attrs = ref.attrs
-                                                    return [
-                                                      _c(
-                                                        "v-icon",
-                                                        _vm._g(
-                                                          _vm._b(
-                                                            {
-                                                              attrs: {
-                                                                fab: "",
-                                                              },
-                                                            },
-                                                            "v-icon",
-                                                            attrs,
-                                                            false
-                                                          ),
-                                                          on
+                                            key: "activator",
+                                            fn: function (ref) {
+                                              var on = ref.on
+                                              var attrs = ref.attrs
+                                              return [
+                                                _c(
+                                                  "v-icon",
+                                                  _vm._g(
+                                                    _vm._b(
+                                                      { attrs: { fab: "" } },
+                                                      "v-icon",
+                                                      attrs,
+                                                      false
+                                                    ),
+                                                    on
+                                                  ),
+                                                  [
+                                                    _vm._v(
+                                                      "\n                      mdi-dots-vertical\n                    "
+                                                    ),
+                                                  ]
+                                                ),
+                                              ]
+                                            },
+                                          },
+                                        ],
+                                        null,
+                                        true
+                                      ),
+                                    },
+                                    [
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-list",
+                                        [
+                                          _c(
+                                            "v-list-item",
+                                            [
+                                              _c(
+                                                "v-list-item-icon",
+                                                [
+                                                  _c("v-icon", [
+                                                    _vm._v("mdi-pencil"),
+                                                  ]),
+                                                ],
+                                                1
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "v-list-item-content",
+                                                [
+                                                  _c(
+                                                    "inertia-link",
+                                                    {
+                                                      attrs: {
+                                                        href: _vm.route(
+                                                          "admin.litters.edit",
+                                                          [litter.id]
                                                         ),
-                                                        [
-                                                          _vm._v(
-                                                            "\n                        mdi-dots-vertical\n                      "
-                                                          ),
-                                                        ]
+                                                      },
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        "\n                          Edit Breeding/Litter\n                        "
                                                       ),
                                                     ]
-                                                  },
-                                                },
-                                              ],
-                                              null,
-                                              true
-                                            ),
-                                          },
-                                          [
-                                            _vm._v(" "),
-                                            _c(
-                                              "v-list",
-                                              [
-                                                _c(
-                                                  "v-list-item",
-                                                  [
-                                                    _c(
-                                                      "v-list-item-icon",
-                                                      [
-                                                        _c("v-icon", [
-                                                          _vm._v("mdi-pencil"),
-                                                        ]),
-                                                      ],
-                                                      1
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "v-list-item-content",
-                                                      [
-                                                        _c(
-                                                          "inertia-link",
-                                                          {
-                                                            attrs: {
-                                                              href: _vm.route(
-                                                                "admin.litters.edit",
-                                                                [litter.id]
-                                                              ),
-                                                            },
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "\n                            Edit\n                          "
-                                                            ),
-                                                          ]
-                                                        ),
-                                                      ],
-                                                      1
-                                                    ),
-                                                  ],
-                                                  1
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "v-list-item",
-                                                  [
-                                                    _c("DogLittersDialog", {
-                                                      attrs: { dog: _vm.dog },
-                                                    }),
-                                                  ],
-                                                  1
-                                                ),
-                                              ],
-                                              1
-                                            ),
-                                          ],
-                                          1
-                                        ),
-                                      ],
-                                      1
-                                    ),
-                                  ],
-                                  1
-                                ),
-                                _vm._v(
-                                  "\n\n\n              Content for is panel\n            "
-                                ),
-                              ],
-                              1
-                            ),
-                          ],
-                          1
-                        ),
-                      ],
-                      1
-                    ),
-                  ],
-                  1
-                )
-              }),
-              _vm._v(" "),
-              _c("pre", [_vm._v(_vm._s(_vm.dog.litters))]),
+                                                  ),
+                                                ],
+                                                1
+                                              ),
+                                            ],
+                                            1
+                                          ),
+                                        ],
+                                        1
+                                      ),
+                                    ],
+                                    1
+                                  ),
+                                ],
+                                1
+                              ),
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          litter.notes
+                            ? _c("div", [
+                                _c("p", [_vm._v("Notes:")]),
+                                _vm._v(" "),
+                                _c("p", [_vm._v(_vm._s(litter.notes))]),
+                              ])
+                            : _vm._e(),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  )
+                }),
+                1
+              ),
             ],
-            2
+            1
           ),
         ],
         1
@@ -29247,7 +29285,7 @@ var render = function () {
               _vm._v(" "),
               _c(
                 "v-container",
-                _vm._l(_vm.form.dates, function (date, i) {
+                _vm._l(_vm.form.dates_mated_at, function (date, i) {
                   return _c(
                     "div",
                     { key: "date_" + i },
@@ -29261,15 +29299,25 @@ var render = function () {
                             [
                               _c("InputDate", {
                                 attrs: {
+                                  value: _vm.form.dates_mated_at[i],
                                   label: "Breeding Date " + (i + 1),
                                   required: i == 0,
                                 },
-                                model: {
-                                  value: _vm.form.dates[i],
-                                  callback: function ($$v) {
-                                    _vm.$set(_vm.form.dates, i, $$v)
+                                on: {
+                                  "update:value": function ($event) {
+                                    return _vm.$set(
+                                      _vm.form.dates_mated_at,
+                                      i,
+                                      $event
+                                    )
                                   },
-                                  expression: "form.dates[i]",
+                                },
+                                model: {
+                                  value: _vm.form.dates_mated_at[i],
+                                  callback: function ($$v) {
+                                    _vm.$set(_vm.form.dates_mated_at, i, $$v)
+                                  },
+                                  expression: "form.dates_mated_at[i]",
                                 },
                               }),
                             ],

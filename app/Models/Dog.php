@@ -63,8 +63,7 @@ class Dog extends Model implements HasMedia
     public function litters(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Litter::class, 'dame_id', 'id')
-            ->where('dame_id', $this->id)
-            ->orderBy('dates', 'desc');
+            ->where('dame_id', $this->id);
     }
 
     // measurements
@@ -163,31 +162,22 @@ class Dog extends Model implements HasMedia
         return $xray_est_at;
     }
 
-    // latest_mated_at_dates
+    // latest dates_mated_at
     public function getLatestMatedAtAttribute()
     {
-        if (!$this->litters->count()) {
+        if ($this->litters()->get()->count() === 0) {
             return null;
         }
 
-        //check litters for the latest mated at date, loop through array of dates and return the last one
-        $dogLitterDates = $this->litters->map(function ($litter) {
-            return $litter->dates;
-        })->last();
-
-        //if empty, return null
-        if (empty($dogLitterDates)) {
-            return null;
-        }
-
-        $hasDates = $this->litters->where('dates', '!=', null)->last();
-        if(!$hasDates) {
-            return null;
-        }
-
-
-        // get the latest heat and add 8 days to it
-        $latest_mated_at = (Carbon::parse($this->litters()->orderBy('mated_at', 'desc')->first()->mated_at))
+        //get the latest date out of a 2 dimensional array of dates
+        $dates_mated_at = $this->litters()->get()->pluck('dates_mated_at');
+        $latest_mated_at = $dates_mated_at->flatten()->map(function ($date) {
+            return Carbon::parse($date);
+        })
+            ->sortByDesc(function ($date) {
+                return $date;
+            })
+            ->first()
             ->format('Y-m-d');
 
         return $latest_mated_at;
@@ -370,8 +360,8 @@ class Dog extends Model implements HasMedia
             $dog['calculations'] = [
                 'next_est_mated_at' => $this->next_est_mated_at,
                 'xray_est_at' => $this->xray_est_at,
-                'latest_mated_at' => $this->latest_mated_at,
-                'latest_litter' => $this->latest_litter,
+                'latest_mated_at' => $this->latest_mated_at, //LatestMatedAt
+                'latest_litter' => $this->latest_litter, //LatestLitter
                 'days_since_last_heat' => $this->days_since_last_heat,
                 'days_until_next_heat' => $this->days_until_next_heat,
                 'next_est_heat_date' => $this->next_est_heat_date,

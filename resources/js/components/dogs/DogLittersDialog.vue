@@ -40,10 +40,10 @@
 
 
         <v-container>
-          <div v-for="(date,i) in form.dates" :key="`date_${i}`">
+          <div v-for="(date,i) in form.dates_mated_at" :key="`date_${i}`">
             <v-row>
               <v-col cols="11" sm="11">
-                <InputDate v-model="form.dates[i]" :label="`Breeding Date ${i+1}`" :required="i == 0"/>
+                <InputDate v-model="form.dates_mated_at[i]" :value.sync="form.dates_mated_at[i]" :label="`Breeding Date ${i+1}`" :required="i == 0"/>
               </v-col>
               <v-col cols="1" sm="1">
                 <v-btn v-if="i > 0" icon @click="removeDate(i)">
@@ -83,6 +83,7 @@
 </template>
 <script>
   import axios from 'axios';
+  import moment from 'moment';
   import InputDate from '@/components/InputDate';
   import DogSelectListItem from '@/components/dogs/lists/DogSelectListItem';
 
@@ -98,7 +99,7 @@
         form: this.$inertia.form({
           dame_id: this.dog.id,
           stud_id: '',
-          dates: [''],
+          dates_mated_at: [moment().format('MM/DD/YYYY')],
           archive_reason: '',
           got_pregnant: true,
           notes: '',
@@ -123,10 +124,10 @@
     },
     methods: {
       addDate() {
-        this.form.dates.push('');
+        this.form.dates_mated_at.push(moment().format('MM/DD/YYYY'));
       },
       removeDate(i) {
-        this.form.dates.splice(i, 1);
+        this.form.dates_mated_at.splice(i, 1);
       },
       submit() {
         axios.post('/admin/litters', this.form.data())
@@ -136,6 +137,7 @@
             this.snackbar = true;
             this.snackbarText = 'Litter added';
             this.$inertia.reload();
+            this.form.reset();
           })
           .catch((result) => {
             console.log(result);

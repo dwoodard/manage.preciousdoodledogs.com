@@ -102,16 +102,3 @@ export const formatDate = (date, formatPattern = 'short') => {
 
   return moment(date).format(dateFormat);
 };
-
-
-export const latestDateFromArray = (dates) => {
-  if (!dates || dates.length === 0) {
-    return null;
-  }
-
-  const sortedDates = dates.sort((a, b) => {
-    return new Date(a) - new Date(b);
-  });
-
-  return sortedDates[sortedDates.length - 1];
-};
