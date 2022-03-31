@@ -31,6 +31,8 @@
         items: [
           {title: 'Profile', link: this.route('profile.show')},
           {title: 'Settings', link: this.route('settings.show')},
+          // eslint-disable-next-line no-script-url
+          {title: 'Reload App', link: 'javascript:window.location.reload(true)'},
           {title: 'Logout', link: this.route('logout')}
         ]
       };

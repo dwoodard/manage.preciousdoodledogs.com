@@ -2281,6 +2281,10 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         title: 'Settings',
         link: this.route('settings.show')
+      }, // eslint-disable-next-line no-script-url
+      {
+        title: 'Reload App',
+        link: 'javascript:window.location.reload(true)'
       }, {
         title: 'Logout',
         link: this.route('logout')

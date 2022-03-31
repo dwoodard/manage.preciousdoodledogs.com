@@ -19,7 +19,6 @@
           </template>
 
 
-          </v-btn>
           <v-list class="pa-0">
             <inertia-link as="v-list-item"
                           class="pa-2"

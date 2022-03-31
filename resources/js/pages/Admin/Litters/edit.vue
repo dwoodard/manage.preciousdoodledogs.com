@@ -33,30 +33,17 @@
       </v-col>
     </v-row>
 
-    <!--V card-->
-    <v-card outlined>
-      <v-card-title>
-        Edit Litter
-      </v-card-title>
-      <v-card-text>
-        <v-row>
-          <v-col v-if="litter.dame">
-            <v-img v-if="litter.dame.media.length" width="40" :src="litter.dame.media[0].original_url"/>
-          </v-col>
-          <v-col v-if="litter.stud">
-            <v-img v-if="litter.stud.media.length" width="40" :src="litter.stud.media[0].original_url"/>
-          </v-col>
-        </v-row>
-      </v-card-text>
-    </v-card>
+    <LitterCard :litter="litter"/>
   </v-container>
 </template>
 
 <script>
   import Layout from '@/layouts/Admin/Layout';
+  import LitterCard from '@/components/litters/LitterCard';
 
   export default {
     layout: Layout,
+
     props: {
       litter: {
         type: Object,
@@ -77,8 +64,10 @@
         ]
       };
     },
-    created() {}
-
+    created() {},
+    components: {
+      LitterCard
+    }
   };
 </script>
 

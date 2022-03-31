@@ -17,6 +17,10 @@ class Puppy extends Model
         'gender',
         'adult_name',
         'collar_color',
+        'birthday',
+        'price',
+        'paid'
+
     ];
 
     // measurements

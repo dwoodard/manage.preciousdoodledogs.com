@@ -8,14 +8,21 @@
               <v-img :src="getImage(litter.dame)" aspect-ratio="1.61" contain/>
 
               <span v-if="litter.dame">
-                {{ litter.dame.name }}
+
+                <inertia-link :href="route('admin.dogs.edit',litter.dame.id )">
+                  {{ litter.dame.name }}
+                </inertia-link>
+
+
               </span>
             </v-col>
 
             <v-col cols="6" data-dog="dad" align="center">
               <v-img :src="getImage(litter.stud)" aspect-ratio="1.61" contain/>
               <span v-if="litter.stud">
-                {{ litter.stud.name }}
+                <inertia-link :href="route('admin.dogs.edit',litter.stud.id )">
+                  {{ litter.stud.name }}
+                </inertia-link>
               </span>
               <span v-else>
                 <small>(<a href="#">add a stud</a>)</small>
@@ -60,9 +67,8 @@
                   Edit
                 </v-btn>
               </inertia-link>
-
               <v-list-item>
-                <v-btn width="100%" color="primary"><v-icon>mdi-plus</v-icon> Add Puppy</v-btn>
+                <LitterAddPuppyDialog :litter="litter"/>
               </v-list-item>
 
               <v-list-item>
@@ -118,6 +124,7 @@
 
   import moment from 'moment';
   import LitterArchiveDialog from '@/components/litters/LitterArchiveDialog';
+  import LitterAddPuppyDialog from '@/components/litters/dialogs/LitterAddPuppyDialog';
   import {formatDate} from '@/helper';
 
   export default {
@@ -189,7 +196,10 @@
 
 
     },
-    components: {LitterArchiveDialog}
+    components: {
+      LitterArchiveDialog,
+      LitterAddPuppyDialog
+    }
 
   };
 </script>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dog;
 use App\Models\Puppy;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -49,7 +50,19 @@ class PuppyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //save puppy
+        $puppy = Puppy::create($request->all());
+
+        //validation
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $puppy->addMediaFromRequest('image')->toMediaCollection('puppies');
+        }
+        return redirect()->back();
     }
 
     /**

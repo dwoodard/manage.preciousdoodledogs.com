@@ -19,7 +19,7 @@ class PuppyFactory extends Factory
             'name' => $this->faker->name,
             'gender' => $this->faker->randomElement(['male', 'female']),
             'adult_name' => rand(0, 1) ? $this->faker->name : null,
-            'collar_color' => $this->faker->randomElement($this->getCollorColors()),
+            'collar_color' => $this->faker->randomElement($this->getCollarColors()),
             'birthday' => $this->faker->dateTimeBetween('-6 months', '-1 days')
         ];
     }
@@ -27,7 +27,7 @@ class PuppyFactory extends Factory
     /**
      * @return string[]
      */
-    private function getCollorColors(): array
+    private function getCollarColors(): array
     {
         $collorColors = [
             'red',
