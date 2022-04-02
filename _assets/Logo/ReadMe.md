@@ -2,10 +2,9 @@
 
 Design Logo and use Logo in Icons and Splash to generate all sizes
 
+In Art boards, Formats should have scales of and suffixes of:
 
-In Artboards, Formats should have scales of and suffixes of:
-
-scale       suffix      Format
+scale          suffix      Format
 72  px         72x72       png
 96  px         96x96       png
 128 px         128x128     png
