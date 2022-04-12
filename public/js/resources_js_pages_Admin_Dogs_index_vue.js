@@ -559,6 +559,11 @@ __webpack_require__.r(__webpack_exports__);
     mated_at: function mated_at(litter) {
       var _litter$dates_mated_a;
 
+      // if no mated_at, return null
+      if (!litter.dates_mated_at) {
+        return null;
+      }
+
       return (_litter$dates_mated_a = litter.dates_mated_at) === null || _litter$dates_mated_a === void 0 ? void 0 : _litter$dates_mated_a[0];
     },
     stud: function stud(litter) {
