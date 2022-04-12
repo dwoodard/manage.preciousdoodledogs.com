@@ -29,7 +29,7 @@ class PuppyFactory extends Factory
      */
     private function getCollarColors(): array
     {
-        $collorColors = [
+        $collarColors = [
             'red',
             'pink',
             'purple',
@@ -50,6 +50,6 @@ class PuppyFactory extends Factory
             'blue-grey',
             'grey'
         ];
-        return $collorColors;
+        return $collarColors;
     }
 }

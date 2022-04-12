@@ -84,7 +84,14 @@ class PuppyController extends Controller
      */
     public function edit(Puppy $puppy)
     {
-        return Inertia::render('Admin/Puppies/edit', []);
+        $puppy->litter;
+
+        $data = [
+            'puppy' => $puppy->toArray()
+        ];
+
+
+        return Inertia::render('Admin/Puppies/edit', $data);
     }
 
     /**
@@ -96,7 +103,16 @@ class PuppyController extends Controller
      */
     public function update(Request $request, Puppy $puppy)
     {
-        //
+        $puppy->update($request->all());
+
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+
+            $puppy->media()->delete($puppy->id);
+
+            $puppy->addMediaFromRequest('image')->toMediaCollection('dogs');
+        }
+
+        $puppy->save();
     }
 
     /**

@@ -1,14 +1,3 @@
-// serviceworker.js
-
-// Network Only strategy
-import {registerRoute} from 'workbox-routeing';
-import {NetworkOnly} from 'workbox-strategies';
-
-registerRoute(
-  new NetworkOnly()
-);
-
-
 const staticCacheName = `pwa-v${new Date().getTime()}`;
 const filesToCache = [
   '/offline',

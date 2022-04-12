@@ -460,7 +460,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       showDialog: false,
-      collorColors: ['red', 'pink', 'purple', 'deep-purple', 'indigo', 'blue', 'light-blue', 'cyan', 'teal', 'green', 'light-green', 'lime', 'yellow', 'amber', 'orange', 'deep-orange', 'brown', 'blue-grey', 'grey'],
+      collarColors: ['red', 'pink', 'purple', 'deep-purple', 'indigo', 'blue', 'light-blue', 'cyan', 'teal', 'green', 'light-green', 'lime', 'yellow', 'amber', 'orange', 'deep-orange', 'brown', 'blue-grey', 'grey'],
       snackbar: false,
       snackbarText: '',
       form: this.$inertia.form({
@@ -24382,7 +24382,7 @@ var render = function () {
                           _c("v-select", {
                             attrs: {
                               label: "Collar Color",
-                              items: _vm.collorColors,
+                              items: _vm.collarColors,
                             },
                             scopedSlots: _vm._u([
                               {

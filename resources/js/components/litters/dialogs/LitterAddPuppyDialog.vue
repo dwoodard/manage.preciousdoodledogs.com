@@ -49,7 +49,7 @@
               <InputDate v-model="form.birthday" type="datetime-local" label="Birthday"/>
             </v-col>
             <v-col>
-              <v-select v-model="form.collar_color" label="Collar Color" :items="collorColors">
+              <v-select v-model="form.collar_color" label="Collar Color" :items="collarColors">
                 <template #selection="{ item }">
                   <v-chip
                     :color="item"
@@ -101,7 +101,7 @@
     data() {
       return {
         showDialog: false,
-        collorColors: [
+        collarColors: [
           'red',
           'pink',
           'purple',
