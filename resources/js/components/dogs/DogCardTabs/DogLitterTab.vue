@@ -91,6 +91,11 @@
 
 
       mated_at(litter) {
+        // if no mated_at, return null
+        if (!litter.dates_mated_at) {
+          return null;
+        }
+
         return litter.dates_mated_at?.[0];
       },
       stud(litter) {
