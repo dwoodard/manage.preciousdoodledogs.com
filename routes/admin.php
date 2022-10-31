@@ -13,6 +13,9 @@ Route::group(['as'=>'admin.','middleware' => ['web','role:admin']], function(){
 
     // Dogs
     Route::resource('dogs', 'DogController');
+    
+    // Planner
+    Route::resource('planner', 'PlannerController');
 
     // Puppies
     Route::resource('puppies', 'PuppyController');

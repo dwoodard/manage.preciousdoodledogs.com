@@ -19,6 +19,11 @@
           <v-icon>mdi-dog</v-icon>
         </inertia-link>
 
+        <inertia-link v-ripple href="/admin/planner" as="v-btn">
+          <span>Planner</span>
+          <v-icon>mdi-notebook</v-icon>
+        </inertia-link>
+
         <inertia-link v-ripple href="/admin/litters" as="v-btn">
           <span>Litters</span>
           <v-icon>mdi-family-tree</v-icon>

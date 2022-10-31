@@ -43,6 +43,10 @@ class CreateTraitsTable extends Migration
             $table->string("GHR_P177L")->nullable();
             $table->string("EPAS1")->nullable();
             $table->string("POMC")->nullable();
+
+            $table->string("Merle")->nullable();
+            $table->string("R")->nullable();
+            
         });
     }
 

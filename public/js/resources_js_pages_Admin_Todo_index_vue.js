@@ -62,6 +62,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -310,6 +315,20 @@ var render = function () {
                   _c("span", [_vm._v("Dogs")]),
                   _vm._v(" "),
                   _c("v-icon", [_vm._v("mdi-dog")]),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "inertia-link",
+                {
+                  directives: [{ name: "ripple", rawName: "v-ripple" }],
+                  attrs: { href: "/admin/planner", as: "v-btn" },
+                },
+                [
+                  _c("span", [_vm._v("Planner")]),
+                  _vm._v(" "),
+                  _c("v-icon", [_vm._v("mdi-notebook")]),
                 ],
                 1
               ),

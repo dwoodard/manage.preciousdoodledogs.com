@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Dog;
 use App\Models\Heat;
+use App\Models\Litter;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use function rand;
@@ -32,8 +33,6 @@ class DatabaseSeeder extends Seeder
 
             if ($dog->gender === 'female') {
                 $dog->litters()->saveMany($this->getLitterData($dog));
-
-
                 $dog->litters->each(function ($litter) {
 
                     //Litter Creates the puppies
@@ -51,9 +50,6 @@ class DatabaseSeeder extends Seeder
 
                 // add "progesterone" for $dog (dame)
                 $heats->each(function ($heat) use ($dog) {
-
-
-
                     $heat->measurements()->saveMany($this->createDogsHeatMeasurementsData($heat));
                 });
             }
@@ -92,7 +88,7 @@ class DatabaseSeeder extends Seeder
     private function getLitterData($dame)
     {
         $stud = rand(0,100) < 90 ? Dog::inRandomOrder()->where('can_stud', 1)->first() : null;
-
+        
         return \App\Models\Litter::factory()
             ->count(1)
             ->create([
