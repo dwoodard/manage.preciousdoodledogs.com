@@ -108,14 +108,14 @@
             { text: 'id', value: 'id' },
             { text: 'Name', value: 'name' },
             { text: 'Gender', value: 'gender' },
-            { text: 'Outside stud', value: 'outside_stud' },
             { text: 'Breed', value: 'breed' },
             { text: 'Generation', value: 'generation' },
             { text: 'Size', value: 'size' },
+            { text: 'Next Est Heat', value: 'heats.next_est_heat_date' },
             { text: 'Age (months)', value: 'age.months' },
             { text: 'Weight (lbs)', value: 'weight' },
-            { text: 'Next Est Heat', value: 'heats.next_est_heat_date' },
             { text: 'Next Est Xray', value: 'calculations.xray_est_at' },
+            { text: 'Outside stud', value: 'outside_stud' },
             { text: 'Actions', value: 'actions' }
           ]"
           :items="dogs"
